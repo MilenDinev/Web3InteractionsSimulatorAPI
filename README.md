@@ -60,13 +60,14 @@ DAPP Related information.
 1. [Staking](https://github.com/jaxworld/Jax-Docs/blob/main/DOCS/DAPP/Staking.md) `In Progress`  
 1. [Pools](https://github.com/jaxworld/Jax-Docs/blob/main/DOCS/DAPP/Pools.md) `In Progress`  
 
-## [Socials](https://github.com/jaxworld/Jax-Docs/tree/main/DOCS/Socials) `In Progress`  
+## [Socials](https://github.com/jaxworld/Jax-Docs/tree/main/DOCS/Socials) `Done`
 
 Contact information.
 
-1. [Discord](https://github.com/jaxworld/Jax-Docs/blob/main/DOCS/Socials/Discord.md)`In Progress`  
-1. [Twitter](https://github.com/jaxworld/Jax-Docs/blob/main/DOCS/Socials/Twitter.md)`In Progress`  
-1. [Website](https://github.com/jaxworld/Jax-Docs/blob/main/DOCS/Socials/Website.md)`In Progress`  
+1. [Discord](https://discord.gg/dPNE6fK4S4)`Done`
+1. [Twitter](https://twitter.com/jaxworld_)`Done`
+1. [Medium](https://medium.com/@jaxminersworld)`Done`
+1. [Website](https://www.jaxworld.xyz/)`Done`
 
 ## [FAQ](https://github.com/jaxworld/Jax-Docs/tree/main/DOCS/FAQ) `In Review`  
 
