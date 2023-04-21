@@ -69,7 +69,8 @@ Contact information.
 1. [Medium](https://medium.com/@jaxminersworld)`Done`
 1. [Website](https://www.jaxworld.xyz/)`Done`
 
-## [FAQ](https://github.com/jaxworld/Jax-Docs/tree/main/DOCS/FAQ) `In Review`  
+## [FAQ](https://github.com/jaxworld/Jax-Docs/tree/main/DOCS/FAQ) `In Review`
 
+1. [FAQ](https://github.com/jaxworld/Jax-Docs/blob/main/DOCS/FAQ/FAQ.md) `In Review`  
 1. [Privacy Policy](https://github.com/jaxworld/Jax-Docs/blob/main/DOCS/FAQ/Privacy%20Policy.md) `In Progress`
 1. [Disclaimer](https://github.com/jaxworld/Jax-Docs/blob/main/DOCS/FAQ/Disclaimer.md) `In Review`
