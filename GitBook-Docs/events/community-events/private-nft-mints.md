@@ -1,5 +1,5 @@
 ---
-description: Here you will find information related to our Private NFT Mints.
+description: Here you will find information related to our private NFT mints.
 ---
 
 # Private NFT Mints

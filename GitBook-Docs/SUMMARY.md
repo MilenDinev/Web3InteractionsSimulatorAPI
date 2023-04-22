@@ -13,7 +13,6 @@
 * [📊 Tokenomics](project-information/tokenomics.md)
 * [👥 Partnerships](project-information/partnerships.md)
 * [🗣 DAO Governance](project-information/dao-governance.md)
-* [📣 Community Updates](project-information/community-updates.md)
 * [🔔 Project Updates](project-information/project-updates.md)
 
 ## Events
@@ -25,7 +24,7 @@
   * [Private NFT Mints](events/community-events/private-nft-mints.md)
   * [Private Token Sale](events/community-events/private-token-sale.md)
   * [Whitelist](events/community-events/whitelist.md)
-  * [Weekly Raffle](events/community-events/weekly-raffle.md)
+  * [Weekly Raffles](events/community-events/weekly-raffles.md)
 
 ## DApp
 
