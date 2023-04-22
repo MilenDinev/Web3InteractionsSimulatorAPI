@@ -86,7 +86,7 @@ Create the initial designs for the NFTs and get feedback from the community to e
 
 Launch the Mines NFT Collection on a reputable NFT marketplace such as OpenSea. Establish a fair pricing strategy for the NFTs, taking into account the rarity and demand for each individual NFT. Create a plan for distributing the NFTs, whether through timed auctions, fixed-price sales, or other methods.
 
-### <mark style="color:orange;">15. Internal Marketplace and Creation of Utility Items (TBD)</mark>
+### <mark style="color:orange;">15. Internal Marketplace and Creation of Mining Equipment Items (TBD)</mark>
 
 
 
