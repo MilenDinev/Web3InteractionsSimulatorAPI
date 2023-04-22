@@ -19,10 +19,10 @@
 
 * [📢 Public Events](events/public-events/README.md)
   * [Public NFT Mints](events/public-events/public-nft-mints.md)
-  * [Public Token Events](events/public-events/public-token-events.md)
+  * [Public Token Events](events/public-events/public-token-sale.md)
 * [🔊 Community Events](events/community-events/README.md)
   * [Private NFT Mints](events/community-events/private-nft-mints.md)
-  * [Private Token Events](events/community-events/private-token-events.md)
+  * [Private Token Events](events/community-events/private-token-sale.md)
   * [Whitelist](events/community-events/whitelist.md)
   * [Weekly Raffles](events/community-events/weekly-raffles.md)
 
