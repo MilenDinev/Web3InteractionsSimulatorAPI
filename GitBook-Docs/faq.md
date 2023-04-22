@@ -7,23 +7,18 @@ description: >-
 
 # ❔ FAQ
 
-### **What is JAX Miners?**
+### **What is Jax World?**
 
-JAX Miners is Wild West inspired fantasy world where JAX Ville town is living. Here you can step into the role of a Miner and buy land on which you can build own Mine and buy mining equipment assets to improve your mining rate.
+Jax World is a blockchain platform where our team is developing Jax Miners - a wild west inspired world where will be able to step into the role of a miner, buy land, own mine, hire miners, buy mining equipment to improve their mining rate, compete with other mine owners and win various rewards. Along with our main game we will provide our users with various services and applications including but not limited to weekly raffles, lotteries, rewards based mini games and many more.
 
-### **When Can I Play JAX Miners?**
+### **When Can I Play Jax Miners Game?**
 
-JAX Miners  is currently in Pre-Production stage , and the Production Version is in development.\
+Jax Miners is currently in Pre-Production stage, our team is working very hard to start the Production stage where pre-alpha version of the game will be developed and tested by us and some of our early community members.\
 Bellow are all stages of our game development plan:
 
 <figure><img src="https://learn.g2.com/hubfs/stages-of-game-development-1.png" alt=""><figcaption></figcaption></figure>
 
 Follow our official channels for further news and updates about the platform.
-
-### **How can I play JAX Miners?**
-
-All players owned JAX token will be able to enjoy the games listed in our Mini Games section in our website. \
-Players with a minion or miner NFTs will be able to play the game at Jax Ville . There will be several ways to obtain miners, more details will be revealed on our social channels.
 
 ### **What is blockchain?**&#x20;
 
