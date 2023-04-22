@@ -10,7 +10,8 @@ _<mark style="color:yellow;">**NFT Collection**</mark>_ _<mark style="color:yell
 <mark style="color:yellow;">**NFT Powers:**</mark> Yes\
 <mark style="color:yellow;">**Powers:**</mark> Private Events, Discord Role, Weekly Rewards.\
 _<mark style="color:yellow;">**Hidden Powers:**</mark>_ Yes\
-<mark style="color:yellow;">**Available NFTs:**</mark> 2000 \
+_<mark style="color:yellow;">**Total Supply:**</mark>_ 5000\
+<mark style="color:yellow;">**Available for Mint:**</mark> 2000 \
 _<mark style="color:yellow;">**Price per NFT:**</mark>_ 4 AVAX\
 <mark style="color:yellow;">**Mint limit per wallet:**</mark> 2 NFTs\
 _<mark style="color:yellow;">**Event Duration:**</mark>_ 2 days&#x20;
