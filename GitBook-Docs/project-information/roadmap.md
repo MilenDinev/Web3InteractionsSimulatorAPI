@@ -6,11 +6,11 @@
 
 ### <mark style="color:orange;">2. Smart Contract Development - (Q2, 2023)</mark>
 
-* [x] Once the concept and design are finalized, the next step is to develop the smart contract that will govern the project's Genesis NFT Collection.
+* [x] Once the concept and design are finalized, the next step is to develop the smart contract that will govern the project's Genesis NFT Collection - G Minions.
 
 ### <mark style="color:orange;">3. Genesis NFT Collection Creation - (Q2, 2023)</mark>
 
-* [x] During this phase, the Genesis NFT collection will be created. Each item should have a unique design. The NFTs should also be developed with rarity and scarcity in mind to create a sense of exclusivity and value for collectors.
+* [x] During this phase, the Genesis NFT collection - G Minions will be created. Each item should have a unique design. The NFTs should also be developed with rarity and scarcity in mind to create a sense of exclusivity and value for collectors.
 
 ### <mark style="color:orange;">4. Governance Token Research and Concept Development (Q3, 2023)</mark>
 
