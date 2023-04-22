@@ -1,5 +1,5 @@
 ---
-description: Welcome to JAX Miners World
+description: Welcome to Jax World
 ---
 
 # 🏜 Introduction
