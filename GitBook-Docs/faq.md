@@ -170,4 +170,4 @@ It's difficult to predict the future of the NFT market, but it has certainly gai
 
 ### **How do I learn more?**
 
-Join our Discord or follow us on twitter and reach out to our community support team.
+Join our [Discord](https://discord.com/invite/dPNE6fK4S4) server or follow us on [Twitter](https://twitter.com/jaxworld\_) account and stay tuned.
