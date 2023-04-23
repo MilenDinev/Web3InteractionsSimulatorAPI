@@ -3,12 +3,12 @@
 ## Overview
 
 * [🏜 Introduction](README.md)
+* [👨💼 About Us](overview/about-us.md)
 * [🌐 Official Links](overview/official-links/README.md)
   * [Website](https://www.jaxworld.xyz/)
   * [Medium](https://medium.com/@jaxminersworld)
   * [Discord](https://discord.com/invite/dPNE6fK4S4)
   * [Twitter](https://twitter.com/jaxworld\_)
-* [👨💼 About Us](overview/about-us.md)
 
 ## Project Information
 
