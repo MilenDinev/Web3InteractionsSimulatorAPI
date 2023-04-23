@@ -18,16 +18,17 @@
 * [👥 Partnerships](project-information/partnerships.md)
 * [🗣 DAO Governance](project-information/dao-governance.md)
 * [🔔 Project Updates](project-information/project-updates.md)
-  * [1. Launch of G Minions](project-information/project-updates/1.-launch-of-g-minions.md)
+  * [1.Launch of G Minions](project-information/project-updates/1.launch-of-g-minions.md)
 
 ## Events
 
 * [📢 Public Events](events/public-events/README.md)
   * [🔓 Public NFT Mints](events/public-events/public-nft-mints.md)
-    * [1. Public Mint - G Minions](events/public-events/public-nft-mints/1.-public-mint-g-minions.md)
+    * [1.Public Mint - G Minions](events/public-events/public-nft-mints/1.public-mint-g-minions.md)
   * [🔓 Public Token Events](events/public-events/public-token-sale.md)
 * [🔊 Community Events](events/community-events/README.md)
-  * [🔐 Private NFT Mints](events/community-events/private-nft-mints.md)
+  * [🔐 Private NFT Mints](events/community-events/private-nft-mints/README.md)
+    * [1.Private Mint - G Minions](events/community-events/private-nft-mints/1.private-mint-g-minions.md)
   * [🔐 Private Token Events](events/community-events/private-token-sale.md)
   * [📑 Whitelist Events](events/community-events/whitelist.md)
   * [🎟 Weekly Raffles](events/community-events/weekly-raffles.md)
