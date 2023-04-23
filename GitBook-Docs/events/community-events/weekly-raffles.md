@@ -1,12 +1,10 @@
 ---
-description: Here you will find information related to our weekly raffles.
+description: Our raffles are open to all users who are part of our community.
 ---
 
 # Weekly Raffles
 
-
-
-Our raffles are open to all users who are part of our community. \
+\
 To participate, simply join our [discord server](https://discord.com/invite/dPNE6fK4S4) and follow the rules for the current week's raffle.&#x20;
 
 We will offer a wide range of prizes: Discord roles, whitelist spots, gaming tickets for our mini games and various token rewards including AVAX. \
