@@ -27,7 +27,7 @@
 * [🔊 Community Events](events/community-events/README.md)
   * [Private NFT Mints](events/community-events/private-nft-mints.md)
   * [Private Token Events](events/community-events/private-token-sale.md)
-  * [Whitelist](events/community-events/whitelist.md)
+  * [Whitelist Events](events/community-events/whitelist-events.md)
   * [Weekly Raffles](events/community-events/weekly-raffles.md)
 
 ## DApp
