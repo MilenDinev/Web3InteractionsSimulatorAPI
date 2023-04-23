@@ -17,7 +17,8 @@
 * [📊 Tokenomics](project-information/tokenomics.md)
 * [👥 Partnerships](project-information/partnerships.md)
 * [🗣 DAO Governance](project-information/dao-governance.md)
-* [🔔 Project Updates](project-information/project-updates.md)
+* [🔔 Project Updates](project-information/project-updates/README.md)
+  * [1. Launch of G Minions](project-information/project-updates/1.-launch-of-g-minions.md)
 
 ## Events
 
