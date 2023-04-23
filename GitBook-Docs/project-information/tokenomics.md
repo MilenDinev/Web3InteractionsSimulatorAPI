@@ -1,3 +1,7 @@
+---
+description: Information about our Tokenomics strategy.
+---
+
 # 📊 Tokenomics
 
 _<mark style="color:orange;">**Total Supply:**</mark>_ <mark style="color:yellow;">**1 000 000 000 JAX Tokens**</mark>
