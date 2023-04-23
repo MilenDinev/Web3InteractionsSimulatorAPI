@@ -6,13 +6,15 @@ description: Welcome to Jax World
 
 <figure><img src=".gitbook/assets/Welcome Label.png" alt=""><figcaption></figcaption></figure>
 
-### **Jax World is a blockchain platform.**&#x20;
+### Welcome to Jax World, the ultimate blockchain gaming platform where innovation meets adventure!&#x20;
 
-#### &#x20;Where our team is developing Jax Miners Game - a wild west inspired world where users will be able to step into the role of a miner, buy land, own mine, hire miners, buy mining equipment to improve their mining rate, compete with other mine owners and win various rewards. Along with our main game we will provide our users with various services and applications including but not limited to weekly raffles, lotteries, rewards based mini games and many more.
+#### Where our team is developing an immersive wild west-inspired world where users can step into the role of a miner and compete with other players to become the top miner in the game. In Jax Miners Game, players can buy land, own a mine, hire miners, and purchase mining equipment to improve their mining rate, all while navigating through the challenges of the wild west.&#x20;
 
-#### Our mission is to attract more people in NFT and Blockchain Gaming world  among the crypto community . In order to achieve **our target** and provide better user experience we are working hard to deliver useful and valuable high quality applications and services via Jax World Platform and Avalanche Network. &#x20;
+#### But that's not all, at Jax World we are committed to providing our users with a range of exciting services and applications. In addition to Jax Miners Game, we will offer weekly raffles, lotteries, rewards-based mini-games, and other activities that offer our users an opportunity to earn rewards and have fun while doing so.
 
-### Why Avalanche?
+#### Our mission at Jax World is to attract more people to the world of NFT and blockchain gaming. We believe that blockchain technology has the potential to revolutionize the gaming industry, and we want to make it accessible to as many people as possible. With Jax Miners Game and our other applications and services, we hope to showcase the potential of blockchain gaming and provide an engaging and rewarding experience for our users.
 
-#### Although is one of the top networks in crypto space and despite of the capabilities to became a NFT and Gaming leader in blockchain world Avalanche potential has never been achieved. Avalanche tech specifications, security level and community are making us to believe in the the future growth of the network .
+#### Our platform is built on the Avalanche blockchain, which ensures that all transactions are secure, transparent, and immutable. This provides our users with a level of trust and confidence that is unparalleled in the gaming industry.
+
+#### We believe that blockchain technology has the potential to revolutionize the gaming industry and we are excited to be at the forefront of this transformation. Join us on Jax World and experience the thrill of blockchain gaming!
 
