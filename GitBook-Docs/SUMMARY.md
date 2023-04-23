@@ -23,7 +23,8 @@
 ## Events
 
 * [📢 Public Events](events/public-events/README.md)
-  * [🔓 Public NFT Mints](events/public-events/public-nft-mints.md)
+  * [🔓 Public NFT Mints](events/public-events/public-nft-mints/README.md)
+    * [🔔 1. Public Mint - G Minions](events/public-events/public-nft-mints/1.-public-mint-g-minions.md)
   * [🔓 Public Token Events](events/public-events/public-token-sale.md)
 * [🔊 Community Events](events/community-events/README.md)
   * [🔐 Private NFT Mints](events/community-events/private-nft-mints.md)
