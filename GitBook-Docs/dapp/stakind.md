@@ -1,2 +1,2 @@
-# Stakind
+# 🏦 Stakind
 

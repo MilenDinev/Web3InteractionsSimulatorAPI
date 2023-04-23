@@ -5,10 +5,10 @@
 * [🏜 Introduction](README.md)
 * [👨💼 About Us](overview/about-us.md)
 * [🌐 Official Links](overview/official-links/README.md)
-  * [Website](https://www.jaxworld.xyz/)
-  * [Medium](https://medium.com/@jaxminersworld)
-  * [Discord](https://discord.com/invite/dPNE6fK4S4)
-  * [Twitter](https://twitter.com/jaxworld\_)
+  * [🏠 Website](https://www.jaxworld.xyz/)
+  * [🗣 Twitter](https://twitter.com/jaxworld\_)
+  * [👥 Discord](https://discord.com/invite/dPNE6fK4S4)
+  * [📰 Medium](https://medium.com/@jaxminersworld)
 
 ## Project Information
 
@@ -36,7 +36,7 @@
 * [🖼 NFTs](dapp/nfts/README.md)
   * [🥇 G Minions](dapp/nfts/g-minions.md)
   * [⛏ Miners](dapp/nfts/miners.md)
-  * [🏝 Lands](dapp/nfts/lands.md)
+  * [🏝 Lands](dapp/nfts/land.md)
   * [🌆 Mines](dapp/nfts/mines.md)
   * [⚒ Mining Equipment](dapp/nfts/mining-equipment.md)
   * [👷 Workers](dapp/nfts/workers.md)
@@ -50,17 +50,17 @@
 * [🌀 G Points](dapp/g-points.md)
 * [🎲 Games](dapp/games/README.md)
   * [🎫 Lottery](dapp/games/lottery.md)
-* [Stakind](dapp/stakind.md)
-* [Pools](dapp/pools.md)
+* [🏦 Stakind](dapp/stakind.md)
 
 ## Socials
 
-* [Twiter](https://twitter.com/jaxworld\_)
-* [Discord](https://discord.gg/dPNE6fK4S4)
-* [Medium](https://medium.com/@jaxminersworld)
+* [🗣 Twiter](https://twitter.com/jaxworld\_)
+* [👥 Discord](https://discord.gg/dPNE6fK4S4)
+* [📰 Medium](https://medium.com/@jaxminersworld)
 
 ***
 
+* [‼ Terms Of Use](https://www.jaxworld.xyz/terms-of-use.html)
+* [🔒 Privacy Policy](https://www.jaxworld.xyz/privacy-policy.html)
 * [❔ FAQ](faq.md)
-* [🔏 Privacy Policy](privacy-policy.md)
-* [❕ Disclaimer](disclaimer.md)
+* [‼ Disclaimer](disclaimer.md)
