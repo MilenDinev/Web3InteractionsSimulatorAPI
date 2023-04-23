@@ -18,7 +18,7 @@
 
 ### <mark style="color:orange;">5. Governance Token Smart Contract Development - (Q3, 2023)</mark>
 
-* [ ] The next step is to develop the smart contract for the governance token. This includes determining the token's supply, distribution, and allocation. Additionally, the smart contract will include the mechanisms for staking, voting, and rewards distribution.
+* [ ] Developing the smart contract for the governance token. This includes determining the token's supply, distribution, and allocation. Additionally, the smart contract will include the mechanisms for staking, voting, and rewards distribution.
 
 ### <mark style="color:orange;">6. Security Audit - (Q3, 2023)</mark>
 
@@ -34,7 +34,7 @@
 
 ### <mark style="color:orange;">9. In-Game Tokens Smart Contracts Development - (Q5, 2023)</mark>
 
-* [ ] The next step is to develop the smart contract for the two in-game tokens - G token and mini games Tickets which can be used and received as rewards in our Mini Games section and later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, the smart contracts will include mechanisms for rewards distribution.
+* [ ] Developing the smart contract for the two in-game tokens - G token and mini games Tickets which will be used  in our Mini Games section, later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, the smart contracts will include mechanisms for rewards distribution.
 
 ### <mark style="color:orange;">10. Website Development - (Q2, 2023 - Q4, 2024)</mark>
 
@@ -42,17 +42,17 @@
 
 ### <mark style="color:orange;">11. Mini Gamified Games Development - (Q4, 2023 - Q5, 2024)</mark>
 
-* [ ] After the website and Genesis NFT collection are complete, the mini-gamified games development process can begin. This includes building the games user interface, integrating the smart contracts, and developing the games mechanics.
+* [ ] When the website and Genesis NFT collection are complete, the mini-gamified games development process can begin. This includes building the games user interface, integrating the smart contracts, and developing the games mechanics.
 
 ### <mark style="color:orange;">12. Miners NFT Collection - (Q3-Q4, 2023)</mark>
 
 * [ ] <mark style="color:yellow;">Concept Development - (Q3, 2023)</mark>
 
-The first step in creating a Miners NFT Collection is to determine the types of miners that will be included in the collection. This involves identifying the different types of miners that players can use to mine the in-game token. Once the types of miners are identified, the concept for the NFT collection can be developed, including the design, attributes, and rarity of each NFT.
+We need to determine the types of miners that will be included in the collection. This involves identifying the different types of miners that players can use to mine the in-game token. Once the types of miners are identified, the concept for the NFT collection can be developed, including the design, attributes, and rarity of each NFT.
 
 * [ ] <mark style="color:yellow;">Design and Development - (Q3-Q4, 2023</mark>)
 
-The next step is to design and develop the NFTs for the Miners NFT Collection. This involves creating unique and attractive designs for each NFT and determining their attributes, such as mining speed, durability, and efficiency. The NFTs can also be given different levels of rarity based on their attributes and design.
+Designing and developing the NFTs for the Miners NFT Collection. This involves creating unique and attractive designs for each NFT and determining their attributes, such as mining speed, durability, and efficiency. The NFTs can also be given different levels of rarity based on their attributes and design.
 
 * [ ] <mark style="color:yellow;">Smart Contract Development and Launching - (Q4, 2023)</mark>
 
