@@ -1,3 +1,7 @@
+---
+description: Information about our Roadmap target goals
+---
+
 # 🗺 Roadmap
 
 ### <mark style="color:orange;">1. Concept Development and Design (Q1, 2023)</mark>
