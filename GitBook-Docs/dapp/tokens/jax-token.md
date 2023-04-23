@@ -1,2 +1,2 @@
-# JAX Token
+# 🟡 JAX Token
 

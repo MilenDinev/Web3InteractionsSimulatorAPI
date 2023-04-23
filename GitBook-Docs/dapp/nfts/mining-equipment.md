@@ -1,2 +1,2 @@
-# Mining Equipment
+# ⚒ Mining Equipment
 

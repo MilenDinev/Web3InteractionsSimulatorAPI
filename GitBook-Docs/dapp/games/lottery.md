@@ -1,2 +1,2 @@
-# Lottery
+# 🎫 Lottery
 

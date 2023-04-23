@@ -1,2 +1,2 @@
-# G Token
+# 🟠 G Token
 

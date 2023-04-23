@@ -1,4 +1,4 @@
-# Mines
+# 🌆 Mines
 
 _**Total Supply:**_ <mark style="color:blue;">**30000**</mark>
 

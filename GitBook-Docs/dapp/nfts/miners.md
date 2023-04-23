@@ -1,2 +1,2 @@
-# Miners
+# ⛏ Miners
 

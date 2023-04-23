@@ -1,3 +1,0 @@
-# Weekly Raffle
-
-&#x20;

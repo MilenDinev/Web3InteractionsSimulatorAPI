@@ -2,7 +2,7 @@
 description: Our raffles are open to all users who are part of our community.
 ---
 
-# Weekly Raffles
+# 🎟 Weekly Raffles
 
 \
 To participate, simply join our [discord server](https://discord.com/invite/dPNE6fK4S4) and follow the rules for the current week's raffle.&#x20;

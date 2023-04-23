@@ -2,7 +2,7 @@
 description: Here you will find information related to our private NFT mints.
 ---
 
-# Private NFT Mints
+# 🔐 Private NFT Mints
 
 ### **Private Mint - G Minions, Jax World Genesis NFT Collection.** <a href="#private-mint-g-minions" id="private-mint-g-minions"></a>
 
