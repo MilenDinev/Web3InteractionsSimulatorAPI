@@ -3,7 +3,11 @@
 ## Overview
 
 * [🏜 Introduction](README.md)
-* [🌐 Official Links](overview/official-links.md)
+* [🌐 Official Links](overview/official-links/README.md)
+  * [Website](https://www.jaxworld.xyz/)
+  * [Medium](https://medium.com/@jaxminersworld)
+  * [Discord](https://discord.com/invite/dPNE6fK4S4)
+  * [Twitter](https://twitter.com/jaxworld\_)
 * [👨💼 About Us](overview/about-us.md)
 
 ## Project Information
@@ -55,7 +59,6 @@
 * [Twiter](https://twitter.com/jaxworld\_)
 * [Discord](https://discord.gg/dPNE6fK4S4)
 * [Medium](https://medium.com/@jaxminersworld)
-* [Website](https://www.jaxworld.xyz)
 
 ***
 
