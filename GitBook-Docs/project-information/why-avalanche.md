@@ -2,7 +2,7 @@
 description: >-
   One blockchain platform that has caught the attention of many game developers
   is Avalanche. In this article, we'll explore the reasons why we chose
-  Avalanche for building our game.
+  Avalanche for building our web3 gaming platform.
 ---
 
 # 🚄 Why Avalanche
