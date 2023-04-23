@@ -1,3 +1,7 @@
+---
+description: Brief summary of our team goals
+---
+
 # 👨💼 About Us
 
 Welcome to Jax World, where we are dedicated to building cutting-edge web3 NFT games on the Avalanche blockchain. Our team is composed of enthusiastic developers and blockchain experts who are passionate about the potential of decentralized gaming.
