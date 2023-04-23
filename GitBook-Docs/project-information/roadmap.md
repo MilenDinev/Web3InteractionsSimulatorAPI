@@ -14,7 +14,7 @@
 
 ### <mark style="color:orange;">4. Governance Token Research and Concept Development (Q3, 2023)</mark>
 
-* [ ] The first step in launching a governance token is to conduct research on the current state of the market and identify the target audience for the token. This involves researching other governance tokens in the market and identifying their strengths and weaknesses. Once this research is complete, the concept for the governance token can be developed.
+* [ ] Researching the current state of the market and identifying the target audience for the token. This involves researching other governance tokens in the market and identifying their strengths and weaknesses. Once this research is complete, the concept for the governance token can be developed.
 
 ### <mark style="color:orange;">5. Governance Token Smart Contract Development - (Q3, 2023)</mark>
 
@@ -34,7 +34,7 @@
 
 ### <mark style="color:orange;">9. In-Game Tokens Smart Contracts Development - (Q5, 2023)</mark>
 
-* [ ] Developing the smart contract for the two in-game tokens - G token and mini games Tickets which will be used  in our Mini Games section, later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, the smart contracts will include mechanisms for rewards distribution.
+* [ ] Developing the smart contract for the two in-game tokens - G token, G Points and Mini games Tickets which will be used  in our Mini Games section, later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, the smart contracts will include mechanisms for rewards distribution.
 
 ### <mark style="color:orange;">10. Website Development - (Q2, 2023 - Q4, 2024)</mark>
 
