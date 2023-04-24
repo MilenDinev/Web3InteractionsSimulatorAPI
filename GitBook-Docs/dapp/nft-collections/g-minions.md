@@ -28,5 +28,7 @@ Bellow are the **10** classes of G Minions Collection ordered by rarity and supp
 **9.** Gangster - **Rare - **<mark style="color:blue;">**500**</mark>.\
 **10.** Miner - **Common - **<mark style="color:blue;">**3020**</mark>.
 
-**Holders of G Minion NFTs collection  will receive exclusive access** to community events, future land selling event and NFT collection - JAX Miners. . Additionally each G Minion NFT has _**boosting ability**_ **based on rarity** for all activities related to staking, mining and mini games section. **Detailed information** about staking and mining functionalities, G minion boosting, community events, future land selling event and next NFT collections is **available here on our DOCS page**.&#x20;
+**Holders of G Minion NFTs collection  will receive exclusive access** to community events, future land selling event and NFT collection - JAX Miners. . Additionally each G Minion NFT has _**boosting ability**_ **based on rarity** for all activities related to staking, mining and mini games section. **Detailed information** about staking and mining functionalities, G minion boosting, community events, future land selling event and next NFT collections is **available here on our DOCS page**. \
+\
+Stay tuned to this section and our [discord server](https://discord.com/invite/dPNE6fK4S4) for the latest updates and releases of our NFT collections.
 
