@@ -15,6 +15,7 @@
 * [🚄 Why Avalanche](project-information/why-avalanche.md)
 * [🗺 Roadmap](project-information/roadmap.md)
 * [📊 Tokenomics](project-information/tokenomics.md)
+* [📊 Archive of Tokenomics](project-information/archive-of-tokenomics.md)
 * [👥 Partnerships](project-information/partnerships.md)
 * [🗣 DAO Governance](project-information/dao-governance.md)
 * [🔔 Project Updates](project-information/project-updates.md)

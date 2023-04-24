@@ -14,6 +14,8 @@ description: Welcome to Jax World
 
 #### Our mission at Jax World is to attract more people to the world of NFT and blockchain gaming. We believe that blockchain technology has the potential to revolutionize the gaming industry, and we want to make it accessible to as many people as possible. With Jax Miners Game and our other applications and services, we hope to showcase the potential of blockchain gaming and provide an engaging and rewarding experience for our users.
 
+#### Our NFT collections are designed to offer our users a truly immersive and engaging experience, allowing them to collect and trade digital assets that hold real value on our platform. Each NFT collection will be carefully curated and designed to offer our users a unique and captivating experience. From rare and limited-edition NFTs to special edition items and collectibles, our NFT collections will offer something for everyone.
+
 #### Our platform is built on the Avalanche blockchain, which ensures that all transactions are secure, transparent, and immutable. This provides our users with a level of trust and confidence that is unparalleled in the gaming industry.
 
 #### We believe that blockchain technology has the potential to revolutionize the gaming industry and we are excited to be at the forefront of this transformation. Join us on Jax World and experience the thrill of blockchain gaming!
