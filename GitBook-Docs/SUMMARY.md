@@ -19,7 +19,7 @@
 * [🗣 DAO Governance](project-information/dao-governance.md)
 * [🔔 Project Updates](project-information/project-updates.md)
   * [🗞 1. G Minions Introduction](project-information/project-updates/1.-g-minions-introduction.md)
-  * [🗞 2. Launch of G Minions](project-information/project-updates/2.-launch-of-g-minions.md)
+  * [🗞 2. Launch of G Minions](project-information/project-updates/1.-launch-of-g-minions.md)
 
 ## Events
 
