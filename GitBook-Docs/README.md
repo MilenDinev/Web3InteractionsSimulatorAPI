@@ -1,10 +1,10 @@
 ---
-description: Welcome to Jax World
+description: >-
+  Welcome to Jax World, the ultimate blockchain gaming platform where innovation
+  meets adventure!
 ---
 
 # 🏜 Introduction
-
-### Welcome to Jax World, the ultimate blockchain gaming platform where innovation meets adventure!&#x20;
 
 #### Where our team is developing an immersive wild west-inspired world where users can step into the role of a miner and compete with other players to become the top miner in the game.
 
