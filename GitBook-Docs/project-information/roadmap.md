@@ -46,7 +46,7 @@ description: Information about our Roadmap target goals
 
 ### <mark style="color:orange;">11. Mini Gamified Games Development - (Q4, 2023 - Q5, 2024)</mark>
 
-* [ ] When the website and Genesis NFT collection are complete, the mini-gamified games development process can begin. This includes building the games user interface, integrating the smart contracts, and developing the games mechanics.
+* [ ] When the website and Genesis NFT collection are complete, the mini-gamified games development process can begin. This includes building the games user interface, integrating the smart contracts, and developing games mechanics.
 
 ### <mark style="color:orange;">12. Miners NFT Collection - (Q3-Q4, 2023)</mark>
 
