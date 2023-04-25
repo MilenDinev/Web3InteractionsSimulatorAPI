@@ -48,7 +48,7 @@
   * [🎆 Utilization and Rewards](dapp/nft-collections/utilization-and-rewards.md)
 * [🪙 Tokens](dapp/tokens/README.md)
   * [💡 Utilization](dapp/tokens/utilization.md)
-* [🎲 Games](dapp/games.md)
+* [🎲 Games](dapp/games/README.md)
 * [🏦 Stakind](dapp/stakind.md)
 
 ## Socials
