@@ -6,7 +6,9 @@ description: Welcome to Jax World
 
 ### Welcome to Jax World, the ultimate blockchain gaming platform where innovation meets adventure!&#x20;
 
-#### Where our team is developing an immersive wild west-inspired world where users can step into the role of a miner and compete with other players to become the top miner in the game. In Jax Miners Game, players can buy land, own a mine, hire miners, and purchase mining equipment to improve their mining rate, all while navigating through the challenges of the wild west.&#x20;
+#### Where our team is developing an immersive wild west-inspired world where users can step into the role of a miner and compete with other players to become the top miner in the game.
+
+#### The game called Jax Miners will give the players opportunity to buy land, own a mine, hire miners, and purchase mining equipment to improve their mining rate, all while navigating through the challenges of the wild west.&#x20;
 
 #### But that's not all, at Jax World we are committed to providing our users with a range of exciting services and applications. In addition to Jax Miners Game, we will offer weekly raffles, lotteries, rewards-based mini-games, and other activities that offer our users an opportunity to earn rewards and have fun while doing so.
 
