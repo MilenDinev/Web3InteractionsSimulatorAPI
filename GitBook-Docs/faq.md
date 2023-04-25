@@ -120,7 +120,7 @@ The benefits of using Avalanche include high transaction throughput, fast finali
 
 <summary>What types of applications can be built on Avalanche? </summary>
 
-Avalanche can support a wide range of decentralized applications (dApps), including financial applications such as decentralized exchanges and stablecoins, as well as non-financial applications such as supply chain management and identity verification.
+Avalanche can support a wide range of decentralized applications (dApps), including blockchain gaming platforms, NTF platforms, financial applications such as decentralized exchanges and stablecoins, as well as non-financial applications such as supply chain management and identity verification.
 
 </details>
 
@@ -323,8 +323,6 @@ Some of the challenges associated with NFTs include high transaction fees on the
 It's difficult to predict the future of the NFT market, but it has certainly gained a lot of attention and popularity in recent years. As with any emerging technology, it's possible that the hype could die down, or it could continue to grow and evolve in new and innovative ways.
 
 </details>
-
-
 
 ### **How do I learn more?**
 
