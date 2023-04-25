@@ -1,5 +1,5 @@
 ---
-description: Brief summary of our team and goals
+description: Brief summary of our team's values
 ---
 
 # 👨💼 About Us
