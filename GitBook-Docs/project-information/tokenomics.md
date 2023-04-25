@@ -4,7 +4,7 @@ description: Tokenomics strategy.
 
 # 📊 Tokenomics
 
-Tokenomics system will be designed to create a fair and sustainable ecosystem for our users.&#x20;
+#### Tokenomics system will be designed to create a fair and sustainable ecosystem for our users.&#x20;
 
 #### We are working on creation of a token that will serve as the main utility unit on our platform, enabling users to access various services and applications. The token will also play a key role in our governance system, allowing token holders to participate in important decisions related to the future development and direction of the platform.
 
