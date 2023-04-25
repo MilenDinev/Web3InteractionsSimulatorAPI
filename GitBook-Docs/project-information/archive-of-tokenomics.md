@@ -19,7 +19,7 @@ _<mark style="color:orange;">**Total Supply:**</mark>_ <mark style="color:yellow
 
 
 
-<figure><img src="../.gitbook/assets/Distribution@1.5x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### <mark style="color:orange;">**Lock and Vesting Periods:**</mark>
 
@@ -32,4 +32,4 @@ _<mark style="color:orange;">**Total Supply:**</mark>_ <mark style="color:yellow
 <mark style="color:orange;">**Seed :**</mark>** **<mark style="color:yellow;">**45 Days Lock Period, 15 Months linear vesting period (weekly).**</mark>\
 <mark style="color:orange;">**Strategic :**</mark>** **<mark style="color:yellow;">**70 Days Lock Period, 15 Months linear vesting period (weekly).**</mark>
 
-<figure><img src="../.gitbook/assets/Vesting@1.5x (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>

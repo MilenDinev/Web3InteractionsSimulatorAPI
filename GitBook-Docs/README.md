@@ -4,7 +4,7 @@ description: Welcome to Jax World
 
 # 🏜 Introduction
 
-<figure><img src=".gitbook/assets/Welcome Label.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### Welcome to Jax World, the ultimate blockchain gaming platform where innovation meets adventure!&#x20;
 

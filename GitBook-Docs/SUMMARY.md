@@ -47,13 +47,8 @@
   * [🏬 Market Place](dapp/nft-collections/market-place.md)
   * [🎆 Utilization and Rewards](dapp/nft-collections/utilization-and-rewards.md)
 * [🪙 Tokens](dapp/tokens/README.md)
-  * [🟡 JAX Token](dapp/tokens/jax-token.md)
-  * [🟠 G Token](dapp/tokens/g-token.md)
-  * [⚙ Mechanism](dapp/tokens/mechanism.md)
   * [💡 Utilization](dapp/tokens/utilization.md)
-* [🌀 G Points](dapp/g-points.md)
-* [🎲 Games](dapp/games/README.md)
-  * [🎫 Lottery](dapp/games/lottery.md)
+* [🎲 Games](dapp/games.md)
 * [🏦 Stakind](dapp/stakind.md)
 
 ## Socials

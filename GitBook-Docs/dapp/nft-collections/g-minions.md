@@ -1,10 +1,9 @@
 ---
 description: G Minions are the Genesis NFT collection in JAX Miners ecosystem.
+coverY: 0
 ---
 
 # 🥇 G Minions
-
-<figure><img src="../../.gitbook/assets/Untitled-1.png" alt=""><figcaption></figcaption></figure>
 
 _**Total Supply:**_ <mark style="color:blue;">**5000**</mark>
 
