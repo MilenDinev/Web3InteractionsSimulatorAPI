@@ -6,7 +6,7 @@ description: >-
 
 # 🏜 Introduction
 
-<figure><img src=".gitbook/assets/Twitter banner v2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Twitter banner v4.png" alt=""><figcaption></figcaption></figure>
 
 #### Here our team is developing an immersive wild west-inspired world where users will have opportunity to step into the role of a miner and compete with other players to become the top miner in the game.
 
