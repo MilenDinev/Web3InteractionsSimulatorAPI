@@ -6,6 +6,8 @@ description: >-
 
 # 🏜 Introduction
 
+<figure><img src=".gitbook/assets/Twitter banner v2.png" alt=""><figcaption></figcaption></figure>
+
 #### Here our team is developing an immersive wild west-inspired world where users will have opportunity to step into the role of a miner and compete with other players to become the top miner in the game.
 
 #### The game called Jax Miners will give the players opportunity to buy land, own a mine, hire miners, and purchase mining equipment to improve their mining rate, all while navigating through the challenges of the wild west.&#x20;
