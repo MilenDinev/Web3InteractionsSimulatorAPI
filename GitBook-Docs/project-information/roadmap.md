@@ -36,9 +36,9 @@ description: Information about our Roadmap target goals
 
 * [ ] The governance mechanisms, such as staking, voting, and rewards distribution, should be launched at this stage. This will allow token holders to participate in the governance of the ecosystem and earn rewards for their contributions.
 
-### <mark style="color:orange;">9. In-Game Tokens Smart Contracts Development - (Q5, 2023)</mark>
+### <mark style="color:orange;">9. In-Game Tokens Smart Contracts Development - (Q1, 2024)</mark>
 
-* [ ] Developing the smart contract for the two in-game tokens - G token, G Points and Mini games Tickets which will be used  in our Mini Games section, later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, the smart contracts will include mechanisms for rewards distribution.
+* [ ] Developing the smart contract for the two in-game tokens and Mini games Tickets which will be used  in our Mini Games section, later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, the smart contracts will include mechanisms for rewards distribution.
 
 ### <mark style="color:orange;">10. Website Development - (Q2, 2023 - Q4, 2024)</mark>
 
