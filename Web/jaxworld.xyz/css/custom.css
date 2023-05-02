@@ -25,10 +25,10 @@ div.jax-world {
     text-align: center;
     text-indent: 0px;
     text-shadow: 0px 0px;
-    margin-top: -70px;
+    margin-top: -68px;
     position: absolute;
     margin-left: 81px;
-    min-width: 300px;
+    min-width: 150px;
 }
 div.jax-world a.jax {
     word-spacing: 3px;
@@ -40,18 +40,19 @@ div.jax-world a.jax {
     border-bottom: medium solid #E88D35;
     border-top: medium solid #E88D35;
     text-align: center;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     border-radius: 9px;
     font-style: normal;
     font-variant: normal;
     text-indent: 0px;
     text-shadow: 2px 1px;
-    padding-right: 6px;
-    padding-left: 6px;
+    padding-right: 7px;
+    padding-left: 7px;
 }
 div.jax-world:hover a.jax {
     color: #DB9B87;
+    margin-top: 0px;
 }
 nav.main {
     margin-right: 20px;
