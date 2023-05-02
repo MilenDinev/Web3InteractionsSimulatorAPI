@@ -5,10 +5,10 @@
 * [🏜 Introduction](README.md)
 * [👨💼 About Us](overview/about-us.md)
 * [🌐 Official Links](overview/official-links/README.md)
-  * [🏠 Website](https://www.jaxworld.xyz/)
   * [🗣 Twitter](https://twitter.com/jaxworld\_)
   * [👥 Discord](https://discord.com/invite/dPNE6fK4S4)
   * [📰 Medium](https://medium.com/@jaxminersworld)
+  * [🏠 Website](https://www.jaxworld.xyz/)
 
 ## Project Information
 
@@ -18,7 +18,8 @@
 * [👥 Partnerships](project-information/partnerships.md)
 * [🗣 DAO Governance](project-information/dao-governance.md)
 * [🔔 Project Updates](project-information/project-updates.md)
-  * [🗞 1. Launch of G Minions](project-information/project-updates/1.-launch-of-g-minions.md)
+  * [🗞 1. G Minions Introduction](project-information/project-updates/1.-g-minions-introduction.md)
+  * [🗞 2. Launch of G Minions](project-information/project-updates/1.-launch-of-g-minions.md)
 
 ## Events
 
@@ -46,13 +47,8 @@
   * [🏬 Market Place](dapp/nft-collections/market-place.md)
   * [🎆 Utilization and Rewards](dapp/nft-collections/utilization-and-rewards.md)
 * [🪙 Tokens](dapp/tokens/README.md)
-  * [🟡 JAX Token](dapp/tokens/jax-token.md)
-  * [🟠 G Token](dapp/tokens/g-token.md)
-  * [⚙ Mechanism](dapp/tokens/mechanism.md)
   * [💡 Utilization](dapp/tokens/utilization.md)
-* [🌀 G Points](dapp/g-points.md)
 * [🎲 Games](dapp/games/README.md)
-  * [🎫 Lottery](dapp/games/lottery.md)
 * [🏦 Stakind](dapp/stakind.md)
 
 ## Socials

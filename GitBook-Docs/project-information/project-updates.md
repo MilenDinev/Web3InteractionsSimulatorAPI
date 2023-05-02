@@ -1,5 +1,7 @@
 ---
-description: Welcome to the Jax World project update page!
+description: >-
+  In this section we are posting information related with our project related
+  initiatives.
 ---
 
 # 🔔 Project Updates

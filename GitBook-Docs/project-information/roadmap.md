@@ -36,9 +36,9 @@ description: Information about our Roadmap target goals
 
 * [ ] The governance mechanisms, such as staking, voting, and rewards distribution, should be launched at this stage. This will allow token holders to participate in the governance of the ecosystem and earn rewards for their contributions.
 
-### <mark style="color:orange;">9. In-Game Tokens Smart Contracts Development - (Q5, 2023)</mark>
+### <mark style="color:orange;">9. In-Game Tokens Smart Contracts Development - (Q1, 2024)</mark>
 
-* [ ] Developing the smart contract for the two in-game tokens - G token, G Points and Mini games Tickets which will be used  in our Mini Games section, later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, the smart contracts will include mechanisms for rewards distribution.
+* [ ] Developing the smart contract for the two in-game tokens and Mini games Tickets which will be used  in our Mini Games section, later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, the smart contracts will include mechanisms for rewards distribution.
 
 ### <mark style="color:orange;">10. Website Development - (Q2, 2023 - Q4, 2024)</mark>
 
@@ -46,7 +46,7 @@ description: Information about our Roadmap target goals
 
 ### <mark style="color:orange;">11. Mini Gamified Games Development - (Q4, 2023 - Q5, 2024)</mark>
 
-* [ ] When the website and Genesis NFT collection are complete, the mini-gamified games development process can begin. This includes building the games user interface, integrating the smart contracts, and developing the games mechanics.
+* [ ] When the website and Genesis NFT collection are complete, the mini-gamified games development process can begin. This includes building the games user interface, integrating the smart contracts, and developing games mechanics.
 
 ### <mark style="color:orange;">12. Miners NFT Collection - (Q3-Q4, 2023)</mark>
 
