@@ -6,4 +6,4 @@
 
 #### In addition to the unique properties offered by each Miner NFT, holders of these NFTs will also gain exclusive access to a range of exciting benefits and privileges. This includes access to private events, a special Discord role, community rewards and events.
 
-#### Join our [Discord](https://discord.com/invite/dPNE6fK4S4) and stay tuned for the release of the Miners NFT Collection and all updates related with Jax World.
+#### Join our [Discord](https://discord.com/invite/dPNE6fK4S4) and stay tuned for the latest news for Miners NFT Collection and all updates related with Jax World.
