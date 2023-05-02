@@ -1,7 +1,7 @@
 ---
 description: >-
-  Here will be sharing all the latest information about our NFT collections
-  available on our platform.
+  Here will be sharing all the latest information about our unique NFT
+  collections available on our platform.
 ---
 
 # 🖼 NFT Collections

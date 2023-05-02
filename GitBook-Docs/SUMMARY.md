@@ -27,12 +27,13 @@
   * [🔓 Public NFT Mints](events/public-events/public-nft-mints.md)
     * [📀 1. G Minions](events/public-events/public-nft-mints/1.-g-minions.md)
   * [🔓 Public Token Events](events/public-events/public-token-sale.md)
+  * [🎫 Public Raffles](events/public-events/public-raffles.md)
 * [🔊 Community Events](events/community-events/README.md)
   * [🔐 Private NFT Mints](events/community-events/private-nft-mints.md)
     * [📀 1. G Minions](events/community-events/private-nft-mints/1.-g-minions.md)
   * [🔐 Private Token Events](events/community-events/private-token-sale.md)
+  * [🎟 Private Weekly Raffles](events/community-events/private-weekly-raffles.md)
   * [📑 Whitelist Events](events/community-events/whitelist.md)
-  * [🎟 Weekly Raffles](events/community-events/weekly-raffles.md)
 
 ## DApp
 
