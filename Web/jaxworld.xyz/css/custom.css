@@ -4,117 +4,93 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-clip: border-box;
-    min-width: 1050px;
-    min-height: 1060px;
-    margin-bottom: auto;
-    margin-top: auto;
-    margin-right: auto;
-    margin-left: auto;
+    min-width: 699px;
 }
 .containter {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
-.logo {
-    min-height: 75px;
-    min-width: 75px;
-}
-div.jax-world {
-    text-decoration: none;
-    text-align: center;
-    text-indent: 0px;
-    text-shadow: 0px 0px;
-    margin-top: -68px;
-    position: absolute;
-    margin-left: 81px;
-    min-width: 150px;
-}
-div.jax-world a.jax {
-    word-spacing: 3px;
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent p.navbar-brand a#label  {
+    font-size: 220%;
     font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 45px;
-    text-decoration: none;
-    color: #552E09;
-    font-weight: 700;
-    border-bottom: medium solid #E88D35;
-    border-top: medium solid #E88D35;
-    text-align: center;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    border-radius: 9px;
-    font-style: normal;
-    font-variant: normal;
-    text-indent: 0px;
-    text-shadow: 2px 1px;
-    padding-right: 7px;
-    padding-left: 7px;
-}
-div.jax-world:hover a.jax {
-    color: #DB9B87;
-    margin-top: 0px;
-}
-nav.main {
-    margin-right: 20px;
-    float: right;
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-nav.main ul {
-    float: right;
-    list-style: none;
-}
-nav.main ul li {
-    font-size: 25px;
-    margin-right: 25px;
-    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-    text-shadow: 0px 0px #000000;
-    float: left;
-    text-decoration: none;
     font-weight: bold;
-    text-indent: 20px;
-    letter-spacing: 2px;
-    transition: all 0.3s linear;
-}
-nav.main ul li a {
-    color: #552E09;
-    word-spacing: 5px;
-    text-decoration: none;
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-right: auto;
-    margin-left: auto;
-    border-bottom: medium solid #E88D35;
     border-top: medium solid #E88D35;
-    border-radius: 7px;
-    white-space: normal;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 6px;
-    padding-right: 6px;
+    border-bottom: medium solid #E88D35;
+    padding-right: 1%;
+    padding-left: 1%;
+    border-radius: 9px;
+    color: #54380A;
+    text-shadow: 2px 1px 4px;
+    -webkit-box-shadow: 0px 0px 6px 2px;
+    box-shadow: 0px 0px 6px 2px;
+    text-decoration: none;
 }
-nav.main ul li:hover a {
-    color: #DB9B87;
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent p.navbar-brand:hover a#label{
+	color: #DB9B87;
 }
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent button.navbar-toggler  {
+    border-bottom-color: #E88D35;
+    border-top-color: #E88D35;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-bottom-width: medium;
+    border-top-width: medium;
+    border-radius: 9px;
+
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent div#navbarText.collapse.navbar-collapse ul.navbar-nav li a {
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #54380A;
+    border-top: medium solid #E88D35;
+    border-bottom: medium solid #E88D35;
+    border-radius: 9px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-shadow: 1px 0px 0px;
+    -webkit-box-shadow: 0px 0px 6px 2px;
+    box-shadow: 0px 0px 6px 2px;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent div#navbarText.collapse.navbar-collapse ul.navbar-nav li:hover a {
+	color: #DB9B87;
+}
+
+
 section.mint-function {
-    padding-top: 0px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10%;
 }
+section.mint-function div.card.text-center {
+    border-radius: 20px;
+    border-color: #E88D35;
+    margin-top: 100px;
+    -webkit-box-shadow: 0px 0px 6px 1px;
+    box-shadow: 0px 0px 6px 1px;
+    margin-left: 25%;
+    margin-right: 25%;
+    min-width: 550px;
+    margin-bottom: 100px;
+}
+
 section.mint-function .messages {
     font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-image: url(../images/form.png);
     width: 500px;
-    margin-left: auto;
-    margin-right: auto;
     padding-right: 10px;
-    padding-bottom: 15px;
     padding-left: 10px;
     -webkit-box-shadow: 0px 0px 46px;
     box-shadow: 0px 0px 46px;
     border-radius: 75px;
-    height: 691px;
-    padding-top: 1px;
-    margin-top: 200px;
+    height: 700px;
+    padding-top: 20px;
     text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 section.mint-function .messages .data div.private-mint  {
     margin-left: auto;
@@ -147,15 +123,6 @@ section.mint-function .messages .data div.private-mint p a {
     font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
 }
-section.mint-function .messages ul li {
-    font-size: 25px;
-    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-    text-shadow: 0px 0px #000000;
-    text-decoration: none;
-    font-weight: bold;
-    text-indent: 20px;
-    letter-spacing: 2px;
-}
 section.mint-function .messages .data ul {
     list-style: none;
     border-bottom-color: #A64512;
@@ -165,11 +132,10 @@ section.mint-function .messages .data ul {
     border-bottom-width: medium;
     border-top-width: medium;
     border-radius: 20px;
-    height: 240px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 280px;
-    padding-top: 5px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 section.mint-function .messages .data ul li {
     margin-top: 20px;
@@ -216,17 +182,16 @@ section.mint-function .messages .data ul li.mint-total {
 }
 section.mint-function .messages .info-message {
     font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-variant: normal;
     font-weight: bold;
     font-size: 19px;
     color: #E88D35;
-    text-align: center;
     border-right: medium solid #A64512;
     border-radius: 40px;
     border-left: medium solid #A64512;
-    margin-top: 30px;
-    padding-top: 50px;
-    height: 124px;
+    padding-top: 15%;
+    padding-bottom: 15%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 section.mint-function .messages .info-message a {
     text-decoration: none;
@@ -234,9 +199,7 @@ section.mint-function .messages .info-message a {
     border: thin solid #F2C042;
     border-radius: 5px;
     font-size: 18px;
-    padding-top: 1px;
     padding-right: 1px;
-    padding-bottom: 1px;
     padding-left: 1px;
 }
 section.mint-function .messages .mint-button {
@@ -250,107 +213,47 @@ section.mint-function .messages .mint-button {
     text-indent: 0px;
     text-shadow: 2px 0px;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 340px;
-    margin-top: -2px;
+    margin-right: 25%;
+    margin-left: 25%;
 }
 section.mint-function .messages .mint-button a {
     text-decoration: none;
     color: #E88D35;
-    border-width: medium;
 }
 section.mint-function .messages .mint-button:hover a {
     color: #DB9B87;
 }
-section.information div.contacts {
-    float: left;
-    margin-top: 8%;
+.containter .information {
+    clear: both;
 }
-section.information div.contacts ul {
-    float: left;
-    list-style: none;
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-left: auto;
-    margin-right: auto;
-}
-section.information div.contacts ul li {
-    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-    text-shadow: 0px 0px;
-    float: left;
-    text-decoration: none;
-    transition: all 0.3s linear;
+
+
+.information .d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4 .nav.col-md-4.justify-content-start li a {
+    border-bottom: medium solid #E88D35;
+    border-top: medium solid #E88D35;
+    border-radius: 7px;
+    color: #E88D35;
     margin-left: 10px;
 }
-section.information div.contacts ul li a {
-    color: #E88D35;
-    text-decoration: none;
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+.information .d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4 .nav.col-md-4.justify-content-start li:hover a {
+    color: #DB9B87;
+}
+.information .d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4 .col-md-4.justify-content-center p {
     border-bottom: medium solid #E88D35;
     border-top: medium solid #E88D35;
     border-radius: 7px;
-    padding-top: 6px;
-    padding-right: 6px;
-    padding-bottom: 6px;
-    padding-left: 6px;
-}
-section.information div.contacts ul li:hover a {
-    color: #DB9B87;
-}
-section.information div.infos {
-    float: right;
-    margin-top: 8%;
-}
-section.information div.infos ul {
-    float: right;
-    list-style: none;
-    margin-left: auto;
-    margin-right: auto;
-}
-section.information div.infos ul li {
-    text-shadow: 0px 0px #000000;
-    float: left;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s linear;
-    margin-right: 10px;
-}
-section.information div.infos ul li a {
     color: #E88D35;
-    word-spacing: 5px;
-    text-decoration: none;
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-right: auto;
-    margin-left: auto;
-    border-bottom: medium solid #E88D35;
-    border-top: medium solid #E88D35;
-    border-radius: 7px;
-    white-space: normal;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 6px;
-    padding-right: 6px;
-}
-section.information div.infos ul li:hover a {
-    color: #DB9B87;
-}
-footer {
-    margin-top: 8%;
-    width: 30%;
-    margin-bottom: auto;
-}
-footer.text-center-footer  {
     text-align: center;
-    color: #E88D35;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: auto;
 }
-footer.text-center-footer div.row div.col-12 p.copyrights {
-    border-bottom-width: medium;
-    border-bottom-style: solid;
-    border-top-width: medium;
-    border-top-style: solid;
-    border-radius: 10px;
+
+.information .d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4 .nav.col-md-4.justify-content-end li a {
+    border-bottom: medium solid #E88D35;
+    border-top: medium solid #E88D35;
+    border-radius: 7px;
+    margin-left: 10px;
+    color: #E88D35;
+}
+.information .d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4 .nav.col-md-4.justify-content-end li:hover a {
+    color: #DB9B87;
 }
