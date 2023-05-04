@@ -1,22 +1,40 @@
 body {
-    background-image: url(../images/background.png);
+    background-size: cover;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    min-width: 320px;
+    display: block;
+    background-origin: content-box;
     background-attachment: fixed;
-    min-width: 1000px;
-    background-origin: border-box;
-    background-size: 100% 100%;
-    background-position: 100% 100%;
-    max-width: 100%;
-    position: relative;
-    max-height: 100%;
-    min-height: 600px;
+    background-repeat: no-repeat;
+    background-image: url(../images/background.png);
+    background-position: center center;
+    margin-right: 0px;
+    margin-left: 0px;
 }
 .containter {
+    clear: both;
+    background-attachment: scroll;
     position: relative;
+    max-width: 1800px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
 }
 .containter header .navbar.navbar-expand-lg.navbar-light.bg-transparent {
-    position: relative;
-    margin-left: 5%;
-    margin-right: 5%;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+
 
 
 
@@ -24,7 +42,7 @@ body {
 }
 
 nav.navbar.navbar-expand-lg.navbar-light.bg-transparent p.navbar-brand a#label  {
-    font-size: 220%;
+    font-size: 150%;
     font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     border-top: medium solid #E88D35;
@@ -71,10 +89,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-transparent div#navbarText.collapse.
 
 
 section.mint-function {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    margin-bottom: 5%;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-top: 6%;
+    margin-right: 6%;
+    margin-bottom: 6%;
+    margin-left: 6%;
+
 }
 .containter .mint-function .card.text-center.bg-transparent {
     margin-right: auto;
@@ -83,40 +106,32 @@ section.mint-function {
     border-color: #E88D35;
     -webkit-box-shadow: 0px 0px 6px 1px;
     box-shadow: 0px 0px 6px 1px;
-    min-width: 510px;
-    height: 750px;
-    max-width: 700px;
-    margin-top: 10vh;
+    min-width: 415px;
+    max-width: 500px;
+    background-image: url(../images/form.png);
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .mint-function .card.text-center.bg-transparent .messages.justify-content-center {
-    margin-top: 5px;
-    position: relative;
-    width: 500px;
-    height: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 340px;
+    margin-top: 1%;
+    margin-right: 5%;
+    margin-left: 5%;
 
-}
-
-section.mint-function div.messages .justify-content-center {
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-image: url(../images/form.png);
-    width: 500px;
-    -webkit-box-shadow: 0px 0px 45px;
-    box-shadow: 0px 0px 45px;
-    border-radius: 75px;
-    height: 700px;
-    text-decoration: none;
-    position: relative;
 }
 section.mint-function .messages .data div.private-mint  {
     margin-left: auto;
     margin-right: auto;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    display: block;
+    width: 100%;
 }
 section.mint-function .messages .data div.private-mint p {
-    width: 350px;
     margin-left: auto;
     margin-right: auto;
     border-bottom-width: medium;
@@ -150,61 +165,70 @@ section.mint-function .messages .data ul {
     border-top-style: solid;
     border-bottom-width: medium;
     border-top-width: medium;
-    border-radius: 20px;
     margin-left: 20%;
     margin-right: 20%;
-    margin-top: 10%;
+    margin-top: 0%;
     margin-bottom: 10%;
-    position: relative;
+    display: block;
+    padding-top: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    border-radius: 6%;
 }
 section.mint-function .messages .data ul li {
-    margin-top: 20px;
-    margin-left: -45px;
+    border-bottom-color: #A64512;
+    border-top-color: #A64512;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-bottom-width: thin;
+    border-top-width: thin;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-bottom: 0%;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 section.mint-function .messages .data ul li a {
-    color: #552E09;
+    color: #663A08;
     font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    white-space: normal;
     word-spacing: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 25px;
-    border-top: medium solid #E88D35;
-    border-radius: 7px;
-    border-bottom: medium solid #E88D35;
-    padding-right: 4px;
-    padding-left: 4px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    margin-top: 13px;
+    opacity: 1;
 }
 section.mint-function .messages .data ul li.mint-price {
     text-decoration: none;
     text-align: center;
+    padding-bottom: 0px;
+    padding-top: 5%;
+    font-size: 130%;
+    font-weight: bold;
 }
 section.mint-function .messages .data ul li.minted-count {
     text-decoration: none;
-    border-bottom-color: #E88D35;
-    border-top-color: #E88D35;
     text-align: center;
+    padding-top: 5%;
+    font-weight: bold;
+    font-size: 130%;
 }
 section.mint-function .messages .data ul li.mint-state {
     text-decoration: none;
-    border-bottom-color: #E88D35;
-    border-top-color: #E88D35;
     text-align: center;
+    padding-top: 5%;
+    font-weight: bold;
+    font-size: 130%;
 }
 section.mint-function .messages .data ul li.mint-total {
     text-decoration: none;
-    border-bottom-color: #E88D35;
-    border-top-color: #E88D35;
     text-align: center;
+    padding-top: 5%;
+    font-size: 130%;
+    font-weight: bold;
 }
 section.mint-function .messages .info-message {
     font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     font-size: 19px;
-    color: #E88D35;
+    color: #8B5520;
     border-right: medium solid #A64512;
     border-radius: 40px;
     border-left: medium solid #A64512;
@@ -241,55 +265,55 @@ section.mint-function .messages .mint-button {
 section.mint-function .messages .mint-button a {
     text-decoration: none;
     color: #E88D35;
+    margin-right: auto;
+    margin-left: auto;
 }
 section.mint-function .messages .mint-button:hover a {
     color: #DB9B87;
 }
-.containter .information.flex-nowrap.align-bottom {
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-.information.flex-nowrap .d-flex.py-3.my-4 .nav.justify-content-start {
-    position: relative;
-    margin-right: auto;
-}
-.information.flex-nowrap .d-flex.py-3.my-4 .nav.justify-content-center {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.information.flex-nowrap .d-flex.py-3.my-4 .nav.justify-content-end {
-    margin-left: auto;
-    position: relative;
-
-}
-
-
-.information .d-flex.py-3.my-4 .justify-content-start li a      {
-    border-bottom: medium solid #E88D35;
-    border-top: medium solid #E88D35;
-    border-radius: 7px;
-    color: #E88D35;
-    margin-left: 10px;
-}
-.information .d-flex.py-3.my-4 .justify-content-start li:hover a     {
-    color: #DB9B87;
-}
-.information .d-flex.py-3.my-4 .justify-content-center p     {
-    border-bottom: medium solid #E88D35;
-    border-top: medium solid #E88D35;
-    border-radius: 7px;
-    color: #E88D35;
-}
-.information .d-flex.py-3.my-4 .justify-content-end li a      {
-    border-bottom: medium solid #E88D35;
-    border-top: medium solid #E88D35;
-    border-radius: 7px;
-    color: #E88D35;
-    margin-left: 10px;
-}
 .information .d-flex.py-3.my-4 .nav.justify-content-end li:hover a     {
     color: #DB9B87;
 }
+
+  .nav-container {
+    flex: 1.5;
+    text-align: center;
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+  }
+
+  .nav-container li {
+    padding-left: 2%;
+    padding-top: 3%;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+  .nav-container a {
+    border-bottom: medium solid #E88D35;
+    border-top: medium solid #E88D35;
+    border-radius: 7px;
+    color: #E88D35;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .copy-container {
+    flex: 1;
+    text-align: center;
+  }
+
+  .copy-container p {
+    border-bottom: medium solid #E88D35;
+    border-top: medium solid #E88D35;
+    border-radius: 7px;
+    color: #E88D35;
+  }
+
+  @media screen and (max-width: 600px) {
+    .information {
+      flex-direction: column;
+    }
+  }
