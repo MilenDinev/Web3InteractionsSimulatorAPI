@@ -15,8 +15,8 @@ function Header() {
 
     <ul className="nav nav-pills">
       <li className="nav-item"><a href="index" target="_blank" rel="noreferrer" className="nav-link text-white hover-effect" aria-current="page">Home</a></li>
-      <li className="nav-item"><a href="#" target="_blank" rel="noreferrer" className="nav-link text-white hover-effect">Features</a></li>
-      <li className="nav-item"><a href="#" target="_blank" rel="noreferrer" className="nav-link text-white hover-effect">Pricing</a></li>
+      <li className="nav-item"><a href="#" target="_blank" rel="noreferrer" className="nav-link text-white hover-effect">Docs</a></li>
+      <li className="nav-item"><a href="#" target="_blank" rel="noreferrer" className="nav-link text-white hover-effect">Mint</a></li>
       <li className="nav-item"><a href="faq" target="_blank" rel="noreferrer" className="nav-link text-white hover-effect">FAQs</a></li>
     </ul>
     <span className="nav-item"><ConnectButton/></span>

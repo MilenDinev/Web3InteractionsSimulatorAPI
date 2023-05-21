@@ -26,7 +26,8 @@ return (
         </>
         : (
         <>       
-          <div className="text-center form-control border-0 bg-secondary bg-gradient p-2 text-white text-opacity-75 bg-opacity-10 form-floating mb-3 Fonts">
+          <div className="text-center form-control border-0 bg-secondary bg-gradient rounded-5 p-2 text-white text-opacity-75 bg-opacity-10 form-floating mb-3 Fonts">
+            <hr className="my-2"/>
             <h4>Total Supply: <b>{5000}</b> G Minions<hr className="my-2"/></h4>
             <h4>Private Mint: <b>{contractData.maxClaimableSupply}</b> units <hr className="my-2"/></h4>
             <h5>Mint Price: <b>{contractData.price.toString()[0]}.00 {contractData.currencyMetadata.symbol}</b><hr className="my-2"/></h5>
