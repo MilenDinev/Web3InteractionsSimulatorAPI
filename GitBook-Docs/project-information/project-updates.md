@@ -1,6 +1,6 @@
 ---
 description: >-
-  In this section we are posting information related with our project related
+  In this section, we are posting information related to our project-related
   initiatives.
 ---
 

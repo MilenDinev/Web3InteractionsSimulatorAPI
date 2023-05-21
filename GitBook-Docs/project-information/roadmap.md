@@ -38,11 +38,11 @@ description: Information about our Roadmap target goals
 
 ### <mark style="color:orange;">9. In-Game Tokens Smart Contracts Development - (Q1, 2024)</mark>
 
-* [ ] Developing the smart contract for the two in-game tokens and Mini games Tickets which will be used  in our Mini Games section, later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, the smart contracts will include mechanisms for rewards distribution.
+* [ ] Developing the smart contract for the two in-game tokens and Mini games Tickets which will be used in our Mini Games section, later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, smart contracts will include mechanisms for rewards distribution.
 
 ### <mark style="color:orange;">10. Website Development - (Q2, 2023 - Q4, 2024)</mark>
 
-* [ ] After the smart contracts are developed, the website development process can begin. This includes building the website's user interface, integrating the smart contracts, and developing the website's mechanics. It also involves creating the website's visual assets, including landing pages, marketplace, and user dashboard.
+* [ ] After the smart contracts are developed, the website development process can begin. This includes building the website's user interface, integrating smart contracts, and developing the website's mechanics. It also involves creating the website's visual assets, including landing pages, marketplace, and user dashboard.
 
 ### <mark style="color:orange;">11. Mini Gamified Games Development - (Q4, 2023 - Q5, 2024)</mark>
 
@@ -74,7 +74,7 @@ Create the initial designs for the NFTs and get feedback from the community to e
 
 * [ ] <mark style="color:yellow;">Launch and Distribution - (Q2, 2024)</mark>
 
-Launch the Lands NFT Collection on a reputable NFT marketplace such as OpenSea. Establish a fair pricing strategy for the NFTs, taking into account the rarity and demand for each individual NFT. Create a plan for distributing the NFTs, whether through timed auctions, fixed-price sales, or other methods.
+Launch the Lands NFT Collection on a reputable NFT marketplace such as OpenSea. Establish a fair pricing strategy for the NFTs, taking into account the rarity and demand for each NFT. Create a plan for distributing the NFTs, whether through timed auctions, fixed-price sales, or other methods.
 
 ### <mark style="color:orange;">14. Mines NFT Collection - (Q3-Q4, 2024)</mark>
 
@@ -88,7 +88,7 @@ Create the initial designs for the NFTs and get feedback from the community to e
 
 * [ ] <mark style="color:yellow;">Launch and Distribution - (Q1, 2025)</mark>
 
-Launch the Mines NFT Collection on a reputable NFT marketplace such as OpenSea. Establish a fair pricing strategy for the NFTs, taking into account the rarity and demand for each individual NFT. Create a plan for distributing the NFTs, whether through timed auctions, fixed-price sales, or other methods.
+Launch the Mines NFT Collection on a reputable NFT marketplace such as OpenSea. Establish a fair pricing strategy for the NFTs, taking into account the rarity and demand for each NFT. Create a plan for distributing the NFTs, whether through timed auctions, fixed-price sales, or other methods.
 
 ### <mark style="color:orange;">15. Internal Marketplace and Creation of Mining Equipment Items (TBD)</mark>
 
@@ -96,7 +96,7 @@ Launch the Mines NFT Collection on a reputable NFT marketplace such as OpenSea. 
 
 ### <mark style="color:orange;">16. Main Game Development - (Q4, 2024 - Q3, 2025)</mark>
 
-* [ ] The main game development process will begin once the website, NFT collections, and mini-gamified games are complete. This includes building the game's user interface, integrating the smart contracts, and developing the game's mechanics. The game will be based on the Wild West theme, where players can own land and mines that can be used to mine the in-game token and other rewards. The game mechanics will include mining, trading and battling.
+* [ ] The main game development process will begin once the website, NFT collections, and mini-gamified games are complete. This includes building the game's user interface, integrating the smart contracts, and developing the game's mechanics. The game will be based on the Wild West theme, where players can own land and mines that can be used to mine the in-game token and other rewards. The game mechanics will include mining, trading, and battling.
 
 ### <mark style="color:orange;">17. Deployment and Launch - (Q4, 2025)</mark>
 
