@@ -1,0 +1,179 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+    background-size: cover;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    min-width: 320px;
+    background-origin: content-box;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-image: url(../images/background.png);
+    background-position: center center;
+    margin-right: 0px;
+    margin-left: 0px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    min-height: 978px;
+}
+.App {
+    clear: both;
+    background-attachment: scroll;
+    position: relative;
+    max-width: 1800px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+}
+.App header .navbar.navbar-expand-lg.navbar-light.bg-transparent {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+
+
+
+
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent p.navbar-brand a#label  {
+    font-size: 150%;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    border-top: medium solid #E88D35;
+    border-bottom: medium solid #E88D35;
+    padding-right: 1%;
+    padding-left: 1%;
+    border-radius: 9px;
+    color: #54380A;
+    text-shadow: 2px 1px 4px;
+    -webkit-box-shadow: 0px 0px 6px 2px;
+    box-shadow: 0px 0px 6px 2px;
+    text-decoration: none;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent p.navbar-brand:hover a#label{
+	color: #DB9B87;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent button.navbar-toggler  {
+    border-bottom-color: #E88D35;
+    border-top-color: #E88D35;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-bottom-width: medium;
+    border-top-width: medium;
+    border-radius: 9px;
+
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent div#navbarText.collapse.navbar-collapse ul.navbar-nav li a {
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #54380A;
+    border-top: medium solid #E88D35;
+    border-bottom: medium solid #E88D35;
+    border-radius: 9px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-shadow: 1px 0px 0px;
+    -webkit-box-shadow: 0px 0px 6px 2px;
+    box-shadow: 0px 0px 6px 2px;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent div#navbarText.collapse.navbar-collapse ul.navbar-nav li:hover a {
+	color: #DB9B87;
+}
+
+
+section.mint-function {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+
+}
+.containter .mint-function .card.text-center.bg-transparent {
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+    border-color: #E88D35;
+    -webkit-box-shadow: 0px 0px 6px 1px;
+    box-shadow: 0px 0px 6px 1px;
+    min-width: 415px;
+    max-width: 500px;
+    background-image: url(../images/form.png);
+    width: 358px;
+    height: 465px;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+
+section.mint-function .messages .data ul {
+    list-style-type: none;
+}
+
+
+section.mint-function .messages .info-message {
+    color: #FFD59A;
+}
+
+section.mint-function .messages .info-message a {
+    text-decoration: none;
+    color: #876C29;
+    border: thin solid #F2C042;
+    border-radius: 5px;
+    font-size: 13px;
+}
+section.mint-function .messages .mint-button a {
+    color: #663A08;
+}
+section.mint-function .messages .mint-button:hover a {
+    color: #DB9B87;
+}
+  .nav-container {
+    flex: 1.5;
+    text-align: center;
+  }
+
+  .nav-container li {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+  .nav-container a {
+    color: #E88D35;
+  }
+  .copy-container {
+    flex: 1.5;
+    text-align: center;
+  }
+
+  .copy-container p {
+    border-bottom: medium solid #E88D35;
+    border-top: medium solid #E88D35;
+    border-radius: 7px;
+    color: #E88D35;
+  }
+
+  @media screen and (max-width: 600px) {
+    .information {
+      flex-direction: column;
+    }
+  }
