@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Header from './Header';
-import Body from './Body';
-import Footer from './Footer';
+import Header from './Components/Header';
+import Body from './Components/Body';
+import Footer from './Components/Footer';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThirdwebProvider } from '@thirdweb-dev/react';
@@ -31,7 +31,7 @@ root.render(
 
 const hero = ReactDOM.createRoot(document.getElementById('hero'));
 hero.render(
-  <ThirdwebProvider activeChain="avalanche-fuji" autoConnect={false} >
+  <ThirdwebProvider activeChain="avalanche-fuji" autoConnect={true} >
   <React.StrictMode>
     <Body />
   </React.StrictMode>

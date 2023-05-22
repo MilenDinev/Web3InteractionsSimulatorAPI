@@ -1,7 +1,7 @@
-import logo from './images/logo.png';
-import './styles/custom.css';
-import { ConnectButton } from './Components/Connect';
-import './App.css';
+import { ConnectButton } from './Helpers/utils/Connect';
+import logo from '../images/logo.png';
+import '../App.css';
+import '../styles/custom.css';
 
 function Header() {
   return (

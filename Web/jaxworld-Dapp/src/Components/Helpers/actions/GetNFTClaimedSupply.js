@@ -1,14 +1,15 @@
 import { useClaimedNFTSupply } from "@thirdweb-dev/react";
-import { ContractAddress } from "./ContractData";
+import { ContractAddress } from "./GetContract";
 // Your smart contract address
 
 
 export function NFTClaimedSupply() {
 
   const { contract } = ContractAddress();
-  const { data: claimedTokens } = useClaimedNFTSupply(contract);
+  const { data, isLoading } = useClaimedNFTSupply(contract);
 
   return {
-    claimedTokens
+    data,
+    isLoading
   };
 }

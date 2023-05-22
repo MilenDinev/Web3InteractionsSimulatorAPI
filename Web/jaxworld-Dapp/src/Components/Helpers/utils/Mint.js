@@ -7,7 +7,7 @@ function Mint() {
     <Web3Button
       dropdownPosition={{ side: "bottom", align: "center" }}
       auth={{ loginOptional: false }}
-      contractAddress="0x1426ba92E4091b41d3923A946CC5032F2878aC9F"
+      contractAddress="0x7e327E167FD7a339e410dd34f17e2856388e0a9a"
       // For example, claim an NFT from this contract when the button is clicked
       action={(contract) => contract.erc721.claim(1)}
       // Logic to execute when clicked

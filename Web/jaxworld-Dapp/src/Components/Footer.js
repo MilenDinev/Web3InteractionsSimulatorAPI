@@ -5,9 +5,9 @@ function Footer() {
   return (
     <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
       <ul className="nav col-md-4 justify-content-start">
-        <li className="ms-2"><a className="text-muted" target="_blank" rel="noreferrer" href="https://discord.com/invite/dPNE6fK4S4"><i class="bi bi-discord" style={{ fontSize: 20 }}></i></a></li>
-        <li className="ms-2"><a className="text-muted" target="_blank" rel="noreferrer" href="https://twitter.com/jaxworld_"><i class="bi bi-twitter" style={{ fontSize: 20 }}></i></a></li>
-        <li className="ms-2"><a className="text-muted" target="_blank" rel="noreferrer" href="https://medium.com/@jaxminersworld"><i class="bi bi-medium" style={{ fontSize: 20 }}></i></a></li>
+        <li className="ms-2"><a className="text-muted" target="_blank" rel="noreferrer" href="https://discord.com/invite/dPNE6fK4S4"><i className="bi bi-discord" style={{ fontSize: 20 }}></i></a></li>
+        <li className="ms-2"><a className="text-muted" target="_blank" rel="noreferrer" href="https://twitter.com/jaxworld_"><i className="bi bi-twitter" style={{ fontSize: 20 }}></i></a></li>
+        <li className="ms-2"><a className="text-muted" target="_blank" rel="noreferrer" href="https://medium.com/@jaxminersworld"><i className="bi bi-medium" style={{ fontSize: 20 }}></i></a></li>
       </ul>
       <a href="index" target="_blank" rel="noreferrer" className="col-md-4 d-flex justify-content-center text-decoration-none">
         <p className="col-md-4 mb-0 text-muted">&copy; 2023 Jax World</p>

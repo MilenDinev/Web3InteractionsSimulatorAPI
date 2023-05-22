@@ -1,7 +1,7 @@
 import React from "react";
-import HeroContent from "./Components/Helpers/HeroContent";
-import Mint from "./Components/Mint";
-import { ContractData } from "./Components/GetContractData";
+import HeroContent from "./HeroContent";
+import Mint from "./Helpers/utils/Mint";
+import { ContractData } from "./ContractData";
 
 function Body() {
   return (
