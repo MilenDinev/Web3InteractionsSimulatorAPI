@@ -1,7 +1,7 @@
 import React from "react";
 import HeroContent from "./HeroContent";
-import Mint from "./Helpers/utils/Mint";
-import { ContractData } from "./ContractData";
+import {Claim} from "./Helpers/renders/units/Claim";
+import { ContractData } from "./Helpers/renders/units/ContractData";
 
 function Body() {
   return (
@@ -17,11 +17,11 @@ function Form() {
     <div className="col-md-10 mx-auto col-lg-5">
       <form className="p-4 p-md-5 border border-secondary border-opacity-50 rounded-5 bg-transparent">
         <ContractData />
-        <Mint />
+        <Claim />
 
         <hr className="my-4"></hr>
-        <div className="form-control border-0 bg-secondary bg-gradient rounded-4 p-2 text-muted text-opacity-75 bg-opacity-10 form-floating mb-3">
-          <div className="form-check">
+        <div className="form-control border-0 bg-secondary bg-gradient rounded-4 p-2 text-muted bg-opacity-10 form-floating mb-3">
+          <div className="form-check text-opacity-75">
             <input
               className="form-check-input"
               type="checkbox"
@@ -35,7 +35,7 @@ function Form() {
           </div>
         
 
-        <div className="form-check">
+        <div className="form-check text-opacity-75">
           <input
             className="form-check-input"
             type="checkbox"

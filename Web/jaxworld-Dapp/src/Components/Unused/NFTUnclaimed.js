@@ -1,9 +1,9 @@
 import { useUnclaimedNFTSupply } from "@thirdweb-dev/react";
-import { ContractAddress } from "./GetContract";
+import { ContractAddress } from "..actions/../GetContract";
 // Your smart contract address
 
 
-export function GetUnclaimedSupply() {
+export function GetUnclaimedNFTs() {
 
   const { contract } = ContractAddress();
   const { data, isLoading} = useUnclaimedNFTSupply(contract);

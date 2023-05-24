@@ -1,4 +1,4 @@
-import { ConnectButton } from './Helpers/utils/Connect';
+import { ConnectButton } from './Helpers/renders/units/Connect';
 import logo from '../images/logo.png';
 import '../App.css';
 import '../styles/custom.css';

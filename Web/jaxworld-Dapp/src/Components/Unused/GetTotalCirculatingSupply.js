@@ -1,5 +1,5 @@
 import { useTotalCirculatingSupply } from "@thirdweb-dev/react";
-import { ContractAddress } from "./GetContract";
+import { ContractAddress } from "../Helpers/utils/GetContract";
 // Your smart contract address
 
 

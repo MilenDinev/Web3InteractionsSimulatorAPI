@@ -1,8 +1,10 @@
 import {Web3Button} from "@thirdweb-dev/react";
 
-function Mint() {
-    
+export function Claim() {
+  
+
   return (
+
     <div className="d-flex justify-content-center">
     <Web3Button
       dropdownPosition={{ side: "bottom", align: "center" }}
@@ -17,4 +19,3 @@ function Mint() {
     </div>
   );
 }
-export default Mint;

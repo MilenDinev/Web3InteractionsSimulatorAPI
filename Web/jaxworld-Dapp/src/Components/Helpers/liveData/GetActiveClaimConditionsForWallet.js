@@ -1,12 +1,12 @@
 import { useActiveClaimConditionForWallet } from "@thirdweb-dev/react";
-import { UserAddress } from "./GetUserAddress";
-import { ContractAddress } from "./GetContract";
+import { UserAddress } from "../utils/GetUserAddress";
+import { GetContract } from "../utils/GetContract";
 
 
 export function GetActiveDataPerWallet() {
 
     const { address } = UserAddress();
-    const { contract } = ContractAddress();
+    const { contract } = GetContract();
     const { data, isLoading, error } = useActiveClaimConditionForWallet(
         contract,
         address,
