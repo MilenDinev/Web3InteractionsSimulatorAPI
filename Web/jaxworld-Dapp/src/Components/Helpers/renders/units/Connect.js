@@ -5,9 +5,6 @@ export function ConnectButton() {
     return (
       <ConnectWallet
         theme="white bg-transparent"
-        auth={{
-          loginOptional: false,
-        }}
       />
     );
   }

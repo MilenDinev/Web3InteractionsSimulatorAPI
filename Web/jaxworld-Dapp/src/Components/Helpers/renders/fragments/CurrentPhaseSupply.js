@@ -1,17 +1,18 @@
 import { GetActiveClaimData } from '../../liveData/GetActiveClaimData';
+import { Loading } from '../customization/Spinner';
 import './../../../../App.css';
 
 export function CurrentPhaseSupply() {
   const { data: allClaimData, isLoading, error } = GetActiveClaimData();
 
   const currentMintSupply = isLoading
-    ? 'Loading...'
+    ? <Loading/>
     : error != null
     ? error.toString()
     : allClaimData.maxClaimableSupply;
 
   const currentEventMinted = isLoading
-    ? 'Loading...'
+    ? <Loading/>
     : error != null
     ? error.toString()
     : allClaimData.currentMintSupply;

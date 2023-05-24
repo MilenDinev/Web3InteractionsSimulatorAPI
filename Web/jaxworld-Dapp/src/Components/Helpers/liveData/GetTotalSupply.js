@@ -11,7 +11,7 @@ export function GetTotalSupply() {
 
   useEffect(() => {
     (async () => {
-      setTotalSupply((isLoading ? 1 : ((await contract.erc721.totalCount()).toNumber(Int32Array))));
+      setTotalSupply((isLoading ? 0 : ((await contract.erc721.totalCount()).toNumber(Int32Array))));
     })();
   });
 

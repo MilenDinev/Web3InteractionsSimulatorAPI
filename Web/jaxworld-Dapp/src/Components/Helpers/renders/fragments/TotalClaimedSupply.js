@@ -1,11 +1,12 @@
 import { NFTClaimedSupply } from '../../liveData/GetNFTClaimedSupply';
+import { Loading } from '../customization/Spinner';
 import './../../../../App.css';
 
 export function ClaimedNFTSupply() {
   const { data: claimed, isLoading, error } = NFTClaimedSupply();
 
   const totalMinted = isLoading
-    ? 'Loading...'
+    ? <Loading/>
     : error != null
     ? error.toString()
     : claimed.toNumber(Int32Array);

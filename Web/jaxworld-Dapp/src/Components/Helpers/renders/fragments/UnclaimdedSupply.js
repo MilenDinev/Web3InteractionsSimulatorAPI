@@ -1,10 +1,11 @@
 import { GetUnclaimedSupply } from '../../liveData/GetUnclaimedSupply';
+import { Loading } from '../customization/Spinner';
 import './../../../../App.css';
 
 export function UnclaimedNFTSupply() {
   const { supply } = GetUnclaimedSupply();
 
-  const unclaimedSupply = supply === 0 ? 'Loading...' : supply;
+  const unclaimedSupply = supply === 0 ? <Loading/>: supply;
 
   return (
     <>

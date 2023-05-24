@@ -12,7 +12,7 @@ export function GetUnclaimedSupply() {
 
   useEffect(() => {
       (async () => {
-        setUnclaimedSupply((isLoading ? 1 : ((await contract.erc721.totalUnclaimedSupply()).toNumber(Int32Array))));
+        setUnclaimedSupply((isLoading ? 0 : ((await contract.erc721.totalUnclaimedSupply()).toNumber(Int32Array))));
      })() ;
   });
 

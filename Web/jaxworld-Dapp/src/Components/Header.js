@@ -4,6 +4,7 @@ import '../App.css';
 import '../styles/custom.css';
 
 function Header() {
+
   return (
     
     <div className="fs-5 App Fonts">
@@ -22,7 +23,6 @@ function Header() {
     <span className="nav-item"><ConnectButton/></span>
   </header>
 
-  
     </div>
   );
 }

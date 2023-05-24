@@ -1,11 +1,12 @@
 import { GetActiveClaimData } from '../../liveData/GetActiveClaimData';
+import { Loading } from '../customization/Spinner';
 import './../../../../App.css';
 
 export function CurrentPhasePrice() {
   const { data: allClaimData, isLoading, error } = GetActiveClaimData();
 
   const mintPriceValue = isLoading
-    ? 'Loading...'
+    ? <Loading/>
     : error != null
     ? error.toString()
     : allClaimData.price.toNumber();

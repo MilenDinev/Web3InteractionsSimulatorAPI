@@ -1,9 +1,10 @@
 import { GetTotalSupply } from '../../liveData/GetTotalSupply';
+import { Loading } from '../customization/Spinner';
 import './../../../../App.css';
 
 export function TotalSupply() {
   const { supply } = GetTotalSupply();
-  const totalSupply = supply === 0 ? 'Loading...' : supply;
+  const totalSupply = supply === 0 ? <Loading/> : supply;
 
   return (
     <>

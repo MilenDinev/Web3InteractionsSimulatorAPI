@@ -1,7 +1,7 @@
-import { useConnectionStatus } from '@thirdweb-dev/react';
 import { GetActiveDataPerWallet } from '../../liveData/GetActiveClaimConditionsForWallet';
 import { Eligibility } from '../../liveData/GetEligibility';
 import { CanClaim } from '../../liveData/CanClaim';
+import { Loading } from '../customization/Spinner';
 import './../../../../App.css';
 
 export function ClaimStatusPerWallet() {
@@ -10,14 +10,11 @@ export function ClaimStatusPerWallet() {
     const {claim } = CanClaim();
     
     const {data:reason, isLoading:eligibilityLoading} =  Eligibility();
-    const connectionStatus = useConnectionStatus();
 
 
-    const claimAvailablePerWallet = connectionStatus === 'disconnected' ? 'You need to connect...' :
-
-    isLoading ? 'Loading...' : 
+    const claimAvailablePerWallet = isLoading ? <Loading/> : 
     !claim ? eligibilityLoading ? 
-    'Loading...' : reason[0] :
+    <Loading/> : reason[0] :
     error!=null ? error.toString() : 
     'Available to Claim: ' + data.maxClaimablePerWallet;
 
