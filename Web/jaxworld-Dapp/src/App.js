@@ -2,6 +2,7 @@ import Body from "./Components/Body";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import { useConnectionStatus } from "@thirdweb-dev/react";
+import { WelcomeScreen } from "./Components/Helpers/renders/units/WelcomeScreen";
 function App() {
 
   const connectionStatus = useConnectionStatus();
@@ -12,7 +13,12 @@ function App() {
     <div>
     <Header/>
     </div>
-    {connectionStatus === 'disconnected' ? 'You need to connect...' :
+    {connectionStatus === 'disconnected' ? 
+    <>
+    <WelcomeScreen/>
+    <Footer/>
+    </>
+     :
     <>
     <Body/>
     <Footer/>
