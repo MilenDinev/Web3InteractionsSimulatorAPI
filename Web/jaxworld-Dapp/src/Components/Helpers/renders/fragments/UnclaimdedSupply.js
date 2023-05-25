@@ -9,7 +9,7 @@ export function UnclaimedNFTSupply() {
 
   return (
     <>
-      <h5 className="Fonts">
+      <h5 className="fonts">
         Unclaimed Supply: <b>{unclaimedSupply}</b>
         <hr className="my-2" />
       </h5>

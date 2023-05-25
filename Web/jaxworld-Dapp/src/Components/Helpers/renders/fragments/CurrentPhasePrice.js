@@ -19,7 +19,7 @@ export function CurrentPhasePrice() {
 
   return (
     <>
-      <h4 className="Fonts">
+      <h4>
         Mint Price:{' '}
         <b>
           {mintPriceValue} {mintPriceSymbol}

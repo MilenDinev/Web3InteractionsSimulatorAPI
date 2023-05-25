@@ -19,10 +19,10 @@ export function CurrentPhaseSupply() {
 
   return (
     <>
-      <h5 className="Fonts">
+      <h5 className="fonts">
         Private Mint Supply: <b>{currentMintSupply}</b> <hr className="my-2" />
       </h5>
-      <h5 className="Fonts">
+      <h5 className="fonts">
         Minted in Current Event: <b>{currentEventMinted}</b>{' '}
       </h5>
     </>

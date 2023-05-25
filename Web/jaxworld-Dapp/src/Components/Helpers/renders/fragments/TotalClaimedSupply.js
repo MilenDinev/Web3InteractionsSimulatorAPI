@@ -13,7 +13,7 @@ export function ClaimedNFTSupply() {
 
   return (
     <>
-      <h5 className="Fonts">
+      <h5 className="fonts">
       <hr className="my-2"/>
         Minted in Total: <b>{totalMinted}</b> <hr className="my-2" />
       </h5>

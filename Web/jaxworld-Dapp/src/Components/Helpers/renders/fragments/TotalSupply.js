@@ -8,7 +8,7 @@ export function TotalSupply() {
 
   return (
     <>
-      <h5 className="Fonts">
+      <h5 className="fonts">
       <hr className="my-2" />
         Total Supply: <b>{totalSupply}</b> G Minions
         <hr className="my-2" />
