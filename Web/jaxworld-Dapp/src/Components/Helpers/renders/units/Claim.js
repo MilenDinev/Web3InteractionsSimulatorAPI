@@ -1,50 +1,19 @@
 import {Web3Button} from '@thirdweb-dev/react';
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
+import { GetToast } from '../fragments/Toast';
 
 export function Claim() {
 
-      const submit = () => toast.info('Transaction submitted!', {
-        position: 'bottom-center',
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
+  const {toastContainer, submit, success, error} = GetToast();
 
-      const success = () => toast.success('Successfully claimed!', {
-        position: 'bottom-center',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
-    
-      const error = () => toast.error('An error occured!', {
-        position: 'bottom-center',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
   return (
-
+<>
     <div className="d-flex justify-content-center">
+
     <Web3Button
       dropdownPosition={{ side: 'bottom', align: 'center' }}
       contractAddress="0x7e327E167FD7a339e410dd34f17e2856388e0a9a"
-      // For example, claim an NFT from this contract when the button is clicked
       action={(contract) => contract.erc721.claim(1)}
       onSuccess={success}
       onSubmit= {submit}
@@ -53,19 +22,45 @@ export function Claim() {
     >
       Claim NFT
     </Web3Button>
-    <ToastContainer 
+
+    {toastContainer}
     
-    position="bottom-center"
-    autoClose={5000}
-    hideProgressBar={false}
-    newestOnTop={true}
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover
-    theme="light"
-    />
     </div>
+
+  <hr className="my-4"></hr>
+  <div className="form-control border-0 bg-secondary bg-gradient rounded-4 p-2 text-muted bg-opacity-10 form-floating mb-3">
+    <div className="form-check text-opacity-75">
+      <input
+        className="form-check-input"
+        type="checkbox"
+        id="flexCheckChecked"
+        required
+      >                  
+      </input>
+      <label className="form-check-label" htmlFor="flexCheckDefault">
+        Agree with Privacy Policy
+      </label>
+    </div>
+
+
+    <div className="form-check text-opacity-75">
+      <input
+        className="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckChecked"
+        required
+      ></input>
+      <label className="form-check-label" htmlFor="flexCheckChecked">
+        Agree with Terms Of Use
+      </label>
+    </div>
+
+
+  <small className="text-white">
+    It is necessary to agree to the Privacy Policy and Terms of Use.
+  </small>
+  </div>
+  </>
   );
 }
