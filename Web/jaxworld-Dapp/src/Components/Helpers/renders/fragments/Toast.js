@@ -1,4 +1,3 @@
-import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,7 +15,7 @@ export function GetToast() {
         theme: 'light',
       });
 
-      const success = () => toast.success('Successfully claimed!', {
+      const success = (event) => toast.success('Successfully claimed!', {
         position: 'bottom-center',
         autoClose: 3000,
         hideProgressBar: false,
@@ -38,8 +37,7 @@ export function GetToast() {
         theme: 'light',
       });
 
-      const toastContainer = <ToastContainer 
-    
+      const toastContainer = <ToastContainer    
       position="bottom-center"
       autoClose={5000}
       hideProgressBar={false}
