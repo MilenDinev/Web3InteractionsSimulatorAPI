@@ -1,7 +1,7 @@
 export function Footer() {
   return (
 
-    <div id="footer" className="container">
+    <div id="footer" className="container App">
     <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
       <ul className="nav col-md-4 justify-content-start">
         <li className="ms-2"><a className="text-muted" target="_blank" rel="noreferrer" href="https://discord.com/invite/dPNE6fK4S4"><i className="bi bi-discord" style={{ fontSize: 20 }}></i></a></li>
