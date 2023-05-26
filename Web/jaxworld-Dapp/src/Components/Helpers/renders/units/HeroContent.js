@@ -1,13 +1,13 @@
 export function HeroContent() {
   return (
-    <div className="fonts col-lg-7 text-center text-lg-start bg-gradient p-3 rounded-5 text-muted">
-      <h4 className="display-6 fw-bolder mb-2">
-        Jax World"s Genesis NFT Collection
-      </h4>
-      <h3 className="display-6 fw-bold mb-1">G Minions</h3>
-      <h1 className="fonts-style display-2 fw-bold lh-1 mb-0 text-white text-opacity-75">
+    <div className="fonts hero col-lg-7 text-center text-lg-start bg-gradient p-3 rounded-5 text-muted">
+      <p className="display-6 fw-bolder mb-2">
+        Jax World's Genesis NFT Collection
+      </p>
+      <p className="display-6 fw-bold mb-1">G Minions</p>
+      <p className="fonts-style display-2 lh-1 mb-0">
         is now available
-      </h1>
+      </p>
       <p className="col-lg-10 fs-4">exclusively for our community members.</p>
     </div>
   );

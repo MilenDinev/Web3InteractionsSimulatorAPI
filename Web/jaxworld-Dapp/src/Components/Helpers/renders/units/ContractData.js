@@ -8,13 +8,12 @@ import { ClaimStatusPerWallet } from "../fragments/ClaimStatus";
 export  function ContractData() {
 return (
         <>       
-          <div className="text-center form-control border-0 bg-secondary bg-gradient rounded-5 p-2 text-white bg-opacity-10 form-floating mb-3 fonts">
-            <TotalSupply/>
+          <div className="text-center form-control border-0 bg-secondary bg-gradient rounded-5 p-1 bg-opacity-10 form-floating mb-2 fonts">
+          <p className="fonts-style eligibility"><TotalSupply/>
             <UnclaimedNFTSupply/>
             <CurrentPhaseSupply/>
-            <ClaimedNFTSupply/>
+            <ClaimedNFTSupply/></p>
             <ClaimStatusPerWallet/>
-            <br></br>
             <CurrentPhasePrice/>
           </div>
         </>

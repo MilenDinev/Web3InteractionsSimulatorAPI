@@ -1,12 +1,14 @@
 import React from "react";
 import { Web3Button } from "@thirdweb-dev/react";
-import { GetToast } from "../fragments/Toast";
-import { GetAgreements } from "../fragments/GetAgreements";
+import { Toast } from "../fragments/Toast";
+import { Agreements } from "../fragments/Agreements";
+import { Conditions } from "../fragments/Conditions";
 
 export function Claim() {
 
-  const {toastContainer, submit, success, error} = GetToast();
-  const {inputs, termsOfUse , privacyPolicy} = GetAgreements();
+  const {toastContainer, submit, success, error} = Toast();
+  const {inputs, termsOfUse , privacyPolicy} = Agreements();
+  const {output:conditions} = Conditions();
 
   return (
 <>
@@ -14,8 +16,7 @@ export function Claim() {
 
     <>
     <div className="d-flex justify-content-center">
-    <div> Please read and agree with Privacy policy and Terms of Use in order to continue. </div>
-    <br/>
+      {conditions}
     </div>
     {inputs} 
     </>
@@ -30,7 +31,6 @@ export function Claim() {
       onSuccess={success}
       onSubmit= {submit}
       onError={error}
-      // Logic to execute when clicked
     >
       Claim NFT
     </Web3Button>

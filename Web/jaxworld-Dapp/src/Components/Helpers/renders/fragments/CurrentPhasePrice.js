@@ -18,12 +18,12 @@ export function CurrentPhasePrice() {
 
   return (
     <>
-      <h4>
+      <p className="fonts-style price">
         Mint Price:{" "}
         <b>
           {mintPriceValue} {mintPriceSymbol}
         </b>
-      </h4>
+      </p>
     </>
   );
 }

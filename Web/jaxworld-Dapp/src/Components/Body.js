@@ -19,7 +19,6 @@ function BodyContent() {
 
 
   const handleSubmit = event => {
-    console.log("handleSubmit ran");
     event.preventDefault();
 
 

@@ -13,16 +13,16 @@
     justify-content: center;
     align-items: center;
     margin-block-end: 300px;
-  
+    text-align: center;
   }
   
-  .welcome-screen .text {
+  .welcome-screen.text {
     justify-content: center;
     opacity: 0;
     transition: all 0.5s;
   }
   
-  .welcome-screen:hover.welcome-screen .text {
+  .welcome-screen:hover.welcome-screen.text {
     justify-content: center;
     scale: 1;
     opacity: 0.7;

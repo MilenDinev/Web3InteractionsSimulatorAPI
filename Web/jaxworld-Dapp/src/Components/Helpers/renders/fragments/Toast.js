@@ -1,6 +1,6 @@
 import { ToastContainer, toast } from "react-toastify";
 
-export function GetToast() {
+export function Toast() {
 
       const submit = () => toast.info("Transaction submitted!", {
         position: "bottom-center",

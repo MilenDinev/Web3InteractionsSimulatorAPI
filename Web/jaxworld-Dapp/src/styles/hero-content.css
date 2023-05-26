@@ -1,0 +1,18 @@
+.hero {
+    animation: hr 3.0s infinite ease !important;
+}
+
+
+@keyframes hr {
+    0% {
+      transform: rotateX(-15deg) translateY(0px);
+    }
+  
+    50% {
+      transform: rotateX(-15deg) translateY(-10px);
+    }
+  
+    100% {
+      transform: rotateX(-15deg) translateY(0px);
+    }
+}

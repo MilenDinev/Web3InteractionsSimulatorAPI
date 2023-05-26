@@ -1,6 +1,6 @@
 import {useState } from "react";
 
-export function GetAgreements() {
+export function Agreements() {
 
     const [privacyPolicy, setPrivacyPolicy] = useState(false);
 
@@ -24,10 +24,9 @@ const inputs =   <>
         <input
           className="form-check-input"
           type="checkbox"
-          name="privacy-policy"
           onChange={handlePrivacyPolicy}       
         />                  
-        <label className="form-check-label" for="privacy-policy">
+        <label className="form-check-label">
           Agree with Privacy Policy
         </label>
       </div>
@@ -37,10 +36,9 @@ const inputs =   <>
         <input
           className="form-check-input"
           type="checkbox"
-          name="terms-of-use"
           onChange={handleTermsOfUse}
         />
-        <label className="form-check-label" for="terms-of-use">
+        <label className="form-check-label">
           Agree with Terms Of Use
         </label>
       </div>

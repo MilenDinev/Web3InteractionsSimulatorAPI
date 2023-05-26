@@ -9,7 +9,10 @@ import "./styles/welcome-screen.css";
 import "./styles/index.css";
 import "./styles/App.css";
 import "./styles/spinners.css";
+import "./styles/hero-content.css";
+import "./styles/conditions.css";
 import "react-toastify/dist/ReactToastify.css";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ThirdwebProvider activeChain="avalanche-fuji" autoConnect={true} >

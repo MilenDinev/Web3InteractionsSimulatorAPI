@@ -53,6 +53,36 @@ _______________________________________________________*/
 
 .fonts-style {
   font-style: oblique;
+  font-weight: bolder;
+  color: rgba(255, 255, 255, 0.861);
+  
+}
+
+.fonts-style.price {
+  font-size: 30px;
+  font-style: oblique;
+  font-weight: bolder;
+  color: rgba(255, 255, 255, 0.861);
+  justify-content: center;
+  text-shadow: #222;
+  box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
+  border-radius: 15%;
+}
+
+.fonts-style.eligibility {
+  font-size: 30px;
+  font-style: oblique;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.861);
+  text-shadow: #222;
+  box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
+  border-radius: 20%;
+  text-align: center;
+  box-sizing: content-box;
+  margin-top: 5px;
+  text-align: center;
+  padding: 0px;
+  margin-top: 4px;
 }
 
 .hover-effect:hover {

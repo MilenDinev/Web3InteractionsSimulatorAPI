@@ -18,10 +18,9 @@ export function ClaimStatusPerWallet() {
 
   return (
     <>
-      <h5 className="fonts">
-        <b className="text-white text-opacity-75">{claimAvailablePerWallet}</b>
-        <hr className="my-2" />
-      </h5>
+      <p className="fonts-style eligibility">
+        {claimAvailablePerWallet}
+      </p>
     </>
   );
 }
