@@ -18,5 +18,6 @@ export function GetTotalSupply() {
 
   return {
     supply,
+    isLoading
   };
 }

@@ -9,11 +9,11 @@ export function Claim() {
       const submit = () => toast.info('Transaction submitted!', {
         position: 'bottom-center',
         autoClose: 2000,
-        hideProgressBar: true,
+        hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
-        progress: 0,
+        progress: undefined,
         theme: 'light',
       });
 
@@ -47,8 +47,8 @@ export function Claim() {
       // For example, claim an NFT from this contract when the button is clicked
       action={(contract) => contract.erc721.claim(1)}
       onSuccess={success}
-      onError={error}
       onSubmit= {submit}
+      onError={error}
       // Logic to execute when clicked
     >
       Claim NFT
@@ -58,7 +58,7 @@ export function Claim() {
     position="bottom-center"
     autoClose={5000}
     hideProgressBar={false}
-    newestOnTop={false}
+    newestOnTop={true}
     closeOnClick
     rtl={false}
     pauseOnFocusLoss

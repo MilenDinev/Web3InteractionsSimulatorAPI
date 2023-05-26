@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { ContractAddress } from "../Helpers/utils/GetContract";
-import { UserAddress } from "../Helpers/utils/GetUserAddress";
+import { useEffect, useState } from '';
+import { ContractAddress } from '';
+import { UserAddress } from '';
 // Your smart contract address
 
 export function GetClaimInegibility() {

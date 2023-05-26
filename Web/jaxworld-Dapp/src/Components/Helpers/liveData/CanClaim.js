@@ -23,5 +23,6 @@ export function CanClaim() {
 
   return {
     claim,
+    isLoading
   };
 }

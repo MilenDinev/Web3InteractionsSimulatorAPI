@@ -1,6 +1,6 @@
-import { useNFTs } from "@thirdweb-dev/react";
-import { ContractAddress } from "../Helpers/utils/GetContract";
-// Your smart contract address
+import { useNFTs } from '';
+import { ContractAddress } from '';
+
 
 
 export function GetCollectionData() {

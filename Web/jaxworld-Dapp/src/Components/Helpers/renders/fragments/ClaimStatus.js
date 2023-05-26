@@ -1,22 +1,18 @@
-import { GetActiveDataPerWallet } from '../../liveData/GetActiveClaimConditionsForWallet';
-import { Eligibility } from '../../liveData/GetEligibility';
 import { CanClaim } from '../../liveData/CanClaim';
 import { Loading } from '../customization/Spinner';
 import './../../../../App.css';
 
 export function ClaimStatusPerWallet() {
 
-    const {data, isLoading, error} =  GetActiveDataPerWallet();
-    const {claim } = CanClaim();
+    const quantity = 1;
+
+    const {claim, isLoading} = CanClaim();
     
-    const {data:reason, isLoading:eligibilityLoading} =  Eligibility();
 
 
-    const claimAvailablePerWallet = isLoading ? <Loading/> : 
-    !claim ? eligibilityLoading ? 
-    <Loading/> : reason[0] :
-    error!=null ? error.toString() : 
-    'Available to Claim: ' + data.maxClaimablePerWallet;
+    const claimAvailablePerWallet =  isLoading ? <Loading/> : 
+    !isLoading && !claim ? 'You are not allowed to claim' : !isLoading && claim ?
+    'Available to Claim: ' + quantity : 'You are not allowed to claim';
 
   return (
     <>

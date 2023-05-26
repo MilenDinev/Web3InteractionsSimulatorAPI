@@ -13,6 +13,7 @@ root.render(
     <App />
   </React.StrictMode>
   </ThirdwebProvider>
+  
 );
 
 

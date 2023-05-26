@@ -1,5 +1,5 @@
-import { useUnclaimedNFTSupply } from "@thirdweb-dev/react";
-import { ContractAddress } from "..actions/../GetContract";
+import { useUnclaimedNFTSupply } from '';
+import { ContractAddress } from '';
 // Your smart contract address
 
 

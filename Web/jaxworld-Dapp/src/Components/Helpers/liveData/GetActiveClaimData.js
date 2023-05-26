@@ -5,9 +5,9 @@ import { GetContract } from "../utils/GetContract";
 
 export function GetActiveClaimData() {
 
-    const { contract } = GetContract();
+    const { contract} = GetContract();
     const { data, isLoading, error } = useActiveClaimCondition(
-        contract, // Token ID required for ERC1155 contracts here.
+        contract
       );
         
   return {
