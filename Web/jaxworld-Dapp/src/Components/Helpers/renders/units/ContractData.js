@@ -1,11 +1,9 @@
-import { TotalSupply} from '../fragments/TotalSupply';
-import { UnclaimedNFTSupply } from '../fragments/UnclaimdedSupply';
-import { CurrentPhaseSupply } from '../fragments/CurrentPhaseSupply';
-import { CurrentPhasePrice } from '../fragments/CurrentPhasePrice';
-import { ClaimedNFTSupply } from '../fragments/TotalClaimedSupply';
-import { ClaimStatusPerWallet } from '../fragments/ClaimStatus';
-
-import './../../../../App.css';
+import { TotalSupply} from "../fragments/TotalSupply";
+import { UnclaimedNFTSupply } from "../fragments/UnclaimdedSupply";
+import { CurrentPhaseSupply } from "../fragments/CurrentPhaseSupply";
+import { CurrentPhasePrice } from "../fragments/CurrentPhasePrice";
+import { ClaimedNFTSupply } from "../fragments/TotalClaimedSupply";
+import { ClaimStatusPerWallet } from "../fragments/ClaimStatus";
 
 export  function ContractData() {
 return (

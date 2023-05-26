@@ -1,7 +1,4 @@
-import { ConnectButton } from "./Connect";
-
-import "./../../../../App.css";
-
+import "../../../../styles/welcome-screen.css";
 export function WelcomeScreen() {
   return (
     <>

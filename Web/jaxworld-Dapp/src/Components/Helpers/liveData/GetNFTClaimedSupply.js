@@ -1,7 +1,5 @@
-import { useClaimedNFTSupply } from '@thirdweb-dev/react';
-import { GetContract } from '../utils/GetContract';
-// Your smart contract address
-
+import { useClaimedNFTSupply } from "@thirdweb-dev/react";
+import { GetContract } from "../utils/GetContract";
 
 export function NFTClaimedSupply() {
 

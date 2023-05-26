@@ -1,6 +1,5 @@
-import { GetActiveClaimData } from '../../liveData/GetActiveClaimData';
-import { Loading } from '../customization/Spinner';
-import './../../../../App.css';
+import { GetActiveClaimData } from "../../liveData/GetActiveClaimData";
+import { Loading } from "../customization/Spinner";
 
 export function CurrentPhaseSupply() {
   const { data: allClaimData, isLoading, error } = GetActiveClaimData();
@@ -23,7 +22,7 @@ export function CurrentPhaseSupply() {
         Private Mint Supply: <b>{currentMintSupply}</b> <hr className="my-2" />
       </h5>
       <h5 className="fonts">
-        Minted in Current Event: <b>{currentEventMinted}</b>{' '}
+        Minted in Current Event: <b>{currentEventMinted}</b>{" "}
       </h5>
     </>
   );

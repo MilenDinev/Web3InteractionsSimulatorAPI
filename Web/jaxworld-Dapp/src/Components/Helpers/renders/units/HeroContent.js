@@ -1,10 +1,8 @@
-import './../../../../App.css';
-
-function HeroContent() {
+export function HeroContent() {
   return (
     <div className="fonts col-lg-7 text-center text-lg-start bg-gradient p-3 rounded-5 text-muted">
       <h4 className="display-6 fw-bolder mb-2">
-        Jax World's Genesis NFT Collection
+        Jax World"s Genesis NFT Collection
       </h4>
       <h3 className="display-6 fw-bold mb-1">G Minions</h3>
       <h1 className="fonts-style display-2 fw-bold lh-1 mb-0 text-white text-opacity-75">
@@ -14,5 +12,3 @@ function HeroContent() {
     </div>
   );
 }
-
-export default HeroContent;

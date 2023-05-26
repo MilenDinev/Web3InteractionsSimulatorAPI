@@ -1,6 +1,5 @@
 import { useActiveClaimCondition } from "@thirdweb-dev/react";
 import { GetContract } from "../utils/GetContract";
-// Your smart contract address
 
 
 export function GetActiveClaimData() {

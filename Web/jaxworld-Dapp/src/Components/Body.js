@@ -1,7 +1,7 @@
-import React from 'react';
-import { Claim } from './Helpers/renders/units/Claim';
-import { ContractData } from './Helpers/renders/units/ContractData';
-import HeroContent from './Helpers/renders/units/HeroContent';
+import React from "react";
+import { Claim } from "./Helpers/renders/units/Claim";
+import { ContractData } from "./Helpers/renders/units/ContractData";
+import { HeroContent } from "./Helpers/renders/units/HeroContent";
 
 export function Body() {
 
@@ -17,9 +17,9 @@ export function Body() {
 
 function BodyContent() {
 
-  
+
   const handleSubmit = event => {
-    console.log('handleSubmit ran');
+    console.log("handleSubmit ran");
     event.preventDefault();
 
 

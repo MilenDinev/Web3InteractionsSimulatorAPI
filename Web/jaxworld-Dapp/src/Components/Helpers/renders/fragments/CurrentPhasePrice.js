@@ -1,6 +1,5 @@
-import { GetActiveClaimData } from '../../liveData/GetActiveClaimData';
-import { Loading } from '../customization/Spinner';
-import './../../../../App.css';
+import { GetActiveClaimData } from "../../liveData/GetActiveClaimData";
+import { Loading } from "../customization/Spinner";
 
 export function CurrentPhasePrice() {
   const { data: allClaimData, isLoading, error } = GetActiveClaimData();
@@ -20,7 +19,7 @@ export function CurrentPhasePrice() {
   return (
     <>
       <h4>
-        Mint Price:{' '}
+        Mint Price:{" "}
         <b>
           {mintPriceValue} {mintPriceSymbol}
         </b>

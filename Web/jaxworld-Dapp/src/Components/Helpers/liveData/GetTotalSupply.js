@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { GetContract } from "../utils/GetContract";
-// Your smart contract address
 
 export function GetTotalSupply() {
   const { contract, isLoading } = GetContract();

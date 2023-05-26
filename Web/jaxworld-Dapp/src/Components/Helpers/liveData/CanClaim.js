@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { GetContract } from "../utils/GetContract";
 import { UserAddress } from "../utils/GetUserAddress";
-// Your smart contract address
 
 export function CanClaim() {
 

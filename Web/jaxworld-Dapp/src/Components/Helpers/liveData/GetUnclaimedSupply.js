@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import { GetContract } from '../utils/GetContract';
-// Your smart contract address
+import { useEffect, useState } from "react";
+import { GetContract } from "../utils/GetContract";
 
 export function GetUnclaimedSupply() {
 

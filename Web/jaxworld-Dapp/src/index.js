@@ -1,12 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { ThirdwebProvider } from '@thirdweb-dev/react';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "./styles/welcome-screen.css";
+import "./styles/index.css";
+import "./styles/App.css";
+import "./styles/spinners.css";
+import "react-toastify/dist/ReactToastify.css";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ThirdwebProvider activeChain="avalanche-fuji" autoConnect={true} >
   <React.StrictMode>

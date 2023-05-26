@@ -1,6 +1,5 @@
-import { GetUnclaimedSupply } from '../../liveData/GetUnclaimedSupply';
-import { Loading } from '../customization/Spinner';
-import './../../../../App.css';
+import { GetUnclaimedSupply } from "../../liveData/GetUnclaimedSupply";
+import { Loading } from "../customization/Spinner";
 
 export function UnclaimedNFTSupply() {
   const { supply } = GetUnclaimedSupply();
