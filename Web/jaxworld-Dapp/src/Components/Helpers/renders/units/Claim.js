@@ -8,7 +8,7 @@ export function Claim() {
 
       const submit = () => toast.info('Transaction submitted!', {
         position: 'bottom-center',
-        autoClose: 2000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -19,7 +19,7 @@ export function Claim() {
 
       const success = () => toast.success('Successfully claimed!', {
         position: 'bottom-center',
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -30,7 +30,7 @@ export function Claim() {
     
       const error = () => toast.error('An error occured!', {
         position: 'bottom-center',
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

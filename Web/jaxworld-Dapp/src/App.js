@@ -4,28 +4,42 @@ import { Body } from './Components/Body';
 import { Footer } from './Components/Footer';
 import { Header } from './Components/Header';
 import { WelcomeScreen } from './Components/Helpers/renders/units/WelcomeScreen';
+import { useState, useEffect } from 'react';
+
+
 function App() {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   const connectionStatus = useConnectionStatus();
 
-  return (
+  return loading ? (
+    <div>
+      <Hamster />{' '}
+    </div>
+  ) : (
     <>
-      <Header />
-      {connectionStatus === 'disconnected' ? (
+      {connectionStatus === 'connected' ? (
         <>
-          <WelcomeScreen />
+          <Header />
+          <Body />
           <Footer />
         </>
-      ) : connectionStatus === 'uknown' || connectionStatus === 'connecting' ? (
-        <Hamster />
-      ) : connectionStatus === 'connected' ? (
+      ) : connectionStatus === 'disconnected' ? (
         <>
-          <Body />
+          <Header />
+          <WelcomeScreen />
           <Footer />
         </>
       ) : (
         <>
-          <WelcomeScreen />
-          <Footer />
+          <Hamster />
         </>
       )}
     </>

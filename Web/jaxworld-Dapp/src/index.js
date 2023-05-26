@@ -8,7 +8,7 @@ import { ThirdwebProvider } from '@thirdweb-dev/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThirdwebProvider activeChain="avalanche-fuji" await autoConnect={true} >
+  <ThirdwebProvider activeChain="avalanche-fuji" autoConnect={true} >
   <React.StrictMode>
     <App />
   </React.StrictMode>
