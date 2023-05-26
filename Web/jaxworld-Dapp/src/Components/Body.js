@@ -3,7 +3,7 @@ import { Claim } from './Helpers/renders/units/Claim';
 import { ContractData } from './Helpers/renders/units/ContractData';
 import HeroContent from './Helpers/renders/units/HeroContent';
 
-function Body() {
+export function Body() {
 
 
   return (
@@ -68,4 +68,3 @@ function BodyContent() {
   );
 }
 
-export default Body;

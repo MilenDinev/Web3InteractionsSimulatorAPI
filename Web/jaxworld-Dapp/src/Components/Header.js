@@ -3,7 +3,7 @@ import logo from '../images/logo.png';
 import '../App.css';
 import '../styles/custom.css';
 
-function Header() {
+export function Header() {
 
   return (
     
@@ -28,4 +28,3 @@ function Header() {
   );
 }
 
-export default Header;
