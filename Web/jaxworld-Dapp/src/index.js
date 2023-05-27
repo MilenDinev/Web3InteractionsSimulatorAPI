@@ -1,6 +1,6 @@
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
