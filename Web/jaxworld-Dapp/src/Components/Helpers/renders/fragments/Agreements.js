@@ -18,8 +18,8 @@ export function Agreements() {
     
 
 const inputs =   <>
-    <hr className="my-4"></hr>
-    <div className="form-control border-0 bg-secondary bg-gradient rounded-4 p-2 text-muted bg-opacity-10 form-floating mb-3">
+    <hr className="my-2"></hr>
+    <div className=" fonts border-0 mt-2">
       <div className="form-check text-opacity-75">
         <input
           className="form-check-input"
@@ -42,10 +42,6 @@ const inputs =   <>
           Agree with Terms Of Use
         </label>
       </div>
-  
-    <small className="text-white">
-      It is necessary to agree to the Privacy Policy and Terms of Use.
-    </small>
     </div>
     </>;
 

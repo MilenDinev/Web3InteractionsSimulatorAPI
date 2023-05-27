@@ -6,7 +6,7 @@ import { Conditions } from "../fragments/Conditions";
 
 export function Claim() {
 
-  const {toastContainer, submit, success, error} = Toast();
+  const {submit, success, error} = Toast();
   const {inputs, termsOfUse , privacyPolicy} = Agreements();
   const {output:conditions} = Conditions();
 
@@ -15,7 +15,7 @@ export function Claim() {
 {!termsOfUse || !privacyPolicy ? (
 
     <>
-    <div className="d-flex justify-content-center">
+    <div className="d-flex flex-wrap justify-content-center mt-3 mb-1">
       {conditions}
     </div>
     {inputs} 
@@ -23,7 +23,7 @@ export function Claim() {
     )
     : (
       <>
-  <div className="d-flex justify-content-center">
+  <div className="d-flex flex-wrap justify-content-center mt-4 mb-3">
     <Web3Button
       dropdownPosition={{ side: "bottom", align: "center" }}
       contractAddress="0x7e327E167FD7a339e410dd34f17e2856388e0a9a"
@@ -34,8 +34,6 @@ export function Claim() {
     >
       Claim NFT
     </Web3Button>
-
-    {toastContainer}
 
     </div>
     {inputs}

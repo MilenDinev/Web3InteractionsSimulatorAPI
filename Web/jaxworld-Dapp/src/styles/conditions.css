@@ -1,21 +1,18 @@
 .conditions {
-  color: #fffeff;
+  color: #3f1b3f8e;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bolder;
-  font-size: large;
-  position: relative;
-  height: 100px;
-  width: 350px;
-  background-color: rgba(153, 80, 20, 0.44);
+  font-size: medium;
+  background-color: rgba(153, 80, 20, 0.315);
   transform-style: preserve-3d;
   animation: con 1.5s infinite ease;
   border-radius: 20px;
   box-shadow: 0 0 15px 0px, inset #f50a06 0 0 15px 0px;
   transition: 2s;
-  display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
+  padding: 5px;
 }
 
 .conditions:hover.conditions.text {

@@ -5,13 +5,13 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
+  min-width: 420px;
+  min-height: max-content;
 }
 
 .App {
     clear: both;
     background-attachment: scroll;
-    position: relative;
     max-width: 1800px;
     margin-right: auto;
     margin-left: auto;
@@ -26,7 +26,7 @@ _______________________________________________________*/
 .fonts {
   font-family: 'Fjalla One', sans-serif;
   color: #6f5c72 !important;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bolder;
 }
 
@@ -34,34 +34,43 @@ _______________________________________________________*/
   font-style: oblique;
   font-weight: bolder;
   color: rgba(255, 255, 255, 0.861);
+  justify-content: center;
   
 }
 
 .fonts-style.price {
-  font-size: 30px;
-  font-style: oblique;
-  font-weight: bolder;
-  color: rgba(255, 255, 255, 0.861);
-  justify-content: center;
+  font-size: 25px;
+  color: rgba(99, 62, 62, 0.861);
   text-shadow: #222;
   box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
   border-radius: 15%;
+  text-align: center;
 }
 
 .fonts-style.eligibility {
-  font-size: 30px;
-  font-style: oblique;
+  font-size: 23px;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.861);
+  color: rgba(99, 62, 62, 0.861);
+  text-shadow: #222;
+  box-shadow: 0 0 10px 0px;
+  border-radius: 15%;
+  text-align: center;
+}
+
+.fonts-style.total-supply {
+  font-size: 25px;
+  color: rgba(99, 62, 62, 0.861);
   text-shadow: #222;
   box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
   border-radius: 20%;
   text-align: center;
-  box-sizing: content-box;
-  margin-top: 5px;
-  text-align: center;
-  padding: 0px;
-  margin-top: 4px;
+}
+
+.fonts-style.common-data {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgba(99, 62, 62, 0.861);
+  text-shadow: #222;
 }
 
 .hover-effect:hover {

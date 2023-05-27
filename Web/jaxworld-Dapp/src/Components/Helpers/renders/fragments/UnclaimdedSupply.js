@@ -8,10 +8,10 @@ export function UnclaimedNFTSupply() {
 
   return (
     <>
-      <h5 className="fonts">
+      <p className="fonts-style common-data">
         Unclaimed Supply: <b>{ unclaimedSupply }</b>
         <hr className="my-2" />
-      </h5>
+      </p>
     </>
   );
 }

@@ -12,10 +12,10 @@ export function ClaimedNFTSupply() {
 
   return (
     <>
-      <h5 className="fonts">
+      <p className="fonts-style common-data">
       <hr className="my-2"/>
         Minted in Total: <b>{totalMinted}</b>
-      </h5>
+      </p>
     </>
   );
 }

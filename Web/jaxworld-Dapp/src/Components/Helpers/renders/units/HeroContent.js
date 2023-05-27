@@ -1,6 +1,6 @@
 export function HeroContent() {
   return (
-    <div className="fonts hero col-lg-7 text-center text-lg-start bg-gradient p-3 rounded-5 text-muted">
+    <div className="fonts hero col-lg-6 text-center text-lg-start bg-gradient p-1 rounded-5 text-muted">
       <p className="display-6 fw-bolder mb-2">
         Jax World's Genesis NFT Collection
       </p>
