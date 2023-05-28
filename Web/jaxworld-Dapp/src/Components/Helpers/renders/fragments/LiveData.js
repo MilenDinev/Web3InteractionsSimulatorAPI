@@ -1,11 +1,11 @@
-import { TotalSupply } from "./TotalSupply";
-import { UnclaimedNFTSupply } from "./UnclaimdedSupply";
-import { CurrentPhaseSupply } from "./CurrentPhaseSupply";
-import { CurrentPhaseMinted } from "./CurrentPhaseMinted";
-import { ClaimedNFTSupply } from "./TotalClaimedSupply";
-import { CurrentPhasePrice } from "./CurrentPhasePrice";
-import { ClaimStatusPerWallet } from "./ClaimStatus";
-import { Claim } from "../units/Claim";
+import { TotalSupply } from './TotalSupply';
+import { UnclaimedNFTSupply } from './UnclaimdedSupply';
+import { CurrentPhaseSupply } from './CurrentPhaseSupply';
+import { CurrentPhaseMinted } from './CurrentPhaseMinted';
+import { ClaimedNFTSupply } from './TotalClaimedSupply';
+import { CurrentPhasePrice } from './CurrentPhasePrice';
+import { ClaimStatusPerWallet } from './ClaimStatus';
+import { Claim } from '../units/Claim';
 
 export function LiveData() {
   return (

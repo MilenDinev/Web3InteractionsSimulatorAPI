@@ -1,10 +1,10 @@
-import { useConnectionStatus } from "@thirdweb-dev/react";
-import { Hamster } from "./Components/Helpers/renders/customization/HamsterSpinner";
-import { Body } from "./Components/Body";
-import { Footer } from "./Components/Footer";
-import { Header } from "./Components/Header";
-import { WelcomeScreen } from "./Components/Helpers/renders/units/WelcomeScreen";
-import { useState, useEffect } from "react";
+import { useConnectionStatus } from '@thirdweb-dev/react';
+import { Hamster } from './Components/Helpers/renders/customization/HamsterSpinner';
+import { Body } from './Components/Body';
+import { Footer } from './Components/Footer';
+import { Header } from './Components/Header';
+import { WelcomeScreen } from './Components/Helpers/renders/units/WelcomeScreen';
+import { useState, useEffect } from 'react';
 
 
 function App() {
@@ -21,17 +21,17 @@ function App() {
 
   return loading ? (
     <div>
-      <Hamster />{" "}
+      <Hamster />{' '}
     </div>
   ) : (
     <>
-      {connectionStatus === "connected" ? (
+      {connectionStatus === 'connected' ? (
         <>
           <Header />
           <Body />
           <Footer />
         </>
-      ) : connectionStatus === "disconnected" ? (
+      ) : connectionStatus === 'disconnected' ? (
         <>
           <Header />
           <WelcomeScreen />

@@ -1,5 +1,5 @@
-import { GetActiveClaimData } from "../../liveData/GetActiveClaimData";
-import { Loading } from "../customization/Spinner";
+import { GetActiveClaimData } from '../../liveData/GetActiveClaimData';
+import { Loading } from '../customization/Spinner';
 
 export function CurrentPhaseSupply() {
   const { data: allClaimData, isLoading, error } = GetActiveClaimData();
@@ -15,7 +15,7 @@ export function CurrentPhaseSupply() {
   return (
     <>
       <label>
-        Private Mint Supply:{" "}
+        Private Mint Supply:{' '}
         <b className="data-style count-color">{currentMintSupply}</b>
       </label>
     </>

@@ -1,4 +1,4 @@
-import Spinner from "react-bootstrap/Spinner";
+import Spinner from 'react-bootstrap/Spinner';
 
 export function Loading() {
   return (

@@ -1,5 +1,5 @@
-import { CanClaim } from "../../liveData/CanClaim";
-import { Loading } from "../customization/Spinner";
+import { CanClaim } from '../../liveData/CanClaim';
+import { Loading } from '../customization/Spinner';
 
 export function ClaimStatusPerWallet() {
   const quantity = 1;

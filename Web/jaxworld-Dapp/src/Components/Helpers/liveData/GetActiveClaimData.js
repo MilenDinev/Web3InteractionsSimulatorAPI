@@ -1,5 +1,5 @@
-import { useActiveClaimCondition } from "@thirdweb-dev/react";
-import { GetContract } from "../utils/GetContract";
+import { useActiveClaimCondition } from '@thirdweb-dev/react';
+import { GetContract } from '../utils/GetContract';
 
 
 export function GetActiveClaimData() {

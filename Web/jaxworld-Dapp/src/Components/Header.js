@@ -1,5 +1,5 @@
-import { ConnectButton } from "./Helpers/renders/units/Connect";
-import logo from "../images/logo.png";
+import { ConnectButton } from './Helpers/renders/units/Connect';
+import logo from '../images/logo.png';
 export function Header() {
 
   return (

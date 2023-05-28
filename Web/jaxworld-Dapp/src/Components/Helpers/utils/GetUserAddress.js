@@ -1,4 +1,4 @@
-import { useAddress } from "@thirdweb-dev/react";
+import { useAddress } from '@thirdweb-dev/react';
 
 export function UserAddress() {
 

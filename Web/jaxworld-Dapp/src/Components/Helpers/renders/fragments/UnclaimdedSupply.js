@@ -1,5 +1,5 @@
-import { GetUnclaimedSupply } from "../../liveData/GetUnclaimedSupply";
-import { Loading } from "../customization/Spinner";
+import { GetUnclaimedSupply } from '../../liveData/GetUnclaimedSupply';
+import { Loading } from '../customization/Spinner';
 
 export function UnclaimedNFTSupply() {
   const { supply } = GetUnclaimedSupply();
@@ -9,7 +9,7 @@ export function UnclaimedNFTSupply() {
   return (
     <>
       <label>
-        Unclaimed Supply:{" "}
+        Unclaimed Supply:{' '}
         <b className="data-style count-color">{unclaimedSupply}</b>
       </label>
     </>

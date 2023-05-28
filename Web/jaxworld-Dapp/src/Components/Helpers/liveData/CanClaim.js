@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { GetContract } from "../utils/GetContract";
-import { UserAddress } from "../utils/GetUserAddress";
+import { useEffect, useState } from 'react';
+import { GetContract } from '../utils/GetContract';
+import { UserAddress } from '../utils/GetUserAddress';
 
 export function CanClaim() {
 

@@ -1,5 +1,5 @@
-import { NFTClaimedSupply } from "../../liveData/GetNFTClaimedSupply";
-import { Loading } from "../customization/Spinner";
+import { NFTClaimedSupply } from '../../liveData/GetNFTClaimedSupply';
+import { Loading } from '../customization/Spinner';
 
 export function ClaimedNFTSupply() {
   const { data: claimed, isLoading, error } = NFTClaimedSupply();

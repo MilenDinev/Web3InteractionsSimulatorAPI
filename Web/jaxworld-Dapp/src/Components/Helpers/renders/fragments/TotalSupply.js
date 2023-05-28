@@ -1,5 +1,5 @@
-import { GetTotalSupply } from "../../liveData/GetTotalSupply";
-import { Loading } from "../customization/Spinner";
+import { GetTotalSupply } from '../../liveData/GetTotalSupply';
+import { Loading } from '../customization/Spinner';
 
 export function TotalSupply() {
   const { supply } = GetTotalSupply();

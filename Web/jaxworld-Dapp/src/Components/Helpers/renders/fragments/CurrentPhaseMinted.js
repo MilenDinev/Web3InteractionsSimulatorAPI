@@ -1,5 +1,5 @@
-import { GetActiveClaimData } from "../../liveData/GetActiveClaimData";
-import { Loading } from "../customization/Spinner";
+import { GetActiveClaimData } from '../../liveData/GetActiveClaimData';
+import { Loading } from '../customization/Spinner';
 
 export function CurrentPhaseMinted() {
   const { data: allClaimData, isLoading, error } = GetActiveClaimData();
@@ -15,7 +15,7 @@ export function CurrentPhaseMinted() {
   return (
     <>
       <label>
-        Minted in Current Event:{" "}
+        Minted in Current Event:{' '}
         <b className="data-style count-color">{currentEventMinted}</b>
       </label>
     </>

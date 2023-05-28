@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { GetContract } from "../utils/GetContract";
+import { useEffect, useState } from 'react';
+import { GetContract } from '../utils/GetContract';
 
 export function GetUnclaimedSupply() {
 

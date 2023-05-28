@@ -1,5 +1,5 @@
-import { useClaimedNFTSupply } from "@thirdweb-dev/react";
-import { GetContract } from "../utils/GetContract";
+import { useClaimedNFTSupply } from '@thirdweb-dev/react';
+import { GetContract } from '../utils/GetContract';
 
 export function NFTClaimedSupply() {
 
