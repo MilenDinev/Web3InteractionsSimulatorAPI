@@ -7,20 +7,24 @@ export function ClaimStatusPerWallet() {
   const { claim, isLoading } = CanClaim();
 
   const claimAvailablePerWallet = isLoading ? (
-    <Loading />
-  ) : !isLoading && !claim ? (
-    "You are not allowed to claim"
+    <div className="data-style eligibility">
+      <label>
+        <Loading />
+      </label>
+    </div>
+  ) : isLoading && !claim? (
+    <div className="data-style eligibility negative">
+      <label>You are not allowed to claim</label>
+    </div>
   ) : !isLoading && claim ? (
-    "Available to Claim: " + quantity
+    <div className="data-style eligibility positive">
+      <label>Available to Claim: {quantity}</label>
+    </div>
   ) : (
-    "You are not allowed to claim"
+    <div className="data-style eligibility negative">
+      <label>You are not allowed to claim</label>
+    </div>
   );
 
-  return (
-    <>
-      <p className="fonts-style eligibility">
-        {claimAvailablePerWallet}
-      </p>
-    </>
-  );
+  return <>{claimAvailablePerWallet}</>;
 }

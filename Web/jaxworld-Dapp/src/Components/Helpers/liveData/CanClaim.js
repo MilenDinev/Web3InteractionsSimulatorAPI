@@ -15,7 +15,10 @@ export function CanClaim() {
 
   useEffect(() => {
     (async () => {
-        setClaim(( isLoading ? false : await contract.erc721.claimConditions.canClaim(quantity, address) ));
+      if (!isLoading)
+      {
+        setClaim( await contract.erc721.claimConditions.canClaim(quantity, address));
+      }
    })() ;
     });
   

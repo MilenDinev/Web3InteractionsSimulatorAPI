@@ -4,14 +4,14 @@ import { Loading } from "../customization/Spinner";
 export function UnclaimedNFTSupply() {
   const { supply } = GetUnclaimedSupply();
 
-  const unclaimedSupply = supply === 0 ? <Loading/>: supply;
+  const unclaimedSupply = supply === 0 ? <Loading /> : supply;
 
   return (
     <>
-      <p className="fonts-style common-data">
-        Unclaimed Supply: <b>{ unclaimedSupply }</b>
-        <hr className="my-1" />
-      </p>
+      <label>
+        Unclaimed Supply:{" "}
+        <b className="data-style count-color">{unclaimedSupply}</b>
+      </label>
     </>
   );
 }

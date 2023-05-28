@@ -41,13 +41,6 @@ _______________________________________________________*/
 
 
 
-.fonts-style.price {
-  font-size: 20px;
-  color: rgba(175, 78, 78, 0.897);
-  box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
-  border-radius: 15%;
-  text-align: center;
-}
 
 .fonts-style.eligibility {
   font-style: normal;
@@ -60,6 +53,8 @@ _______________________________________________________*/
 }
 
 .fonts-style.eligibility.agreements {
+  color: rgb(156, 85, 85);
+  background:rgba(222, 184, 135, 0.26)!important;
   font-style: normal;
   font-size: 18px;
   border-radius: 10%;
@@ -71,22 +66,6 @@ _______________________________________________________*/
   margin-bottom: 2px;
 }
 
-.fonts-style.total-supply {
-  font-style: normal;
-  font-size: 22px;
-  color: rgba(100, 10, 10, 0.897) !important;
-  box-shadow: 3px 3px 10px 3px, inset 0px 0px 0px 0px rgb(216, 233, 238);
-  border-radius: 20%;
-  text-align: center;
-}
-
-.fonts-style.common-data {
-  font-size: 22px;
-  font-weight: bold;
-  color: rgba(175, 44, 44, 0.993);
-  margin-top: auto;
-  margin-bottom: auto;
-}
 
 .hover-effect:hover {
   color: #DB9B87;

@@ -13,6 +13,8 @@ import "./styles/hero-content.css";
 import "./styles/conditions.css";
 import "./styles/card.css";
 import "./styles/navigation.css";
+import "./styles/data.css";
+import "./styles/index.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

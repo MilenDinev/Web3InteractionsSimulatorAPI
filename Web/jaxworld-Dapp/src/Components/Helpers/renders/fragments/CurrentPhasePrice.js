@@ -4,11 +4,13 @@ import { Loading } from "../customization/Spinner";
 export function CurrentPhasePrice() {
   const { data: allClaimData, isLoading, error } = GetActiveClaimData();
 
-  const mintPriceValue = isLoading
-    ? <Loading/>
-    : error != null
-    ? error.toString()
-    : allClaimData.price.toNumber();
+  const mintPriceValue = isLoading ? (
+    <Loading />
+  ) : error != null ? (
+    error.toString()
+  ) : (
+    allClaimData.price.toNumber()
+  );
 
   const mintPriceSymbol = isLoading
     ? isLoading
@@ -18,12 +20,12 @@ export function CurrentPhasePrice() {
 
   return (
     <>
-      <p className="fonts-style price">
+      <label>
         Mint Price:{" "}
-        <b>
+        <b className="data-style count-color">
           {mintPriceValue} {mintPriceSymbol}
         </b>
-      </p>
+      </label>
     </>
   );
 }

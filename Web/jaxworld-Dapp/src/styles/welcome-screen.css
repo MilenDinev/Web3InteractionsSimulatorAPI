@@ -7,21 +7,20 @@
   
 
   .welcome-screen.text {
-    width: 350px;
-    background-color: rgba(214, 144, 86, 0.795);
     margin-left: auto;
     margin-right: auto;
-    font-size: 17px;
-    font-weight: bolder;
-    opacity: 0.8;
-    animation: rot 2s infinite ease;
-    border-radius: 20px;
-    box-shadow: 0 0 20px 0px ,inset #8e4f3b  0 0 20px 0px;
-    justify-content: center;
     align-items: center;
-    color: rgba(82, 4, 4, 0.877) !important;
+    width: 350px;
+    justify-content: center;
+    background-color: rgba(214, 144, 86, 0.795);
+    box-shadow: 0 0 20px 0px ,inset #8e4f3b  0 0 20px 0px;
     box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
     border-radius: 15%;
+    color: rgba(82, 4, 4, 0.877) !important;
+    font-weight: bolder;
+    font-size: 17px;
+    opacity: 0.8;
+    animation: rot 2s infinite ease;
   }
 
   .welcome-screen.text p {

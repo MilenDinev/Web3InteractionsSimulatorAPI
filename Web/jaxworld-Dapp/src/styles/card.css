@@ -1,28 +1,45 @@
 .card {
     display: flow-root;
-    box-shadow: 0px 3px 20px black, 0 0 30px #9c6023 inset;
-    background: #ccb46748;
-    filter: url(#wavy2);
-    border: #9c6023ce;
-    border-radius: 15%;
-    margin-left: auto;
+    align-items: center;
+    justify-content: center;
     margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 0 20px 0px ,inset #8e4f3b  0 0 20px 0px;
+    box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
+    background-color: rgba(214, 144, 86, 0.904);
+    opacity: 0.9;
+    border-radius: 15%;
     min-width: 375px;
     max-width: min-content;
   }
   
-  .claim-pl {
-    margin-bottom: 18px ;
-  }
-
   .claim-pl.button {
-    margin-top: 5px;
+    margin-bottom: 8px ;
+    margin-top: 7px;
     font-family: 'Fjalla One', sans-serif !important;
     font-size: 17px !important;
     font-weight: bold !important;
-    color: rgba(116, 44, 44, 0.897);
+    background:rgba(222, 184, 135, 0.26)!important;
     box-shadow: 0 0 8px 0px!important;
+    color: rgb(102, 32, 23);
     border-radius: 15%!important;
     text-align: center!important;
-    background:rgba(222, 184, 135, 0.26)!important;
+  }
+
+  .claim-pl.button:hover {
+    animation: mh 1s infinite ease;
+  }
+  
+  @keyframes mh {
+    0% {
+      transform: rotateX(-15deg) translateY(0px);
+    }
+  
+    50% {
+      transform: rotateX(-15deg) translateY(-4px);
+    }
+  
+    100% {
+      transform: rotateX(-15deg) translateY(0px);
+    }
   }

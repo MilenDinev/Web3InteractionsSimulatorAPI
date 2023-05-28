@@ -3,13 +3,13 @@ import { Loading } from "../customization/Spinner";
 
 export function TotalSupply() {
   const { supply } = GetTotalSupply();
-  const totalSupply = supply === 0 ? <Loading/> : supply;
+  const totalSupply = supply === 0 ? <Loading /> : supply;
 
   return (
     <>
-      <p className="fonts-style total-supply">
+      <label>
         Total Supply: <b>{totalSupply}</b> G Minions
-      </p>
+      </label>
     </>
   );
 }
