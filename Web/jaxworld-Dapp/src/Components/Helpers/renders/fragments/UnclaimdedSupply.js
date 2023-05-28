@@ -10,7 +10,7 @@ export function UnclaimedNFTSupply() {
     <>
       <p className="fonts-style common-data">
         Unclaimed Supply: <b>{ unclaimedSupply }</b>
-        <hr className="my-2" />
+        <hr className="my-1" />
       </p>
     </>
   );

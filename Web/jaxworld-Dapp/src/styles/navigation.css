@@ -1,0 +1,45 @@
+
+.header-nav-main.text a {
+    position: relative;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 2px;
+    background-color: rgba(214, 144, 86, 0.795);
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(124, 0, 0) !important;
+    box-shadow: 0 0 10px 0px ,inset #8e4f3b  0 0 10px 0px;
+    box-shadow: 0 0 5px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
+    
+    border-radius: 15%;
+  }
+
+
+  .menu-button:hover {
+    animation: mh 1s infinite ease;
+  }
+  
+  @keyframes mh {
+    0% {
+      transform: rotateX(-15deg) translateY(0px);
+    }
+  
+    50% {
+      transform: rotateX(-15deg) translateY(-6px);
+    }
+  
+    100% {
+      transform: rotateX(-15deg) translateY(0px);
+    }
+}
+
+
+.footer-nav-main.text a {
+    font-family: 'Fjalla One', sans-serif;
+    position: relative;
+    text-align: center;
+    font-weight: bolder;
+    /* color: rgb(100, 0, 0) !important; */
+    border-radius: 15%;
+  }
+

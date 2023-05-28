@@ -1,5 +1,8 @@
 .hero {
-    animation: hr 3.0s infinite ease !important;
+  min-width: max-content;
+  animation: hr 3.0s infinite ease !important;
+  text-shadow: #6f5c72;
+  box-shadow: 0 0 10px 0px;
 }
 
 

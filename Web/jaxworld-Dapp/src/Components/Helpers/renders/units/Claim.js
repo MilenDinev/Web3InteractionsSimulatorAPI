@@ -15,7 +15,7 @@ export function Claim() {
 {!termsOfUse || !privacyPolicy ? (
 
     <>
-    <div className="d-flex flex-wrap justify-content-center mt-3 mb-1">
+    <div className="d-flex flex-wrap justify-content-center">
       {conditions}
     </div>
     {inputs} 
@@ -23,7 +23,7 @@ export function Claim() {
     )
     : (
       <>
-  <div className="d-flex flex-wrap justify-content-center mt-4 mb-3">
+  <div className="d-flex flex-wrap justify-content-center claim-pl">
     <Web3Button
       dropdownPosition={{ side: "bottom", align: "center" }}
       contractAddress="0x7e327E167FD7a339e410dd34f17e2856388e0a9a"
@@ -31,6 +31,7 @@ export function Claim() {
       onSuccess={success}
       onSubmit= {submit}
       onError={error}
+      className="claim-pl button"
     >
       Claim NFT
     </Web3Button>

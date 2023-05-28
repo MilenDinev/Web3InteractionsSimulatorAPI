@@ -18,15 +18,15 @@ export function Agreements() {
     
 
 const inputs =   <>
-    <hr className="my-2"></hr>
-    <div className=" fonts border-0 mt-2">
+    <hr className="my-2 fonts-style eligibility"></hr>
+    <div className="fonts">
       <div className="form-check text-opacity-75">
         <input
-          className="form-check-input"
+          className="form-check-input fonts-style eligibility"
           type="checkbox"
           onChange={handlePrivacyPolicy}       
         />                  
-        <label className="form-check-label">
+        <label className="form-check-label fonts-style eligibility agreements">
           Agree with Privacy Policy
         </label>
       </div>
@@ -34,11 +34,11 @@ const inputs =   <>
   
       <div className="form-check text-opacity-75">
         <input
-          className="form-check-input"
+          className="form-check-input fonts-style eligibility"
           type="checkbox"
           onChange={handleTermsOfUse}
         />
-        <label className="form-check-label">
+        <label className="form-check-label fonts-style eligibility agreements">
           Agree with Terms Of Use
         </label>
       </div>

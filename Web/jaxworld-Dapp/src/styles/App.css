@@ -1,11 +1,10 @@
 body {
-
   background: url(../images/background.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  min-width: 420px;
+  min-width: 490x;
   min-height: max-content;
 }
 
@@ -25,9 +24,12 @@ _______________________________________________________*/
 
 .fonts {
   font-family: 'Fjalla One', sans-serif;
-  color: #6f5c72 !important;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bolder;
+}
+
+.fonts-hero-fonts {
+  color: rgba(100, 10, 10, 0.897) !important;
 }
 
 .fonts-style {
@@ -35,42 +37,55 @@ _______________________________________________________*/
   font-weight: bolder;
   color: rgba(255, 255, 255, 0.861);
   justify-content: center;
-  
 }
 
+
+
 .fonts-style.price {
-  font-size: 25px;
-  color: rgba(99, 62, 62, 0.861);
-  text-shadow: #222;
+  font-size: 20px;
+  color: rgba(175, 78, 78, 0.897);
   box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
   border-radius: 15%;
   text-align: center;
 }
 
 .fonts-style.eligibility {
-  font-size: 23px;
+  font-style: normal;
+  font-size: 20px;
   font-weight: bold;
-  color: rgba(99, 62, 62, 0.861);
-  text-shadow: #222;
-  box-shadow: 0 0 10px 0px;
+  color: rgba(175, 78, 78, 0.897);
+  box-shadow: 0 0 8px 0px;
   border-radius: 15%;
   text-align: center;
 }
 
+.fonts-style.eligibility.agreements {
+  font-style: normal;
+  font-size: 18px;
+  border-radius: 10%;
+  padding-left : 5px;
+  padding-right : 5px;
+  padding-top: 2px;
+  padding-bottom : 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
 .fonts-style.total-supply {
-  font-size: 25px;
-  color: rgba(99, 62, 62, 0.861);
-  text-shadow: #222;
-  box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
+  font-style: normal;
+  font-size: 22px;
+  color: rgba(100, 10, 10, 0.897) !important;
+  box-shadow: 3px 3px 10px 3px, inset 0px 0px 0px 0px rgb(216, 233, 238);
   border-radius: 20%;
   text-align: center;
 }
 
 .fonts-style.common-data {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: bold;
-  color: rgba(99, 62, 62, 0.861);
-  text-shadow: #222;
+  color: rgba(175, 44, 44, 0.993);
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .hover-effect:hover {
@@ -78,9 +93,8 @@ _______________________________________________________*/
   opacity: 0.75;
 }
 
-
 .menu-button {
-  font-size: 18px;
+  font-size: 15px;
   color: #222;
   font-family: inherit;
   font-weight: 800;
@@ -94,30 +108,7 @@ _______________________________________________________*/
   transition-property: color;
 }
 
-.menu-button:focus,
-.menu-button:hover {
-  color: #222;
-}
 
-.menu-button:focus:after,
-.menu-button:hover:after {
-  width: 100%;
-  left: 0%;
-}
-
-.menu-button:after {
-  content: "";
-  pointer-events: none;
-  bottom: -2px;
-  left: 50%;
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background-color: rgb(192, 90, 36);
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition-duration: 400ms;
-  transition-property: width, left;
-}
 
 
 

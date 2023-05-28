@@ -12,6 +12,7 @@ import "./styles/spinners.css";
 import "./styles/hero-content.css";
 import "./styles/conditions.css";
 import "./styles/card.css";
+import "./styles/navigation.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

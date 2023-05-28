@@ -1,14 +1,14 @@
 .conditions {
-  color: #3f1b3f8e;
+  color: #3f1b3fa6;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bolder;
   font-size: medium;
-  background-color: rgba(153, 80, 20, 0.315);
+  background-color: rgba(153, 80, 20, 0.397);
   transform-style: preserve-3d;
   animation: con 1.5s infinite ease;
   border-radius: 20px;
   box-shadow: 0 0 15px 0px, inset #f50a06 0 0 15px 0px;
-  transition: 2s;
+  transition: 1s;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -17,15 +17,15 @@
 
 .conditions:hover.conditions.text {
   justify-content: center;
-  scale: 1;
+  scale: 0.5;
   opacity: 0.7;
 }
 
 .conditions:hover {
   box-shadow: 0 0 15px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
-  background-color: #ff0000bd;
-  color: #fffeff;
-  font-size: larger;
+  background-color: #ff000098;
+  color: #ecdef8;
+  font-size: medium;
   font-weight: bolder;
 }
 
