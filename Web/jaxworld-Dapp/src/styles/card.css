@@ -43,3 +43,19 @@
       transform: rotateX(-15deg) translateY(0px);
     }
   }
+
+
+  .not-allowed-to-claim-pl.button {
+    width: 105px;
+    height: max-content;
+    margin-bottom: 15px ;
+    margin-top: 17px;
+    font-family: 'Fjalla One', sans-serif !important;
+    font-size: 17px !important;
+    font-weight: bold !important;
+    background:rgba(222, 184, 135, 0.26)!important;
+    box-shadow: 0 0 8px 0px!important;
+    color: rgb(102, 32, 23);
+    border-radius: 15%!important;
+    text-align: center!important;
+  }

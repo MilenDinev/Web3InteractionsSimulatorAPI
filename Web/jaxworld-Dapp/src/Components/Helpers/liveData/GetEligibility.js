@@ -1,6 +1,6 @@
 import { useClaimIneligibilityReasons } from '@thirdweb-dev/react';
-import { UserAddress } from '../Helpers/utils/GetUserAddress';
-import { GetContract } from '../Helpers/utils/GetContract';
+import { UserAddress } from '../utils/GetUserAddress';
+import { GetContract } from '../utils/GetContract';
 
 export function Eligibility() {
 

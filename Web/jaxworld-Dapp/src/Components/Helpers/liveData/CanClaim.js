@@ -9,9 +9,8 @@ export function CanClaim() {
 
   
   const quantity = 1;  
-  const initialClaim = false ;
 
-  const [claim, setClaim] = useState(initialClaim);
+  const [claim, setClaim] = useState(false);
 
   useEffect(() => {
     (async () => {

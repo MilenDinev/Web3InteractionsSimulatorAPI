@@ -1,10 +1,19 @@
-import { CanClaim } from '../../liveData/CanClaim';
+import { useClaimIneligibilityReasons } from '@thirdweb-dev/react';
+import { GetContract } from "../../utils/GetContract"; 
+import { UserAddress } from "../../utils/GetUserAddress"; 
 import { Loading } from '../customization/Spinner';
 
 export function ClaimStatusPerWallet() {
-  const quantity = 1;
+  const { address } = UserAddress();
+  const { contract } = GetContract();
+  const claimQuantity = 1;
 
-  const { claim, isLoading } = CanClaim();
+  const { data, isLoading } =  useClaimIneligibilityReasons(contract, {
+    walletAddress: address || '',
+    quantity: 1
+  });
+
+
 
   const claimAvailablePerWallet = isLoading ? (
     <div className="data-style eligibility">
@@ -12,13 +21,13 @@ export function ClaimStatusPerWallet() {
         <Loading />
       </label>
     </div>
-  ) : isLoading && !claim? (
+  ) : data.length > 0 ? (
     <div className="data-style eligibility negative">
       <label>You are not allowed to claim</label>
     </div>
-  ) : !isLoading && claim ? (
+  ) : data.length === 0 ? (
     <div className="data-style eligibility positive">
-      <label>Available to Claim: {quantity}</label>
+      <label>Available to Claim: {claimQuantity}</label>
     </div>
   ) : (
     <div className="data-style eligibility negative">
