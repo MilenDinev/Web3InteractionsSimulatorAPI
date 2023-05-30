@@ -1,6 +1,6 @@
 import { useClaimIneligibilityReasons } from '@thirdweb-dev/react';
-import { GetContract } from "../../utils/GetContract"; 
-import { UserAddress } from "../../utils/GetUserAddress"; 
+import { GetContract } from '../../utils/GetContract'; 
+import { UserAddress } from '../../utils/GetUserAddress'; 
 import { Loading } from '../customization/Spinner';
 
 export function ClaimStatusPerWallet() {

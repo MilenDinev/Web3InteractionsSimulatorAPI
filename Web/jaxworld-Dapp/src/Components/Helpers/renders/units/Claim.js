@@ -2,8 +2,8 @@ import { Web3Button } from '@thirdweb-dev/react';
 import { Toast } from '../fragments/Toast';
 import { Agreements } from '../fragments/Agreements';
 import { Conditions } from '../fragments/Conditions';
-import { Eligibility } from "../../liveData/GetEligibility";
-import { Loading } from "../customization/Spinner";
+import { Eligibility } from '../../liveData/GetEligibility';
+import { Loading } from '../customization/Spinner';
 
 export function Claim() {
   const { submit, success, error } = Toast();
