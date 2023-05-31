@@ -13,10 +13,10 @@ export function Footer() {
       </a>
   
       <ul className="nav col-md-4 justify-content-end">
-        <li className="nav-item"><a href="index" target="_blank" rel="noreferrer" className="menu-button nav-link px-2 text-muted hover-effect">Contact Us</a></li>
-        <li className="nav-item"><a href="faq" target="_blank" rel="noreferrer" className="menu-button nav-link px-2 text-muted hover-effect">FAQs</a></li>
-        <li className="nav-item"><a href="term-of-use" target="_blank" rel="noreferrer" className="menu-button nav-link px-2 text-muted hover-effect">Terms of Use</a></li>
-        <li className="nav-item"><a href="privacy-policy" target="_blank" rel="noreferrer" className="menu-button nav-link px-2 text-muted hover-effect">Privacy policy</a></li>
+        <li className="nav-item"><a href="contact" rel="noreferrer" className="menu-button nav-link px-2 text-muted hover-effect">Contact Us</a></li>
+        <li className="nav-item"><a href="faq" rel="noreferrer" className="menu-button nav-link px-2 text-muted hover-effect">FAQ</a></li>
+        <li className="nav-item"><a href="terms-of-use" rel="noreferrer" className="menu-button nav-link px-2 text-muted hover-effect">Terms of Use</a></li>
+        <li className="nav-item"><a href="privacy-policy" rel="noreferrer" className="menu-button nav-link px-2 text-muted hover-effect">Privacy policy</a></li>
       </ul>
     </footer>
     </div>
