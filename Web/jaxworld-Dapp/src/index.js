@@ -14,6 +14,7 @@ import './styles/conditions.css';
 import './styles/card.css';
 import './styles/navigation.css';
 import './styles/data.css';
+import './styles/policies.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 

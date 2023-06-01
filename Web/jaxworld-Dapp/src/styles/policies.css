@@ -1,0 +1,37 @@
+.policies-screen{
+    display: block;
+    font-family: 'Fjalla One', sans-serif;
+    margin-block-end: 200px;
+    background: #8e4e3be3;
+    border-radius: 5%;
+  }
+  
+
+  .policies-screen.text {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    list-style: none;
+    justify-content: center;
+    background-color: rgba(214, 144, 86, 0.979);
+    box-shadow: 0 0 20px 0px ,inset #8e4f3b  0 0 20px 0px;
+    box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
+
+    color: rgba(82, 4, 4, 0.877) !important;
+    font-weight: bolder;
+    font-size: 17px;
+    opacity: 0.8;
+  }
+
+  .policies-screen.text li {
+    list-style: none;
+    }
+
+  .policies-screen.text p {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-left: auto;
+    text-align: center;
+    font-size: 20px;
+  }
+  
