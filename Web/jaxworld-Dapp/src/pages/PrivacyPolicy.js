@@ -1,4 +1,4 @@
-export function PrivacyPolicy() {
+export default function PrivacyPolicy() {
   return (
     <>
     <div className="container policies-screen">
