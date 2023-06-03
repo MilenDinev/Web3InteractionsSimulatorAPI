@@ -24,7 +24,7 @@ function BodyContent() {
 
   };
   return (
-    <div className="container col-xl-10 col-xl-10 px-4 py-3 mb-1">
+    <div className="container col-xl-10 col-xl-10 px-4 py-1 mb-0">
       <div className="row align-items-center g-lg-5 py-2 mb-0">
           <HeroContent/>
         <div className="col-md-10 mx-auto col-lg-4 mb-0">
