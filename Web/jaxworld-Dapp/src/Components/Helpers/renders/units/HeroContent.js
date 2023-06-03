@@ -8,7 +8,7 @@ export function HeroContent() {
       G Minions
       </p>
       <p className="fonts-style display-2 mb-0 text-center">
-        is now available
+         available soon
       </p>
       <p className="text-center fonts-hero-fonts">exclusively for our community members.</p>
     </label>

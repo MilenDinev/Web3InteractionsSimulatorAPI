@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/jax-world-dapp/static/css/main.24e110c8.css",
-    "main.js": "/jax-world-dapp/static/js/main.d1178bf0.js",
+    "main.js": "/jax-world-dapp/static/js/main.0332faf0.js",
     "static/js/3518.cef05282.chunk.js": "/jax-world-dapp/static/js/3518.cef05282.chunk.js",
     "static/js/1014.35d5c414.chunk.js": "/jax-world-dapp/static/js/1014.35d5c414.chunk.js",
     "static/js/349.80ffda0e.chunk.js": "/jax-world-dapp/static/js/349.80ffda0e.chunk.js",
@@ -40,7 +40,7 @@
     "static/js/1597.ff3cf1b5.chunk.js": "/jax-world-dapp/static/js/1597.ff3cf1b5.chunk.js",
     "static/js/731.29f4c4ed.chunk.js": "/jax-world-dapp/static/js/731.29f4c4ed.chunk.js",
     "static/js/8338.e6cce4c8.chunk.js": "/jax-world-dapp/static/js/8338.e6cce4c8.chunk.js",
-    "static/js/5336.d1a2efb8.chunk.js": "/jax-world-dapp/static/js/5336.d1a2efb8.chunk.js",
+    "static/js/5336.cb44ed87.chunk.js": "/jax-world-dapp/static/js/5336.cb44ed87.chunk.js",
     "static/js/5197.0c21dd0d.chunk.js": "/jax-world-dapp/static/js/5197.0c21dd0d.chunk.js",
     "static/js/9545.2b7bf803.chunk.js": "/jax-world-dapp/static/js/9545.2b7bf803.chunk.js",
     "static/js/4017.0a228a6c.chunk.js": "/jax-world-dapp/static/js/4017.0a228a6c.chunk.js",
@@ -68,6 +68,6 @@
   },
   "entrypoints": [
     "static/css/main.24e110c8.css",
-    "static/js/main.d1178bf0.js"
+    "static/js/main.0332faf0.js"
   ]
 }
