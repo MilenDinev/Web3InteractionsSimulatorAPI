@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import Layout from "./pages/Layout";
+import Layout from './pages/Layout';
 
 const Home = lazy(() => import('./pages/Home'));
 const Mint = lazy(() => import('./pages/Mint'));
