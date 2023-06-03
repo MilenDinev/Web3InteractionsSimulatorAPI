@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { Hamster } from "./Components/Helpers/renders/customization/HamsterSpinner";
 import Layout from './pages/Layout';
@@ -14,7 +14,7 @@ const NoPage = lazy(() => import('./pages/NoPage'));
 
 export default function App() {
     return (
-      <BrowserRouter>
+
      <Suspense fallback={    <div><Hamster />{' '}</div>}>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -27,6 +27,5 @@ export default function App() {
           </Route>
         </Routes>
         </Suspense>
-        </BrowserRouter>
     );
   }
