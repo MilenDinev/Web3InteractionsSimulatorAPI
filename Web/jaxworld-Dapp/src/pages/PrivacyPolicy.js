@@ -3,7 +3,7 @@ export function PrivacyPolicy() {
     <>
     <div className="container policies-screen">
       <div className="row policies-screen text">
-        <div>
+        <label>
         <p>Privacy Policy for Jax World</p>
         <p>Effective Date: [Insert Date]</p>
         <p>Welcome to Jax World, a blockchain-based NFT gaming platform. We respect your privacy
@@ -116,7 +116,7 @@ export function PrivacyPolicy() {
         </ul>
         <p>Thank you for choosing Jax World!</p>
         <br/>
-        </div>     
+        </label>     
       </div>
     </div>
     </>

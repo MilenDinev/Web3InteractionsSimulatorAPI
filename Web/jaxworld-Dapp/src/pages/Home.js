@@ -1,6 +1,13 @@
-const Home = () => {
-    return <h1>Home</h1>;
-  };
-  
-  export default Home;
-  
+export default function Home() {
+  return (
+    <>
+    <div className="container welcome-screen">
+      <div className="row welcome-screen text">
+        <label>
+        <p>Page Under Construction</p>
+        </label>     
+      </div>
+    </div>
+    </>
+  );
+}

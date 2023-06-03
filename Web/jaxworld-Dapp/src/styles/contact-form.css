@@ -1,0 +1,86 @@
+.contact-form-main{
+  width: 90%;
+  margin-top: 30px;
+  display: flex;
+  font-family: 'Fjalla One', sans-serif;
+  margin-block-end: 100px;
+}
+
+
+  .contact-form-main.text {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    width: 370px;
+    justify-content: center;
+    background-color: rgba(214, 144, 86, 0.979);
+    box-shadow: 0 0 20px 0px ,inset #8e4f3b  0 0 20px 0px;
+    box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
+    border-radius: 15%;
+    color: rgba(82, 4, 4, 0.877) !important;
+    font-weight: bolder;
+    font-size: 17px;
+    opacity: 0.8;
+  }
+
+  .contact-form-main.text p {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-left: auto;
+    text-align: center;
+    font-size: 20px;
+  }
+
+
+  .contact-form{
+    width: 90%;
+    display: flex;
+    font-family: 'Fjalla One', sans-serif;
+    margin-block-end: 160px;
+  }
+
+  .contact-form.text {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    background-color: rgba(214, 144, 86, 0.979);
+    box-shadow: 0 0 20px 0px ,inset #8e4f3b  0 0 20px 0px;
+    box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
+    border-radius: 15%;
+    color: rgba(82, 4, 4, 0.877) !important;
+    font-weight: bolder;
+    font-size: 17px;
+    opacity: 0.8;
+  }
+
+  
+
+  .contact-form.text a {
+    margin-top: 15px;
+    font-size: 20px;
+    color: rgba(82, 4, 4, 0.877) !important;
+    text-decoration: none;
+  }
+  
+  .contact-form.text:hover {
+    color: #DB9B87;
+    opacity: 0.75;
+    animation: mh 1s infinite ease;
+  }
+    
+    @keyframes mh {
+      0% {
+        transform: rotateX(-15deg) translateY(0px);
+      }
+    
+      50% {
+        transform: rotateX(-15deg) translateY(-6px);
+      }
+    
+      100% {
+        transform: rotateX(-15deg) translateY(0px);
+      }
+  }

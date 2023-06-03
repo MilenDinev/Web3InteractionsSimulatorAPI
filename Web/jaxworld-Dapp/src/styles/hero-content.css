@@ -1,9 +1,9 @@
 .hero {
   min-width: max-content;
   animation: hr 3.0s infinite ease !important;
-  text-shadow: #6f5c72;
+  text-shadow: #77388a;
   box-shadow: 0 0 10px 0px;
-  background-color: rgba(214, 144, 86, 0.795);
+  background-color: rgba(214, 142, 82, 0.945);
 }
 
 

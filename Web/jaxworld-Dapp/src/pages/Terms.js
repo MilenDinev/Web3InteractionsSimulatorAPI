@@ -2,7 +2,7 @@ export function Terms() {
   return (
     <>
       <div className="container policies-screen">
-        <div className="row policies-screen text">
+        <label className="row policies-screen text">
           <div>
             <p>TERMS OF USE FOR JAX WORLD PLATFORM</p>
             <p>Effective Date: [Insert Date]</p>
@@ -211,7 +211,7 @@ you agree to the terms and conditions of the raffle or lottery and any applicabl
           </div>
 
           
-        </div>
+        </label>
       </div>
     </>
   );

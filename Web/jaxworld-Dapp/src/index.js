@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'react-toastify/dist/ReactToastify.css';
 import './styles/welcome-screen.css';
 import './styles/index.css';
 import './styles/App.css';
@@ -15,15 +16,7 @@ import './styles/card.css';
 import './styles/navigation.css';
 import './styles/data.css';
 import './styles/policies.css';
-import 'react-toastify/dist/ReactToastify.css';
-
-
-
-
-
-
-
-
+import './styles/contact-form.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

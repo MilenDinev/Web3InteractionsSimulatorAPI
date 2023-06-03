@@ -27,7 +27,7 @@ export function ClaimStatusPerWallet() {
     </div>
   ) : data.length === 0 ? (
     <div className="data-style eligibility positive">
-      <label>Available to Claim: {claimQuantity}</label>
+      <label>Available to Claim</label>
     </div>
   ) : (
     <div className="data-style eligibility negative">

@@ -23,7 +23,7 @@ export function Agreements() {
             onChange={handlePrivacyPolicy}
           />
           <label className="form-check-label fonts-style eligibility agreements">
-            Agree with Privacy Policy
+            Agree with <a className="text-decoration-none" href="privacy-policy">Privacy Policy</a>
           </label>
         </div>
 
@@ -34,7 +34,7 @@ export function Agreements() {
             onChange={handleTermsOfUse}
           />
           <label className="form-check-label fonts-style eligibility agreements">
-            Agree with Terms Of Use
+            Agree with <a className="text-decoration-none" href="terms-of-use">Terms Of Use</a>
           </label>
         </div>
       </div>

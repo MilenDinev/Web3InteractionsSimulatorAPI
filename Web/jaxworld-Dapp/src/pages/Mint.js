@@ -1,7 +1,6 @@
 import { useConnectionStatus } from '@thirdweb-dev/react';
 import { Hamster } from '../Components/Helpers/renders/customization/HamsterSpinner';
 import { Body } from '../Components/Body';
-import { Footer } from '../Components/Footer';
 import { WelcomeScreen } from '../Components/Helpers/renders/units/WelcomeScreen';
 import { useState, useEffect } from 'react';
 
