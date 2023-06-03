@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 export function Agreements() {
   const [privacyPolicy, setPrivacyPolicy] = useState(false);
@@ -23,7 +24,7 @@ export function Agreements() {
             onChange={handlePrivacyPolicy}
           />
           <label className="form-check-label fonts-style eligibility agreements">
-            Agree with <a className="text-decoration-none" href="privacy-policy">Privacy Policy</a>
+            Agree with <Link className="text-decoration-none" to="/privacy-policy">Privacy Policy</Link>
           </label>
         </div>
 
@@ -34,7 +35,7 @@ export function Agreements() {
             onChange={handleTermsOfUse}
           />
           <label className="form-check-label fonts-style eligibility agreements">
-            Agree with <a className="text-decoration-none" href="terms-of-use">Terms Of Use</a>
+            Agree with <Link className="text-decoration-none" to="/terms-of-use">Terms Of Use</Link>
           </label>
         </div>
       </div>
