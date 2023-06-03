@@ -18,11 +18,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="mint" element={<Mint />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="terms-of-use" element={<Terms />} />
-            <Route path="privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="*" element={<NoPage />} />
+            <Route path="jax-world-dapp/mint" element={<Mint />} />
+            <Route path="jax-world-dapp/contact" element={<Contact />} />
+            <Route path="jax-world-dapp/terms-of-use" element={<Terms />} />
+            <Route path="jax-world-dapp/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="jax-world-dapp/*" element={<NoPage />} />
           </Route>
         </Routes>
         </>
