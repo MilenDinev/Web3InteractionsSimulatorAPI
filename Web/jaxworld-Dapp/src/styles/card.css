@@ -6,7 +6,7 @@
     margin-left: auto;
     box-shadow: 0 0 20px 0px ,inset #8e4f3b  0 0 20px 0px;
     box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
-    background-color: rgba(223, 155, 100, 0.904);
+    background-color: rgb(236, 160, 98);
     opacity: 0.9;
     border-radius: 15%;
     min-width: 375px;
@@ -19,7 +19,7 @@
     font-family: 'Fjalla One', sans-serif !important;
     font-size: 17px !important;
     font-weight: bold !important;
-    background:rgba(222, 184, 135, 0.26)!important;
+    background:rgba(222, 184, 135, 0.322)!important;
     box-shadow: 0 0 8px 0px!important;
     color: rgb(102, 32, 23);
     border-radius: 15%!important;
