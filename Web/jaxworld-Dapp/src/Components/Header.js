@@ -1,5 +1,6 @@
 import { ConnectButton } from './Helpers/renders/units/Connect';
 import logo from '../images/logo.png';
+import brand from '../images/brand.png';
 export function Header() {
 
   return (
@@ -9,7 +10,7 @@ export function Header() {
     <header className="d-flex flex-wrap justify-content-center py-2 mb-3 custom">
     <a href="/" data-toggle="tooltip" title="Home" rel="noreferrer" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
       <img className="bi me-2" width="45" height="45" src={logo} alt="Jax World"></img>
-      <span className="fs-2 fonts hover-effect"><b>Jax World</b></span>
+      <img className="hover-effect bi me-2" width="150" height="80" src={brand} alt="Jax World"></img>
     </a>
 
     <ul className="nav nav-pills header-nav-main text m-3">
