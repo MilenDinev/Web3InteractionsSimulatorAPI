@@ -13,8 +13,8 @@ const NoPage = lazy(() => import('./pages/NoPage'));
 
 export default function App() {
     return (
-      <HashRouter>
-             <Suspense fallback={<div className="container">Loading...</div>}></Suspense>
+      <>
+     <Suspense fallback={<div className="container">Loading...</div>}></Suspense>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -25,6 +25,6 @@ export default function App() {
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>
-      </HashRouter>
+        </>
     );
   }
