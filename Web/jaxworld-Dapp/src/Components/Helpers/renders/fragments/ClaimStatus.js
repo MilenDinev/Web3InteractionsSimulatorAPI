@@ -6,10 +6,11 @@ import { Loading } from '../customization/Spinner';
 export function ClaimStatusPerWallet() {
   const { address } = UserAddress();
   const { contract } = GetContract();
+  const claimQuantity = 1;
 
   const { data, isLoading } =  useClaimIneligibilityReasons(contract, {
     walletAddress: address || '',
-    quantity: 1
+    quantity: claimQuantity
   });
 
 
