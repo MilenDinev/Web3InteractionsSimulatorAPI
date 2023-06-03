@@ -17,12 +17,15 @@ import './styles/navigation.css';
 import './styles/data.css';
 import './styles/policies.css';
 import './styles/contact-form.css';
+import { HashRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ThirdwebProvider activeChain="avalanche-fuji" autoConnect={true} >
   <React.StrictMode>
+  <HashRouter>
     <App />
+    </HashRouter>
   </React.StrictMode>
   </ThirdwebProvider>
   
