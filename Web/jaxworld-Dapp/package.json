@@ -1,7 +1,7 @@
 {
   "name": "jaxworld-app",
   "version": "0.1.0",
-  "homepage": "https://jaxworld.github.io/jax-world-dapp",
+  "homepage": "https://jaxworld.github.io/jax-world-dapp/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.0",
