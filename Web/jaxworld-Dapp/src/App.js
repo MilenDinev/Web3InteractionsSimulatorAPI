@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Layout from './pages/Layout';
 
@@ -13,7 +13,7 @@ const NoPage = lazy(() => import('./pages/NoPage'));
 
 export default function App() {
     return (
-      <BrowserRouter>
+      <HashRouter>
              <Suspense fallback={<div className="container">Loading...</div>}></Suspense>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -25,6 +25,6 @@ export default function App() {
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     );
   }

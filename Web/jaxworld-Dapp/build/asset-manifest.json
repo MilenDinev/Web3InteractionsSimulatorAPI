@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/jax-world-dapp/static/css/main.24e110c8.css",
-    "main.js": "/jax-world-dapp/static/js/main.b55b853a.js",
+    "main.js": "/jax-world-dapp/static/js/main.3ea48590.js",
     "static/js/3518.8894bf71.chunk.js": "/jax-world-dapp/static/js/3518.8894bf71.chunk.js",
     "static/js/1014.faeebf54.chunk.js": "/jax-world-dapp/static/js/1014.faeebf54.chunk.js",
     "static/js/349.81045df1.chunk.js": "/jax-world-dapp/static/js/349.81045df1.chunk.js",
@@ -68,6 +68,6 @@
   },
   "entrypoints": [
     "static/css/main.24e110c8.css",
-    "static/js/main.b55b853a.js"
+    "static/js/main.3ea48590.js"
   ]
 }
