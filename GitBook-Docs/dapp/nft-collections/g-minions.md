@@ -4,29 +4,31 @@ description: G Minions are the Genesis NFT collection in JAX Miners ecosystem.
 
 # 🥇 G Minions
 
-_**Total Supply:**_ <mark style="color:blue;">**5000**</mark>
+<figure><img src="../../.gitbook/assets/hidden.png" alt=""><figcaption></figcaption></figure>
 
-**Distribution:**\
-_**Private Sale**_** : **<mark style="color:blue;">**1500**</mark>\
-_**Public Sale:**_ <mark style="color:blue;">**4300**</mark>
-
-**G Minions** are the **Genesis NFT collection** in JAX Miners ecosystem.\
-The collection contains **5000 custom generated unique NFTs**. These  pieces of freshly minted  'Gold' from mines around JAX World previously owned by the Miners community of JAX Ville escaped the treasury boxes and decided to built a huge decentralized gaming platform with many features, games, community events and many more functionalities and events.\
-
-
-Bellow are the **10** classes of G Minions Collection ordered by rarity and supply:\
-**1.** Mayor - **Legendary - **<mark style="color:blue;">**20**</mark>.\
-**2.** Captain - **Legendary - **<mark style="color:blue;">**20**</mark>.\
-**3**. Godfather - **Legendary - **<mark style="color:blue;">**20**</mark>.\
-**4.** Sheriff - **Epic - **<mark style="color:blue;">**140**</mark>.\
-**5.** Pirate - **Epic - **<mark style="color:blue;">**140**</mark>.\
-**6.** Consigliere- **Epic - **<mark style="color:blue;">**140**</mark>.\
-**7.** Citizen - **Rare - **<mark style="color:blue;">**500**</mark>.\
-**8.** Sailor - **Rare - **<mark style="color:blue;">**500**</mark> .\
-**9.** Gangster - **Rare - **<mark style="color:blue;">**500**</mark>.\
-**10.** Miner - **Common - **<mark style="color:blue;">**3020**</mark>.
-
-**Holders of G Minion NFTs collection  will receive exclusive access** to community events, whitelist spots for our future NFT offerings. Additionally each G Minion NFT has _**boosting ability**_ **based on rarity** for all activities related to staking, mining and mini games section. **Detailed information** about staking and mining functionalities, G minion boosting, community events, future NFT collections will be revealed soon. \
 \
-Join our [discord server](https://discord.com/invite/dPNE6fK4S4) and stay tuned for the latest updates related with Jax World.
+Introducing the G Minions Collection: Genesis NFTs in the Jax World Ecosystem
+
+Total Supply: 5000 Distribution: Private Sale: 1500 Public Sale: 4300
+
+The G Minions Collection represents a series of 5000 uniquely generated custom NFTs within the Jax World ecosystem. These NFTs are crafted from freshly minted "Gold" sourced from mines spread across Jax World, formerly owned by the Miners community of Jax Ville. Breaking free from the confines of the treasury boxes, these NFTs have embarked on an ambitious venture to construct a vast decentralized gaming platform. This platform will encompass a myriad of features, games, community events, and an extensive range of functionalities and events.
+
+Below, we present the 10 classes of the G Minions Collection, listed in order of rarity and supply:
+
+1. Mayor - Legendary - 20
+2. Captain - Legendary - 20
+3. Godfather - Legendary - 20
+4. Sheriff - Epic - 140
+5. Pirate - Epic - 140
+6. Consigliere - Epic - 140
+7. Citizen - Rare - 500
+8. Sailor - Rare - 500
+9. Gangster - Rare - 500
+10. Miner - Common - 3020
+
+Holders of the G Minion NFTs collection will enjoy exclusive access to community events and secure whitelist spots for future NFT offerings. Additionally, each G Minion NFT possesses a boosting ability based on its rarity, enhancing all activities related to staking, mining, and the Saloon. Comprehensive information regarding staking and mining functionalities, G Minion boosting, community events, and upcoming NFT collections will be disclosed soon.
+
+Regenerate response\
+\
+Join our [discord server](https://discord.com/invite/dPNE6fK4S4) and stay tuned for the latest updates related to Jax World.
 
