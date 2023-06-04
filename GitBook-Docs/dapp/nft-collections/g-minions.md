@@ -15,16 +15,16 @@ The G Minions Collection represents a series of 5000 uniquely generated custom N
 
 Below, we present the 10 classes of the G Minions Collection, listed in order of rarity and supply:
 
-1. Mayor - Legendary - 20
-2. Captain - Legendary - 20
-3. Godfather - Legendary - 20
-4. Sheriff - Epic - 140
-5. Pirate - Epic - 140
-6. Consigliere - Epic - 140
-7. Citizen - Rare - 500
-8. Sailor - Rare - 500
-9. Gangster - Rare - 500
-10. Miner - Common - 3020
+1. Mayor - Legendary - 20 units.
+2. Captain - Legendary - 20 units.
+3. Godfather - Legendary - 20 units.
+4. Sheriff - Epic - 140 units.
+5. Pirate - Epic - 140 units.
+6. Consigliere - Epic - 140 units.
+7. Citizen - Rare - 500 units.
+8. Sailor - Rare - 500 units.
+9. Gangster - Rare - 500 units.
+10. Miner - Common - 3020 units.
 
 Holders of the G Minion NFTs collection will enjoy exclusive access to community events and secure whitelist spots for future NFT offerings. Additionally, each G Minion NFT possesses a boosting ability based on its rarity, enhancing all activities related to staking, mining, and the Saloon. Comprehensive information regarding staking and mining functionalities, G Minion boosting, community events, and upcoming NFT collections will be disclosed soon.
 
