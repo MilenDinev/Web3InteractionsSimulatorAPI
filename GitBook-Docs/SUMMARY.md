@@ -48,7 +48,7 @@
   * [🎆 Utilization and Rewards](dapp/nft-collections/utilization-and-rewards.md)
 * [🪙 Tokens](dapp/tokens/README.md)
   * [💡 Utilization](dapp/tokens/utilization.md)
-* [🏬 Market Place](dapp/market-place.md)
+* [🏬 Market Place](dapp/nft-collections/market-place.md)
 * [🎲 Saloon](dapp/saloon.md)
 * [🏦 Stakind](dapp/stakind.md)
 
