@@ -24,7 +24,7 @@ description: Information about our Roadmap target goals
 
 ### <mark style="color:orange;">5. Governance Token Smart Contract Development - (Q3, 2023)</mark>
 
-* [ ] Developing the smart contract for the governance token. This includes determining the token's supply, distribution, and allocation. Additionally, the smart contract will include the mechanisms for staking, voting, and rewards distribution.
+* [ ] Developing the smart contract for the governance token. This includes determining the token's supply, distribution, and allocation. Additionally, the smart contract will include mechanisms for staking, voting, and rewards distribution.
 
 ### <mark style="color:orange;">6. Security Audit - (Q3, 2023)</mark>
 
@@ -40,15 +40,15 @@ description: Information about our Roadmap target goals
 
 ### <mark style="color:orange;">9. In-Game Tokens Smart Contracts Development - (Q1, 2024)</mark>
 
-* [ ] Developing the smart contract for the two in-game tokens and Mini games Tickets which will be used in our Mini Games section, later in the Main Game. This includes determining the tokens supply, distribution, and allocation. Additionally, smart contracts will include mechanisms for rewards distribution.
+* [ ] Developing the smart contract for the two in-game tokens and Mini games Tickets which will be used in our Mini Games section, later in the Main Game. This includes determining the token's supply, distribution, and allocation. Additionally, smart contracts will include mechanisms for rewards distribution.
 
 ### <mark style="color:orange;">10. Website Development - (Q2, 2023 - Q4, 2024)</mark>
 
 * [ ] After the smart contracts are developed, the website development process can begin. This includes building the website's user interface, integrating smart contracts, and developing the website's mechanics. It also involves creating the website's visual assets, including landing pages, marketplace, and user dashboard.
 
-### <mark style="color:orange;">11. Mini Gamified Games Development - (Q4, 2023 - Q5, 2024)</mark>
+### <mark style="color:orange;">11. Saloon - Mini Games Development - (Q4, 2023 - Q5, 2024)</mark>
 
-* [ ] When the website and Genesis NFT collection are complete, the mini-gamified games development process can begin. This includes building the games user interface, integrating the smart contracts, and developing games mechanics.
+* [ ] When the website and Genesis NFT collection are complete, the Saloon development process can begin. This includes building the games user interface, integrating the smart contracts, and developing games mechanics.
 
 ### <mark style="color:orange;">12. Miners NFT Collection - (Q3-Q4, 2023)</mark>
 
