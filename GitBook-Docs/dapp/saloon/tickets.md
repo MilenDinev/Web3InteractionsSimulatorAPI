@@ -1,2 +1,2 @@
-# Tickets
+# 🎟 Tickets
 

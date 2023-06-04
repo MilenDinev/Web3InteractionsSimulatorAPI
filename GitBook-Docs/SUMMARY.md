@@ -32,7 +32,7 @@
   * [🔐 Private NFT Mints](events/community-events/private-nft-mints.md)
     * [📀 1. G Minions](events/community-events/private-nft-mints/1.-g-minions.md)
   * [🔐 Private Token Events](events/community-events/private-token-sale.md)
-  * [🎟 Private Raffles](events/community-events/private-raffles.md)
+  * [🎟 Private Raffles](events/community-events/private-weekly-raffles.md)
   * [📑 Whitelist Events](events/community-events/whitelist.md)
 
 ## DApp
@@ -49,9 +49,9 @@
 * [🪙 Tokens](dapp/tokens/README.md)
   * [💡 Utilization](dapp/tokens/utilization.md)
 * [🏬 Market Place](dapp/nft-collections/market-place.md)
-* [🎲 Saloon](dapp/saloon/README.md)
-  * [Games](dapp/saloon/games.md)
-  * [Tickets](dapp/saloon/tickets.md)
+* [🎲 Saloon](dapp/saloon.md)
+  * [🎮 Games](dapp/saloon/games.md)
+  * [🎟 Tickets](dapp/saloon/tickets.md)
 * [🏦 Stakind](dapp/stakind.md)
 
 ## Socials
