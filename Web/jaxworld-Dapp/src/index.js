@@ -21,7 +21,7 @@ import { HashRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThirdwebProvider activeChain="avalanche-fuji" autoConnect={true} >
+  <ThirdwebProvider activeChain="avalanche" autoConnect={true} >
   <React.StrictMode>
   <HashRouter>
     <App />

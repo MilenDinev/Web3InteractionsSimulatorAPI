@@ -40,7 +40,7 @@ const claim =  isLoading ?
     <div className="d-flex flex-wrap justify-content-center">
       <Web3Button
         dropdownPosition={{ side: 'bottom', align: 'center' }}
-        contractAddress="0x7e327E167FD7a339e410dd34f17e2856388e0a9a"
+        contractAddress="0x8d556299531B2dCE5A3c448E22Fafc346d004B61"
         action={(contract) => contract.erc721.claim(1)}
         onSuccess={success}
         onSubmit={submit}
