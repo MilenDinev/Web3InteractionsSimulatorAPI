@@ -18,7 +18,7 @@ Each of our carefully curated NFT collections is designed to offer users a truly
 
 Built on the Avalanche blockchain, our platform ensures that all transactions are secure, transparent, and immutable. This instills a high level of trust and confidence among our users, surpassing industry standards within the gaming realm.
 
-We are excited to be at the forefront of the transformation in the gaming industry through blockchain technology. Join us on Jax World and embark on an exhilarating journey into the realm of blockchain gaming. Experience the thrill, excitement, and endless possibilities that await you!
+We are excited to be at the forefront of the transformation in the gaming industry through blockchain technology. [Join us](https://discord.com/invite/dPNE6fK4S4) on Jax World and embark on an exhilarating journey into the realm of blockchain gaming. Experience the thrill, excitement, and endless possibilities that await you!
 
 
 
