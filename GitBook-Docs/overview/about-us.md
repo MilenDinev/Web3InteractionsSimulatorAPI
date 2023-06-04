@@ -4,6 +4,8 @@ description: Brief summary of our team's values
 
 # 👨💼 About Us
 
+<figure><img src="../.gitbook/assets/Asset 3.png" alt=""><figcaption></figcaption></figure>
+
 #### We are dedicated to building cutting-edge web3 NFT platform on the Avalanche blockchain. Our team is composed of professional developers and blockchain experts who are passionate about the potential of decentralized technologies.
 
 #### At our core, we believe that blockchain technology can transform gaming and finance industries by creating a more equitable and transparent ecosystem. By leveraging the unique features of the Avalanche blockchain, we are building products that offer users an unprecedented level of control over their digital assets and gaming experiences.
