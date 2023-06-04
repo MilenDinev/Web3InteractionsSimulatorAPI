@@ -7,8 +7,8 @@
     box-shadow: 0 0 20px 0px ,inset #8e4f3b  0 0 20px 0px;
     box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
     background-color: rgb(236, 160, 98);
-    opacity: 0.9;
-    border-radius: 15%;
+    opacity: 1;
+    border-radius: 12%;
     min-width: 375px;
     max-width: min-content;
   }
