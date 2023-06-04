@@ -7,6 +7,8 @@ description: >-
 
 # 🚄 Why Avalanche
 
+<figure><img src="../.gitbook/assets/spaces_2ezG7k2AmbmPLJDUAiOv_uploads_m2gh9TxNlkSZQ5qT6fmt_1280x720.webp" alt=""><figcaption></figcaption></figure>
+
 #### Blockchain technology has revolutionized the gaming industry in recent years, offering players more control and ownership over their in-game assets, as well as enabling developers to create more secure and transparent games.&#x20;
 
 ### <mark style="color:orange;">1. High Scalability and Throughput</mark>
@@ -27,6 +29,6 @@ Avalanche uses a consensus mechanism called Avalanche consensus, which is a nove
 
 ### <mark style="color:orange;">5. Low Fees</mark>
 
-One of the most significant advantages of using Avalanche is its low transaction fees. Compared to other blockchain networks, Avalanche has one of the lowest transaction fees, making it cost-effective for developers to create games and players to transact within the game. This low fee structure is particularly important for games that rely on microtransactions or for players who want to trade or transfer assets frequently.
+One of the most significant advantages of using Avalanche is its low transaction fees. Compared to other blockchain networks, Avalanche has one of the lowest transaction fees, making it cost-effective for developers to create games and for players to transact within the game. This low fee structure is particularly important for games that rely on microtransactions or for players who want to trade or transfer assets frequently.
 
 #### _In conclusion, Avalanche offers an excellent platform for building blockchain-based games. With its high scalability, interoperability, customizable smart contracts, decentralized consensus, and low fees, Avalanche provides game developers with the tools they need to create immersive and engaging gaming experiences. We believe that Avalanche's unique features and advantages make it the perfect choice for our game, and we are excited to explore its full potential in the gaming industry._
