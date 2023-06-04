@@ -4,6 +4,8 @@ description: Information about our Roadmap target goals
 
 # 🗺 Roadmap
 
+<figure><img src="../.gitbook/assets/craiyon_215136_Treasure_Map__The_map_should_be_named_Jax_World_embrace_a_captivating_cartoon_style_that_truly_captures_the_essence_of_the_wild_west.png" alt=""><figcaption></figcaption></figure>
+
 ### <mark style="color:orange;">1. Concept Development and Design (Q1, 2023)</mark>
 
 * [x] The first step in building our project is to develop the concept and design for the game, website, and NFT collections. This involves brainstorming the features, and overall theme, as well as creating a detailed plan for the project's development. This step includes developing the storyline, visual design, and website layout.
