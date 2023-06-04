@@ -17,11 +17,3 @@ description: >-
 
 
 </details>
-
-<details>
-
-<summary>2. Last Call: Weekly Competition Whitelist (DATES)</summary>
-
-
-
-</details>

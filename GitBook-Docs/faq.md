@@ -11,7 +11,7 @@ description: >-
 
 <summary>What is Jax World?</summary>
 
-Jax World is a blockchain platform where our team is developing Jax Miners - a wild west inspired world where will be able to step into the role of a miner, buy land, own mine, hire miners, buy mining equipment to improve their mining rate, compete with other mine owners and win various rewards. Along with our main game we will provide our users with various services and applications including but not limited to weekly raffles, lotteries, rewards based mini games and many more.
+Jax World is a blockchain platform where our team is developing a wild west inspired world where will be able to step into the role of a miner, buy land, own mine, hire miners, buy mining equipment to improve their mining rate, compete with other mine owners and win various rewards. Along with our main game, we will provide our users with various services and applications including but not limited to weekly raffles, lotteries, rewards-based mini-games, and many more.
 
 </details>
 
@@ -19,7 +19,7 @@ Jax World is a blockchain platform where our team is developing Jax Miners - a w
 
 <summary>When Can I Play Jax Miners Game?</summary>
 
-Jax Miners is currently in Pre-Production stage, our team is working very hard to start the Production stage where pre-alpha version of the game will be developed and tested by us and some of our early community members.\
+Jax Miners is currently in the Pre-Production stage, our team is working very hard to start the Production stage where a pre-alpha version of the game will be developed and tested by us and some of our early community members.\
 Bellow are all stages of our game development plan:
 
 <img src="https://learn.g2.com/hubfs/stages-of-game-development-1.png" alt="" data-size="original">
@@ -56,7 +56,7 @@ Blockchain has a variety of use cases, including digital identity verification, 
 
 <summary>Is blockchain the same as cryptocurrency? </summary>
 
-No, blockchain is the technology that enables cryptocurrencies like Bitcoin and Ethereum to function. Cryptocurrencies are a type of digital asset that are secured and managed using blockchain technology.
+No, blockchain is the technology that enables cryptocurrencies like Bitcoin and Ethereum to function. Cryptocurrencies are a type of digital asset that is secured and managed using blockchain technology.
 
 </details>
 
@@ -128,7 +128,7 @@ Avalanche can support a wide range of decentralized applications (dApps), includ
 
 <summary>What is AVAX? </summary>
 
-AVAX is the native cryptocurrency of the Avalanche platform, which is used to pay for transaction fees and incentivize network participants to secure the network and participate in governance.
+AVAX is the native cryptocurrency of the Avalanche platform, which is used to pay transaction fees and incentivize network participants to secure the network and participate in governance.
 
 </details>
 
@@ -152,7 +152,7 @@ Avalanche is designed to be highly secure, with a high degree of decentralizatio
 
 <summary>What is a digital wallet?</summary>
 
-A digital wallet, also known as an e-wallet or mobile wallet, is a software application that allows users to store, send, and receive digital assets such as cryptocurrencies, tokens and NFTs. It can be accessed through a smartphone or computer.
+A digital wallet, also known as an e-wallet or mobile wallet, is a software application that allows users to store, send, and receive digital assets such as cryptocurrencies, tokens, and NFTs. It can be accessed through a smartphone or computer.
 
 </details>
 
@@ -200,7 +200,7 @@ You can get a digital wallet by downloading a wallet application from a reputabl
 
 <summary>Is it necessary to have a digital wallet to use cryptocurrencies? </summary>
 
-No, it's not necessary to have a digital wallet to use cryptocurrencies, but it's highly recommended in order to have full control over your assets and to securely store them. Some cryptocurrency exchanges and online wallets also offer custodial services, but these come with added risks and limitations.
+No, it's not necessary to have a digital wallet to use cryptocurrencies, but it's highly recommended in order to have full control over your assets and securely store them. Some cryptocurrency exchanges and online wallets also offer custodial services, but these come with added risks and limitations.
 
 </details>
 
@@ -326,4 +326,4 @@ It's difficult to predict the future of the NFT market, but it has certainly gai
 
 ### **How do I learn more?**
 
-Join our [Discord](https://discord.com/invite/dPNE6fK4S4) server or follow us on [Twitter](https://twitter.com/jaxworld\_) account and stay tuned.
+Join our [Discord](https://discord.com/invite/dPNE6fK4S4) server or follow us on our [Twitter](https://twitter.com/jaxworld\_) account and stay tuned.
