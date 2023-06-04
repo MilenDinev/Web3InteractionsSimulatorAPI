@@ -1,10 +1,10 @@
 /* Animations */
 .wheel-and-hamster {
     display: block;
-    margin-top: 7%;
+    margin-top: 180px;
     margin-left:auto;
     margin-right: auto;
-    margin-bottom: 7%;
+    margin-bottom: 183px;
     position: relative;
     --dur: 1s;
     position: relative;

@@ -1,8 +1,8 @@
 .contact-form-main{
   width: 90%;
-  margin-top: 30px;
   display: flex;
   font-family: 'Fjalla One', sans-serif;
+  margin-top: 30px;
   margin-block-end: 30px;
 }
 
