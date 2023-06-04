@@ -7,6 +7,8 @@ description: >-
 
 # ❔ FAQ
 
+
+
 <details>
 
 <summary>What is Jax World?</summary>
@@ -17,9 +19,9 @@ Jax World is a blockchain platform where our team is developing a wild west insp
 
 <details>
 
-<summary>When Can I Play Jax Miners Game?</summary>
+<summary>When Can I Play Jax World Game?</summary>
 
-Jax Miners is currently in the Pre-Production stage, our team is working very hard to start the Production stage where a pre-alpha version of the game will be developed and tested by us and some of our early community members.\
+The Game is currently in the Pre-Production stage, our team is working very hard to start the Production stage where a pre-alpha version of the game will be developed and tested by us and some of our early community members.\
 Bellow are all stages of our game development plan:
 
 <img src="https://learn.g2.com/hubfs/stages-of-game-development-1.png" alt="" data-size="original">
