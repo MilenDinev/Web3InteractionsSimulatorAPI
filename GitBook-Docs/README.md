@@ -6,13 +6,13 @@ description: >-
 
 # 🏜 Introduction
 
-<figure><img src=".gitbook/assets/Twitter banner v4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Asset 3.png" alt=""><figcaption></figcaption></figure>
 
 #### Here our team is developing an immersive wild west-inspired world where users can step into the role of a miner and compete with other players to become the top miner in the game.
 
-#### The game called Jax Miners will allow the players to buy land, own a mine, hire miners, and purchase mining equipment to improve their mining rate, all while navigating through the challenges of the wild west.&#x20;
+#### Jax World platform will allow the players to buy land, own a mine, hire miners, and purchase mining equipment to improve their mining rate, all while navigating through the challenges of the wild west.&#x20;
 
-#### But that's not all, at Jax World, we are committed to providing our users with a range of exciting services and applications. In addition to Jax Miners Game, we will offer community raffles, lotteries, rewards-based mini-games, and other activities that offer our users an opportunity to earn rewards and have fun while doing so.
+#### But that's not all, at Jax World, we are committed to providing our users with a range of exciting services and applications. In addition to our main game, we will offer community raffles, lotteries, rewards-based mini-games, and other activities that offer our users an opportunity to earn rewards and have fun while doing so.
 
 #### Our mission at Jax World is to attract more people to the world of NFT and blockchain gaming. We believe that blockchain technology has the potential to revolutionize the gaming industry, and we want to make it accessible to as many people as possible. With Jax Miners Game and our other applications and services, we hope to showcase the potential of blockchain gaming and provide an engaging and rewarding experience for our users.
 
