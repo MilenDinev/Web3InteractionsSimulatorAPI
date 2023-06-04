@@ -1,3 +1,3 @@
 # 🌆 Mines
 
-### Information about Mines Collection will be provided Soon. [Stay Tuned!](https://discord.com/invite/dPNE6fK4S4)
+### Information about Mines Collection is coming soon. [Stay Tuned!](https://discord.com/invite/dPNE6fK4S4)

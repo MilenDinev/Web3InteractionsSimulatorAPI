@@ -1,5 +1,7 @@
 ---
-description: Here we will be posting information regarding Utilization and Rewards.
+description: >-
+  Here we provide comprehensive information about how to maximize the potential
+  of our exclusive NFT collections.
 ---
 
 # 🎆 Utilization and Rewards
