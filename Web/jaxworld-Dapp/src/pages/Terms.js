@@ -5,7 +5,7 @@ export default function Terms() {
         <label className="row policies-screen text">
           <div>
             <p>TERMS OF USE FOR JAX WORLD PLATFORM</p>
-            <p>Effective Date: [Insert Date]</p>
+            <p>Effective Date: 06.01.2023</p>
           </div>
 
           <div>
@@ -13,7 +13,7 @@ export default function Terms() {
               Welcome to Jax World, a blockchain NFT gaming platform that offers
               a variety of services including the sale of NFT Collections,
               Tokens, organizing private and public offerings, private and
-              public events, weekly raffles and lotteries, and providing gaming
+              public events, raffles and lotteries, and providing gaming
               services.
             </p>
           </div>
