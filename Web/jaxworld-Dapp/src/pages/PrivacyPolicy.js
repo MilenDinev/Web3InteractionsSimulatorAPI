@@ -191,7 +191,7 @@ export default function PrivacyPolicy() {
                 <ul>
                   <li>
                     If you have any questions or concerns about this Privacy
-                    Policy, please contact us at [Contact Information].
+                    Policy, please contact us at support@jaxworld.xyz .
                   </li>
                 </ul>
               </li>

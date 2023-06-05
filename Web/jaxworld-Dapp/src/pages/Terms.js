@@ -207,7 +207,7 @@ you agree to the terms and conditions of the raffle or lottery and any applicabl
             <ul><h5>ENTIRE AGREEMENT</h5>
               <li>(a) These terms constitute the entire agreement between you and Jax World with respect to the use of the Jax World platform.</li>
             </ul>
-            <p>If you have any questions or concerns about these terms of use, please contact us at [contact email].</p>
+            <p>If you have any questions or concerns about these terms of use, please contact us at support@jaxworld.xyz .</p>
           </div>
 
           
