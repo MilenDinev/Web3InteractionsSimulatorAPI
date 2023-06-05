@@ -6,7 +6,7 @@ description: >-
 
 # 🏜 Introduction
 
-<figure><img src=".gitbook/assets/Asset 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Twitter newest.png" alt=""><figcaption></figcaption></figure>
 
 Our team is diligently working on creating an immersive wild west-inspired world, where players can step into the shoes of a miner and compete with others to rise as the top miner in the game. The Jax World platform will offer a range of exciting opportunities, allowing players to purchase land, own a mine, hire miners, and acquire mining equipment to enhance their mining rate. As they navigate the challenges of the wild west, players will experience engaging and thrilling gameplay.
 

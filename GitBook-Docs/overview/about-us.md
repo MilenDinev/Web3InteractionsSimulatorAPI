@@ -4,7 +4,7 @@ description: Brief summary of our team's values
 
 # 👨💼 About Us
 
-<figure><img src="../.gitbook/assets/Asset 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Twitter newest.png" alt=""><figcaption></figcaption></figure>
 
 #### We are dedicated to building cutting-edge web3 NFT platform on the Avalanche blockchain. Our team is composed of professional developers and blockchain experts who are passionate about the potential of decentralized technologies.
 
