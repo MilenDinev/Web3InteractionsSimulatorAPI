@@ -16,7 +16,7 @@ export function Footer() {
   
       <ul className="nav col-md-4 justify-content-end">
         <li className="nav-item" data-toggle="tooltip" title="Contact Us"><Link to="contact" rel="noreferrer" className="menu-button nav-link px-2 text-muted"><label className="hover-effect">Contact Us</label></Link></li>
-        <li className="nav-item" data-toggle="tooltip" title="FAQ"><Link to="faq" rel="noreferrer" className="menu-button nav-link px-2 text-muted "><label className="hover-effect">FAQ</label></Link></li>
+        <li className="nav-item" data-toggle="tooltip" title="FAQ"><Link to="https://docs.jaxworld.xyz/faq" rel="noreferrer" className="menu-button nav-link px-2 text-muted "><label className="hover-effect">FAQ</label></Link></li>
         <li className="nav-item" data-toggle="tooltip" title="Terms of use"><Link to="terms-of-use" rel="noreferrer" className="menu-button nav-link px-2 text-muted"><label className="hover-effect">Terms of Use</label></Link></li>
         <li className="nav-item" data-toggle="tooltip" title="Privacy Policy"><Link to="privacy-policy" rel="noreferrer" className="menu-button nav-link px-2 text-muted"><label className="hover-effect">Privacy policy</label></Link></li>
       </ul>

@@ -11,7 +11,7 @@ export default function Contact() {
     <div className="container contact-form">
     <div className="row contact-form text">
         <div>
-        <a target="_blank" rel="noreferrer" href=" mailto: jaxworld@email.xyz" data-toggle="tooltip" title="Email us">Email us</a>
+        <a target="_blank" rel="noreferrer" href=" mailto: support@jaxworld.xyz" data-toggle="tooltip" title="Email us">Email us</a>
         </div>     
       </div>
       <div className="row contact-form text">

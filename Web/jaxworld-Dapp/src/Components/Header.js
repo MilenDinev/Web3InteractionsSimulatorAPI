@@ -20,7 +20,7 @@ export function Header() {
 
       <li className="nav-item" data-toggle="tooltip" title="Comming Soon"><Link to="/saloon" rel="noreferrer" className="nav-link text-white hover-effect menu-button disabled" aria-current="page" style={{ background: ' rgba(204, 163, 130, 0.904)' }}>Saloon</Link></li>
       <li className="nav-item" data-toggle="tooltip" title="Mint"><Link to="/mint" rel="noreferrer" className="nav-link text-white hover-effect menu-button" aria-current="page">Mint</Link></li>
-      <li className="nav-item" data-toggle="tooltip" title="Docs"><Link to="/docs" target="_blank" rel="noreferrer" className="nav-link text-white hover-effect menu-button" aria-current="page">Docs</Link></li>
+      <li className="nav-item" data-toggle="tooltip" title="Docs"><Link to="https://docs.jaxworld.xyz/" target="_blank" rel="noreferrer" className="nav-link text-white hover-effect menu-button" aria-current="page">Docs</Link></li>
     </ul>
     <span className="nav-item m-2" data-toggle="tooltip" title="Connect"><ConnectButton/></span>
   </header>
