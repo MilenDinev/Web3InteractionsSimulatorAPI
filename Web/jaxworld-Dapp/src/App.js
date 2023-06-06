@@ -2,13 +2,13 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { Hamster } from "./Components/Helpers/renders/customization/HamsterSpinner";
 import Layout from './pages/Layout';
-import Home from './pages/Home';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import Terms from './pages/Terms';
 import { ThirdwebProvider } from '@thirdweb-dev/react';
 import { HashRouter } from "react-router-dom";
 
 const Mint = lazy(() => import('./pages/Mint'));
+const Home = lazy(() => import('./pages/Home'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const Terms = lazy(() => import('./pages/Terms'));
 const Soon = lazy(() => import('./pages/Soon'));
 const Contact = lazy(() => import('./pages/Contact'));
 const NoPage = lazy(() => import('./pages/NoPage'));
