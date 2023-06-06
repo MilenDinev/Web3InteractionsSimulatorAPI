@@ -4,8 +4,8 @@ export default function PrivacyPolicy() {
       <div className="container policies-screen">
         <div className="row policies-screen text">
           <label>
-            <p>Privacy Policy for Jax World</p>
-            <p>Effective Date: 06.01.2023 </p>
+            <h1>Privacy Policy for Jax World</h1>
+            <h2>Effective Date: 06.01.2023 </h2>
             <p>
               Welcome to Jax World, a blockchain-based NFT gaming platform. We
               respect your privacy and are committed to protecting it. This

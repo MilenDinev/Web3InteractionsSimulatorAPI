@@ -4,8 +4,8 @@ export default function Terms() {
       <div className="container policies-screen">
         <label className="row policies-screen text">
           <div>
-            <p>TERMS OF USE FOR JAX WORLD PLATFORM</p>
-            <p>Effective Date: 06.01.2023</p>
+            <h1>TERMS OF USE FOR JAX WORLD PLATFORM</h1>
+            <h2>Effective Date: 06.01.2023</h2>
           </div>
 
           <div>
