@@ -9,7 +9,12 @@ description: G Minions are the Genesis NFT collection in Jax World ecosystem.
 \
 Introducing the G Minions Collection: Genesis NFTs in the Jax World Ecosystem
 
-Total Supply: 5000 Distribution: Private Sale: 1500 Public Sale: 4300
+Total Supply: 5000  units
+
+Distribution:
+
+Private Mint: 1000 units\
+Public MInts: 4000 units
 
 The G Minions Collection represents a series of 5000 uniquely generated custom NFTs within the Jax World ecosystem. These NFTs are crafted from freshly minted "Gold" sourced from mines spread across Jax World, formerly owned by the Miners community of Jax Ville.&#x20;
 
