@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { Hamster } from "./Components/Helpers/renders/customization/HamsterSpinner";
-import Layout  from './pages/Layout';
-import  Home  from './pages/Home';
-import  Mint  from './pages/Mint';
+import Layout from './pages/Layout';
 
+const Home = lazy(() => import('./pages/Home'));
+const Mint = lazy(() => import('./pages/Mint'));
 const Soon = lazy(() => import('./pages/Soon'));
 const Contact = lazy(() => import('./pages/Contact'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
