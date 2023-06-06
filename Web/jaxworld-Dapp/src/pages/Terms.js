@@ -1,11 +1,19 @@
-export default function Terms() {
+import { Component } from 'react';
+
+export default class Terms extends Component {
+  constructor(props){
+    super(props);
+    document.title = this.props.title;
+  }
+
+  render(){
   return (
     <>
       <div className="container policies-screen">
         <label className="row policies-screen text">
           <div>
-            <h1>TERMS OF USE FOR JAX WORLD PLATFORM</h1>
-            <h2>Effective Date: 06.01.2023</h2>
+            <p>TERMS OF USE FOR JAX WORLD PLATFORM</p>
+            <p>Effective Date: 06.01.2023</p>
           </div>
 
           <div>
@@ -215,4 +223,5 @@ you agree to the terms and conditions of the raffle or lottery and any applicabl
       </div>
     </>
   );
+}
 }

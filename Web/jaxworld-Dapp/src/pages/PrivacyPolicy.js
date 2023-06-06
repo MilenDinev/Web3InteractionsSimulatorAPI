@@ -1,11 +1,19 @@
-export default function PrivacyPolicy() {
+import { Component } from 'react';
+
+export default class PrivacyPolicy extends Component {
+    constructor(props){
+      super(props);
+      document.title = this.props.title;
+    }
+  
+  render(){
   return (
     <>
       <div className="container policies-screen">
         <div className="row policies-screen text">
           <label>
-            <h1>Privacy Policy for Jax World</h1>
-            <h2>Effective Date: 06.01.2023 </h2>
+            <p>Privacy Policy for Jax World</p>
+            <p>Effective Date: 06.01.2023 </p>
             <p>
               Welcome to Jax World, a blockchain-based NFT gaming platform. We
               respect your privacy and are committed to protecting it. This
@@ -211,4 +219,5 @@ export default function PrivacyPolicy() {
       </div>
     </>
   );
+  }
 }

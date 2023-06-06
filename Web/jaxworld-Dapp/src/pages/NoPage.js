@@ -1,4 +1,6 @@
 export default function NoPage() {
+
+  document.title = "Page Not Found (404)";
   return (
     <>
     <div className="container welcome-screen">

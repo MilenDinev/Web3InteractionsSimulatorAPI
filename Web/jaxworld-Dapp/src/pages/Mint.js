@@ -5,8 +5,10 @@ import { WelcomeScreen } from '../Components/Helpers/renders/units/WelcomeScreen
 import { useState, useEffect } from 'react';
 
 
-function Mint() {
+export default function Mint() {
   const [loading, setLoading] = useState(false);
+
+  document.title = "Jax World - Mint";
 
   useEffect(() => {
     setLoading(true);
@@ -40,4 +42,3 @@ function Mint() {
   );
 }
 
-export default Mint;

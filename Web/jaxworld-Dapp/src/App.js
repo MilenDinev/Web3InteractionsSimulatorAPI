@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
+import { HashRouter } from "react-router-dom";
 import { lazy, Suspense } from 'react';
+import { ThirdwebProvider } from '@thirdweb-dev/react';
 import { Hamster } from "./Components/Helpers/renders/customization/HamsterSpinner";
 import Layout from './pages/Layout';
-import { ThirdwebProvider } from '@thirdweb-dev/react';
-import { HashRouter } from "react-router-dom";
 
 const Mint = lazy(() => import('./pages/Mint'));
 const Home = lazy(() => import('./pages/Home'));
@@ -20,12 +20,12 @@ export default function App() {
   <HashRouter>
      <Suspense fallback={    <div><Hamster />{' '}</div>}>
         <Routes>
-            <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+            <Route path="/" element={<Layout title = "Jax World - Blockhain Gaming Platform" />}>
+            <Route index element={<Home title = "Jax World - Blockhain Gaming Platform"/>} />
             <Route path="/mint" element={<Mint />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/terms-of-use" element={<Terms />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/contact" element={<Contact title = "Jax World - Contact Us"/>} />
+            <Route path="/terms-of-use" element={<Terms title = "Jax World - Terms Of Use" />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy title = "Jax World - Privacy Policy"/>} />
             <Route path="/*" element={<NoPage />} />
           </Route>
         </Routes>
@@ -34,3 +34,8 @@ export default function App() {
           </ThirdwebProvider>
     );
   }
+
+
+
+
+  

@@ -1,4 +1,13 @@
-export default function Contact() {
+import { Component } from 'react';
+
+export default class Contact extends Component {
+
+  constructor(props){
+    super(props);
+    document.title = this.props.title;
+  }
+
+  render(){
   return (
     <>
     <div className="container contact-form-main">
@@ -27,4 +36,5 @@ export default function Contact() {
       </div>
     </>
   );
+}
 }
