@@ -1,6 +1,7 @@
 import { ThirdwebProvider } from '@thirdweb-dev/react';
 import React from 'react';
 import ReactDOM from "react-dom/client";
+import { hydrate, render } from "react-dom";
 import App from "./App";
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,17 +20,36 @@ import './styles/policies.css';
 import './styles/contact-form.css';
 import { HashRouter } from "react-router-dom";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const rootElement = document.getElementById("root");
+if (rootElement.hasChildNodes()) {
+  hydrate(  <ThirdwebProvider activeChain="avalanche" autoConnect={true} >
+  <React.StrictMode>
+  <HashRouter>
+    <App />
+  </HashRouter>
+  </React.StrictMode>
+  </ThirdwebProvider>, rootElement);
+} else {
+  render( 
   <ThirdwebProvider activeChain="avalanche" autoConnect={true} >
   <React.StrictMode>
   <HashRouter>
     <App />
   </HashRouter>
   </React.StrictMode>
-  </ThirdwebProvider> 
-);
+  </ThirdwebProvider>, rootElement);
+}
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <ThirdwebProvider activeChain="avalanche" autoConnect={true} >
+//   <React.StrictMode>
+//   <HashRouter>
+//     <App />
+//   </HashRouter>
+//   </React.StrictMode>
+//   </ThirdwebProvider>
+  
+// );
 
 
 
