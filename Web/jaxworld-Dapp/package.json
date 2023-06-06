@@ -23,6 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "postbuild": "react-snap",
     "start": "react-app-rewired start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -52,6 +53,7 @@
     "assert": "^2.0.0",
     "gh-pages": "^5.0.0",
     "react-app-rewired": "^2.2.1",
+    "react-snap": "^1.23.0",
     "stream": "^0.0.2"
   }
 }
