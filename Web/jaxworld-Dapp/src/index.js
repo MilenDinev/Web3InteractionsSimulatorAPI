@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "./App";
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,10 +19,11 @@ import './styles/policies.css';
 import './styles/contact-form.css';
 
 
-const rootElement = document.getElementById("root");
-  render( 
-    <App />
-, rootElement);
+
+const root = createRoot(document.getElementById('root'));
+  root.render(
+    <App /> 
+);
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
