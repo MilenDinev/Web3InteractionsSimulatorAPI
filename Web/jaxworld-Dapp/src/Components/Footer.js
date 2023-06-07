@@ -14,7 +14,7 @@ export function Footer() {
         <p className="col-md-5 mb-0 hover-effect">&copy; 2023 Jax World</p>
       </Link>
   
-      <ul className="nav col-md-4 justify-content-end">
+      <ul className="nav col-sm-4 col-md-3 col-lg-3 col-xl-4 col-xxl-4 justify-content-end">
         <li className="nav-item" data-toggle="tooltip" title="Contact Us"><Link to="contact" rel="noreferrer" className="menu-button nav-link px-2 text-muted"><label className="hover-effect">Contact Us</label></Link></li>
         <li className="nav-item" data-toggle="tooltip" title="FAQ"><Link to="https://docs.jaxworld.xyz/faq" target="_blank" rel="noreferrer" className="menu-button nav-link px-2 text-muted "><label className="hover-effect">FAQ</label></Link></li>
         <li className="nav-item" data-toggle="tooltip" title="Terms of use"><Link to="terms-of-use" rel="noreferrer" className="menu-button nav-link px-2 text-muted"><label className="hover-effect">Terms of Use</label></Link></li>

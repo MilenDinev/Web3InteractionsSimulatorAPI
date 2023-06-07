@@ -1,5 +1,6 @@
 .hero {
   min-width: max-content;
+  max-width: 513px;
   animation: hr 3.0s infinite ease !important;
   text-shadow: #77388a;
   box-shadow: 0 0 10px 0px;

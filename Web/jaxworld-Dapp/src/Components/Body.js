@@ -24,11 +24,11 @@ function BodyContent() {
 
   };
   return (
-    <div className="container col-xl-10 col-xl-10 px-4 py-1 mb-0">
-      <div className="row align-items-center g-lg-5 py-2 mb-0">
+    <div className="container col-xl-10 mb-sm-5 my-md-0 mb-lg-5 mb-xl-5 py-1 ">
+      <div className="row align-items-center my-sm-1 my-md-0 my-lg-2 g-lg-4 py-3 mb-2">
           <HeroContent/>
-        <div className="col-md-10 mx-auto col-lg-4 mb-0">
-          <form className="p-4 p-md-4 card" onSubmit={handleSubmit}>
+        <div className="col-md-10 mx-auto col-lg-4 my-sm-1 my-md-3 my-lg-0 my-xl-5 card py-3">
+          <form className="p-sm-0 p-md-2 p-lg-2 p-xl-2 mx-auto" onSubmit={handleSubmit}>
             <LiveData />
           </form>
           {toastContainer}   
