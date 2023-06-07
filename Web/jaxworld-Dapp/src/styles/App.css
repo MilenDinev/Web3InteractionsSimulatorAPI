@@ -4407,10 +4407,6 @@
 
 
 
-
-
-
-
 .App {
   clear: both;
   background-attachment: scroll;
@@ -4421,9 +4417,114 @@
 }
 
 
-/*_______________________________________________________
-// HEADER  //----------------------------
-_______________________________________________________*/
+
+
+/*<---------- TEXT STARTS ---------->*/
+
+
+.text-fonts {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.text-l-space {
+  letter-spacing: 0.03rem;
+}
+
+.text-color{
+  color: rgba(82, 4, 4, 0.877) !important;
+}
+
+.txt-f-s-xxl-b {
+  font-size: 25px !important;
+  font-weight: bold;
+}
+
+.txt-f-s-xl-b {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
+.txt-f-s-lg-b {
+  font-size: 15px !important;
+  font-weight: bold;
+}
+
+.txt-f-s-md-b {
+  font-size: 13px !important;
+  font-weight: bold;
+}
+
+.txt-f-s-sm-b {
+  font-size: 8px !important;
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+
+/*<---------- TEXT ENDS ---------->*/
+
+
+/*<---------- ALIGNEMT STARTS ---------->*/
+
+.items-center {
+  align-items: center !important;
+}
+
+.content-center {
+  justify-content: center;
+}
+
+
+/*<---------- ALIGNEMT ENDS ---------->*/
+
+
+/*<---------- BACKGROUND BOXES STARTS ---------->*/
+
+.bg-box-classic-an{
+  width: auto;
+  height: auto;
+  background-color: rgba(214, 144, 86, 0.979);
+  box-shadow: 0 0 20px 0px ,inset #8e4f3b  0 0 20px 0px;
+  box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
+  border-radius: 15%;
+  animation: rot 2s infinite ease;
+}
+
+/*<---------- BACKGROUND BOXES ENDS ---------->*/
+
+/*<---------- MARGIN BLOCK STARTS ---------->*/
+
+.mbl-end-xl {
+  margin-block-start: 20rem;
+  margin-block-end: 20.2rem;
+}
+
+
+/*<---------- MARGIN BLOCK ENDS ---------->*/
+
+
+
+/*<---------- ANIMATION BLOCK STARTS ---------->*/
+
+
+@keyframes rot {
+  0% {
+    transform: rotateX(-15deg) translateY(0px);
+  }
+
+  50% {
+    transform: rotateX(-15deg) translateY(-10px);
+  }
+
+  100% {
+    transform: rotateX(-15deg) translateY(0px);
+  }
+}
+
+/*<---------- ANIMATION BLOCK ENDS ---------->*/
 
 .fonts {
   font-family: 'Fjalla One', sans-serif;

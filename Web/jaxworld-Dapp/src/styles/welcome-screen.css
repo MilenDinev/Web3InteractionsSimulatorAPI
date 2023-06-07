@@ -10,9 +10,8 @@
   .welcome-screen.text {
     margin-left: auto;
     margin-right: auto;
-    align-items: center;
     width: 370px;
-    justify-content: center;
+
     background-color: rgba(214, 144, 86, 0.979);
     box-shadow: 0 0 20px 0px ,inset #8e4f3b  0 0 20px 0px;
     box-shadow: 0 0 10px 0px, inset 0px 0px 0px 0px rgb(216, 233, 238);
