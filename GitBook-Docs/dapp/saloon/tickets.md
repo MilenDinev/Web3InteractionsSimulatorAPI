@@ -1,8 +1,8 @@
 # 🎟 Tickets
 
-**In the Saloon, where we will offer a range of exhilarating games, including some with a gamified element, we are implementing various ways for users to enjoy them.**&#x20;
+**Saloon, the place where we will offer a range of exhilarating games, including some with a gamified element, will be accessible in various ways for users to enjoy them.**&#x20;
 
-**You will have the option to play using our DAO Token, AVAX, or tickets.**&#x20;
+**You will have the option to play using our DAO Token, AVAX, or Tickets.**&#x20;
 
 **Tickets come in four different types: bronze, silver, gold, and premium.**&#x20;
 

@@ -50,8 +50,8 @@
   * [💡 Utilization](dapp/tokens/utilization.md)
 * [🏬 Market Place](dapp/nft-collections/market-place.md)
 * [🎲 Saloon](dapp/saloon.md)
-  * [🎮 Games](dapp/saloon/games.md)
   * [🎟 Tickets](dapp/saloon/tickets.md)
+  * [🎮 Games](dapp/saloon/games.md)
 * [🏦 Stakind](dapp/stakind.md)
 
 ## Socials
@@ -62,7 +62,7 @@
 
 ***
 
-* [‼ Terms Of Use](https://www.jaxworld.xyz/terms-of-use.html)
-* [🔒 Privacy Policy](https://www.jaxworld.xyz/privacy-policy.html)
+* [‼ Terms Of Use](https://www.jaxworld.xyz/#/terms-of-use)
+* [🔒 Privacy Policy](https://www.jaxworld.xyz/#/privacy-policy)
 * [❔ FAQ](faq.md)
 * [‼ Disclaimer](disclaimer.md)
