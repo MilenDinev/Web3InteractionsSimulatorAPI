@@ -21,7 +21,7 @@ To participate in the whitelist for G Minions: The Genesis NFT Collection on Jax
 1. [Join our Discord Server](https://discord.com/invite/dPNE6fK4S4): Users must become members of our [official Discord server](https://discord.com/invite/dPNE6fK4S4), where they can engage with the community, stay updated on the latest announcements, and connect with like-minded individuals who share a passion for blockchain gaming and NFTs.
 2. Submit Wallet Information: Once users have joined our Discord server, they are required to submit their wallet information in the designated "Wallet Submission" channel. This allows us to verify their ownership of a compatible wallet and ensures a smooth distribution process for the G Minions NFTs.
 
-Please note that due to the limited availability of whitelist spots, only the first 1000 users who successfully fulfill the above requirements will be granted access to the whitelist. Securing a spot on the whitelist grants users exclusive benefits, such as early access to the G Minions collection and priority consideration for future NFT offerings.
+Please note that due to the limited availability of whitelist spots, only the first 500 users who successfully fulfill the above requirements will be granted access to the whitelist. Securing a spot on the whitelist grants users exclusive benefits, such as early access to the G Minions collection and priority consideration for future NFT offerings.
 
 By implementing this whitelist process, we aim to reward our dedicated community members and early supporters who actively engage with us. It also allows us to maintain a fair and balanced distribution of the G Minions NFTs.
 
