@@ -13,8 +13,8 @@ Total Supply: 5000  units
 
 Distribution:
 
-Private Mint: 1000 units\
-Public MInts: 4000 units
+Private Mint: 500 units\
+Public MInts: 4500 units
 
 The G Minions Collection represents a series of 5000 uniquely generated custom NFTs within the Jax World ecosystem. These NFTs are crafted from freshly minted "Gold" sourced from mines spread across Jax World, formerly owned by the Miners community of Jax Ville.&#x20;
 
