@@ -18,8 +18,9 @@
 * [👥 Partnerships](project-information/partnerships.md)
 * [🗣 DAO Governance](project-information/dao-governance.md)
 * [🔔 Project Updates](project-information/project-updates.md)
-  * [🗞 1. G Minions Introduction](project-information/project-updates/1.-g-minions-introduction.md)
-  * [🗞 2. Launch of G Minions](project-information/project-updates/1.-launch-of-g-minions.md)
+  * [🗞 1. Jax World Platform - Introduction](https://medium.com/@jaxminersworld/introducing-jax-world-unleashing-the-wild-west-of-blockchain-gaming-dbd0b156ba04)
+  * [🗞 2. G Minions Introduction](project-information/project-updates/2.-g-minions-introduction.md)
+  * [🗞 3. Launch of G Minions](project-information/project-updates/3.-launch-of-g-minions.md)
 
 ## Events
 
