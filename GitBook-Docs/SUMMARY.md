@@ -33,7 +33,7 @@
     * [📀 1. G Minions](events/community-events/private-nft-mints/1.-g-minions.md)
   * [🔐 Private Token Events](events/community-events/private-token-sale.md)
   * [🎟 Private Raffles](events/community-events/private-weekly-raffles.md)
-  * [📑 Whitelist Events](events/community-events/whitelist.md)
+* [📑 Whitelist Events](events/whitelist-events.md)
 
 ## DApp
 
