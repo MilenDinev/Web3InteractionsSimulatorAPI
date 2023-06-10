@@ -4,7 +4,7 @@ description: Information about our Roadmap target goals
 
 # 🗺 Roadmap
 
-<figure><img src="../.gitbook/assets/craiyon_215136_Treasure_Map__The_map_should_be_named_Jax_World_embrace_a_captivating_cartoon_style_that_truly_captures_the_essence_of_the_wild_west.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/map.png" alt=""><figcaption></figcaption></figure>
 
 ### <mark style="color:orange;">1. Concept Development and Design (Q1, 2023)</mark>
 
