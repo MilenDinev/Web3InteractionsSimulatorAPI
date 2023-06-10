@@ -4444,6 +4444,16 @@
   font-weight: bold;
 }
 
+.txt-f-s-xl-l {
+  font-size: 20px !important;
+  font-weight: 600;
+}
+
+.txt-f-s-xl-m {
+  font-size: 17px !important;
+  font-weight: 500;
+}
+
 .txt-f-s-lg-b {
   font-size: 15px !important;
   font-weight: bold;

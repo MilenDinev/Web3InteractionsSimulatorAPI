@@ -25,18 +25,6 @@ const root = createRoot(document.getElementById('root'));
     <App /> 
 );
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <ThirdwebProvider activeChain="avalanche" autoConnect={true} >
-//   <React.StrictMode>
-//   <HashRouter>
-//     <App />
-//   </HashRouter>
-//   </React.StrictMode>
-//   </ThirdwebProvider>
-  
-// );
-
 
 
 // If you want to start measuring performance in your app, pass a function
