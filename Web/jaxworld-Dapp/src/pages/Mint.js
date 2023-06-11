@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 export default function Mint() {
   const [loading, setLoading] = useState(false);
 
-  document.title = "Jax World - Mint";
+  document.title = 'Jax World - Mint';
 
   useEffect(() => {
     setLoading(true);

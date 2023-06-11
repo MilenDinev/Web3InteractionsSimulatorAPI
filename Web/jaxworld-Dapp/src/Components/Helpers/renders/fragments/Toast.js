@@ -26,7 +26,7 @@ export function Toast() {
     });
 
   const error = () =>
-    toast.error('An error occured!', {
+    toast.error('Transaction Error!', {
       position: 'bottom-center',
       autoClose: 4000,
       hideProgressBar: false,
