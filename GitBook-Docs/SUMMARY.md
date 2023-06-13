@@ -20,7 +20,8 @@
 * [🔔 Project Updates](project-information/project-updates.md)
   * [🗞 1. Jax World Platform - Introduction](https://medium.com/@jaxminersworld/introducing-jax-world-unleashing-the-wild-west-of-blockchain-gaming-dbd0b156ba04)
   * [🗞 2. G Minions Introduction](project-information/project-updates/2.-g-minions-introduction.md)
-  * [🗞 3. Launch of G Minions](project-information/project-updates/3.-launch-of-g-minions.md)
+  * [🗞 3. Meet G Minions](https://medium.com/@jaxminersworld/introducing-the-g-minions-collection-530b613b58f0)
+  * [🗞 4. Launch of G Minions](project-information/project-updates/4.-launch-of-g-minions.md)
 
 ## Events
 

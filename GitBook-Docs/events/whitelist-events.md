@@ -32,3 +32,5 @@ We encourage all interested users to promptly join our Discord server, submit th
 
 
 </details>
+
+{% embed url="https://medium.com/@jaxminersworld/join-the-whitelist-for-g-minions-5e25b00b5c60" %}
