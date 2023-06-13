@@ -1,22 +1,23 @@
 import { GetActiveClaimData } from '../../liveData/GetActiveClaimData';
+import { CURRENTPHASE } from '../../constants/currentPhaseStatus.ts';
 import { Loading } from '../customization/Spinner';
 
-export function CurrentPhaseMinted() {
+export function CurrentPhaseSupply() {
   const { data: allClaimData, isLoading, error } = GetActiveClaimData();
 
-  const currentEventMinted = isLoading ? (
+  const currentMintSupply = isLoading ? (
     <Loading />
   ) : error != null ? (
     error.toString()
   ) : (
-    allClaimData.currentMintSupply
+    allClaimData.maxClaimableSupply
   );
 
   return (
     <>
       <label>
-        Minted in Current Event:{' '}
-        <b className="data-style count-color">{currentEventMinted}</b>
+        {CURRENTPHASE.mintSupplyMessage}
+        <b className="data-style count-color">{currentMintSupply}</b>
       </label>
     </>
   );

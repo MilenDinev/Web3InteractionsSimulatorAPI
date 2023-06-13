@@ -1,4 +1,4 @@
-import '../../../../styles/welcome-screen.css';
+import '../../../styles/welcome-screen.css';
 export function WelcomeScreen() {
   return (
     <>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { HeroContent } from './Helpers/renders/units/HeroContent';
-import { Toast } from './Helpers/renders/fragments/Toast';
-import { LiveData } from './Helpers/renders/fragments/LiveData';
+import { HeroContent } from './renders/units/HeroContent';
+import { Toast } from './renders/fragments/Toast';
+import { LiveData } from './renders/fragments/LiveData';
 
 export function Body() {
 

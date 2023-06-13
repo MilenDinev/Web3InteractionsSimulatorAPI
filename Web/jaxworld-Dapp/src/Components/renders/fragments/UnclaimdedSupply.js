@@ -1,4 +1,5 @@
 import { GetUnclaimedSupply } from '../../liveData/GetUnclaimedSupply';
+import { TOTALSTATUS } from '../../constants/totalStatus.ts';
 import { Loading } from '../customization/Spinner';
 
 export function UnclaimedNFTSupply() {
@@ -9,7 +10,7 @@ export function UnclaimedNFTSupply() {
   return (
     <>
       <label>
-        Unclaimed Supply:{' '}
+        {TOTALSTATUS.unclaimedTotalMessage}
         <b className="data-style count-color">{unclaimedSupply}</b>
       </label>
     </>

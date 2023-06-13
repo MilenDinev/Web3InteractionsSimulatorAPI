@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { AGREEMENTS } from '../../constants/agreements.ts';
 
 export function Agreements() {
   const [privacyPolicy, setPrivacyPolicy] = useState(false);
@@ -24,7 +25,7 @@ export function Agreements() {
             onChange={handlePrivacyPolicy}
           />
           <label className="form-check-label fonts-style eligibility agreements">
-            Agree with <Link className="text-decoration-none" to="/privacy-policy">Privacy Policy</Link>
+            {AGREEMENTS.agreeWith} <Link className="text-decoration-none" to="/privacy-policy">{AGREEMENTS.privacy}</Link>
           </label>
         </div>
 
@@ -35,7 +36,7 @@ export function Agreements() {
             onChange={handleTermsOfUse}
           />
           <label className="form-check-label fonts-style eligibility agreements">
-            Agree with <Link className="text-decoration-none" to="/terms-of-use">Terms Of Use</Link>
+          {AGREEMENTS.agreeWith} <Link className="text-decoration-none" to="/terms-of-use">{AGREEMENTS.terms}</Link>
           </label>
         </div>
       </div>

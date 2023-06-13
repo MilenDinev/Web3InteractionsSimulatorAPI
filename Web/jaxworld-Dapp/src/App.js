@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import { HashRouter } from "react-router-dom";
+import { HashRouter } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { ThirdwebProvider } from '@thirdweb-dev/react';
-import { Hamster } from "./Components/Helpers/renders/customization/HamsterSpinner";
+import { Hamster } from './Components/renders/customization/HamsterSpinner';
 import Layout from './pages/Layout';
 
 const Mint = lazy(() => import('./pages/Mint'));

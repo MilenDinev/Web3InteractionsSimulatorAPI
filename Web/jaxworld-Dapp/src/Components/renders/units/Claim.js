@@ -4,7 +4,7 @@ import { Agreements } from '../fragments/Agreements';
 import { Conditions } from '../fragments/Conditions';
 import { Eligibility } from '../../liveData/GetEligibility';
 import { Loading } from '../customization/Spinner';
-
+import { CONTRACT } from '../../constants/contract.ts';
 export function Claim() {
   const { submit, success, error } = Toast();
   const { inputs, termsOfUse, privacyPolicy } = Agreements();
@@ -40,7 +40,7 @@ const claim =  isLoading ?
     <div className="d-flex flex-wrap justify-content-center">
       <Web3Button
         dropdownPosition={{ side: 'bottom', align: 'center' }}
-        contractAddress="0x8d556299531B2dCE5A3c448E22Fafc346d004B61"
+        contractAddress={CONTRACT.address}
         action={(contract) => contract.erc721.claim(1)}
         onSuccess={success}
         onSubmit={submit}

@@ -1,4 +1,4 @@
-import { ConnectButton } from './Helpers/renders/units/Connect';
+import { ConnectButton } from './renders/units/Connect';
 import logo from '../images/logo.png';
 import brand from '../images/brand.png';
 import { Link } from "react-router-dom";

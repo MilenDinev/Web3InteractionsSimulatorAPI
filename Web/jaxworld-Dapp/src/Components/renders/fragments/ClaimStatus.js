@@ -2,15 +2,16 @@ import { useClaimIneligibilityReasons } from '@thirdweb-dev/react';
 import { GetContract } from '../../utils/GetContract'; 
 import { UserAddress } from '../../utils/GetUserAddress'; 
 import { Loading } from '../customization/Spinner';
+import { STATUS } from '../../constants/claimstatus.ts';
 
 export function ClaimStatusPerWallet() {
   const { address } = UserAddress();
   const { contract } = GetContract();
-  const claimQuantity = 1;
+
 
   const { data, isLoading } =  useClaimIneligibilityReasons(contract, {
     walletAddress: address || '',
-    quantity: claimQuantity
+    quantity: STATUS.claimQuantity
   });
 
 
@@ -23,15 +24,15 @@ export function ClaimStatusPerWallet() {
     </div>
   ) : data.length > 0 ? (
     <div className="data-style eligibility negative">
-      <label>You are not allowed to claim</label>
+      <label>{STATUS.notAllowed}</label>
     </div>
   ) : data.length === 0 ? (
     <div className="data-style eligibility positive">
-      <label>Available to Claim</label>
+      <label>{STATUS.available}</label>
     </div>
   ) : (
     <div className="data-style eligibility negative">
-      <label>You are not allowed to claim</label>
+      <label>{STATUS.notAllowed}</label>
     </div>
   );
 

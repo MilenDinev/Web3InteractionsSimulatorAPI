@@ -1,5 +1,6 @@
-import { GetActiveClaimData } from "../../liveData/GetActiveClaimData";
-import { Loading } from "../customization/Spinner";
+import { GetActiveClaimData } from '../../liveData/GetActiveClaimData';
+import { CURRENTPHASE } from '../../constants/currentPhaseStatus.ts';
+import { Loading } from '../customization/Spinner';
 
 export function CurrentPhasePrice() {
   const { data: allClaimData, isLoading, error } = GetActiveClaimData();
@@ -41,13 +42,13 @@ export function CurrentPhasePrice() {
    ' ' +
     mintPriceSymbol
   ) : (
-    'FREE'
+    CURRENTPHASE.freeMessage
   );
 
   return (
     <>
       <label>
-        Max Claim Per Wallet:{' '}
+        {CURRENTPHASE.maxClaimPerWalletMessage}
         <b className="data-style count-color">{maxClaimPerWallet}</b>
       </label>
       <br />

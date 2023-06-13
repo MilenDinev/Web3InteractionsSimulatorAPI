@@ -1,10 +1,11 @@
 import { ToastContainer, toast } from 'react-toastify';
+import { TOAST } from '../../constants/toast.ts';
 
 export function Toast() {
   const submit = () =>
-    toast.info('Transaction submitted!', {
+    toast.info(TOAST.submit, {
       position: 'bottom-center',
-      autoClose: 1000,
+      autoClose: TOAST.autoCloseSubmit,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -14,9 +15,9 @@ export function Toast() {
     });
 
   const success = (event) =>
-    toast.success('Successfully claimed!', {
+    toast.success(TOAST.success, {
       position: 'bottom-center',
-      autoClose: 3000,
+      autoClose: TOAST.autoCloseSuccess,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -26,9 +27,9 @@ export function Toast() {
     });
 
   const error = () =>
-    toast.error('Transaction Error!', {
+    toast.error(TOAST.error, {
       position: 'bottom-center',
-      autoClose: 4000,
+      autoClose: TOAST.autoCloseError,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -40,7 +41,7 @@ export function Toast() {
   const toastContainer = (
     <ToastContainer
       position="bottom-center"
-      autoClose={5000}
+      autoClose={TOAST.autoCloseGeneral}
       hideProgressBar={false}
       newestOnTop={true}
       closeOnClick

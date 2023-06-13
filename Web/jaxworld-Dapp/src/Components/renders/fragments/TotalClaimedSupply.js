@@ -1,4 +1,5 @@
 import { NFTClaimedSupply } from '../../liveData/GetNFTClaimedSupply';
+import { TOTALSTATUS } from '../../constants/totalStatus.ts';
 import { Loading } from '../customization/Spinner';
 
 export function ClaimedNFTSupply() {
@@ -15,7 +16,7 @@ export function ClaimedNFTSupply() {
   return (
     <>
       <label>
-        Minted in Total: <b className="data-style count-color">{totalMinted}</b>
+        {TOTALSTATUS.mintedInTotalMessage}<b className="data-style count-color">{totalMinted}</b>
       </label>
     </>
   );

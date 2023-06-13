@@ -1,4 +1,5 @@
 import { GetTotalSupply } from '../../liveData/GetTotalSupply';
+import { TOTALSTATUS } from '../../constants/totalStatus.ts';
 import { Loading } from '../customization/Spinner';
 
 export function TotalSupply() {
@@ -8,7 +9,7 @@ export function TotalSupply() {
   return (
     <>
       <label>
-        Total Supply: <b>{totalSupply}</b> G Minions
+        {TOTALSTATUS.totalSupplyMessage}<b>{totalSupply}</b> G Minions
       </label>
     </>
   );
