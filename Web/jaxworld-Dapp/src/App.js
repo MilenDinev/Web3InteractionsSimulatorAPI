@@ -21,7 +21,7 @@ export default function App() {
      <Suspense fallback={    <div><Hamster />{' '}</div>}>
         <Routes>
             <Route path="/" element={<Layout title = "Jax World - Blockhain Gaming Platform" />}>
-            <Route index element={<Home title = "Jax World - Blockhain Gaming Platform"/>} />
+            <Route index element={<Home title = "Jax World - Home"/>} />
             <Route path="/mint" element={<Mint />} />
             <Route path="/contact" element={<Contact title = "Jax World - Contact Us"/>} />
             <Route path="/terms-of-use" element={<Terms title = "Jax World - Terms Of Use" />} />

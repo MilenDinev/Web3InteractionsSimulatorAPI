@@ -11,7 +11,7 @@ export function Footer() {
         <li className="ms-2" data-toggle="tooltip" title="Medium"><Link className="text-muted" target="_blank" rel="noreferrer" to="https://medium.com/@jaxminersworld"><i className="bi bi-medium hover-effect" style={{ fontSize: 30 }}></i></Link></li>
       </ul>
       <Link to="/" data-toggle="tooltip" title="Home" rel="noreferrer" className="menu-button text-muted col-md-5 d-flex justify-content-center text-decoration-none">
-        <p className="col-md-5 mb-0 hover-effect">&copy; 2023 Jax World</p>
+        <label className="col-md-5 mb-0 hover-effect">&copy; 2023 Jax World</label>
       </Link>
   
       <ul className=" nav col-sm-4 col-md-3 col-lg-3 col-xl-4 col-xxl-4 justify-content-end">
