@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import { Header } from '../Components/Header';
-import { Footer } from '../Components/Footer';
+import { Header } from '../mint-event-src/main/Header';
+import { Footer } from '../mint-event-src/main/Footer';
 import { Component } from 'react';
 
 export default class Layout extends Component {

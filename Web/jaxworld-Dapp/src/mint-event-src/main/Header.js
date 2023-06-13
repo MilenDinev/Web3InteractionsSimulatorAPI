@@ -1,7 +1,7 @@
-import { ConnectButton } from './renders/units/Connect';
-import logo from '../images/logo.png';
-import brand from '../images/brand.png';
-import { Link } from "react-router-dom";
+import { ConnectButton } from '../components/renders/units/Connect';
+import logo from '../../images/logo.png';
+import brand from '../../images/brand.png';
+import { Link } from 'react-router-dom';
 export function Header() {
 
   return (
