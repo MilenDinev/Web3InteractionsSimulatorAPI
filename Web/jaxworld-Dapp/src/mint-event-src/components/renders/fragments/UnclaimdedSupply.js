@@ -11,7 +11,7 @@ export function UnclaimedNFTSupply() {
     <>
       <label>
         {TOTALSTATUS.unclaimedTotalMessage}
-        <b className="data-style count-color">{unclaimedSupply}</b>
+        <b className="text-clr-lg">{unclaimedSupply}</b>
       </label>
     </>
   );

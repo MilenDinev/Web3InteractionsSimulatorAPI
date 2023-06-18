@@ -17,21 +17,21 @@ export function ClaimStatusPerWallet() {
 
 
   const claimAvailablePerWallet = isLoading ? (
-    <div className="data-style eligibility">
+    <div className="custom-box-main text-clr-m mrg-l-lg-10 mrg-r-lg-10 text-ac">
       <label>
         <Loading />
       </label>
     </div>
   ) : data.length > 0 ? (
-    <div className="data-style eligibility negative">
+    <div className="mrg-l-lg-10 mrg-r-lg-10 custom-box-red font-size-lg-br text-f-obl text-ac">
       <label>{STATUS.notAllowed}</label>
     </div>
   ) : data.length === 0 ? (
-    <div className="data-style eligibility positive">
+    <div className=" mrg-l-lg-10 mrg-r-lg-10 custom-box-green font-size-lg-b text-ac">
       <label>{STATUS.available}</label>
     </div>
   ) : (
-    <div className="data-style eligibility negative">
+    <div className="mrg-l-lg-10 mrg-r-lg-10 custom-box-red font-size-lg-br text-f-obl text-ac">
       <label>{STATUS.notAllowed}</label>
     </div>
   );

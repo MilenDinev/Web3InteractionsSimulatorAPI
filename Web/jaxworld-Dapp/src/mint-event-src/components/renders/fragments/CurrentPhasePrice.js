@@ -49,11 +49,11 @@ export function CurrentPhasePrice() {
     <>
       <label>
         {CURRENTPHASE.maxClaimPerWalletMessage}
-        <b className="data-style count-color">{maxClaimPerWallet}</b>
+        <b className="text-clr-lg">{maxClaimPerWallet}</b>
       </label>
       <br />
       <label>
-        Mint Price: <b className="data-style count-color">{price}</b>
+        Mint Price: <b className="text-clr-lg">{price}</b>
       </label>
     </>
   );

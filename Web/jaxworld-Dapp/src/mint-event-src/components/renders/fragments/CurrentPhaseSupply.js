@@ -17,7 +17,7 @@ export function CurrentPhaseSupply() {
     <>
       <label>
         {CURRENTPHASE.mintSupplyMessage}
-        <b className="data-style count-color">{currentMintSupply}</b>
+        <b className="text-clr-lg">{currentMintSupply}</b>
       </label>
     </>
   );

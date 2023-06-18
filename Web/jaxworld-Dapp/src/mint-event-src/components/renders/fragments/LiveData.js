@@ -10,32 +10,34 @@ import { Claim } from '../units/Claim';
 export function LiveData() {
   return (
     <>
-      <div className="data">
-        <div className="data-style total-supply">
+      <div className="text-fonts font-size-lg-br">
+        <div className="custom-box-main text-clr-lg text-ac mrg-t-lg-1 
+        mrg-b-lg-1 mrg-l-lg-1 mrg-r-lg-1">
           <TotalSupply />
         </div>
 
-        <div className="data-style eligibility ">
-          <div className="data-style common-data">
+        <div className="custom-box-main mrg-t-lg-1 mrg-b-lg-1 mrg-l-lg-10 mrg-r-lg-10 text-clr-lg text-ac">
+
+          <div className="font-size-m text-clr-m">
             <UnclaimedNFTSupply />
           </div>
 
-          <div className="data-style common-data">
+          <div className="font-size-m text-clr-m">
             <CurrentPhaseSupply />
           </div>
 
-          <div className="data-style common-data">
+          <div className="font-size-m text-clr-m">
             <CurrentPhaseMinted />
           </div>
 
-          <div className="data-style common-data">
+          <div className="font-size-m text-clr-m">
             <ClaimedNFTSupply />
           </div>
         </div>
-        <div>
+        <div className="mrg-t-lg-1 mrg-b-lg-1">
           <ClaimStatusPerWallet />
         </div>
-        <div className="data-style price">
+        <div className="custom-box-main mrg-t-lg-1 mrg-b-lg-1 text-clr-m text-ac">
           <CurrentPhasePrice />
         </div>
       </div>

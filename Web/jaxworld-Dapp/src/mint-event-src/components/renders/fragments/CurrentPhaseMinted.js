@@ -17,7 +17,7 @@ export function CurrentPhaseMinted() {
     <>
       <label>
         {CURRENTPHASE.mintedMessage}
-        <b className="data-style count-color">{currentEventMinted}</b>
+        <b className="text-clr-lg">{currentEventMinted}</b>
       </label>
     </>
   );

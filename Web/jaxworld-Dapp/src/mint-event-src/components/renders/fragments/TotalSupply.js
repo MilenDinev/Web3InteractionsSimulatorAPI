@@ -9,7 +9,7 @@ export function TotalSupply() {
   return (
     <>
       <label>
-        {TOTALSTATUS.totalSupplyMessage}<b>{totalSupply}</b> G Minions
+        {TOTALSTATUS.totalSupplyMessage}{totalSupply} {TOTALSTATUS.collectionName}
       </label>
     </>
   );

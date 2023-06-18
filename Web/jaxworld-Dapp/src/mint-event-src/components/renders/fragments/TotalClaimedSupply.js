@@ -16,7 +16,7 @@ export function ClaimedNFTSupply() {
   return (
     <>
       <label>
-        {TOTALSTATUS.mintedInTotalMessage}<b className="data-style count-color">{totalMinted}</b>
+        {TOTALSTATUS.mintedInTotalMessage}<b className="text-clr-lg">{totalMinted}</b>
       </label>
     </>
   );

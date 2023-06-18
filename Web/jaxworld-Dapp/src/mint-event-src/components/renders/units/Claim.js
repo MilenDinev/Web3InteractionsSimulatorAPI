@@ -5,6 +5,7 @@ import { Conditions } from '../fragments/Conditions';
 import { Eligibility } from '../../liveData/GetEligibility';
 import { Loading } from '../customization/Spinner';
 import { CONTRACT } from '../../constants/contract.ts';
+
 export function Claim() {
   const { submit, success, error } = Toast();
   const { inputs, termsOfUse, privacyPolicy } = Agreements();
@@ -28,8 +29,8 @@ const claim =  isLoading ?
   </>
 ) : data.length > 0 && !isLoading ? (
   <>
-    <div className="d-flex flex-wrap justify-content-center">
-      <label className="not-allowed-to-claim-pl button">
+    <div className="d-flex justify-content-center">
+      <label className="btn-none custom-box-main mrg-b-lg-1 mrg-t-lg-5 font-size-m-br text-fonts text-clr-lg text-ac">
         Not allowed
       </label>
     </div>
@@ -37,7 +38,7 @@ const claim =  isLoading ?
   </>
 ) : (
   <>
-    <div className="d-flex flex-wrap justify-content-center">
+    <div className="d-flex justify-content-center">
       <Web3Button
         dropdownPosition={{ side: 'bottom', align: 'center' }}
         contractAddress={CONTRACT.address}
@@ -45,7 +46,7 @@ const claim =  isLoading ?
         onSuccess={success}
         onSubmit={submit}
         onError={error}
-        className="claim-pl button"
+        className="custom-box-main text-fonts font-size-m-br text-clr-lg text-ac mrg-t-m-8 mrg-b-m-9 claim-pl button hover"
       >
         Claim NFT
       </Web3Button>
