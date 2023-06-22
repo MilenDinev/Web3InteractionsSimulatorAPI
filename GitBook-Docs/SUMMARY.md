@@ -22,7 +22,8 @@
   * [🗞 2. G Minions Introduction](project-information/project-updates/2.-g-minions-introduction.md)
   * [🗞 3. Meet G Minions](https://medium.com/@jaxminersworld/introducing-the-g-minions-collection-530b613b58f0)
   * [🗞 4. Launch of G Minions](project-information/project-updates/4.-launch-of-g-minions.md)
-  * [🗞 500 FREE G Minions](https://medium.com/@jaxminersworld/join-the-whitelist-for-g-minions-5e25b00b5c60)
+  * [🗞 5. 700 FREE G Minions](https://medium.com/@jaxminersworld/join-the-whitelist-for-g-minions-5e25b00b5c60)
+  * [🗞 6. Private Mint Launch](https://medium.com/@jaxminersworld/private-mint-launch-announcement-claim-your-free-g-minion-661d25bd684d)
 
 ## Events
 
