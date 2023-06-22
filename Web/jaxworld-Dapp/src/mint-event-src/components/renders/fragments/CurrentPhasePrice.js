@@ -26,7 +26,7 @@ export function CurrentPhasePrice() {
   ) : error != null ? (
     error.toString()
   ) : (
-    allClaimData.maxClaimablePerWallet
+    1
   );
 
   const price = isLoading ? (

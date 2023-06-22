@@ -10,12 +10,9 @@ import './styles/welcome-screen.css';
 import './styles/index.css';
 import './styles/App.css';
 import './styles/spinners.css';
-import './styles/hero-content.css';
-import './styles/conditions.css';
 import './styles/card.css';
 import './styles/navigation.css';
 import './styles/policies.css';
-import './styles/contact-form.css';
 
 
 

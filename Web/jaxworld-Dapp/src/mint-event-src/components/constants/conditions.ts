@@ -1,5 +1,5 @@
 const CONDITIONS = {
-    message: 'Please Read and Agree with Privacy policy and Terms of Use',
+    message: 'Please read and agree with Privacy policy and Terms of Use',
 };
 
 module.exports = {
