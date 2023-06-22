@@ -17,7 +17,7 @@ export function Claim() {
 
 const claim =  isLoading ? 
 <>
-        <div className="conditions">
+        <div className="conditions text-center">
             <Loading /> 
         </div>
         {inputs}
