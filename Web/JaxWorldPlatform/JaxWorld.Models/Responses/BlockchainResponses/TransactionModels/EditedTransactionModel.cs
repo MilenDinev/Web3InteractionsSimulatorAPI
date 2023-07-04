@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JaxWorld.Models.Responses.BlockchainResponses.TransactionModels
+﻿namespace JaxWorld.Models.Responses.BlockchainResponses.TransactionModels
 {
-    internal class EditedTransactionModel
+    public class EditedTransactionModel
     {
     }
 }
