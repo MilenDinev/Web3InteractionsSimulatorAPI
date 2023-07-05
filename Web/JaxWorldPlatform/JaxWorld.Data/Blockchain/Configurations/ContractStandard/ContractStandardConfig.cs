@@ -4,32 +4,32 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Contracts;
 
-    public class ContractStandardConfig : IEntityTypeConfiguration<ContractStandard>
+    public class ContractStandardConfig : IEntityTypeConfiguration<Standard>
     {
-        public void Configure(EntityTypeBuilder<ContractStandard> builder)
+        public void Configure(EntityTypeBuilder<Standard> builder)
         {
             builder.HasData(
-                    new ContractStandard
+                    new Standard
                     {
                         Id = 1,
                         Name = "ERC721"
                     });
             builder.HasData(
-                    new ContractStandard
+                    new Standard
                     {
                         Id = 2,
                         Name = "ERC721a"
                     });
 
             builder.HasData(
-                    new ContractStandard
+                    new Standard
                     {
                         Id = 3,
                         Name = "ERC20"
                     });
 
             builder.HasData(
-                    new ContractStandard
+                    new Standard
                     {
                         Id = 4,
                         Name = "ERC1155"
