@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Blockchain.Contracts
 {
-    public class ContractStandard
+    public class Standard
     {
-        public ContractStandard()
+        public Standard()
         {
             Contracts = new HashSet<Contract>();
         }

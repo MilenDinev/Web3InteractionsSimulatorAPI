@@ -18,7 +18,7 @@
         { }
 
         public virtual DbSet<Chain> Networks { get; set; }
-        public virtual DbSet<ContractStandard> Standards { get; set; }
+        public virtual DbSet<Standard> Standards { get; set; }
         public virtual DbSet<Erc721a> Erc721a { get; set; }
         public virtual DbSet<Erc721aT> Erc721aT { get; set; } //Must COnfigure Erc721aToken Relations
         public virtual DbSet<Attribute> Attributes { get; set; }

@@ -15,7 +15,7 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public int StandardId { get; set; }
-        public virtual ContractStandard Standard { get; set; }
+        public virtual Standard Standard { get; set; }
         public int CreatedTxnId { get; set; }
         public int CreatorId { get; set; }
         public DateTime CreatedOn { get; set; }
