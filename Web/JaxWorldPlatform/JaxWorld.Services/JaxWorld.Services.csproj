@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JaxWorld.Data\JaxWorld.Data.csproj" />
+    <ProjectReference Include="..\JaxWorld.Models\JaxWorld.Models.csproj" />
   </ItemGroup>
 
 </Project>
