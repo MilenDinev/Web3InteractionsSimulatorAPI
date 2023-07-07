@@ -50,6 +50,7 @@
         public async Task<bool> IsUserInRole(int userId, string roleName)
         {
             User user = await FindByIdAsync(userId.ToString());
+
             return await IsInRoleAsync(user, roleName);
         }
 
@@ -72,6 +73,7 @@
                     return result;
                 }
             }
+
             return false;
         }
     }
