@@ -13,8 +13,8 @@
         Task<IdentityResult> DeleteAsync(User user);
         Task<IdentityResult> AddToRoleAsync(User user, string role);
         Task<User> GetUserAsync(ClaimsPrincipal claimsPrincipal);
-        Task<User> FindByNameAsync(string name);
-        Task<User> FindByEmailAsync(string name);
+        Task<User> FindByNameAsync(string userName);
+        Task<User> FindByWalletAsync(string walletAddress);
         Task<User> FindByIdAsync(string id);
         Task<ICollection<User>> GetAllAsync();
         Task<bool> IsUserInRole(int userId, string roleId);
