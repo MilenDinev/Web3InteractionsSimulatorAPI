@@ -6,7 +6,7 @@
     using Microsoft.AspNetCore.Identity;
     using Data.Entities;
 
-    public interface IUserManager
+    internal interface IUserManager
     {
         Task<IdentityResult> CreateAsync(User user, string password);
         Task<IdentityResult> UpdateAsync(User user);
@@ -19,6 +19,6 @@
         Task<ICollection<User>> GetAllAsync();
         Task<bool> IsUserInRole(int userId, string roleId);
         Task<List<string>> GetUserRolesAsync(User user);
-        Task<bool> ValidateUserCredentials(string userName, string password);
+        Task<bool> ValidateUserCredentials(string userName, string password, string walletAddress);
     }
 }
