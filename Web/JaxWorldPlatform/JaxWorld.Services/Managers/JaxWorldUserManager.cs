@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Services.Managers
 {
-    internal class UserManager
+    internal class JaxWorldUserManager
     {
     }
 }
