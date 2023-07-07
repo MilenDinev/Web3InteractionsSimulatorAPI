@@ -24,7 +24,7 @@
            passwordHasher,
            userValidators,
            passwordValidators,
-        keyNormalizer,
+           keyNormalizer,
            errors,
            services,
            logger)
@@ -65,7 +65,7 @@
             else
             {
                 user = await FindByWalletAsync(walletAddress);
-                
+
                 if (user != null)
                 {
                     bool result = await CheckPasswordAsync(user, password);
