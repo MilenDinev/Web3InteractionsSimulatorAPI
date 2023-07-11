@@ -3,6 +3,7 @@
     using Interfaces;
     using Data;
     using Data.Interfaces.IEntities;
+    using JaxWorld.Data.Entities;
 
     internal abstract class BaseService<TEntity> : IBaseService where TEntity : class, IEntity
     {

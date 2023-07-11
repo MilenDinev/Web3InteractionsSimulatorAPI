@@ -1,10 +1,9 @@
 ﻿namespace JaxWorld.Services.Base.Interfaces
 {
-    using Data.Entities;
 
-    internal interface IBaseService
+    internal interface IBaseService<TEntity>
     {
 
-        Task SaveModificationAsync(User user, int modifierId);
+        Task SaveModificationAsync(TEntity user, int modifierId);
     }
 }
