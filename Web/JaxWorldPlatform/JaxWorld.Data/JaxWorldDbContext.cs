@@ -6,7 +6,7 @@
     using Entities;
     using Blockchain;
     using Blockchain.Wallets;
-    using Blockchain.Contracts;
+    using Blockchain.Tokens;
     using Blockchain.Properties;
     using Blockchain.Transactions;
     using Blockchain.Tokens.Erc721.Units;
