@@ -3,6 +3,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Contracts;
+    using JaxWorld.Data.Blockchain.Tokens;
 
     public class ContractStandardConfig : IEntityTypeConfiguration<Standard>
     {
