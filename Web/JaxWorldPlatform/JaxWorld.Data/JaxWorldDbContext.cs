@@ -4,13 +4,13 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Entities;
-    using Blockchain;
-    using Blockchain.Wallets;
-    using Blockchain.Tokens;
-    using Blockchain.Properties;
-    using Blockchain.Transactions;
-    using Blockchain.Tokens.Erc721.Units;
-    using Blockchain.Tokens.Erc721.Profiles;
+    using Entities.Blockchain;
+    using Entities.Blockchain.Tokens;
+    using Entities.Blockchain.Wallets;
+    using Entities.Blockchain.Properties;
+    using Entities.Blockchain.Transactions;
+    using Entities.Blockchain.Tokens.Erc721.Units;
+    using Entities.Blockchain.Tokens.Erc721.Profiles;
 
     public class JaxWorldDbContext: IdentityDbContext<User, IdentityRole<int>, int>
     {
