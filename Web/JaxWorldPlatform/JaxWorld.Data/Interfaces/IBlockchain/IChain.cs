@@ -1,7 +1,11 @@
 ﻿namespace JaxWorld.Data.Interfaces.IBlockchain
 {
-    public interface IChain
+    internal interface IChain
     {
-        string Name { get; set; }
+        string Name { get; init; }
+        string RpcUrl { get; init; }
+        string ChainId { get; init; }
+        string Symbol { get; init; }
+        string ExplorerUrl { get; init; }
     }
 }
