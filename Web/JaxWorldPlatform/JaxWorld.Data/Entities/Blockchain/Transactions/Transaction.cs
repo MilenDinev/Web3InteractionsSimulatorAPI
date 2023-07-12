@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain.Transactions
 {
     using Contracts;
+    using Blockchain.Wallets;
     using Interfaces.IEntities.IBlockchain.ITransactions;
 
     public class Transaction : ITransaction
