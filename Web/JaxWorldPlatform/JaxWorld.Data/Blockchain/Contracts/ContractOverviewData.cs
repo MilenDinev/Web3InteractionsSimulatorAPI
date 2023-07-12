@@ -1,8 +1,6 @@
-﻿using JaxWorld.Data.Blockchain.Wallets;
-
-namespace JaxWorld.Data.Blockchain.Contracts
+﻿namespace JaxWorld.Data.Blockchain.Contracts
 {
-    public class ContractOverview
+    public class ContractOverviewData
     {
         public int Id { get; set; }
         public int ContractId { get; set; }
