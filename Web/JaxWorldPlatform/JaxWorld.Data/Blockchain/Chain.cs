@@ -14,14 +14,14 @@
             Transactions = new HashSet<Transaction>();
         }
 
-        public int Id { get; init; }
-        public string Name { get; init; }
-        public string RpcUrl { get; init; }
-        public string ChainId { get; init; }
-        public string Symbol { get; init; }
-        public string ExplorerUrl { get; init; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string RpcUrl { get; set; }
+        public string ChainId { get; set; }
+        public string Symbol { get; set; }
+        public string ExplorerUrl { get; set; }
         public virtual ICollection<Wallet> Users { get; set; }
-        public virtual ICollection<Transaction> Transactions { get; }
-        public virtual ICollection<Contract> Contracts { get; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<Contract> Contracts { get; set; }
     }
 }
