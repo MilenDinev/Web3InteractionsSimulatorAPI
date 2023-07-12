@@ -15,8 +15,6 @@
 
         public string DNA { get; set; }
         public bool Minted { get; set; }
-        public int HolderId { get; set; }
-        public Wallet Holder { get; set; }
         public virtual ICollection<Attribute> Attributes { get; set; }
         public virtual ICollection<Utility> Utilities { get; set; }
     }
