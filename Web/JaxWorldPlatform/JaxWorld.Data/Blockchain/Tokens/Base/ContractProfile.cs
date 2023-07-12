@@ -1,11 +1,12 @@
 ﻿namespace JaxWorld.Data.Blockchain.Tokens.Base
 {
+    using Tokens;
     using Wallets;
     using Contracts;
     using Transactions;
     using Interfaces.IBlockchain.ITokens.IBase;
 
-    public abstract class ContractProfile : IProfile
+    public abstract class ContractProfile : IContractProfile
     {
         public ContractProfile()
         {
