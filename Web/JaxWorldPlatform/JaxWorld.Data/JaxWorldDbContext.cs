@@ -6,11 +6,11 @@
     using Entities;
     using Blockchain;
     using Blockchain.Wallets;
-    using Blockchain.Contracts;
+    using Blockchain.Tokens;
     using Blockchain.Properties;
     using Blockchain.Transactions;
-    using Blockchain.Contracts.Erc721;
-    using Blockchain.Tokens.Erc721Tokens;
+    using Blockchain.Tokens.Erc721.Units;
+    using Blockchain.Tokens.Erc721.Profiles;
 
     public class JaxWorldDbContext: IdentityDbContext<User, IdentityRole<int>, int>
     {
@@ -19,8 +19,8 @@
 
         public virtual DbSet<Chain> Networks { get; set; }
         public virtual DbSet<Standard> Standards { get; set; }
-        public virtual DbSet<Erc721a> Erc721a { get; set; }
-        public virtual DbSet<Erc721aT> Erc721aT { get; set; } //Must COnfigure Erc721aToken Relations
+        public virtual DbSet<Erc721aProfile> Erc721aProfiles { get; set; }
+        public virtual DbSet<Erc721aUnit> Erc721aUnits { get; set; }
         public virtual DbSet<Attribute> Attributes { get; set; }
         public virtual DbSet<Utility> Utilities { get; set; }
         public virtual DbSet<Provider> Providers { get; set; }
