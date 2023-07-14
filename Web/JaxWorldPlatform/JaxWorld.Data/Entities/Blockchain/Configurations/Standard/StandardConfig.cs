@@ -1,10 +1,10 @@
-﻿namespace JaxWorld.Data.Entities.Blockchain.Configurations.ContractStandard
+﻿namespace JaxWorld.Data.Entities.Blockchain.Configurations.Standard
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Tokens;
 
-    public class ContractStandardConfig : IEntityTypeConfiguration<Standard>
+    public class StandardConfig : IEntityTypeConfiguration<Standard>
     {
         public void Configure(EntityTypeBuilder<Standard> builder)
         {
