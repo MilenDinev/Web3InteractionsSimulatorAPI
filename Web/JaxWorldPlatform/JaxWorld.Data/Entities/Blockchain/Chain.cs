@@ -17,7 +17,7 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public string RpcUrl { get; set; }
-        public string ChainId { get; set; }
+        public string NetworkId { get; set; }
         public string Symbol { get; set; }
         public string ExplorerUrl { get; set; }
         public virtual ICollection<Wallet> Users { get; set; }

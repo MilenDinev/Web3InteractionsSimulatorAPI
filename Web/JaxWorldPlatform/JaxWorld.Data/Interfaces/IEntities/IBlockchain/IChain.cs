@@ -4,7 +4,7 @@
     {
         string Name { get; set; }
         string RpcUrl { get; set; }
-        string ChainId { get; set; }
+        string NetworkId { get; set; }
         string Symbol { get; set; }
         string ExplorerUrl { get; set; }
     }
