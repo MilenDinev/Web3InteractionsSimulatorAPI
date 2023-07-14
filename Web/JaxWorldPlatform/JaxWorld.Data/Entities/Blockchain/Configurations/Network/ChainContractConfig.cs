@@ -8,10 +8,13 @@
     {
         public void Configure(EntityTypeBuilder<Contract> builder)
         {
-            builder.HasOne(s => s.Chain)
+            builder.HasMany(c => c.Chains)
             .WithMany(u => u.Contracts)
-            .HasForeignKey(s => s.ChainId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .UsingEntity<Dictionary<string, object>>("ChainsContracts",
+            x => x.HasOne<Chain>().WithMany().HasForeignKey("ChainId")
+                  .OnDelete(DeleteBehavior.Restrict),
+            x => x.HasOne<Contract>().WithMany().HasForeignKey("ContractId")
+                  .OnDelete(DeleteBehavior.Restrict));
         }
     }
 }
