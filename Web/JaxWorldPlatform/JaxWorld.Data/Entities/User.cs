@@ -11,7 +11,6 @@
         public User()
         {
             this.Wallets = new HashSet<Wallet>();
-            this.Transactions = new HashSet<Transaction>();
         }
         public string Username { get; set; }
         public string NormalizedName { get; set; }
@@ -22,7 +21,6 @@
         public bool Deleted { get; set; }
 
         public ICollection<Wallet> Wallets { get; set; }
-        public ICollection<Transaction> Transactions { get; set; }
         
     }
 }
