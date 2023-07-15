@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.ContractModels
 {
-    internal class EditContractModel
+    public class EditContractModel
     {
+        public string Name { get; set; }
     }
 }
