@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.WalletModels
 {
-    internal class CreateWalletModel
+    public class CreateWalletModel
     {
+        public string Provider { get; set; }
     }
 }
