@@ -17,6 +17,6 @@
         public int ContractId { get; set; }
         public virtual Contract Contract { get; set; }
         public int ChainId { get; set; }
-        public virtual Chain Chain { get; set; }
+        public virtual Network Chain { get; set; }
     }
 }

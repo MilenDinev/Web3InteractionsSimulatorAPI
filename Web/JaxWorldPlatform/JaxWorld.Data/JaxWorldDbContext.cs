@@ -7,6 +7,7 @@
     using Entities.Blockchain;
     using Entities.Blockchain.Tokens;
     using Entities.Blockchain.Wallets;
+    using Entities.Blockchain.Contracts;
     using Entities.Blockchain.Properties;
     using Entities.Blockchain.Transactions;
     using Entities.Blockchain.Tokens.Erc721.Units;
@@ -17,7 +18,8 @@
         public JaxWorldDbContext(DbContextOptions<JaxWorldDbContext> options) : base(options)
         { }
 
-        public virtual DbSet<Chain> Networks { get; set; }
+        public virtual DbSet<Network> Networks { get; set; }
+        public virtual DbSet<Contract> Contracts { get; set; }
         public virtual DbSet<Standard> Standards { get; set; }
         public virtual DbSet<Erc721aProfile> Erc721aProfiles { get; set; }
         public virtual DbSet<Erc721aUnit> Erc721aUnits { get; set; }

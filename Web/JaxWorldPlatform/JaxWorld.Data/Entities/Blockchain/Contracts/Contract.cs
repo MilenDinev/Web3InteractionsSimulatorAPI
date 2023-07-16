@@ -10,7 +10,7 @@
         public Contract()
         {
 
-            Chains = new HashSet<Chain>();
+            Chains = new HashSet<Network>();
         }
 
         public int Id { get; set; }
@@ -25,6 +25,6 @@
         public int CreatorId { get; set; }
         public virtual Wallet Creator { get; set; }
         public int ChainId { get; set; }
-        public virtual ICollection<Chain> Chains { get; set; }
+        public virtual ICollection<Network> Chains { get; set; }
     }
 }
