@@ -1,6 +1,8 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.PropertiesModels
 {
-    internal class CreateAttributeModel
+    public class CreateAttributeModel
     {
+        public string Name { get; set; }
+        public string Value { get; set; }
     }
 }
