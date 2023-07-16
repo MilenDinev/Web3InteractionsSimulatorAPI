@@ -11,7 +11,7 @@
             builder.HasMany(c => c.Chains)
             .WithMany(u => u.Contracts)
             .UsingEntity<Dictionary<string, object>>("ChainsContracts",
-            x => x.HasOne<Chain>().WithMany().HasForeignKey("ChainId")
+            x => x.HasOne<Blockchain.Network>().WithMany().HasForeignKey("ChainId")
                   .OnDelete(DeleteBehavior.Restrict),
             x => x.HasOne<Contract>().WithMany().HasForeignKey("ContractId")
                   .OnDelete(DeleteBehavior.Restrict));
