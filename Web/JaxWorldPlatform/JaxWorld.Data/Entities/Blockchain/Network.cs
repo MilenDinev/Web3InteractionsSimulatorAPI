@@ -5,9 +5,9 @@
     using Transactions;
     using Interfaces.IEntities.IBlockchain;
 
-    public class Chain : IChain
+    public class Network : INetwork
     {
-        public Chain()
+        public Network()
         {
             Users = new HashSet<Wallet>();
             Contracts = new HashSet<Contract>();
@@ -17,7 +17,7 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public string RpcUrl { get; set; }
-        public string NetworkId { get; set; }
+        public string ChainId { get; set; }
         public string Symbol { get; set; }
         public string ExplorerUrl { get; set; }
         public virtual ICollection<Wallet> Users { get; set; }
