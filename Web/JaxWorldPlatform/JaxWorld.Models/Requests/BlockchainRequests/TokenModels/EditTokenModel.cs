@@ -1,6 +1,8 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.TokenModels
 {
-    internal class EditTokenModel
+    public class EditTokenModel
     {
+        public string Name { get; set; }
+        public string DNA { get; set; }
     }
 }
