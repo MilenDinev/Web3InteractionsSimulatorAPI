@@ -19,6 +19,7 @@
         { }
 
         public virtual DbSet<Network> Networks { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<Contract> Contracts { get; set; }
         public virtual DbSet<Standard> Standards { get; set; }
         public virtual DbSet<Erc721aProfile> Erc721aProfiles { get; set; }
@@ -27,7 +28,6 @@
         public virtual DbSet<Utility> Utilities { get; set; }
         public virtual DbSet<Provider> Providers { get; set; }
         public virtual DbSet<Wallet> Wallets { get; set; }
-        public virtual DbSet<Transaction> Transactions { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
