@@ -1,7 +1,6 @@
 ﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain.ITokens.IErc721.IUnits
 {
-    using Blockchain.Properties;
-    using JaxWorld.Data.Entities.Blockchain.Properties;
+    using Entities.Blockchain.Properties;
 
     public interface IErc721aUnit
     {
