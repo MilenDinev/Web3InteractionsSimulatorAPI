@@ -4,7 +4,6 @@
     using Microsoft.AspNetCore.Identity;
     using Blockchain.Wallets;
     using Interfaces.IEntities;
-    using Blockchain.Transactions;
 
     public class User : IdentityUser<int>, IEntity
     {
