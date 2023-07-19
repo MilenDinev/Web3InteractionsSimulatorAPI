@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.ChainModels
 {
-    public class CreateChainModel
+    public class CreateNetworkModel
     {
         public string Name { get; init; }
         public string RpcUrl { get; init; }
