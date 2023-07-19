@@ -11,7 +11,6 @@
             Units = new HashSet<Erc721aUnit>();
         }
 
-
         public string Description { get; set; }
         public int TotalSupply { get; set; }
         public int TotalMinted { get; set; }

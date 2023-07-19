@@ -5,7 +5,6 @@
 
     public class TokenWalletBalance
     {
-
         public int TokenId { get; set; }
         public virtual ProfileUnit Token { get; set; }
         public int WalletId { get; set; }

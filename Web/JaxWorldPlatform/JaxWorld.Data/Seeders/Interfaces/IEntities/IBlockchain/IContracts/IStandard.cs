@@ -1,7 +1,6 @@
 ﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain.IContracts
 {
-    using Blockchain.Contracts;
-    using JaxWorld.Data.Entities.Blockchain.Contracts;
+    using Entities.Blockchain.Contracts;
 
     public interface IStandard
     {
