@@ -6,19 +6,19 @@
 
     internal abstract class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, IEntity
     {
-        internal readonly JaxWorldDbContext dbContext;
+        protected readonly JaxWorldDbContext dbContext;
 
-        internal BaseService(JaxWorldDbContext dbContext)
+        protected BaseService(JaxWorldDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
-        internal async Task CreateEntityAsync(TEntity entity, int creatorId)
+        protected async Task CreateEntityAsync(TEntity entity, int creatorId)
         {
             await AddEntityAsync(entity, creatorId);
             await SaveModificationAsync(entity, creatorId);
         }
-        internal async Task DeleteEntityAsync(TEntity entity, int modifierId)
+        protected async Task DeleteEntityAsync(TEntity entity, int modifierId)
         {
             entity.Deleted = true;
             await SaveModificationAsync(entity, modifierId);
