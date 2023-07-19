@@ -8,11 +8,6 @@
     {
         public void Configure(EntityTypeBuilder<TokenWalletBalance> builder)
         {
-            builder.HasOne(s => s.Token)
-            .WithMany(u => u.Holders)
-            .HasForeignKey(s => s.TokenId)
-            .OnDelete(DeleteBehavior.Restrict);
-
             builder.HasOne(s => s.Wallet)
             .WithMany(u => u.Tokens)
             .HasForeignKey(s => s.WalletId)
