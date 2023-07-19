@@ -6,7 +6,7 @@
     using Transactions;
     using Interfaces.IEntities.IBlockchain.IWallets;
 
-    public class Wallet : IWallet
+    public class Wallet : Entity, IWallet
     {
         public Wallet()
         {
@@ -16,7 +16,6 @@
             Tokens = new HashSet<TokenWalletBalance>();
         }
 
-        public int Id { get; set; }
         public string Address { get; set; }
         public decimal Balance { get; set; }
         public int OwnerId { get; set; }

@@ -5,7 +5,7 @@
     using Transactions;
     using Interfaces.IEntities.IBlockchain;
 
-    public class Network : INetwork
+    public class Network : Entity, INetwork
     {
         public Network()
         {
@@ -14,7 +14,6 @@
             Transactions = new HashSet<Transaction>();
         }
 
-        public int Id { get; set; }
         public string Name { get; set; }
         public string RpcUrl { get; set; }
         public string ChainId { get; set; }
