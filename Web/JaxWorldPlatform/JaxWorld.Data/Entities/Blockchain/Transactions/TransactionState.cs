@@ -2,13 +2,12 @@
 {
     using Interfaces.IEntities.IBlockchain.ITransactions;
 
-    public class TransactionState : IState
+    public class TransactionState : Entity, IState
     {
         public TransactionState()
         {
             Transactions = new HashSet<Transaction>();
         }
-        public int Id { get; set; }
         public string Value { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }

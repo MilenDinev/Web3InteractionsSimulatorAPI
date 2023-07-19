@@ -5,14 +5,13 @@
     using Contracts;
     using Interfaces.IEntities.IBlockchain.ITokens.IBase;
 
-    public abstract class ContractProfile : IContractProfile
+    public abstract class ContractProfile : Entity, IContractProfile
     {
         public ContractProfile()
         {
             Holders = new HashSet<Wallet>();
         }
 
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Symbol { get; set; }
         public int StandardId { get; set; }
