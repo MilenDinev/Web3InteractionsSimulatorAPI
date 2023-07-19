@@ -1,10 +1,10 @@
 ﻿namespace JaxWorld.Services.Main
 {
     using AutoMapper;
-    using JaxWorld.Data;
-    using JaxWorld.Data.Entities.Blockchain;
-    using JaxWorld.Models.Requests.BlockchainRequests.ChainModels;
-    using JaxWorld.Services.Base;
+    using Base;
+    using Data;
+    using Data.Entities.Blockchain;
+    using Models.Requests.BlockchainRequests.ChainModels;
 
 
     internal class NetworkService : BaseService<Network>
