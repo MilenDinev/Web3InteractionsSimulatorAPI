@@ -8,9 +8,9 @@
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
-            builder.HasOne(s => s.Chain)
+            builder.HasOne(s => s.Network)
             .WithMany(u => u.Transactions)
-            .HasForeignKey(s => s.ChainId)
+            .HasForeignKey(s => s.NetworkId)
             .OnDelete(DeleteBehavior.Restrict);
         }
     }
