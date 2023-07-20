@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.TransactionModels
 {
-    internal class EditTransactionModel
+    public class EditTransactionModel
     {
     }
 }
