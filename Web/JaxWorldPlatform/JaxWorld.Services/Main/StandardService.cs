@@ -3,8 +3,7 @@
     using AutoMapper;
     using Base;
     using Data;
-    using Data.Entities.Blockchain.Tokens;
-    using JaxWorld.Data.Entities.Blockchain;
+    using Data.Entities.Blockchain;
     using Models.Requests.BlockchainRequests.StandardModels;
 
     internal class StandardService : BaseService<Standard>
