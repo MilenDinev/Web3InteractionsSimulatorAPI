@@ -4,7 +4,7 @@
     using Data;
     using Data.Interfaces.IEntities;
 
-    internal abstract class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, IEntity
+    public abstract class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, IEntity
     {
         protected readonly JaxWorldDbContext dbContext;
 
