@@ -3,11 +3,12 @@
     using AutoMapper;
     using Base;
     using Data;
+    using Interfaces;
     using Data.Entities.Blockchain;
     using Models.Requests.BlockchainRequests.ChainModels;
 
 
-    internal class NetworkService : BaseService<Network>
+    public class NetworkService : BaseService<Network>, INetworkService
     {
         private readonly IMapper mapper;
 
