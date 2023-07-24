@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AutoMapperProfiles\Contract\" />
     <Folder Include="AutoMapperProfiles\Chain\" />
     <Folder Include="AutoMapperProfiles\Wallet\" />
     <Folder Include="AutoMapperProfiles\User\" />
