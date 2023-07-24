@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Models.Responses.BlockchainResponses.ChainModels
 {
-    internal class EditedChainModel
+    internal class GetNetworkModel
     {
         public string Name { get; init; }
         public string RpcUrl { get; init; }
