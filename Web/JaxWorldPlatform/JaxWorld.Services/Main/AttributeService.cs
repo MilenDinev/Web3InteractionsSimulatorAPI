@@ -24,7 +24,7 @@ namespace JaxWorld.Services.Main
 
         public async Task EditAsync(Attribute contract, EditContractModel contractModel, int modifierId)
         {
-            contract.Name = contractModel.Name;
+            contract.Value = contractModel.Name;
 
             await SaveModificationAsync(contract, modifierId);
         }
