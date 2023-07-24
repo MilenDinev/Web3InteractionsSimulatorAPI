@@ -1,10 +1,9 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain.Contracts
 {
     using Wallets;
-    using Tokens.Base;
     using Transactions;
+    using Profiles.Base;
     using Interfaces.IEntities.IBlockchain.IContracts;
-    using JaxWorld.Data.Entities.Blockchain.Profiles.Base;
 
     public class Contract : Entity, IContract
     {

@@ -1,11 +1,9 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain.Wallets
 {
-    using Tokens;
     using Entities;
     using Contracts;
     using Transactions;
     using Interfaces.IEntities.IBlockchain.IWallets;
-    using JaxWorld.Data.Entities.Blockchain;
 
     public class Wallet : Entity, IWallet
     {
