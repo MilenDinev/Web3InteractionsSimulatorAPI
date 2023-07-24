@@ -12,6 +12,8 @@
     using Entities.Blockchain.Transactions;
     using Entities.Blockchain.Tokens.Erc721.Units;
     using Entities.Blockchain.Tokens.Erc721.Profiles;
+    using JaxWorld.Data.Entities.Blockchain.Profiles;
+    using JaxWorld.Data.Entities.Blockchain.ProfileUnits;
 
     public class JaxWorldDbContext: IdentityDbContext<User, IdentityRole<int>, int>
     {

@@ -1,5 +1,6 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain.Configurations.Standard
 {
+    using JaxWorld.Data.Entities.Blockchain;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Tokens;

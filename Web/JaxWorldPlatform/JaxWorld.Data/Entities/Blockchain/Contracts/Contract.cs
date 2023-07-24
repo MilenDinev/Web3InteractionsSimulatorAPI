@@ -4,6 +4,7 @@
     using Tokens.Base;
     using Transactions;
     using Interfaces.IEntities.IBlockchain.IContracts;
+    using JaxWorld.Data.Entities.Blockchain.Profiles.Base;
 
     public class Contract : Entity, IContract
     {

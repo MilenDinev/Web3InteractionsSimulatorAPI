@@ -1,10 +1,11 @@
-﻿namespace JaxWorld.Data.Entities.Blockchain.Tokens.Erc721.Units
+﻿namespace JaxWorld.Data.Entities.Blockchain.ProfileUnits
 {
     using Base;
     using Properties;
     using Transactions;
     using Erc721.Profiles;
     using Interfaces.IEntities.IBlockchain.ITokens.IErc721.IUnits;
+    using JaxWorld.Data.Entities.Blockchain.Profiles;
 
     public class Erc721aUnit : ProfileUnit, IErc721aUnit
     {

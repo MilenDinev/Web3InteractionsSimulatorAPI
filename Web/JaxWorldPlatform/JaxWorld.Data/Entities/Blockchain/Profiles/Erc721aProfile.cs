@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Data.Entities.Blockchain.Tokens.Erc721.Profiles
+﻿namespace JaxWorld.Data.Entities.Blockchain.Profiles
 {
     using Base;
     using Units;

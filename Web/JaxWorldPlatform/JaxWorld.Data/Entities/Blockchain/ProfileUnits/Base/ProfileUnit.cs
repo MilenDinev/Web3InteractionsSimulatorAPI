@@ -1,7 +1,8 @@
-﻿namespace JaxWorld.Data.Entities.Blockchain.Tokens.Base
+﻿namespace JaxWorld.Data.Entities.Blockchain.ProfileUnits.Base
 {
     using Transactions;
     using Interfaces.IEntities.IBlockchain.ITokens.IBase;
+    using JaxWorld.Data.Entities.Blockchain;
 
     public abstract class ProfileUnit : Entity, IProfileUnit
     {
