@@ -3,7 +3,7 @@
     using AutoMapper;
     using Base;
     using Data;
-    using JaxWorld.Data.Entities.Blockchain.ProfileUnits.Base;
+    using Data.Entities.Blockchain.ProfileUnits.Base;
     using Models.Requests.BlockchainRequests.ProfileUnitModels;
 
     internal class ProfileUnitService : BaseService<ProfileUnit>

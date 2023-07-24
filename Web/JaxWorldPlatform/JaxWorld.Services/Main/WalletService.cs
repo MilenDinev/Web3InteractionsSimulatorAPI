@@ -24,7 +24,7 @@
 
         public async Task EditAsync(Wallet wallet, EditWalletModel walletModel, int modifierId)
         {
-            wallet.Name = walletModel.Name;
+            wallet.Provider.Name = walletModel.Provider;
 
             await SaveModificationAsync(wallet, modifierId);
         }

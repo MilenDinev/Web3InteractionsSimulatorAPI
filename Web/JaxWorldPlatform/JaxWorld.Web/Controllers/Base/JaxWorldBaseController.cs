@@ -1,43 +1,30 @@
 ﻿namespace JaxWorld.Web.Controllers.Base
 {
+    using Data.Entities;
+    using Services.Constants;
+    using Services.Main.Interfaces;
     using Microsoft.AspNetCore.Mvc;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-    [Route("api/[controller]")]
-    [ApiController]
     public class JaxWorldBaseController : ControllerBase
     {
-        // GET: api/<JaxWorldBaseController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        protected readonly IUserService userService;
+
+        protected JaxWorldBaseController(IUserService userService)
         {
-            return new string[] { "value1", "value2" };
+            this.userService = userService;
         }
 
-        // GET api/<JaxWorldBaseController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public User CurrentUser { get; set; }
 
-        // POST api/<JaxWorldBaseController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [ApiExplorerSettings(IgnoreApi = true)]
+        protected async Task<ActionResult> AssignCurrentUserAsync()
         {
-        }
+            CurrentUser = await this.userService.GetCurrentUserAsync(User) ??
+                throw new UnauthorizedAccessException(ErrorMessages.InvalidCredentials);
 
-        // PUT api/<JaxWorldBaseController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<JaxWorldBaseController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok();
         }
     }
 }
+
