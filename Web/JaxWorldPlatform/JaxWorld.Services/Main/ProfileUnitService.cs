@@ -3,7 +3,6 @@
     using AutoMapper;
     using Base;
     using Data;
-    using Data.Entities.Blockchain.Tokens.Base;
     using JaxWorld.Data.Entities.Blockchain.ProfileUnits.Base;
     using Models.Requests.BlockchainRequests.ProfileUnitModels;
 
