@@ -5,7 +5,7 @@
     using Models.Requests.EntityRequests;
     using Models.Responses.EntityResponses.UserModels;
 
-    internal interface IUserService
+    public interface IUserService
     {
         Task<User> CreateAsync(CreateUserModel userRequestModel);
         Task EditAsync(User user, EditUserModel userModel, int modifierId);
