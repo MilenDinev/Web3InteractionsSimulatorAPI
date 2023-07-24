@@ -2,5 +2,6 @@
 {
     public class EditTransactionModel
     {
+        public string State { get; set; }
     }
 }
