@@ -2,7 +2,6 @@
 {
     using Transactions;
     using Interfaces.IEntities.IBlockchain.ITokens.IBase;
-    using JaxWorld.Data.Entities.Blockchain;
 
     public abstract class ProfileUnit : Entity, IProfileUnit
     {

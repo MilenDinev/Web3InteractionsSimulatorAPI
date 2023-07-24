@@ -1,7 +1,6 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain
 {
-    using Base;
-    using JaxWorld.Data.Entities.Blockchain.ProfileUnits.Base;
+    using ProfileUnits.Base;
     using Wallets;
 
     public class TokenWalletBalance

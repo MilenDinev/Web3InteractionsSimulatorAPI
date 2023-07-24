@@ -1,6 +1,5 @@
 ﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain.IWallets
 {
-
     public interface IWallet
     {
         string Address { get; set; }

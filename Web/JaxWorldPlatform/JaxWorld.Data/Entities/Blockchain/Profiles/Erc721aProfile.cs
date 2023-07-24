@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain.Profiles
 {
     using Base;
-    using Units;
+    using ProfileUnits;
     using Interfaces.IEntities.IBlockchain.ITokens.IErc721.IProfiles;
 
     public class Erc721aProfile : ContractProfile, IErc721aProfile
