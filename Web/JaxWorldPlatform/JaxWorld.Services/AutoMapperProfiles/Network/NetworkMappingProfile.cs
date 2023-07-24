@@ -2,17 +2,19 @@
 {
     using AutoMapper;
     using Data.Entities.Blockchain;
-    using Models.Requests.BlockchainRequests.ContractModels;
-    using Models.Responses.BlockchainResponses.ContractModels;
+    using Models.Requests.BlockchainRequests.ChainModels;
+    using Models.Responses.BlockchainResponses.ChainModels;
 
     internal class NetworkMappingProfile : Profile
     {
-        public NetworkMappingProfile()
+        internal NetworkMappingProfile()
         {
-            this.CreateMap<CreateContractModel, Network>()
+            this.CreateMap<CreateNetworkModel, Network>()
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()));
-            this.CreateMap<Network, CreatedContractModel>();
-            this.CreateMap<Network, EditedContractModel>();
+            this.CreateMap<Network, CreatedNetworkModel>();
+            this.CreateMap<Network, EditedNetworkModel>();
+            this.CreateMap<Network, DeletedNetworkModel>();
+            this.CreateMap<Network, NetworkListingModel>();
         }
     }
 }
