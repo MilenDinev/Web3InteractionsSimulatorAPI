@@ -77,5 +77,15 @@
             return mapper.Map<EditedProfileModel>(profile);
         }
 
+        // DELETE api/<ProfilesController>/Profile/5
+        [HttpDelete("Delete/Profile/{profileId}")]
+        public async Task<DeletedProfileModel> Delete(int profileId)
+        {
+            await AssignCurrentUserAsync();
+            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
+            await this.validator.ValidateEntityAsync(profile, profileId.ToString());
+            await this.profileService.DeleteAsync(profile, CurrentUser.Id);
+            return mapper.Map<DeletedProfileModel>(profile);
+        }
     }
 }
