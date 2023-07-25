@@ -4,9 +4,9 @@
     using Contracts;
     using Interfaces.IEntities.IBlockchain.ITokens.IBase;
 
-    public abstract class ContractProfile : Entity, IContractProfile
+    public abstract class Profile : Entity, IContractProfile
     {
-        public ContractProfile()
+        public Profile()
         {
             Holders = new HashSet<Wallet>();
         }
