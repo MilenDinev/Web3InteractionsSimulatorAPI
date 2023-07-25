@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces
 {
-    internal interface IContractService
+    public interface IContractService
     {
     }
 }
