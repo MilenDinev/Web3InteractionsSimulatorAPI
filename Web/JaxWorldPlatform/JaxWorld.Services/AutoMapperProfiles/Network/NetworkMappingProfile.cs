@@ -2,8 +2,8 @@
 {
     using AutoMapper;
     using Data.Entities.Blockchain;
-    using Models.Requests.BlockchainRequests.ChainModels;
-    using Models.Responses.BlockchainResponses.ChainModels;
+    using Models.Requests.BlockchainRequests.NetworkModels;
+    using Models.Responses.BlockchainResponses.NetworkModels;
 
     internal class NetworkMappingProfile : Profile
     {

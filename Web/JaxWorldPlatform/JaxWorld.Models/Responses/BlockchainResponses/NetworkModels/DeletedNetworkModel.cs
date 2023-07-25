@@ -1,7 +1,8 @@
-﻿namespace JaxWorld.Models.Requests.BlockchainRequests.ChainModels
+﻿namespace JaxWorld.Models.Responses.BlockchainResponses.NetworkModels
 {
-    public class EditNetworkModel
+    public class DeletedNetworkModel
     {
+        public int Id { get; set; }
         public string Name { get; init; }
         public string RpcUrl { get; init; }
         public string ChainId { get; init; }

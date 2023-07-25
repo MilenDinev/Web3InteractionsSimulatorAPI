@@ -1,6 +1,6 @@
-﻿namespace JaxWorld.Models.Responses.BlockchainResponses.ChainModels
+﻿namespace JaxWorld.Models.Responses.BlockchainResponses.NetworkModels
 {
-    public class NetworkListingModel
+    public class EditedNetworkModel
     {
         public int Id { get; set; }
         public string Name { get; init; }
