@@ -3,10 +3,11 @@
     using AutoMapper;
     using Base;
     using Data;
+    using Interfaces;
     using Data.Entities.Blockchain.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
 
-    public class ContractService : BaseService<Contract>
+    public class ContractService : BaseService<Contract>, IContractService
     {
         private readonly IMapper mapper;
 
