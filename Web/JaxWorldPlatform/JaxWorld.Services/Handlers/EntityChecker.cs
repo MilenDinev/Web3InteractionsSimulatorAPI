@@ -1,11 +1,11 @@
-﻿using JaxWorld.Data.Interfaces.IEntities;
-using JaxWorld.Data;
+﻿using JaxWorld.Data;
 using JaxWorld.Services.Handlers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JaxWorld.Data.Interfaces.IEntities;
 
 namespace JaxWorld.Services.Handlers
 {

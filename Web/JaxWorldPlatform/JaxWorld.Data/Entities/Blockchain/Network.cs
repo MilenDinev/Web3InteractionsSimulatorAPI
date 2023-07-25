@@ -4,6 +4,7 @@
     using Contracts;
     using Transactions;
     using Interfaces.IEntities.IBlockchain;
+    using JaxWorld.Data.Interfaces.IEntities.IBlockchain;
 
     public class Network : Entity, INetwork
     {

@@ -5,7 +5,6 @@
     using Handlers.Interfaces;
     using Data.Interfaces.IEntities;
 
-
     public class Validator : IValidator
     {
         private readonly IEntityChecker entityChecker;

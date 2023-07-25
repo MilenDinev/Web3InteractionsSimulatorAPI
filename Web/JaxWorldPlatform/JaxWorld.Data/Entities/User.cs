@@ -4,6 +4,7 @@
     using Microsoft.AspNetCore.Identity;
     using Blockchain.Wallets;
     using Interfaces.IEntities;
+    using JaxWorld.Data.Interfaces.IEntities;
 
     public class User : IdentityUser<int>, IEntity
     {

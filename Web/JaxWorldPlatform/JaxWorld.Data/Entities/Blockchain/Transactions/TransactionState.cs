@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain.Transactions
 {
     using Interfaces.IEntities.IBlockchain.ITransactions;
+    using JaxWorld.Data.Interfaces.IEntities.IBlockchain.ITransactions;
 
     public class TransactionState : Entity, IState
     {
