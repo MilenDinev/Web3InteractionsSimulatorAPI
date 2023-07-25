@@ -32,6 +32,7 @@
             this.validator = validator;
             this.mapper = mapper;
         }
+
         // GET: api/<NetworksController>
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<NetworkListingModel>>>Get()
@@ -41,7 +42,6 @@
         }
 
         // GET api/<NetworksController>/Network/5
-
         [HttpGet("Get/Network/{networkId}")]
         public async Task<ActionResult<NetworkListingModel>> GetById(int networkId)
         {
@@ -49,12 +49,6 @@
             await this.validator.ValidateEntityAsync(network, networkId.ToString());
             return mapper.Map<NetworkListingModel>(network);
         }
-
-
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
 
         // POST api/<NetworksController/Add>
         [HttpPost("Add/")]
@@ -69,7 +63,6 @@
 
             return CreatedAtAction(nameof(Get), "Networks", new { id = createdNetwork.Id }, createdNetwork);
         }
-
 
         // PUT api/<NetworksController>/5
         [HttpPut("Edit/Network/{networkId}")]
@@ -98,3 +91,7 @@
     }
 }
 
+//[HttpPost]
+//public void Post([FromBody] string value)
+//{
+//}

@@ -1,17 +1,13 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
     using AutoMapper;
-    using JaxWorld.Data.Entities.Blockchain;
-    using JaxWorld.Data.Entities.Blockchain.Contracts;
-    using JaxWorld.Data.Interfaces.IEntities.IBlockchain.IContracts;
-    using JaxWorld.Models.Requests.BlockchainRequests.ChainModels;
-    using JaxWorld.Models.Requests.BlockchainRequests.ContractModels;
-    using JaxWorld.Models.Responses.BlockchainResponses.ChainModels;
-    using JaxWorld.Models.Responses.BlockchainResponses.ContractModels;
-    using JaxWorld.Services.Handlers.Interfaces;
-    using JaxWorld.Services.Main.Interfaces;
-    using JaxWorld.Web.Controllers.Base;
     using Microsoft.AspNetCore.Mvc;
+    using Base;
+    using Services.Main.Interfaces;
+    using Services.Handlers.Interfaces;
+    using Data.Entities.Blockchain.Contracts;
+    using Models.Requests.BlockchainRequests.ContractModels;
+    using Models.Responses.BlockchainResponses.ContractModels;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -82,10 +78,15 @@
             return mapper.Map<EditedContractModel>(contract);
         }
 
-        // DELETE api/<ContractsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE api/<ContractsController>/Network/5
+        [HttpDelete("Delete/Contract/{contractId}")]
+        public async Task<DeletedContractModel> Delete(int contractId)
         {
+            await AssignCurrentUserAsync();
+            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
+            await this.validator.ValidateEntityAsync(contract, contractId.ToString());
+            await this.contractService.DeleteAsync(contract, CurrentUser.Id);
+            return mapper.Map<DeletedContractModel>(contract);
         }
     }
 }
