@@ -1,6 +1,8 @@
 ﻿namespace JaxWorld.Models.Responses.BlockchainResponses.ContractModels
 {
-    internal class DeletedContractModel
+    public class DeletedContractModel
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
