@@ -1,25 +1,54 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
+    using AutoMapper;
+    using JaxWorld.Data.Entities.Blockchain;
+    using JaxWorld.Data.Entities.Blockchain.Contracts;
+    using JaxWorld.Models.Responses.BlockchainResponses.ChainModels;
+    using JaxWorld.Models.Responses.BlockchainResponses.ContractModels;
+    using JaxWorld.Services.Handlers.Interfaces;
+    using JaxWorld.Services.Main.Interfaces;
+    using JaxWorld.Web.Controllers.Base;
     using Microsoft.AspNetCore.Mvc;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
     [Route("api/[controller]")]
     [ApiController]
-    public class ContractsController : ControllerBase
+    public class ContractsController : JaxWorldBaseController
     {
-        // GET: api/<ContractsController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IContractService contractService;
+        private readonly IFinder finder;
+        private readonly IValidator validator;
+        private readonly IMapper mapper;
+
+        public ContractsController(IContractService contractService,
+            IFinder finder,
+            IValidator validator,
+            IMapper mapper,
+            IUserService userService)
+            : base(userService)
         {
-            return new string[] { "value1", "value2" };
+            this.contractService = contractService;
+            this.finder = finder;
+            this.validator = validator;
+            this.mapper = mapper;
         }
 
-        // GET api/<ContractsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET: api/<ContractsController>
+        [HttpGet("List/")]
+        public async Task<ActionResult<IEnumerable<ContractListingModel>>> Get()
         {
-            return "value";
+            var allContracts = await this.finder.GetAllActiveAsync<Contract>();
+            return mapper.Map<ICollection<ContractListingModel>>(allContracts).ToList();
+        }
+
+        // GET api/<ContractsController>/Contract/5
+        [HttpGet("Get/Network/{networkId}")]
+        public async Task<ActionResult<ContractListingModel>> GetById(int contractId)
+        {
+            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
+            await this.validator.ValidateEntityAsync(contract, contractId.ToString());
+            return mapper.Map<ContractListingModel>(contract);
         }
 
         // POST api/<ContractsController>
