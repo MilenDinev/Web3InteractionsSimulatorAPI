@@ -3,6 +3,9 @@
     using AutoMapper;
     using JaxWorld.Data.Entities.Blockchain;
     using JaxWorld.Data.Entities.Blockchain.Contracts;
+    using JaxWorld.Data.Interfaces.IEntities.IBlockchain.IContracts;
+    using JaxWorld.Models.Requests.BlockchainRequests.ChainModels;
+    using JaxWorld.Models.Requests.BlockchainRequests.ContractModels;
     using JaxWorld.Models.Responses.BlockchainResponses.ChainModels;
     using JaxWorld.Models.Responses.BlockchainResponses.ContractModels;
     using JaxWorld.Services.Handlers.Interfaces;
@@ -43,7 +46,7 @@
         }
 
         // GET api/<ContractsController>/Contract/5
-        [HttpGet("Get/Network/{networkId}")]
+        [HttpGet("Get/Contract/{contractId}")]
         public async Task<ActionResult<ContractListingModel>> GetById(int contractId)
         {
             var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
@@ -51,10 +54,19 @@
             return mapper.Map<ContractListingModel>(contract);
         }
 
-        // POST api/<ContractsController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+
+        // POST api/<ContractsController/Add>
+        [HttpPost("Add/")]
+        public async Task<ActionResult> Create(CreateContractModel contractInput)
         {
+            await AssignCurrentUserAsync();
+            var contract = await this.finder.FindByStringOrDefaultAsync<Contract>(contractInput.Name);
+            await this.validator.ValidateUniqueEntityAsync(contract);
+
+            contract = await this.contractService.CreateAsync(contractInput, CurrentUser.Id);
+            var createdContract = mapper.Map<CreatedContractModel>(contract);
+
+            return CreatedAtAction(nameof(Get), "Contracts", new { id = createdContract.Id }, createdContract);
         }
 
         // PUT api/<ContractsController>/5
