@@ -1,0 +1,51 @@
+﻿namespace JaxWorld.Web.Controllers
+{
+    using AutoMapper;
+    using Services.Handlers.Interfaces;
+    using Services.Main.Interfaces;
+    using Web.Controllers.Base;
+    using Microsoft.AspNetCore.Mvc;
+    using Models.Requests.BlockchainRequests.ProfileModels;
+    using Models.Responses.BlockchainResponses.ProfileModels;
+    using Profile = Data.Entities.Blockchain.Profiles.Base.Profile;
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProfilesController : JaxWorldBaseController
+    {
+        private readonly IProfileService profileService;
+        private readonly IFinder finder;
+        private readonly IValidator validator;
+        private readonly IMapper mapper;
+
+        public ProfilesController(IProfileService profileService,
+            IFinder finder,
+            IValidator validator,
+            IMapper mapper,
+            IUserService userService)
+            : base(userService)
+        {
+            this.profileService = profileService;
+            this.finder = finder;
+            this.validator = validator;
+            this.mapper = mapper;
+        }
+
+        // GET: api/<ProfilesController>
+        [HttpGet("List/")]
+        public async Task<ActionResult<IEnumerable<ProfileListingModel>>> Get()
+        {
+            var allProfiles = await this.finder.GetAllActiveAsync<Profile>();
+            return mapper.Map<ICollection<ProfileListingModel>>(allProfiles).ToList();
+        }
+
+        // GET api/<ProfilesController>/Profile/5
+        [HttpGet("Get/Profile/{profileId}")]
+        public async Task<ActionResult<ProfileListingModel>> GetById(int profileId)
+        {
+            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
+            await this.validator.ValidateEntityAsync(profile, profileId.ToString());
+            return mapper.Map<ProfileListingModel>(profile);
+        }
+    }
+}
