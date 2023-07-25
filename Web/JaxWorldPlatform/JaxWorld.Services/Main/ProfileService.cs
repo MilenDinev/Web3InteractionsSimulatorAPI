@@ -1,12 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JaxWorld.Services.Main
+﻿namespace JaxWorld.Services.Main
 {
-    internal class ProfileService
+    using AutoMapper;
+    using Services.Base;
+    using Services.Main.Interfaces;
+    using Models.Requests.BlockchainRequests.ProfileModels;
+    using Data;
+    using Profile = Data.Entities.Blockchain.Profiles.Base.Profile;
+
+    public class ProfileService : BaseService<Profile>, IProfileService
     {
+        private readonly IMapper mapper;
+
+        public ProfileService(JaxWorldDbContext dbContext, IMapper mapper) : base(dbContext)
+        {
+            this.mapper = mapper;
+        }
+
+        public async Task<Profile> CreateAsync(CreateProfileModel profileModel, int creatorId)
+        {
+            var profile = mapper.Map<Profile>(profileModel);
+            await CreateEntityAsync(profile, creatorId);
+            return profile;
+        }
+
+        public async Task EditAsync(Profile profile, EditProfileModel profileModel, int modifierId)
+        {
+            profile.Name = profileModel.Name;
+
+            await SaveModificationAsync(profile, modifierId);
+        }
+        public async Task DeleteAsync(Profile profile, int modifierId)
+        {
+            await DeleteEntityAsync(profile, modifierId);
+        }
     }
 }
