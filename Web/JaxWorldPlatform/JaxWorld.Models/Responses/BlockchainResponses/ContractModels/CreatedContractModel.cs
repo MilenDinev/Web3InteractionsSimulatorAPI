@@ -2,5 +2,6 @@
 {
     public class CreatedContractModel
     {
+        public string Name { get; set; }
     }
 }
