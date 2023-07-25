@@ -62,5 +62,20 @@
             return CreatedAtAction(nameof(Get), "Profiles", new { id = createdProfile.Id }, createdProfile);
         }
 
+
+        // PUT api/<ProfilesController>/5
+        [HttpPut("Edit/Profile/{profileId}")]
+        public async Task<ActionResult<EditedProfileModel>> Edit(EditProfileModel profileInput, int profileId)
+        {
+            await AssignCurrentUserAsync();
+
+            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
+            await this.validator.ValidateEntityAsync(profile, profileId.ToString());
+
+            await this.profileService.EditAsync(profile, profileInput, CurrentUser.Id);
+
+            return mapper.Map<EditedProfileModel>(profile);
+        }
+
     }
 }
