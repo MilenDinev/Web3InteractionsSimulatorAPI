@@ -13,6 +13,8 @@
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()));
             this.CreateMap<Contract, CreatedContractModel>();
             this.CreateMap<Contract, EditedContractModel>();
+            this.CreateMap<Contract, DeletedContractModel>();
+            this.CreateMap<Contract, ContractListingModel>();
         }
     }
 }
