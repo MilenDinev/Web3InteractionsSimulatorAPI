@@ -1,11 +1,11 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain.Properties
 {
+    using Base;
     using Interfaces.IEntities.IBlockchain.IProperties;
 
-    public class Utility : Entity, IUtility
+    public class Utility : Property, IUtility
     {
         public int ContractId { get; set; }
-        public string Type { get; set; }
         public decimal Value { get; set; }
     }
 }
