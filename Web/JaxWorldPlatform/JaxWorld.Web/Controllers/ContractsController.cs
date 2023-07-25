@@ -54,7 +54,6 @@
             return mapper.Map<ContractListingModel>(contract);
         }
 
-
         // POST api/<ContractsController/Add>
         [HttpPost("Add/")]
         public async Task<ActionResult> Create(CreateContractModel contractInput)
@@ -70,9 +69,17 @@
         }
 
         // PUT api/<ContractsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("Edit/Contract/{contractId}")]
+        public async Task<ActionResult<EditedContractModel>> Edit(EditContractModel contractInput, int contractId)
         {
+            await AssignCurrentUserAsync();
+
+            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
+            await this.validator.ValidateEntityAsync(contract, contractId.ToString());
+
+            await this.contractService.EditAsync(contract, contractInput, CurrentUser.Id);
+
+            return mapper.Map<EditedContractModel>(contract);
         }
 
         // DELETE api/<ContractsController>/5
