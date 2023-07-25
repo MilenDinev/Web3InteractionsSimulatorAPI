@@ -5,7 +5,7 @@
     using Data;
     using Interfaces;
     using Data.Entities.Blockchain;
-    using Models.Requests.BlockchainRequests.ChainModels;
+    using Models.Requests.BlockchainRequests.NetworkModels;
 
 
     public class NetworkService : BaseService<Network>, INetworkService

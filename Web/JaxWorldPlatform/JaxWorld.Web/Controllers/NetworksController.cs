@@ -6,8 +6,8 @@
     using Data.Entities.Blockchain;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
-    using Models.Requests.BlockchainRequests.ChainModels;
-    using Models.Responses.BlockchainResponses.ChainModels;
+    using Models.Requests.BlockchainRequests.NetworkModels;
+    using Models.Responses.BlockchainResponses.NetworkModels;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Models.Responses.BlockchainResponses.ChainModels
+﻿namespace JaxWorld.Models.Responses.BlockchainResponses.NetworkModels
 {
     public class CreatedNetworkModel
     {

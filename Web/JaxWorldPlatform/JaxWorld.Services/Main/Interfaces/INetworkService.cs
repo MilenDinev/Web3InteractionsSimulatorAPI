@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces
 {
     using Data.Entities.Blockchain;
-    using Models.Requests.BlockchainRequests.ChainModels;
+    using Models.Requests.BlockchainRequests.NetworkModels;
 
     public interface INetworkService
     {
