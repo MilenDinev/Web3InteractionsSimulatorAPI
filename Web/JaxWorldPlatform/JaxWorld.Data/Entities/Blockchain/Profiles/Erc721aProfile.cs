@@ -4,7 +4,7 @@
     using ProfileUnits;
     using Interfaces.IEntities.IBlockchain.ITokens.IErc721.IProfiles;
 
-    public class Erc721aProfile : ContractProfile, IErc721aProfile
+    public class Erc721aProfile : Profile, IErc721aProfile
     {
         public Erc721aProfile()
         {

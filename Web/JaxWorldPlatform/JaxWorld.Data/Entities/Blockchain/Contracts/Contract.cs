@@ -19,7 +19,7 @@
         public string Balance { get; set; }
         public string EstimatedValue { get; set; }
         public int ProfileId { get; set; }
-        public virtual ContractProfile Profile { get; set; }
+        public virtual Profile Profile { get; set; }
         public int CreatedTxnId { get; set; }
         public virtual Transaction CreatedTxn { get; set; }
         public virtual Wallet Creator { get; set; }
