@@ -47,5 +47,20 @@
             await this.validator.ValidateEntityAsync(profile, profileId.ToString());
             return mapper.Map<ProfileListingModel>(profile);
         }
+
+        // POST api/<ProfilesController/Add>
+        [HttpPost("Add/")]
+        public async Task<ActionResult> Create(CreateProfileModel profileInput)
+        {
+            await AssignCurrentUserAsync();
+            var profile = await this.finder.FindByStringOrDefaultAsync<Profile>(profileInput.Name);
+            await this.validator.ValidateUniqueEntityAsync(profile);
+
+            profile = await this.profileService.CreateAsync(profileInput, CurrentUser.Id);
+            var createdProfile = mapper.Map<CreatedProfileModel>(profile);
+
+            return CreatedAtAction(nameof(Get), "Profiles", new { id = createdProfile.Id }, createdProfile);
+        }
+
     }
 }
