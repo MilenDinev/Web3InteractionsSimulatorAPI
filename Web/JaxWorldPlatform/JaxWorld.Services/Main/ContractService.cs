@@ -6,7 +6,7 @@
     using Data.Entities.Blockchain.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
 
-    internal class ContractService : BaseService<Contract>
+    public class ContractService : BaseService<Contract>
     {
         private readonly IMapper mapper;
 
