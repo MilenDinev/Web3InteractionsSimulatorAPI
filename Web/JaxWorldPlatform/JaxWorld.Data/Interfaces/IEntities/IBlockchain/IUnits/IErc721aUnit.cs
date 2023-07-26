@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain.ITokens.IErc721.IUnits
+﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain.IUnits
 {
     using Entities.Blockchain.Properties;
 

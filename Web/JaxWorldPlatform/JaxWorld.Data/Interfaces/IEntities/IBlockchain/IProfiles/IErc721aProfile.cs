@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain.ITokens.IErc721.IProfiles
+﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain.IProfiles
 {
     internal interface IErc721aProfile
     {

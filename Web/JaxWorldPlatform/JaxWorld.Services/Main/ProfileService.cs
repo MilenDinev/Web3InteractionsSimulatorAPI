@@ -5,7 +5,7 @@
     using Services.Main.Interfaces;
     using Models.Requests.BlockchainRequests.ProfileModels;
     using Data;
-    using Profile = Data.Entities.Blockchain.Profiles.Base.Profile;
+    using Profile = Data.Entities.Blockchain.Base.Profile;
 
     public class ProfileService : BaseService<Profile>, IProfileService
     {

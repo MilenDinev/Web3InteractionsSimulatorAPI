@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain.IContracts
+﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain
 {
     using Entities.Blockchain.Contracts;
 

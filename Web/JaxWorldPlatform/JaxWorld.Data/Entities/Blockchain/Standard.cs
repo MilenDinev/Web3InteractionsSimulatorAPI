@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain
 {
-    using Profiles.Base;
+    using Base;
 
     public class Standard : Entity
     {

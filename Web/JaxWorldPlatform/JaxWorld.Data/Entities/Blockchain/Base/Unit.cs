@@ -1,12 +1,11 @@
-﻿namespace JaxWorld.Data.Entities.Blockchain.ProfileUnits.Base
+﻿namespace JaxWorld.Data.Entities.Blockchain.Base
 {
     using Transactions;
-    using Interfaces.IEntities.IBlockchain.ITokens.IBase;
-    using JaxWorld.Data.Interfaces.IEntities.IBlockchain.ITokens.IBase;
+    using Data.Interfaces.IEntities.IBlockchain.IBase;
 
-    public abstract class ProfileUnit : Entity, IProfileUnit
+    public abstract class Unit : Entity, IProfileUnit
     {
-        public ProfileUnit()
+        public Unit()
         {
             Transactions = new HashSet<Transaction>();
             Holders = new HashSet<TokenWalletBalance>();
