@@ -1,6 +1,6 @@
-﻿namespace JaxWorld.Models.Requests.BlockchainRequests.ProfileUnitModels
+﻿namespace JaxWorld.Models.Requests.BlockchainRequests.UnitModels
 {
-    public class CreateProfileUnitModel
+    public class CreateUnitModel
     {
         public string Name { get; set; }
         public int ContractProfileId { get; set; }
