@@ -28,5 +28,10 @@
 
             await SaveModificationAsync(attribute, modifierId);
         }
+
+        public async Task DeleteAsync(Attribute attribute, int modifierId)
+        {
+            await DeleteEntityAsync(attribute, modifierId);
+        }
     }
 }
