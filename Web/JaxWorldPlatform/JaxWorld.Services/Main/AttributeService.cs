@@ -21,5 +21,12 @@
             await CreateEntityAsync(attribute, creatorId);
             return attribute;
         }
+
+        public async Task EditAsync(Attribute attribute, EditAttributeModel attributeModel, int modifierId)
+        {
+            attribute.Value = attributeModel.Name;
+
+            await SaveModificationAsync(attribute, modifierId);
+        }
     }
 }
