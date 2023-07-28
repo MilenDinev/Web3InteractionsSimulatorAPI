@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using JaxWorld.Data;
-using JaxWorld.Models.Requests.BlockchainRequests.ContractModels;
-using JaxWorld.Services.Base;
-using Attribute = JaxWorld.Data.Entities.Blockchain.Properties.Attribute;
-
-namespace JaxWorld.Services.Main
+﻿namespace JaxWorld.Services.Main
 {
-    internal class AttributeService : BaseService<Attribute>
+    using AutoMapper;
+    using Data;
+    using Models.Requests.BlockchainRequests.PropertiesModels;
+    using Services.Base;
+    using Attribute = Data.Entities.Blockchain.Properties.Attribute;
+
+    public class AttributeService : BaseService<Attribute>
     {
         private readonly IMapper mapper;
 
@@ -15,22 +15,11 @@ namespace JaxWorld.Services.Main
             this.mapper = mapper;
         }
 
-        public async Task<Attribute> CreateAsync(CreateContractModel contractModel, int creatorId)
+        public async Task<Attribute> CreateAsync(CreateAttributeModel attributeModel, int creatorId)
         {
-            var contract = mapper.Map<Attribute>(contractModel);
-            await CreateEntityAsync(contract, creatorId);
-            return contract;
-        }
-
-        public async Task EditAsync(Attribute contract, EditContractModel contractModel, int modifierId)
-        {
-            contract.Value = contractModel.Name;
-
-            await SaveModificationAsync(contract, modifierId);
-        }
-        public async Task DeleteAsync(Attribute contract, int modifierId)
-        {
-            await DeleteEntityAsync(contract, modifierId);
+            var attribute = mapper.Map<Attribute>(attributeModel);
+            await CreateEntityAsync(attribute, creatorId);
+            return attribute;
         }
     }
 }
