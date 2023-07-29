@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain.IProperties
 {
-    internal interface IProperty
+    public interface IProperty 
     {
-        string Type { get; set; }
+        string Type { get; }
     }
 }
