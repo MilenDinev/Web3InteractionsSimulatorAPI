@@ -2,9 +2,8 @@
 {
     using BlockchainRequests.Interfaces;
 
-    public interface IEditPropertyModel<T> : IEditModel
+    public interface IEditPropertyModel : IEditModel
     {
-        public string Name { get; set; }
-        public T Value { get; set; }
+        public string Name { get;}
     }
 }

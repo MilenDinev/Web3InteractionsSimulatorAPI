@@ -2,8 +2,8 @@
 {
     using Base;
 
-    public class EditAttributeModel : EditPropertyModel<string>
+    public class EditAttributeModel : EditPropertyModel
     {
-
+        public string Value { get; set; }
     }
 }

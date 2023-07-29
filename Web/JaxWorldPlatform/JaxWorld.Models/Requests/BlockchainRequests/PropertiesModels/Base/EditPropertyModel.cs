@@ -2,9 +2,8 @@
 {
     using Interfaces;
 
-    public class EditPropertyModel<T> : IEditPropertyModel<T>
+    public abstract class EditPropertyModel : IEditPropertyModel
     {
         public string Name { get; set; }
-        public T Value { get; set; }
     }
 }

@@ -2,9 +2,8 @@
 {
     using BlockchainRequests.Interfaces;
 
-    public interface ICreatePropertyModel<T> : ICreateModel
+    public interface ICreatePropertyModel : ICreateModel
     {
         public string Name { get; set; }
-        public T Value { get; set; }
     }
 }
