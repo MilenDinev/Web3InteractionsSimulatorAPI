@@ -2,11 +2,12 @@
 {
     using AutoMapper;
     using Data;
+    using Base;
+    using Interfaces;
     using Models.Requests.BlockchainRequests.PropertiesModels;
-    using Services.Base;
     using Attribute = Data.Entities.Blockchain.Properties.Attribute;
 
-    public class AttributeService : BaseService<Attribute>
+    public class AttributeService : BaseService<Attribute>, IAttributeService
     {
         private readonly IMapper mapper;
 
@@ -24,7 +25,7 @@
 
         public async Task EditAsync(Attribute attribute, EditAttributeModel attributeModel, int modifierId)
         {
-            attribute.Value = attributeModel.Name;
+            attribute.Value = attributeModel.Value;
 
             await SaveModificationAsync(attribute, modifierId);
         }
