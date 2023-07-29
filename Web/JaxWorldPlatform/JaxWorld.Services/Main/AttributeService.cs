@@ -1,12 +1,13 @@
-﻿using AutoMapper;
-using JaxWorld.Data;
-using JaxWorld.Models.Requests.BlockchainRequests.ContractModels;
-using JaxWorld.Services.Base;
-using Attribute = JaxWorld.Data.Entities.Blockchain.Properties.Attribute;
-
-namespace JaxWorld.Services.Main
+﻿namespace JaxWorld.Services.Main
 {
-    internal class AttributeService : BaseService<Attribute>
+    using AutoMapper;
+    using Data;
+    using Base;
+    using Interfaces;
+    using Models.Requests.BlockchainRequests.PropertiesModels;
+    using Attribute = Data.Entities.Blockchain.Properties.Attribute;
+
+    public class AttributeService : BaseService<Attribute>, IAttributeService
     {
         private readonly IMapper mapper;
 
@@ -15,22 +16,23 @@ namespace JaxWorld.Services.Main
             this.mapper = mapper;
         }
 
-        public async Task<Attribute> CreateAsync(CreateContractModel contractModel, int creatorId)
+        public async Task<Attribute> CreateAsync(CreateAttributeModel attributeModel, int creatorId)
         {
-            var contract = mapper.Map<Attribute>(contractModel);
-            await CreateEntityAsync(contract, creatorId);
-            return contract;
+            var attribute = mapper.Map<Attribute>(attributeModel);
+            await CreateEntityAsync(attribute, creatorId);
+            return attribute;
         }
 
-        public async Task EditAsync(Attribute contract, EditContractModel contractModel, int modifierId)
+        public async Task EditAsync(Attribute attribute, EditAttributeModel attributeModel, int modifierId)
         {
-            contract.Value = contractModel.Name;
+            attribute.Value = attributeModel.Value;
 
-            await SaveModificationAsync(contract, modifierId);
+            await SaveModificationAsync(attribute, modifierId);
         }
-        public async Task DeleteAsync(Attribute contract, int modifierId)
+
+        public async Task DeleteAsync(Attribute attribute, int modifierId)
         {
-            await DeleteEntityAsync(contract, modifierId);
+            await DeleteEntityAsync(attribute, modifierId);
         }
     }
 }

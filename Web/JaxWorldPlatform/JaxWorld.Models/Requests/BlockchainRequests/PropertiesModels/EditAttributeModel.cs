@@ -1,8 +1,9 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.PropertiesModels
 {
-    public class EditAttributeModel
+    using Base;
+
+    public class EditAttributeModel : EditPropertyModel<string>
     {
-        public string Name { get; set; }
-        public string Value { get; set; }
+
     }
 }
