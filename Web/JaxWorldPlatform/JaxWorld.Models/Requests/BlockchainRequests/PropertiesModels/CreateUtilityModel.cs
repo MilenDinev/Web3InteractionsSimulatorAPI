@@ -1,8 +1,9 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.PropertiesModels
 {
-    public class CreateUtilityModel
+    using Base;
+
+    public class CreateUtilityModel : CreatePropertyModel
     {
-        public string Name { get; set; }
         public decimal Value { get; set; }
     }
 }
