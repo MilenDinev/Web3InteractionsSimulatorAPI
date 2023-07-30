@@ -6,7 +6,7 @@
     public interface IProfileService
     {
         Task<Profile> CreateAsync(CreateProfileModel model, int creatorId);
-        Task EditAsync(Profile contract, EditProfileModel model, int modifierId);
-        Task DeleteAsync(Profile contract, int modifierId);
+        Task EditAsync(Profile profile, EditProfileModel model, int modifierId);
+        Task DeleteAsync(Profile profile, int modifierId);
     }
 }

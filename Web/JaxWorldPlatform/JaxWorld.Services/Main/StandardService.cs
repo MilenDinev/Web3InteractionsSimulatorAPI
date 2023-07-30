@@ -3,10 +3,11 @@
     using AutoMapper;
     using Base;
     using Data;
+    using Interfaces;
     using Data.Entities.Blockchain;
     using Models.Requests.BlockchainRequests.StandardModels;
 
-    internal class StandardService : BaseService<Standard>
+    internal class StandardService : BaseService<Standard>, IStandardService
     {
         private readonly IMapper mapper;
 
