@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Models.Responses.EntityResponses.UserModels
 {
-    public class CreatedUserModel
+    public class DeletedUserModel
     {
         public int Id { get; set; }
         public string UserName { get; set; }
