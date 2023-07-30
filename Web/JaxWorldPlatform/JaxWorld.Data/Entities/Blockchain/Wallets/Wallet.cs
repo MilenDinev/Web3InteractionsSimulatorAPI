@@ -4,7 +4,6 @@
     using Contracts;
     using Transactions;
     using Interfaces.IEntities.IBlockchain.IWallets;
-    using JaxWorld.Data.Interfaces.IEntities.IBlockchain.IWallets;
 
     public class Wallet : Entity, IWallet
     {
