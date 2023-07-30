@@ -2,6 +2,7 @@
 {
     public class EditWalletModel
     {
-        public string Provider { get; set; }
+        public decimal Balance { get; set; }
+        public string Owner { get; set; }
     }
 }
