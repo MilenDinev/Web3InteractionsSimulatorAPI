@@ -6,7 +6,7 @@
     using Microsoft.AspNetCore.Identity;
     using Data.Entities;
 
-    internal interface IUserManager
+    public interface IUserManager
     {
         Task<IdentityResult> CreateAsync(User user, string password);
         Task<IdentityResult> UpdateAsync(User user);
