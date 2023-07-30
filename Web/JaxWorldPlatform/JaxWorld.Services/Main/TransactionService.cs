@@ -3,10 +3,11 @@
     using AutoMapper;
     using Base;
     using Data;
+    using Interfaces;
     using Data.Entities.Blockchain.Transactions;
     using Models.Requests.BlockchainRequests.TransactionModels;
 
-    internal class TransactionService : BaseService<Transaction>
+    internal class TransactionService : BaseService<Transaction>, ITransactionService
     {
         private readonly IMapper mapper;
 
