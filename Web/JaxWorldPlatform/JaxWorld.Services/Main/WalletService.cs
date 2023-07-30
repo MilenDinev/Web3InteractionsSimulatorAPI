@@ -3,10 +3,11 @@
     using AutoMapper;
     using Base;
     using Data;
+    using Interfaces;
     using Data.Entities.Blockchain.Wallets;
     using Models.Requests.BlockchainRequests.WalletModels;
 
-    internal class WalletService : BaseService<Wallet>
+    internal class WalletService : BaseService<Wallet>, IWalletService
     {
         private readonly IMapper mapper;
 
@@ -24,7 +25,7 @@
 
         public async Task EditAsync(Wallet wallet, EditWalletModel walletModel, int modifierId)
         {
-            wallet.Provider.Name = walletModel.Provider;
+            wallet.Owner.UserName = walletModel.Owner;
 
             await SaveModificationAsync(wallet, modifierId);
         }
