@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Services.Exceptions
 {
-    internal class ResourceAlreadyExistsException : Exception
+    public class ResourceAlreadyExistsException : Exception
     {
-        internal ResourceAlreadyExistsException(string message) : base(message)
+        public ResourceAlreadyExistsException(string message) : base(message)
         {
         }
     }
