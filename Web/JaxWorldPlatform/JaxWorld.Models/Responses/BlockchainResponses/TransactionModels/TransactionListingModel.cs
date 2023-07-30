@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Models.Responses.BlockchainResponses.TransactionModels
 {
-    public class CreatedTransactionModel
+    public class TransactionListingModel
     {
         public int Id { get; set; }
         public int ContractId { get; set; }

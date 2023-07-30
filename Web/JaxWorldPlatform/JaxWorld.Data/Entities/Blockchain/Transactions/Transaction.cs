@@ -3,7 +3,6 @@
     using Contracts;
     using Blockchain.Wallets;
     using Interfaces.IEntities.IBlockchain.ITransactions;
-    using JaxWorld.Data.Interfaces.IEntities.IBlockchain.ITransactions;
 
     public class Transaction : Entity, ITransaction
     {
