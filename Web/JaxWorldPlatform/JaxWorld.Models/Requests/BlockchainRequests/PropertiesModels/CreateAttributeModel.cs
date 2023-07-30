@@ -2,8 +2,8 @@
 {
     using Base;
 
-    public class CreateAttributeModel : CreatePropertyModel<string>
+    public class CreateAttributeModel : CreatePropertyModel
     {
-
+        public string Value { get; set; }
     }
 }

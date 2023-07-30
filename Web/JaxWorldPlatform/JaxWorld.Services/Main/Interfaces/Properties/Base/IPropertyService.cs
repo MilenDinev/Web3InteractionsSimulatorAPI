@@ -3,7 +3,7 @@
     using Models.Requests.BlockchainRequests.Interfaces;
     using Data.Interfaces.IEntities.IBlockchain.IProperties;
 
-    internal interface IPropertyService<TProperty, TCModel, TEModel> 
+    public interface IPropertyService<TProperty, TCModel, TEModel> 
         where TProperty : class, IProperty 
         where TCModel : class, ICreateModel
         where TEModel : class, IEditModel

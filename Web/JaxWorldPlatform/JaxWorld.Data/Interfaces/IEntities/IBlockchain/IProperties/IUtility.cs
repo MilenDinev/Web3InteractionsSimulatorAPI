@@ -2,7 +2,6 @@
 {
     public interface IUtility
     {
-        int ContractId { get; set; }
         decimal Value { get; set; }
     }
 }

@@ -1,12 +1,13 @@
-﻿namespace JaxWorld.Services.Main
+﻿namespace JaxWorld.Services.Main.Properties
 {
     using AutoMapper;
     using Base;
     using Data;
+    using Interfaces.Properties;
     using Data.Entities.Blockchain.Properties;
     using Models.Requests.BlockchainRequests.PropertiesModels;
 
-    internal class UtilityService : BaseService<Utility>
+    public class UtilityService : BaseService<Utility>, IUtilityService
     {
         private readonly IMapper mapper;
 
@@ -24,10 +25,11 @@
 
         public async Task EditAsync(Utility utility, EditUtilityModel utilityModel, int modifierId)
         {
-            utility.Type = utilityModel.Name;
+            utility.Value = utilityModel.Value;
 
             await SaveModificationAsync(utility, modifierId);
         }
+
         public async Task DeleteAsync(Utility utility, int modifierId)
         {
             await DeleteEntityAsync(utility, modifierId);

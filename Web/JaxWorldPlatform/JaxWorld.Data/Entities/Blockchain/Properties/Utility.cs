@@ -5,7 +5,6 @@
 
     public class Utility : Property, IUtility
     {
-        public int ContractId { get; set; }
         public decimal Value { get; set; }
     }
 }

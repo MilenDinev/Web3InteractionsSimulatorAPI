@@ -1,9 +1,9 @@
-﻿namespace JaxWorld.Services.Main
+﻿namespace JaxWorld.Services.Main.Properties
 {
     using AutoMapper;
     using Data;
     using Base;
-    using Interfaces;
+    using Interfaces.Properties;
     using Models.Requests.BlockchainRequests.PropertiesModels;
     using Attribute = Data.Entities.Blockchain.Properties.Attribute;
 
