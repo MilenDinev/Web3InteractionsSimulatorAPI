@@ -2,9 +2,7 @@
 {
     using Wallets;
     using Transactions;
-    using Profiles.Base;
     using Interfaces.IEntities.IBlockchain.IContracts;
-    using JaxWorld.Data.Interfaces.IEntities.IBlockchain.IContracts;
 
     public class Contract : Entity, IContract
     {
