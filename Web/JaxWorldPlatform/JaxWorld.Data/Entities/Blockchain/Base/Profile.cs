@@ -2,8 +2,7 @@
 {
     using Wallets;
     using Contracts;
-    using Interfaces.IEntities.IBlockchain.ITokens.IBase;
-    using JaxWorld.Data.Interfaces.IEntities.IBlockchain.IBase;
+    using Interfaces.IEntities.IBlockchain.IBase;
 
     public abstract class Profile : Entity, IProfile
     {
