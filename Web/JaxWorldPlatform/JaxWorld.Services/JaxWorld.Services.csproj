@@ -11,7 +11,6 @@
     <Folder Include="AutoMapperProfiles\User\" />
     <Folder Include="AutoMapperProfiles\Transaction\" />
     <Folder Include="AutoMapperProfiles\Standard\" />
-    <Folder Include="AutoMapperProfiles\Property\" />
   </ItemGroup>
 
   <ItemGroup>
