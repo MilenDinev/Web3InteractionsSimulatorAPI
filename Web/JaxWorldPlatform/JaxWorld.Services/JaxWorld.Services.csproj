@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AutoMapperProfiles\Wallet\" />
-    <Folder Include="AutoMapperProfiles\User\" />
-    <Folder Include="AutoMapperProfiles\Transaction\" />
-    <Folder Include="AutoMapperProfiles\Standard\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
   </ItemGroup>
