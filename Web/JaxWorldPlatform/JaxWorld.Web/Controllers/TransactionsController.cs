@@ -55,7 +55,7 @@
         public async Task<ActionResult> Create(CreateTransactionModel transactionInput)
         {
             await AssignCurrentUserAsync();
-            var transaction = await this.finder.FindByStringOrDefaultAsync<Transaction>(transactionInput.Name);
+            var transaction = await this.finder.FindByStringOrDefaultAsync<Transaction>(transactionInput.State);
             await this.validator.ValidateUniqueEntityAsync(transaction);
 
             transaction = await this.transactionService.CreateAsync(transactionInput, CurrentUser.Id);
