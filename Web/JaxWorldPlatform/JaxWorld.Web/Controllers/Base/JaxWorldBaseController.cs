@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Web.Controllers.Base
 {
+    using Constants;
     using Data.Entities;
-    using Services.Constants;
     using Services.Main.Interfaces;
     using Microsoft.AspNetCore.Mvc;
 
