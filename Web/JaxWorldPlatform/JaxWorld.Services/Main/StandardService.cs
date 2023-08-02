@@ -7,7 +7,7 @@
     using Data.Entities.Blockchain;
     using Models.Requests.BlockchainRequests.StandardModels;
 
-    internal class StandardService : BaseService<Standard>, IStandardService
+    public class StandardService : BaseService<Standard>, IStandardService
     {
         private readonly IMapper mapper;
 

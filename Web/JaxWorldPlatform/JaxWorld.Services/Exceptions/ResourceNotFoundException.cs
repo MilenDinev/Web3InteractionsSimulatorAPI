@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Services.Exceptions
 {
-    internal class ResourceNotFoundException : Exception
+    public class ResourceNotFoundException : Exception
     {
-        internal ResourceNotFoundException(string message) : base(message)
+        public ResourceNotFoundException(string message) : base(message)
         {
         }
     }

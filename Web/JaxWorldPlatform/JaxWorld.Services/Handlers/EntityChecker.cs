@@ -9,7 +9,7 @@ using JaxWorld.Data.Interfaces.IEntities;
 
 namespace JaxWorld.Services.Handlers
 {
-    internal class EntityChecker : IEntityChecker
+    public class EntityChecker : IEntityChecker
     {
         private readonly JaxWorldDbContext dbContext;
 

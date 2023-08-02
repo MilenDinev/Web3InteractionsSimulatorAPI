@@ -7,7 +7,7 @@
     using Data.Entities.Blockchain.Transactions;
     using Models.Requests.BlockchainRequests.TransactionModels;
 
-    internal class TransactionService : BaseService<Transaction>, ITransactionService
+    public class TransactionService : BaseService<Transaction>, ITransactionService
     {
         private readonly IMapper mapper;
 

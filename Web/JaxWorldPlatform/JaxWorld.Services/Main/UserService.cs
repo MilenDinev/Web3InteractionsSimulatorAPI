@@ -12,7 +12,7 @@
     using Models.Requests.EntityRequests;
     using Models.Responses.EntityResponses.UserModels;
 
-    internal class UserService : BaseService<User>, IUserService
+    public class UserService : BaseService<User>, IUserService
     {
         private readonly IUserManager userManager;
         private readonly IMapper mapper;

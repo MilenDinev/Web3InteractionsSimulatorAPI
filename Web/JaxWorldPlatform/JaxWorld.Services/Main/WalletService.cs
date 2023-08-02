@@ -7,7 +7,7 @@
     using Data.Entities.Blockchain.Wallets;
     using Models.Requests.BlockchainRequests.WalletModels;
 
-    internal class WalletService : BaseService<Wallet>, IWalletService
+    public class WalletService : BaseService<Wallet>, IWalletService
     {
         private readonly IMapper mapper;
 
