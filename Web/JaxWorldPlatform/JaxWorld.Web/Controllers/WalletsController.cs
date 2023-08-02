@@ -56,7 +56,7 @@
         public async Task<ActionResult> Create(CreateWalletModel walletInput)
         {
             await AssignCurrentUserAsync();
-            var wallet = await this.finder.FindByStringOrDefaultAsync<Wallet>(walletInput.Name);
+            var wallet = await this.finder.FindByStringOrDefaultAsync<Wallet>(walletInput.Address);
             await this.validator.ValidateUniqueEntityAsync(wallet);
 
             wallet = await this.walletService.CreateAsync(walletInput, CurrentUser.Id);
