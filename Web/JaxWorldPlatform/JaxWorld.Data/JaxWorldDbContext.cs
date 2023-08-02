@@ -5,11 +5,11 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Entities;
     using Entities.Blockchain;
+    using Entities.Blockchain.Units;
     using Entities.Blockchain.Wallets;
     using Entities.Blockchain.Profiles;
     using Entities.Blockchain.Contracts;
     using Entities.Blockchain.Properties;
-    using Entities.Blockchain.ProfileUnits;
     using Entities.Blockchain.Transactions;
 
     public class JaxWorldDbContext: IdentityDbContext<User, IdentityRole<int>, int>
