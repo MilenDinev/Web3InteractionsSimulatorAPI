@@ -7,6 +7,6 @@
             this.Wallets = new HashSet<Wallet>();        
         }
         public string Name { get; set; }
-        public ICollection<Wallet> Wallets { get; set;}
+        public virtual ICollection<Wallet> Wallets { get; set;}
     }
 }
