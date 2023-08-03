@@ -2,8 +2,8 @@
 {
     using System;
     using System.Linq;
-    using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
+    using System.Diagnostics.CodeAnalysis;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
