@@ -18,10 +18,9 @@
         public string Address { get; set; }
         public string Balance { get; set; }
         public string EstimatedValue { get; set; }
-        public int ProfileId { get; set; }
-        public virtual Profile Profile { get; set; }
         public int CreatedTxnId { get; set; }
         public virtual Wallet Creator { get; set; }
+        public virtual Profile Profile { get; set; }
         public virtual ICollection<Network> Networks { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }

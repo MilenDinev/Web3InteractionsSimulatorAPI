@@ -8,7 +8,7 @@
     using Data.Entities;
 
 
-    internal class JaxWorldUserManager : UserManager<User>, IUserManager
+    public class JaxWorldUserManager : UserManager<User>, IUserManager
     {
         public JaxWorldUserManager(IUserStore<User> store,
            IOptions<IdentityOptions> optionsAccessor,
@@ -74,6 +74,27 @@
                 }
             }
 
+            return false;
+        }
+
+        public async Task<bool> ValidateUserCredentials(string userName, string password)
+        {
+            User user = await FindByNameAsync(userName);
+
+            if (user != null)
+            {
+                bool result = await CheckPasswordAsync(user, password);
+                return result;
+            }
+            else
+            {
+                user = await FindByEmailAsync(userName);
+                if (user != null)
+                {
+                    bool result = await CheckPasswordAsync(user, password);
+                    return result;
+                }
+            }
             return false;
         }
     }

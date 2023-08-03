@@ -2,8 +2,8 @@
 {
     using Base;
     using Units;
+    using Wallets;
     using Interfaces.IEntities.IBlockchain.IProfiles;
-    using Blockchain.Wallets;
 
     public class Erc721aProfile : Profile, IErc721aProfile
     {

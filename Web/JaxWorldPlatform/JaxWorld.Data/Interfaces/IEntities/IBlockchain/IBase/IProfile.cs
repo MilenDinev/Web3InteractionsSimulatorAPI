@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Data.Interfaces.IEntities.IBlockchain.IBase
 {
-    internal interface IProfile
+    public interface IProfile
     {
         string Name { get; set; }
         string Symbol { get; set; }

@@ -17,9 +17,9 @@
         public string DNA { get; set; }
         public bool Minted { get; set; }
         public int MintedTxnId { get; set; }
+        public virtual Transaction MintedTxn { get; set; }
         public int Erc721aProfileId { get; set; }
         public virtual Erc721aProfile Erc721aProfile { get; set; }
-        public virtual Transaction MintedTxn { get; set; }
         public virtual ICollection<Attribute> Attributes { get; set; }
         public virtual ICollection<Utility> Utilities { get; set; }
     }
