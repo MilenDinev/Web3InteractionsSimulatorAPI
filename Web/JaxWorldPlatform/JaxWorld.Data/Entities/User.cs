@@ -11,8 +11,7 @@
         {
             this.Wallets = new HashSet<Wallet>();
         }
-        public string Username { get; set; }
-        public string NormalizedName { get; set; }
+        public string? NormalizedName { get; set; }
         public int CreatorId { get; set; }
         public DateTime CreatedOn { get; set; }
         public int LastModifierId { get; set; }
