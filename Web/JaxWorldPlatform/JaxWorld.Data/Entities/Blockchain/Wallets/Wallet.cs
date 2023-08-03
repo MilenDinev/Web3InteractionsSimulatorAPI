@@ -12,7 +12,7 @@
             Chains = new HashSet<Network>();
             Transactions = new HashSet<Transaction>();
             CreatedContracts = new HashSet<Contract>();
-            Tokens = new HashSet<TokenWalletBalance>();
+            Units = new HashSet<UnitWalletBalance>();
         }
 
         public string Address { get; set; }
@@ -25,6 +25,6 @@
         public virtual ICollection<Network> Chains { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
         public virtual ICollection<Contract> CreatedContracts { get; set; }
-        public virtual ICollection<TokenWalletBalance> Tokens { get; set; }
+        public virtual ICollection<UnitWalletBalance> Units { get; set; }
     }
 }
