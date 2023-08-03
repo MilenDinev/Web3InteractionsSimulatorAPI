@@ -3,12 +3,12 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    public class WalletTokenConfig : IEntityTypeConfiguration<TokenWalletBalance>
+    public class WalletUnitConfig : IEntityTypeConfiguration<UnitWalletBalance>
     {
-        public void Configure(EntityTypeBuilder<TokenWalletBalance> builder)
+        public void Configure(EntityTypeBuilder<UnitWalletBalance> builder)
         {
             builder.HasOne(s => s.Wallet)
-            .WithMany(u => u.Tokens)
+            .WithMany(u => u.Units)
             .HasForeignKey(s => s.WalletId)
             .OnDelete(DeleteBehavior.Restrict);
         }
