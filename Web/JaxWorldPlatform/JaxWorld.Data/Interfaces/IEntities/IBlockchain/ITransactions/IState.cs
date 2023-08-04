@@ -2,6 +2,6 @@
 {
     public interface IState
     {
-        string Value { get; set; }
+        string State { get; set; }
     }
 }

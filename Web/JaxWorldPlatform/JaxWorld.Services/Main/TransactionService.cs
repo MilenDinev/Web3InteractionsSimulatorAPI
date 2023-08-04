@@ -27,7 +27,7 @@
         {
             transaction.State = new TransactionState
             {
-                Value = transactionModel.State
+                State = transactionModel.State
         };
 
             await SaveModificationAsync(transaction, modifierId);

@@ -8,7 +8,7 @@
         {
             Transactions = new HashSet<Transaction>();
         }
-        public string Value { get; set; }
+        public string State { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

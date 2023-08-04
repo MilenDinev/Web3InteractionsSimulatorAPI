@@ -12,20 +12,20 @@
                     new TransactionState
                     {
                         Id = 1,
-                        Value = "Pending"
+                        State = "Pending"
                     });
             builder.HasData(
                     new TransactionState
                     {
                         Id = 2,
-                        Value = "Approved"
+                        State = "Approved"
                     });
 
             builder.HasData(
                     new TransactionState
                     {
                         Id = 3,
-                        Value = "Rejected"
+                        State = "Rejected"
                     });
         }
     }
