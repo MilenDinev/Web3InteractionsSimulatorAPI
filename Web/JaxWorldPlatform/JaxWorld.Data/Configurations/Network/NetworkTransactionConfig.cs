@@ -4,7 +4,7 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Entities.Blockchain.Transactions;
 
-    public class ChainTransactionConfig : IEntityTypeConfiguration<Transaction>
+    public class NetworkTransactionConfig : IEntityTypeConfiguration<Transaction>
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
