@@ -127,7 +127,7 @@ namespace JaxWorld.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -252,6 +252,7 @@ namespace JaxWorld.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Erc721aUnitId = table.Column<int>(type: "int", nullable: true),
                     NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -259,48 +260,11 @@ namespace JaxWorld.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
                     LastModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Attributes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ChainsContracts",
-                columns: table => new
-                {
-                    ContractId = table.Column<int>(type: "int", nullable: false),
-                    NetworkId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChainsContracts", x => new { x.ContractId, x.NetworkId });
-                    table.ForeignKey(
-                        name: "FK_ChainsContracts_Networks_NetworkId",
-                        column: x => x.NetworkId,
-                        principalTable: "Networks",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ChainsWallets",
-                columns: table => new
-                {
-                    NetworkId = table.Column<int>(type: "int", nullable: false),
-                    WalletId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChainsWallets", x => new { x.NetworkId, x.WalletId });
-                    table.ForeignKey(
-                        name: "FK_ChainsWallets_Networks_NetworkId",
-                        column: x => x.NetworkId,
-                        principalTable: "Networks",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -428,22 +392,47 @@ namespace JaxWorld.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "NetworksWallets",
+                columns: table => new
+                {
+                    NetworkId = table.Column<int>(type: "int", nullable: false),
+                    WalletId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NetworksWallets", x => new { x.NetworkId, x.WalletId });
+                    table.ForeignKey(
+                        name: "FK_NetworksWallets_Networks_NetworkId",
+                        column: x => x.NetworkId,
+                        principalTable: "Networks",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_NetworksWallets_Wallets_WalletId",
+                        column: x => x.WalletId,
+                        principalTable: "Wallets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Erc721aUnits",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DNA = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Minted = table.Column<bool>(type: "bit", nullable: false),
                     MintedTxnId = table.Column<int>(type: "int", nullable: false),
                     ProfileId = table.Column<int>(type: "int", nullable: false),
+                    HolderId = table.Column<int>(type: "int", nullable: false),
                     NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
                     LastModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -452,6 +441,12 @@ namespace JaxWorld.Data.Migrations
                         name: "FK_Erc721aUnits_Profiles_ProfileId",
                         column: x => x.ProfileId,
                         principalTable: "Profiles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Erc721aUnits_Wallets_HolderId",
+                        column: x => x.HolderId,
+                        principalTable: "Wallets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -514,6 +509,7 @@ namespace JaxWorld.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Value = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Erc721aUnitId = table.Column<int>(type: "int", nullable: true),
                     NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -521,8 +517,7 @@ namespace JaxWorld.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
                     LastModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -532,30 +527,6 @@ namespace JaxWorld.Data.Migrations
                         column: x => x.Erc721aUnitId,
                         principalTable: "Erc721aUnits",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "WalletsUnitsBalance",
-                columns: table => new
-                {
-                    UnitId = table.Column<int>(type: "int", nullable: false),
-                    WalletId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_WalletsUnitsBalance", x => new { x.UnitId, x.WalletId });
-                    table.ForeignKey(
-                        name: "FK_WalletsUnitsBalance_Erc721aUnits_UnitId",
-                        column: x => x.UnitId,
-                        principalTable: "Erc721aUnits",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_WalletsUnitsBalance_Wallets_WalletId",
-                        column: x => x.WalletId,
-                        principalTable: "Wallets",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -581,7 +552,7 @@ namespace JaxWorld.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "TransactionState",
-                columns: new[] { "Id", "CreatedOn", "CreatorId", "Deleted", "LastModifiedOn", "LastModifierId", "NormalizedName", "Value" },
+                columns: new[] { "Id", "CreatedOn", "CreatorId", "Deleted", "LastModifiedOn", "LastModifierId", "NormalizedName", "State" },
                 values: new object[,]
                 {
                     { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, null, "Pending" },
@@ -634,19 +605,14 @@ namespace JaxWorld.Data.Migrations
                 column: "Erc721aUnitId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChainsContracts_NetworkId",
-                table: "ChainsContracts",
-                column: "NetworkId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ChainsWallets_WalletId",
-                table: "ChainsWallets",
-                column: "WalletId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Contracts_CreatorId",
                 table: "Contracts",
                 column: "CreatorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Erc721aUnits_HolderId",
+                table: "Erc721aUnits",
+                column: "HolderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Erc721aUnits_MintedTxnId",
@@ -662,6 +628,11 @@ namespace JaxWorld.Data.Migrations
                 name: "IX_NetworksContracts_NetworkId",
                 table: "NetworksContracts",
                 column: "NetworkId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NetworksWallets_WalletId",
+                table: "NetworksWallets",
+                column: "WalletId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Profiles_ContractId",
@@ -719,33 +690,12 @@ namespace JaxWorld.Data.Migrations
                 table: "Wallets",
                 column: "ProviderId");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_WalletsUnitsBalance_WalletId",
-                table: "WalletsUnitsBalance",
-                column: "WalletId");
-
             migrationBuilder.AddForeignKey(
                 name: "FK_Attributes_Erc721aUnits_Erc721aUnitId",
                 table: "Attributes",
                 column: "Erc721aUnitId",
                 principalTable: "Erc721aUnits",
                 principalColumn: "Id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ChainsContracts_Contracts_ContractId",
-                table: "ChainsContracts",
-                column: "ContractId",
-                principalTable: "Contracts",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ChainsWallets_Wallets_WalletId",
-                table: "ChainsWallets",
-                column: "WalletId",
-                principalTable: "Wallets",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Contracts_Wallets_CreatorId",
@@ -776,8 +726,8 @@ namespace JaxWorld.Data.Migrations
                 table: "Transactions");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Profiles_Contracts_ContractId",
-                table: "Profiles");
+                name: "FK_Contracts_Wallets_CreatorId",
+                table: "Contracts");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -798,19 +748,13 @@ namespace JaxWorld.Data.Migrations
                 name: "Attributes");
 
             migrationBuilder.DropTable(
-                name: "ChainsContracts");
-
-            migrationBuilder.DropTable(
-                name: "ChainsWallets");
-
-            migrationBuilder.DropTable(
                 name: "NetworksContracts");
 
             migrationBuilder.DropTable(
-                name: "Utilities");
+                name: "NetworksWallets");
 
             migrationBuilder.DropTable(
-                name: "WalletsUnitsBalance");
+                name: "Utilities");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -831,9 +775,6 @@ namespace JaxWorld.Data.Migrations
                 name: "TransactionState");
 
             migrationBuilder.DropTable(
-                name: "Contracts");
-
-            migrationBuilder.DropTable(
                 name: "Wallets");
 
             migrationBuilder.DropTable(
@@ -841,6 +782,9 @@ namespace JaxWorld.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Providers");
+
+            migrationBuilder.DropTable(
+                name: "Contracts");
 
             migrationBuilder.DropTable(
                 name: "Standards");

@@ -25,41 +25,13 @@ namespace JaxWorld.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ChainsContracts", b =>
-                {
-                    b.Property<int>("ContractId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NetworkId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ContractId", "NetworkId");
-
-                    b.HasIndex("NetworkId");
-
-                    b.ToTable("ChainsContracts");
-                });
-
-            modelBuilder.Entity("ChainsWallets", b =>
-                {
-                    b.Property<int>("NetworkId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WalletId")
-                        .HasColumnType("int");
-
-                    b.HasKey("NetworkId", "WalletId");
-
-                    b.HasIndex("WalletId");
-
-                    b.ToTable("ChainsWallets");
-                });
-
             modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -111,7 +83,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -162,7 +136,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -222,7 +198,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -249,7 +227,9 @@ namespace JaxWorld.Data.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
 
                     b.Property<string>("Value")
                         .IsRequired()
@@ -266,7 +246,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -293,7 +275,9 @@ namespace JaxWorld.Data.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
 
                     b.Property<decimal>("Value")
                         .HasColumnType("decimal(18,2)");
@@ -309,7 +293,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -386,7 +372,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -443,7 +431,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -465,7 +455,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<string>("NormalizedName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Value")
+                    b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -482,7 +472,7 @@ namespace JaxWorld.Data.Migrations
                             Deleted = false,
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
-                            Value = "Pending"
+                            State = "Pending"
                         },
                         new
                         {
@@ -492,7 +482,7 @@ namespace JaxWorld.Data.Migrations
                             Deleted = false,
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
-                            Value = "Approved"
+                            State = "Approved"
                         },
                         new
                         {
@@ -502,7 +492,7 @@ namespace JaxWorld.Data.Migrations
                             Deleted = false,
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
-                            Value = "Rejected"
+                            State = "Rejected"
                         });
                 });
 
@@ -510,7 +500,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -527,6 +519,9 @@ namespace JaxWorld.Data.Migrations
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
+                    b.Property<int>("HolderId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("LastModifiedOn")
                         .HasColumnType("datetime2");
 
@@ -541,7 +536,9 @@ namespace JaxWorld.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2);
 
                     b.Property<string>("NormalizedName")
                         .HasColumnType("nvarchar(max)");
@@ -550,6 +547,8 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HolderId");
 
                     b.HasIndex("MintedTxnId");
 
@@ -562,7 +561,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -629,7 +630,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -912,49 +915,19 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("NetworksContracts");
                 });
 
-            modelBuilder.Entity("WalletsUnitsBalance", b =>
+            modelBuilder.Entity("NetworksWallets", b =>
                 {
-                    b.Property<int>("UnitId")
+                    b.Property<int>("NetworkId")
                         .HasColumnType("int");
 
                     b.Property<int>("WalletId")
                         .HasColumnType("int");
 
-                    b.HasKey("UnitId", "WalletId");
+                    b.HasKey("NetworkId", "WalletId");
 
                     b.HasIndex("WalletId");
 
-                    b.ToTable("WalletsUnitsBalance");
-                });
-
-            modelBuilder.Entity("ChainsContracts", b =>
-                {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", null)
-                        .WithMany()
-                        .HasForeignKey("ContractId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Network", null)
-                        .WithMany()
-                        .HasForeignKey("NetworkId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ChainsWallets", b =>
-                {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Network", null)
-                        .WithMany()
-                        .HasForeignKey("NetworkId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Wallets.Wallet", null)
-                        .WithMany()
-                        .HasForeignKey("WalletId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                    b.ToTable("NetworksWallets");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", b =>
@@ -1042,6 +1015,12 @@ namespace JaxWorld.Data.Migrations
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Units.Erc721aUnit", b =>
                 {
+                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Wallets.Wallet", "Holder")
+                        .WithMany("Erc721aUnits")
+                        .HasForeignKey("HolderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("JaxWorld.Data.Entities.Blockchain.Transactions.Transaction", "MintedTxn")
                         .WithMany()
                         .HasForeignKey("MintedTxnId")
@@ -1053,6 +1032,8 @@ namespace JaxWorld.Data.Migrations
                         .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Holder");
 
                     b.Navigation("MintedTxn");
 
@@ -1148,11 +1129,11 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WalletsUnitsBalance", b =>
+            modelBuilder.Entity("NetworksWallets", b =>
                 {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Units.Erc721aUnit", null)
+                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Network", null)
                         .WithMany()
-                        .HasForeignKey("UnitId")
+                        .HasForeignKey("NetworkId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -1210,6 +1191,8 @@ namespace JaxWorld.Data.Migrations
             modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Wallets.Wallet", b =>
                 {
                     b.Navigation("CreatedContracts");
+
+                    b.Navigation("Erc721aUnits");
 
                     b.Navigation("Transactions");
                 });
