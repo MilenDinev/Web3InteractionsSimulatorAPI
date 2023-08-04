@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Services.Main.Interfaces
+﻿namespace JaxWorld.Services.Main.Interfaces.Units
 {
     using Data.Entities.Blockchain.Units;
     using Models.Requests.BlockchainRequests.UnitModels;

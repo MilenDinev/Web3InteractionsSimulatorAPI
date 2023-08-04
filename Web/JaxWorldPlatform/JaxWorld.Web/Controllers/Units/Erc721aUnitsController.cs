@@ -5,6 +5,7 @@
     using Base;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
+    using Services.Main.Interfaces.Units;
     using Data.Entities.Blockchain.Units;
     using Models.Requests.BlockchainRequests.UnitModels;
     using Models.Responses.BlockchainResponses.UnitModels;

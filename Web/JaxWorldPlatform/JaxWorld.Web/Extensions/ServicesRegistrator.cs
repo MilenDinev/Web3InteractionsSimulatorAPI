@@ -11,6 +11,7 @@
     using Services.Main.Interfaces;
     using Services.Managers.Interfaces;
     using Services.Handlers.Interfaces;
+    using Services.Main.Interfaces.Units;
     using Services.Main.Interfaces.Properties;
 
     public static class ServicesRegistrator

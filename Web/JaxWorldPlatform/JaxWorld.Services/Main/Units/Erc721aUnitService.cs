@@ -2,9 +2,9 @@
 {
     using AutoMapper;
     using Base;
-    using Interfaces;
     using Data;
     using Data.Entities.Blockchain.Units;
+    using Services.Main.Interfaces.Units;
     using Models.Requests.BlockchainRequests.UnitModels;
 
     public class Erc721aUnitService : BaseService<Erc721aUnit>, IErc721aUnitService
