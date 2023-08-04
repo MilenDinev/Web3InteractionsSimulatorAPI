@@ -6,12 +6,12 @@
     using Services.Main;
     using Services.Handlers;
     using Services.Managers;
+    using Services.Main.Units;
     using Services.Main.Properties;
     using Services.Main.Interfaces;
     using Services.Managers.Interfaces;
     using Services.Handlers.Interfaces;
     using Services.Main.Interfaces.Properties;
-    using JaxWorld.Services.Main.Units;
 
     public static class ServicesRegistrator
     {
@@ -25,7 +25,7 @@
             services.AddTransient<IProfileService, ProfileService>();
             services.AddTransient<IErc721aUnitService, Erc721aUnitService>();
             services.AddTransient<ITransactionService, TransactionService>();
-            services.AddTransient<AttributeService, AttributeService>();
+            services.AddTransient<IAttributeService, AttributeService>();
             services.AddTransient<IUtilityService, UtilityService>();
             services.AddTransient<IWalletService, WalletService>();
             services.AddTransient<IFinder, Finder>();
