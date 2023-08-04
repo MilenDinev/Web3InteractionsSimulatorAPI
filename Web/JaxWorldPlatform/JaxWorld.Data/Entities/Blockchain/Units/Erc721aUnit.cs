@@ -14,7 +14,6 @@
             Attributes = new HashSet<Attribute>();
             Utilities = new HashSet<Utility>();
             Transactions = new HashSet<Transaction>();
-            Holders = new HashSet<Wallet>();
         }
 
         public string DNA { get; set; }
@@ -25,7 +24,8 @@
         public virtual Profile Profile { get; set; }
         public virtual ICollection<Attribute> Attributes { get; set; }
         public virtual ICollection<Utility> Utilities { get; set; }
-        public virtual ICollection<Wallet> Holders { get; set; }
+        public int HolderId { get; set; }
+        public virtual Wallet Holder { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }
