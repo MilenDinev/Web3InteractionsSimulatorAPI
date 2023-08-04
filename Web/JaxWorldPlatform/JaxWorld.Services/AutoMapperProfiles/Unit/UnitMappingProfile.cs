@@ -10,12 +10,12 @@
     {
         internal UnitMappingUnit()
         {
-            this.CreateMap<CreateUnitModel, Unit>()
+            this.CreateMap<CreateErc721aUnitModel, Unit>()
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()));
-            this.CreateMap<Unit, CreatedUnitModel>();
-            this.CreateMap<Unit, EditedUnitModel>();
-            this.CreateMap<Unit, DeletedUnitModel>();
-            this.CreateMap<Unit, UnitListingModel>();
+            this.CreateMap<Unit, CreatedErc721aUnitModel>();
+            this.CreateMap<Unit, EditedErc721aUnitModel>();
+            this.CreateMap<Unit, DeletedErc721aUnitModel>();
+            this.CreateMap<Unit, Erc721aUnitListingModel>();
         }
     }
 }

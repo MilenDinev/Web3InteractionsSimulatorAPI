@@ -16,4 +16,8 @@
     <ProjectReference Include="..\JaxWorld.Models\JaxWorld.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Main\Interfaces\Units\" />
+  </ItemGroup>
+
 </Project>

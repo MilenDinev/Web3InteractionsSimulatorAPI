@@ -7,7 +7,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Models.Requests.BlockchainRequests.ProfileModels;
     using Models.Responses.BlockchainResponses.ProfileModels;
-    using Profile = Data.Entities.Blockchain.Base.Profile;
+    using Profile = Data.Entities.Blockchain.Profiles.Profile;
 
     [Route("api/[controller]")]
     [ApiController]

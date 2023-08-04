@@ -4,6 +4,7 @@
     using Contracts;
     using Transactions;
     using Interfaces.IEntities.IBlockchain.IWallets;
+    using JaxWorld.Data.Entities.Blockchain.Units;
 
     public class Wallet : Entity, IWallet
     {
@@ -12,7 +13,7 @@
             Chains = new HashSet<Network>();
             Transactions = new HashSet<Transaction>();
             CreatedContracts = new HashSet<Contract>();
-            Units = new HashSet<UnitWalletBalance>();
+            Erc721aUnits = new HashSet<Erc721aUnit>();
         }
 
         public string Address { get; set; }
@@ -25,6 +26,6 @@
         public virtual ICollection<Network> Chains { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
         public virtual ICollection<Contract> CreatedContracts { get; set; }
-        public virtual ICollection<UnitWalletBalance> Units { get; set; }
+        public virtual ICollection<Erc721aUnit> Erc721aUnits { get; set; }
     }
 }

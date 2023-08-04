@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain.Configurations.Provider
 {
+    using Blockchain.Wallets;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Wallets;
 
     internal class ProviderConfig : IEntityTypeConfiguration<Provider>
     {

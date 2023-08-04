@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.Profile
 {
-    using Data.Entities.Blockchain.Base;
+    using Data.Entities.Blockchain.Profiles;
     using Models.Requests.BlockchainRequests.ProfileModels;
     using Models.Responses.BlockchainResponses.ProfileModels;
 

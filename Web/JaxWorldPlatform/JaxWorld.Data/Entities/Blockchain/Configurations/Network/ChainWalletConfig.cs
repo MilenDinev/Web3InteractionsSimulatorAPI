@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Data.Entities.Blockchain.Configurations.Network
 {
     using System.Collections.Generic;
+    using Blockchain.Wallets;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Wallets;
 
     public class ChainWalletConfig : IEntityTypeConfiguration<Wallet>
     {

@@ -11,6 +11,7 @@
     using Services.Managers.Interfaces;
     using Services.Handlers.Interfaces;
     using Services.Main.Interfaces.Properties;
+    using JaxWorld.Services.Main.Units;
 
     public static class ServicesRegistrator
     {
@@ -22,7 +23,7 @@
             services.AddTransient<INetworkService, NetworkService>();
             services.AddTransient<IContractService, ContractService>();
             services.AddTransient<IProfileService, ProfileService>();
-            services.AddTransient<IUnitService, UnitService>();
+            services.AddTransient<IErc721aUnitService, Erc721aUnitService>();
             services.AddTransient<ITransactionService, TransactionService>();
             services.AddTransient<AttributeService, AttributeService>();
             services.AddTransient<IUtilityService, UtilityService>();

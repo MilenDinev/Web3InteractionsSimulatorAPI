@@ -21,7 +21,7 @@
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<Contract> Contracts { get; set; }
         public virtual DbSet<Standard> Standards { get; set; }
-        public virtual DbSet<Erc721aProfile> Erc721aProfiles { get; set; }
+        public virtual DbSet<Profile> Profiles { get; set; }
         public virtual DbSet<Erc721aUnit> Erc721aUnits { get; set; }
         public virtual DbSet<Attribute> Attributes { get; set; }
         public virtual DbSet<Utility> Utilities { get; set; }
