@@ -10,7 +10,8 @@
         public NetworkMappingProfile()
         {
             this.CreateMap<CreateNetworkModel, Network>()
-                .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()));
+                .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()))
+                .ForMember(e => e.ChainId, m=> m.MapFrom(m => m.ChainId.ToString()));
             this.CreateMap<Network, CreatedNetworkModel>();
             this.CreateMap<Network, EditedNetworkModel>();
             this.CreateMap<Network, DeletedNetworkModel>();
