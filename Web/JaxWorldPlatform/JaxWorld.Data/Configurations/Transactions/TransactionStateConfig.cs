@@ -1,8 +1,8 @@
-﻿namespace JaxWorld.Data.Entities.Blockchain.Configurations.Transactions
+﻿namespace JaxWorld.Data.Configurations.Transactions
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Blockchain.Transactions;
+    using Entities.Blockchain.Transactions;
 
     internal class TransactionStateConfig : IEntityTypeConfiguration<TransactionState>
     {

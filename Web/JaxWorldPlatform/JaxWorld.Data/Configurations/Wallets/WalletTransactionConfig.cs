@@ -1,16 +1,16 @@
-﻿namespace JaxWorld.Data.Entities.Blockchain.Configurations.Network
+﻿namespace JaxWorld.Data.Configurations.Wallets
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Blockchain.Transactions;
+    using Entities.Blockchain.Transactions;
 
-    public class ChainTransactionConfig : IEntityTypeConfiguration<Transaction>
+    public class WalletTransactionConfig : IEntityTypeConfiguration<Transaction>
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
-            builder.HasOne(s => s.Network)
+            builder.HasOne(s => s.Creator)
             .WithMany(u => u.Transactions)
-            .HasForeignKey(s => s.NetworkId)
+            .HasForeignKey(s => s.CreatorId)
             .OnDelete(DeleteBehavior.Restrict);
         }
     }

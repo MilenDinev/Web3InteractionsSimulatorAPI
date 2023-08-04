@@ -1,9 +1,9 @@
-﻿namespace JaxWorld.Data.Entities.Blockchain.Configurations.Wallets
+﻿namespace JaxWorld.Data.Configurations.Wallets
 {
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Microsoft.EntityFrameworkCore;
-    using Blockchain.Units;
-    using Blockchain.Wallets;
+    using Entities.Blockchain.Units;
+    using Entities.Blockchain.Wallets;
 
     public class WalletUnitBalanceConfig : IEntityTypeConfiguration<Erc721aUnit>
     {

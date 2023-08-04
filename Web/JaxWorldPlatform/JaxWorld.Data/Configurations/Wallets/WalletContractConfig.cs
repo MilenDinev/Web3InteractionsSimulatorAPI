@@ -1,8 +1,8 @@
-﻿namespace JaxWorld.Data.Entities.Blockchain.Configurations.Wallets
+﻿namespace JaxWorld.Data.Configurations.Wallets
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Contracts;
+    using Entities.Blockchain.Contracts;
 
     public class WalletContractConfig : IEntityTypeConfiguration<Contract>
     {

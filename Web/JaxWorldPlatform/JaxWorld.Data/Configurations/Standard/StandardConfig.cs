@@ -1,8 +1,8 @@
-﻿namespace JaxWorld.Data.Entities.Blockchain.Configurations.Standard
+﻿namespace JaxWorld.Data.Configurations.Standard
 {
-    using Blockchain;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using Data.Entities.Blockchain;
 
     public class StandardConfig : IEntityTypeConfiguration<Standard>
     {
