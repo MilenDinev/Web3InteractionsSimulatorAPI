@@ -5,9 +5,9 @@
     using Models.Requests.BlockchainRequests.WalletModels;
     using Models.Responses.BlockchainResponses.WalletModels;
 
-    internal class WalletMappingProfile : Profile
+    public class WalletMappingProfile : Profile
     {
-        internal WalletMappingProfile()
+        public WalletMappingProfile()
         {
             this.CreateMap<CreateWalletModel, Wallet>()
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Address.ToUpper()));

@@ -5,9 +5,9 @@
     using Models.Requests.BlockchainRequests.NetworkModels;
     using Models.Responses.BlockchainResponses.NetworkModels;
 
-    internal class NetworkMappingProfile : Profile
+    public class NetworkMappingProfile : Profile
     {
-        internal NetworkMappingProfile()
+        public NetworkMappingProfile()
         {
             this.CreateMap<CreateNetworkModel, Network>()
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()));

@@ -5,9 +5,9 @@
     using Models.Requests.BlockchainRequests.PropertiesModels;
     using Models.Responses.BlockchainResponses.PropertiesModels.Utility;
 
-    internal class UtilityMappingProfile : Profile
+    public class UtilityMappingProfile : Profile
     {
-        internal UtilityMappingProfile()
+        public UtilityMappingProfile()
         {
             this.CreateMap<CreateUtilityModel, Utility>()
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()));

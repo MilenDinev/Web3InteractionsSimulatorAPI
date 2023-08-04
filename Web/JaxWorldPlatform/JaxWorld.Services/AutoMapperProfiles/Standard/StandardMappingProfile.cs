@@ -5,9 +5,9 @@
     using Models.Responses.BlockchainResponses.StandardModels;
     using Models.Requests.BlockchainRequests.StandardModels;
 
-    internal class StandardMappingProfile : Profile
+    public class StandardMappingProfile : Profile
     {
-        internal StandardMappingProfile()
+        public StandardMappingProfile()
         {
             this.CreateMap<CreateStandardModel, Standard>()
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()));

@@ -5,9 +5,9 @@
     using Models.Requests.EntityRequests;
     using Models.Responses.EntityResponses.UserModels;
 
-    internal class UserMappingProfile : Profile
+    public class UserMappingProfile : Profile
     {
-        internal UserMappingProfile()
+        public UserMappingProfile()
         {
             this.CreateMap<CreateUserModel, User>()
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.UserName.ToUpper()));

@@ -5,9 +5,9 @@
     using Models.Requests.BlockchainRequests.PropertiesModels;
     using Models.Responses.BlockchainResponses.PropertiesModels.Attribute;
 
-    internal class AttributeMappingProfile : Profile
+    public class AttributeMappingProfile : Profile
     {
-        internal AttributeMappingProfile()
+        public AttributeMappingProfile()
         {
             this.CreateMap<CreateAttributeModel, Attribute>()
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()));

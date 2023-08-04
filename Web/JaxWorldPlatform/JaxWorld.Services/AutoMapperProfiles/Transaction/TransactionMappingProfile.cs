@@ -5,9 +5,9 @@
     using Models.Requests.BlockchainRequests.TransactionModels;
     using Models.Responses.BlockchainResponses.TransactionModels;
 
-    internal class TransactionMappingProfile : Profile
+    public class TransactionMappingProfile : Profile
     {
-        internal TransactionMappingProfile()
+        public TransactionMappingProfile()
         {
             this.CreateMap<CreateTransactionModel, Transaction>()
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.State.ToUpper()));

@@ -1,21 +1,21 @@
-﻿namespace JaxWorld.Services.AutoMapperUnits.Unit
+﻿namespace JaxWorld.Services.AutoMapperProfiles.Unit
 {
     using AutoMapper;
-    using Unit = Data.Entities.Blockchain.Base.Unit;
+    using Data.Entities.Blockchain.Units;
     using Models.Requests.BlockchainRequests.UnitModels;
-    using Models.Responses.BlockchainResponses.ProfileUnitModels;
     using Models.Responses.BlockchainResponses.UnitModels;
+    using Models.Responses.BlockchainResponses.ProfileUnitModels;
 
-    internal class UnitMappingUnit : Profile
+    public class UnitMappingProfile : Profile
     {
-        internal UnitMappingUnit()
+        public UnitMappingProfile()
         {
-            this.CreateMap<CreateErc721aUnitModel, Unit>()
+            this.CreateMap<CreateErc721aUnitModel, Erc721aUnit>()
                 .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()));
-            this.CreateMap<Unit, CreatedErc721aUnitModel>();
-            this.CreateMap<Unit, EditedErc721aUnitModel>();
-            this.CreateMap<Unit, DeletedErc721aUnitModel>();
-            this.CreateMap<Unit, Erc721aUnitListingModel>();
+            this.CreateMap<Erc721aUnit, CreatedErc721aUnitModel>();
+            this.CreateMap<Erc721aUnit, EditedErc721aUnitModel>();
+            this.CreateMap<Erc721aUnit, DeletedErc721aUnitModel>();
+            this.CreateMap<Erc721aUnit, Erc721aUnitListingModel>();
         }
     }
 }
