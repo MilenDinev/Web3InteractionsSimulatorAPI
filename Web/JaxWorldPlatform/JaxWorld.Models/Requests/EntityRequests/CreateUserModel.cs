@@ -4,10 +4,9 @@
 
     public class CreateUserModel
     {
+        [Required(ErrorMessage = "UserName is required!")]
         public string UserName { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string WalletAddress { get; set; }
+        public string? WalletAddress { get; set; }
 
         [Required(ErrorMessage = "Password is required!")]
         public string Password { get; set; }
