@@ -34,11 +34,11 @@ namespace JaxWorld.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
                     LastModificationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -71,7 +71,7 @@ namespace JaxWorld.Data.Migrations
                     ChainId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Symbol = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ExplorerUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -90,7 +90,7 @@ namespace JaxWorld.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -109,7 +109,7 @@ namespace JaxWorld.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -128,7 +128,7 @@ namespace JaxWorld.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     State = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -255,7 +255,7 @@ namespace JaxWorld.Data.Migrations
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Erc721aUnitId = table.Column<int>(type: "int", nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -278,7 +278,7 @@ namespace JaxWorld.Data.Migrations
                     Balance = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EstimatedValue = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedTxnId = table.Column<int>(type: "int", nullable: false),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -327,7 +327,7 @@ namespace JaxWorld.Data.Migrations
                     TotalMinted = table.Column<int>(type: "int", nullable: false),
                     StandardId = table.Column<int>(type: "int", nullable: false),
                     ContractId = table.Column<int>(type: "int", nullable: false),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -362,7 +362,7 @@ namespace JaxWorld.Data.Migrations
                     OwnerId = table.Column<int>(type: "int", nullable: false),
                     ProviderId = table.Column<int>(type: "int", nullable: false),
                     ProfileId = table.Column<int>(type: "int", nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -427,7 +427,7 @@ namespace JaxWorld.Data.Migrations
                     MintedTxnId = table.Column<int>(type: "int", nullable: false),
                     ProfileId = table.Column<int>(type: "int", nullable: false),
                     HolderId = table.Column<int>(type: "int", nullable: false),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -462,7 +462,7 @@ namespace JaxWorld.Data.Migrations
                     ContractId = table.Column<int>(type: "int", nullable: false),
                     NetworkId = table.Column<int>(type: "int", nullable: false),
                     Erc721aUnitId = table.Column<int>(type: "int", nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -512,7 +512,7 @@ namespace JaxWorld.Data.Migrations
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Value = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Erc721aUnitId = table.Column<int>(type: "int", nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifierId = table.Column<int>(type: "int", nullable: false),
@@ -531,7 +531,7 @@ namespace JaxWorld.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Providers",
-                columns: new[] { "Id", "CreationDate", "CreatorId", "Deleted", "LastModificationDate", "LastModifierId", "Name", "NormalizedName" },
+                columns: new[] { "Id", "CreationDate", "CreatorId", "Deleted", "LastModificationDate", "LastModifierId", "Name", "NormalizedTag" },
                 values: new object[,]
                 {
                     { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Metamask", null },
@@ -541,7 +541,7 @@ namespace JaxWorld.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Standards",
-                columns: new[] { "Id", "CreationDate", "CreatorId", "Deleted", "LastModificationDate", "LastModifierId", "Name", "NormalizedName" },
+                columns: new[] { "Id", "CreationDate", "CreatorId", "Deleted", "LastModificationDate", "LastModifierId", "Name", "NormalizedTag" },
                 values: new object[,]
                 {
                     { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "ERC721", null },
@@ -552,7 +552,7 @@ namespace JaxWorld.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "TransactionState",
-                columns: new[] { "Id", "CreationDate", "CreatorId", "Deleted", "LastModificationDate", "LastModifierId", "NormalizedName", "State" },
+                columns: new[] { "Id", "CreationDate", "CreatorId", "Deleted", "LastModificationDate", "LastModifierId", "NormalizedTag", "State" },
                 values: new object[,]
                 {
                     { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, null, "Pending" },

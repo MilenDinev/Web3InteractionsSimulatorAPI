@@ -69,7 +69,7 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -116,7 +116,7 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RpcUrl")
@@ -168,7 +168,7 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("StandardId")
@@ -222,7 +222,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("LastModifierId")
                         .HasColumnType("int");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
@@ -270,7 +270,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("LastModifierId")
                         .HasColumnType("int");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
@@ -318,7 +318,7 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -402,7 +402,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("NetworkId")
                         .HasColumnType("int");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("StateId")
@@ -452,7 +452,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("LastModifierId")
                         .HasColumnType("int");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
@@ -540,7 +540,7 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnName("Name")
                         .HasColumnOrder(2);
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProfileId")
@@ -586,7 +586,7 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -658,7 +658,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("LastModifierId")
                         .HasColumnType("int");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("OwnerId")
@@ -728,7 +728,8 @@ namespace JaxWorld.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<string>("NormalizedTag")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedUserName")
