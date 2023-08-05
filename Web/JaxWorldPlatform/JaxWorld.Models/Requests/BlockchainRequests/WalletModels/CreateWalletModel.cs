@@ -4,11 +4,13 @@
 
     public class CreateWalletModel
     {
-        [Required]
+        [Required(ErrorMessage = "Wallet address is required and must be between 5 and 50 symbols!")]
+        [MaxLength(50, ErrorMessage = "Wallet address is required and must be between 5 and 50 symbols!")]
+        [MinLength(5, ErrorMessage = "Wallet address is required and must be between 5 and 50 symbols!")]
         public string Address { get; set; }
-        public int ProviderId { get; set; }
-        public decimal Balance { get; set; }
-        [Required]
-        public string Owner { get; set; }
+        [Required(ErrorMessage = "Provider is required! Select between '1\' or \'metamask\' for metamask, \'2\' or \'coinbase\' for coinbase, \'3\' or \'walletconnect\' for walletconnect.")]
+        [RegularExpression("(^(?i)metamask|^coinbase|^walletconnect|^1$|^2$|^3$)",
+            ErrorMessage = "Typed role is not valid! Please type between \'1\' or \'metamask\' for metamask, \'2\' or \'coinbase\' for coinbase, \'3\' or \'walletconnect\' for walletconnect.")]
+        public string Provider { get; set; }
     }
 }
