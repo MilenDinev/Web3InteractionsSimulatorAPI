@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Web.Middleware
+﻿namespace JaxWorld.Web
 {
     using System.Collections.Generic;
     using System.Security.Claims;
@@ -18,20 +18,20 @@
 
         public async Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
         {
-            var user = await this.userManager.FindByNameAsync(context.UserName);
+            var user = await userManager.FindByNameAsync(context.UserName);
 
             if (user == null)
             {
-                user = await this.userManager.FindByWalletAsync(context.UserName);
+                user = await userManager.FindByWalletAsync(context.UserName);
             }
 
             if (user != null)
             {
-                var authResult = await this.userManager.ValidateUserCredentials(context.UserName, context.Password);
+                var authResult = await userManager.ValidateUserCredentials(context.UserName, context.Password);
 
                 if (authResult)
                 {
-                    var roles = await this.userManager.GetUserRolesAsync(user);
+                    var roles = await userManager.GetUserRolesAsync(user);
                     var claims = new List<Claim>();
 
                     claims.Add(new Claim(ClaimTypes.Name, user.UserName));

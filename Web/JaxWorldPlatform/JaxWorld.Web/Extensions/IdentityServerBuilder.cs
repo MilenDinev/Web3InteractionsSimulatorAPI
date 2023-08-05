@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Web.Extensions
 {
     using Microsoft.Extensions.DependencyInjection;
-    using Middleware;
+    using Web;
 
     public static class IdentityServerBuilder
     {

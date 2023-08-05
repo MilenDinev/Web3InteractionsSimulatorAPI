@@ -43,11 +43,11 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("CreatedTxnId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
                         .HasColumnType("int");
@@ -59,7 +59,7 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -93,7 +93,7 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -106,7 +106,7 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -145,7 +145,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("ContractId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -158,7 +158,7 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -204,7 +204,7 @@ namespace JaxWorld.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -216,7 +216,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int?>("Erc721aUnitId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -252,7 +252,7 @@ namespace JaxWorld.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -264,7 +264,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int?>("Erc721aUnitId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -299,7 +299,7 @@ namespace JaxWorld.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -308,7 +308,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -329,40 +329,40 @@ namespace JaxWorld.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatorId = 0,
                             Deleted = false,
-                            LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
                             Name = "ERC721"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatorId = 0,
                             Deleted = false,
-                            LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
                             Name = "ERC721a"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatorId = 0,
                             Deleted = false,
-                            LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
                             Name = "ERC20"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatorId = 0,
                             Deleted = false,
-                            LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
                             Name = "ERC1155"
                         });
@@ -381,7 +381,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("ContractId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -393,7 +393,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int?>("Erc721aUnitId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -437,7 +437,7 @@ namespace JaxWorld.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -446,7 +446,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -467,30 +467,30 @@ namespace JaxWorld.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatorId = 0,
                             Deleted = false,
-                            LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
                             State = "Pending"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatorId = 0,
                             Deleted = false,
-                            LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
                             State = "Approved"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatorId = 0,
                             Deleted = false,
-                            LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
                             State = "Rejected"
                         });
@@ -506,7 +506,7 @@ namespace JaxWorld.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -522,7 +522,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("HolderId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -567,7 +567,7 @@ namespace JaxWorld.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -576,7 +576,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -597,30 +597,30 @@ namespace JaxWorld.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatorId = 0,
                             Deleted = false,
-                            LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
                             Name = "Metamask"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatorId = 0,
                             Deleted = false,
-                            LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
                             Name = "Coinbase"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatorId = 0,
                             Deleted = false,
-                            LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifierId = 0,
                             Name = "WalletConnect"
                         });
@@ -643,7 +643,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -652,7 +652,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")
@@ -696,7 +696,7 @@ namespace JaxWorld.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatorId")
@@ -712,7 +712,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModifiedOn")
+                    b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LastModifierId")

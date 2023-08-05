@@ -28,7 +28,7 @@
         public async Task SaveModificationAsync(TEntity entity, int modifierId)
         {
             entity.LastModifierId = modifierId;
-            entity.LastModifiedOn = DateTime.UtcNow;
+            entity.LastModificationDate = DateTime.UtcNow;
 
             await dbContext.SaveChangesAsync();
         }
@@ -36,7 +36,7 @@
         {
 
             entity.CreatorId = creatorId;
-            entity.CreatedOn = DateTime.UtcNow;
+            entity.CreationDate = DateTime.UtcNow;
             await dbContext.AddAsync(entity);
         }
     }
