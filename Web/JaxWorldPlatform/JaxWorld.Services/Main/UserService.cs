@@ -48,7 +48,7 @@
         public async Task EditAsync(User user, EditUserModel userModel, int modifierId)
         {
             user.UserName = userModel.Username;
-            user.NormalizedName = userModel.Username.ToUpper();
+            user.NormalizedTag = userModel.Username.ToUpper();
 
             user.NormalizedUserName = user.UserName.ToUpper();
             await SaveModificationAsync(user, modifierId);

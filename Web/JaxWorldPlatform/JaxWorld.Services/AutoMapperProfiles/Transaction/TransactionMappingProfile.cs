@@ -10,7 +10,7 @@
         public TransactionMappingProfile()
         {
             this.CreateMap<CreateTransactionModel, Transaction>()
-                .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.State.ToUpper()));
+                .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.State.ToUpper()));
             this.CreateMap<Transaction, CreatedTransactionModel>();
             this.CreateMap<Transaction, EditedTransactionModel>();
             this.CreateMap<Transaction, DeletedTransactionModel>();

@@ -14,6 +14,7 @@
                 NormalizedEmail = "TheMostImportanAdminEmail@yahoo.com".ToUpper(),
                 EmailConfirmed = true,
                 NormalizedUserName = "admin".ToUpper(),
+                NormalizedTag = "admin".ToUpper(),
                 SecurityStamp = Guid.NewGuid().ToString("D"),
                 CreatorId = 1,
                 CreationDate = DateTime.Now,

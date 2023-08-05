@@ -3,7 +3,7 @@
     public interface IEntity
     {
         int Id { get; set; }
-        string NormalizedName { get; set; }
+        string NormalizedTag { get; set; }
         int CreatorId { get; set; }
         DateTime CreationDate { get; set; }
         int LastModifierId { get; set; }

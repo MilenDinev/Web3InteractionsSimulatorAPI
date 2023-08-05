@@ -9,7 +9,7 @@
         public ProfileMappingProfile()
         {
             this.CreateMap<CreateProfileModel, Profile>()
-                .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Name.ToUpper()));
+                .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.Name.ToUpper()));
             this.CreateMap<Profile, CreatedProfileModel>();
             this.CreateMap<Profile, EditedProfileModel>();
             this.CreateMap<Profile, DeletedProfileModel>();
