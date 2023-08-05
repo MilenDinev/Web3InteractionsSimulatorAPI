@@ -54,6 +54,27 @@
             return await IsInRoleAsync(user, roleName);
         }
 
+        public async Task<bool> ValidateUserCredentials(string userName, string password)
+        {
+            User user = await FindByNameAsync(userName);
+
+            if (user != null)
+            {
+                bool result = await CheckPasswordAsync(user, password);
+                return result;
+            }
+            else
+            {
+                user = await FindByEmailAsync(userName);
+                if (user != null)
+                {
+                    bool result = await CheckPasswordAsync(user, password);
+                    return result;
+                }
+            }
+            return false;
+        }
+
         public async Task<bool> ValidateUserCredentials(string userName, string password, string walletAddress)
         {
             User user = await FindByNameAsync(userName);
@@ -74,27 +95,6 @@
                 }
             }
 
-            return false;
-        }
-
-        public async Task<bool> ValidateUserCredentials(string userName, string password)
-        {
-            User user = await FindByNameAsync(userName);
-
-            if (user != null)
-            {
-                bool result = await CheckPasswordAsync(user, password);
-                return result;
-            }
-            else
-            {
-                user = await FindByEmailAsync(userName);
-                if (user != null)
-                {
-                    bool result = await CheckPasswordAsync(user, password);
-                    return result;
-                }
-            }
             return false;
         }
     }
