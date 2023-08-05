@@ -32,11 +32,7 @@
 
         }
 
-        public Task<User> FindByWalletAsync(string walletAddress)
-        {
-            throw new NotImplementedException();
-        }
-
+ 
         public async Task<ICollection<User>> GetAllAsync()
         {
             return await Users.ToListAsync();
@@ -72,29 +68,6 @@
                     return result;
                 }
             }
-            return false;
-        }
-
-        public async Task<bool> ValidateUserCredentials(string userName, string password, string walletAddress)
-        {
-            User user = await FindByNameAsync(userName);
-
-            if (user != null)
-            {
-                bool result = await CheckPasswordAsync(user, password);
-                return result;
-            }
-            else
-            {
-                user = await FindByWalletAsync(walletAddress);
-
-                if (user != null)
-                {
-                    bool result = await CheckPasswordAsync(user, password);
-                    return result;
-                }
-            }
-
             return false;
         }
     }

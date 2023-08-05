@@ -10,7 +10,7 @@
         public WalletMappingProfile()
         {
             this.CreateMap<CreateWalletModel, Wallet>()
-                .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.Address.ToUpper()));
+                .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.Address.ToUpper()));
             this.CreateMap<Wallet, CreatedWalletModel>();
             this.CreateMap<Wallet, EditedWalletModel>();
             this.CreateMap<Wallet, DeletedWalletModel>();

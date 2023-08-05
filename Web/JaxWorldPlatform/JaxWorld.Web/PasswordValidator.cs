@@ -22,7 +22,7 @@
 
             if (user == null)
             {
-                user = await userManager.FindByWalletAsync(context.UserName);
+                user = await userManager.FindByEmailAsync(context.UserName);
             }
 
             if (user != null)

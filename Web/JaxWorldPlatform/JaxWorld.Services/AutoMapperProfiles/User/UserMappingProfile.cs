@@ -10,7 +10,8 @@
         public UserMappingProfile()
         {
             this.CreateMap<CreateUserModel, User>()
-                .ForMember(e => e.NormalizedName, m => m.MapFrom(m => m.UserName.ToUpper()));
+                .ForMember(e => e.CreationDate, m => m.MapFrom(d => DateTime.Now))
+                .ForMember(e => e.LastModificationDate, m => m.MapFrom(d => DateTime.Now));
             this.CreateMap<User, CreatedUserModel>();
             this.CreateMap<User, EditedUserModel>();
             this.CreateMap<User, DeletedUserModel>();

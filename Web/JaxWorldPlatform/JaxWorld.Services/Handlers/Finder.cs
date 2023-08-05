@@ -21,7 +21,7 @@
         }
         public async Task<T> FindByStringOrDefaultAsync<T>(string stringValue) where T : class, IEntity
         {
-            var entity = await this.dbContext.Set<T>().FirstOrDefaultAsync(e => e.NormalizedName == stringValue.ToUpper());
+            var entity = await this.dbContext.Set<T>().FirstOrDefaultAsync(e => e.NormalizedTag == stringValue.ToUpper());
             return entity;
         }
 

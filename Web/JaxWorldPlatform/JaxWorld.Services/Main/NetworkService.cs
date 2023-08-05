@@ -30,7 +30,7 @@
             network.RpcUrl = networkModel.RpcUrl;
             network.ExplorerUrl = networkModel.ExplorerUrl;
             network.ChainId = networkModel.ChainId.ToString();
-            network.NormalizedName = networkModel.Name.ToUpper();
+            network.NormalizedTag = networkModel.Name.ToUpper();
             network.Symbol = networkModel.Symbol;
 
             await SaveModificationAsync(network, modifierId);
