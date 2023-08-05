@@ -946,7 +946,7 @@ namespace JaxWorld.Data.Migrations
                     b.HasOne("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", "Contract")
                         .WithOne("Profile")
                         .HasForeignKey("JaxWorld.Data.Entities.Blockchain.Profiles.Profile", "ContractId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JaxWorld.Data.Entities.Blockchain.Standard", "Standard")

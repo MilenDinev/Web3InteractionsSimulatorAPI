@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JaxWorld.Data.Migrations
 {
     [DbContext(typeof(JaxWorldDbContext))]
-    [Migration("20230804180959_InitialCreate")]
+    [Migration("20230805191047_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -949,7 +949,7 @@ namespace JaxWorld.Data.Migrations
                     b.HasOne("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", "Contract")
                         .WithOne("Profile")
                         .HasForeignKey("JaxWorld.Data.Entities.Blockchain.Profiles.Profile", "ContractId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JaxWorld.Data.Entities.Blockchain.Standard", "Standard")

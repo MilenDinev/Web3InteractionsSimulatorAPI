@@ -342,7 +342,7 @@ namespace JaxWorld.Data.Migrations
                         column: x => x.ContractId,
                         principalTable: "Contracts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Profiles_Standards_StandardId",
                         column: x => x.StandardId,
