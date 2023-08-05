@@ -59,7 +59,7 @@
             var user = await userManager.FindByNameAsync(userInput.UserName);
             await this.validator.ValidateUniqueEntityAsync(user);
 
-            user = await userManager.FindByWalletAsync(userInput.WalletAddress);
+            user = await userManager.FindByEmailAsync(userInput.WalletAddress);
             if (user != null)
                 throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.EntityAlreadyExists, nameof(userInput.WalletAddress), userInput.WalletAddress));
 
