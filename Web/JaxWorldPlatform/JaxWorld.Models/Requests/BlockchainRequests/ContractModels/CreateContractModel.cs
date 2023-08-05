@@ -11,6 +11,6 @@
         [Required(ErrorMessage = "Contract address is required and must be more than 5 symbols!")]
         [MinLength(5, ErrorMessage = "Contract address is required and must be more than 5 symbols!")]
         public string Address { get; set; }
-        public int ChainId { get; set; }
+        public int NetworkId { get; set; }
     }
 }

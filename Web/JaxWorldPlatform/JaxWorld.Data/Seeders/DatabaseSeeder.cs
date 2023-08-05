@@ -28,7 +28,7 @@
                 {
                     await RolesSeeder.SeedRolesAsync(roleManager);
                     await UsersSeeder.SeedUsersAsync(userManager);
-                    await ChainsSampleSeeder.Seed(context);
+                    await NetworksSampleSeeder.Seed(context);
                 }
             }
         }
