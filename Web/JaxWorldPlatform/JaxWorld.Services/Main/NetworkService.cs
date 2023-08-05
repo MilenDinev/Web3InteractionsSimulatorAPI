@@ -29,7 +29,7 @@
             network.Name = networkModel.Name;
             network.RpcUrl = networkModel.RpcUrl;
             network.ExplorerUrl = networkModel.ExplorerUrl;
-            network.ChainId = networkModel.ChainId;
+            network.ChainId = networkModel.ChainId.ToString();
             network.NormalizedName = networkModel.Name.ToUpper();
             network.Symbol = networkModel.Symbol;
 

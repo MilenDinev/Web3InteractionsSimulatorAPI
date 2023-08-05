@@ -3,8 +3,8 @@
     using Entities;
     using Contracts;
     using Transactions;
+    using Entities.Blockchain.Units;
     using Interfaces.IEntities.IBlockchain.IWallets;
-    using JaxWorld.Data.Entities.Blockchain.Units;
 
     public class Wallet : Entity, IWallet
     {
