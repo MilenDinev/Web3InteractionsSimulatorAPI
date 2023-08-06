@@ -5,7 +5,7 @@
 
     public interface IWalletService
     {
-        Task<Wallet> CreateAsync(CreateWalletModel model, int creatorId);
+        Task<Wallet> CreateAsync(CreateWalletModel model, Provider provider, int creatorId);
         Task EditAsync(Wallet wallet, EditWalletModel model, int modifierId);
         Task DeleteAsync(Wallet wallet, int modifierId);
     }
