@@ -15,16 +15,17 @@
             Utilities = new HashSet<Utility>();
             Transactions = new HashSet<Transaction>();
         }
-
-        public string DNA { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
+        public string? ExternalUrl { get; set; }
         public bool Minted { get; set; }
-        public int MintedTxnId { get; set; }
-        public virtual Transaction MintedTxn { get; set; }
+        public string? MintedTxnHash { get; set; }
         public int ProfileId { get; set; }
         public virtual Profile Profile { get; set; }
+        public string DNA { get; set; }
         public virtual ICollection<Attribute> Attributes { get; set; }
         public virtual ICollection<Utility> Utilities { get; set; }
-        public int HolderId { get; set; }
+        public int? HolderId { get; set; }
         public virtual Wallet Holder { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
