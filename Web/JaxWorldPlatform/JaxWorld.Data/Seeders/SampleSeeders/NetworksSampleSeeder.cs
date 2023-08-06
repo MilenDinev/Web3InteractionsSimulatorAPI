@@ -8,11 +8,12 @@
             var avalancheMainet = new Network
 
             {
-                Name = "Avalanche Network",
+                Name = "Avalanche Mainnet Network",
                 RpcUrl= "https://api.avax.network/ext/bc/C/rpc",
                 ChainId= "43114",
                 Symbol= "AVAX",
-                ExplorerUrl= "https://snowtrace.io/ "
+                ExplorerUrl= "https://snowtrace.io/ ",
+                NormalizedTag = "Avalanche Mainnet Network".ToUpper(),
             };
 
             var avalancheFujiTestNet = new Network
@@ -21,7 +22,8 @@
                 RpcUrl = "https://api.avax-test.network/ext/bc/C/rpc",
                 ChainId = "43113",
                 Symbol = "AVAX",
-                ExplorerUrl = "https://testnet.snowtrace.io/"
+                ExplorerUrl = "https://testnet.snowtrace.io/",
+                NormalizedTag = "Avalanche FUJI C-Chain".ToUpper(),
             };
 
 
