@@ -4,6 +4,7 @@
     using Profiles;
     using Transactions;
     using Interfaces.IEntities.IBlockchain.IContracts;
+    using Microsoft.EntityFrameworkCore;
 
     public class Contract : Entity, IContract
     {
@@ -16,9 +17,11 @@
 
         public string Name { get; set; }
         public string Address { get; set; }
-        public string Balance { get; set; }
-        public string EstimatedValue { get; set; }
-        public int CreatedTxnId { get; set; }
+        [Precision(18, 2)]
+        public decimal Balance { get; set; }
+        [Precision(18, 2)]
+        public decimal EstimatedValue { get; set; }
+        public string CreationTxnHash{ get; set; }
         public virtual Wallet Creator { get; set; }
         public virtual Profile Profile { get; set; }
         public virtual ICollection<Network> Networks { get; set; }
