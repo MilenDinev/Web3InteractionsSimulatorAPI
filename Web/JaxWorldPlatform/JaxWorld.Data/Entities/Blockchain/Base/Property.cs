@@ -5,7 +5,7 @@
 
     public abstract class Property : Entity, IProperty
     {
-        [Column("Type", Order = 2)]
-        public string Type { get; set; }
+        [Column("TraitType", Order = 2)]
+        public string TraitType { get; set; }
     }
 }

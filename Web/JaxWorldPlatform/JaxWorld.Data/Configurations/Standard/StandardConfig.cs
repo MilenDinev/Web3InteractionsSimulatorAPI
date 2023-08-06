@@ -12,27 +12,31 @@
                     new Standard
                     {
                         Id = 1,
-                        Name = "ERC721"
+                        Name = "ERC721",
+                        NormalizedTag = "ERC721".ToUpper()
                     });
             builder.HasData(
                     new Standard
                     {
                         Id = 2,
-                        Name = "ERC721a"
+                        Name = "ERC721a",
+                        NormalizedTag = "ERC721a".ToUpper()
                     });
 
             builder.HasData(
                     new Standard
                     {
                         Id = 3,
-                        Name = "ERC20"
+                        Name = "ERC20",
+                        NormalizedTag = "ERC20".ToUpper()
                     });
 
             builder.HasData(
                     new Standard
                     {
                         Id = 4,
-                        Name = "ERC1155"
+                        Name = "ERC1155",
+                        NormalizedTag = "ERC1155".ToUpper()
                     });
         }
     }

@@ -59,7 +59,10 @@
             var wallet = await this.finder.FindByStringOrDefaultAsync<Wallet>(walletInput.Address);
             await this.validator.ValidateUniqueEntityAsync(wallet);
 
-            wallet = await this.walletService.CreateAsync(walletInput, CurrentUser.Id);
+            var provider = await this.finder.FindByStringOrDefaultAsync<Provider>(walletInput.Provider)
+                ?? await this.finder.FindByIdOrDefaultAsync<Provider>(int.Parse(walletInput.Provider));
+
+            wallet = await this.walletService.CreateAsync(walletInput, provider, CurrentUser.Id);
             var createdWallet = mapper.Map<CreatedWalletModel>(wallet);
 
             return CreatedAtAction(nameof(Get), "Wallets", new { id = createdWallet.Id }, createdWallet);

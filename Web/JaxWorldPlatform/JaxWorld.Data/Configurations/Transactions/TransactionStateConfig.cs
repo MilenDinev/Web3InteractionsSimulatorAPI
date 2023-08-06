@@ -12,20 +12,23 @@
                     new TransactionState
                     {
                         Id = 1,
-                        State = "Pending"
+                        State = "Pending",
+                        NormalizedTag = "Pending".ToUpper()
                     });
             builder.HasData(
                     new TransactionState
                     {
                         Id = 2,
-                        State = "Approved"
+                        State = "Approved",
+                        NormalizedTag = "Approved".ToUpper()
                     });
 
             builder.HasData(
                     new TransactionState
                     {
                         Id = 3,
-                        State = "Rejected"
+                        State = "Rejected",
+                        NormalizedTag = "Rejected".ToUpper()
                     });
         }
     }

@@ -2,6 +2,6 @@
 {
     public interface IProperty 
     {
-        string Type { get; }
+        string TraitType { get; }
     }
 }

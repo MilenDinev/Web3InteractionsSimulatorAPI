@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Configurations.Contract
 {
-    using Entities.Blockchain.Transactions;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using Entities.Blockchain.Transactions;
 
     public class ContractTransactionConfig : IEntityTypeConfiguration<Transaction>
     {

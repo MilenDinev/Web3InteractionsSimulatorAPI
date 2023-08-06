@@ -8,7 +8,7 @@
     {
         [Column("Id", Order = 0)]
         public int Id { get; set; }
-        public string? NormalizedTag { get; set; }
+        public string NormalizedTag { get; set; }
         public int CreatorId { get; set; }
         public DateTime CreationDate { get; set; }
         public int LastModifierId { get; set; }

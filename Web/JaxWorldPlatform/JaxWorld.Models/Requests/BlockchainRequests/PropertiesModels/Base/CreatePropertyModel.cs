@@ -8,6 +8,6 @@
         [Required(ErrorMessage = "Property name is required and must be between 2 and 15 symbols!")]
         [MaxLength(15, ErrorMessage = "Property name is required and must be between 2 and 15 symbols!")]
         [MinLength(2, ErrorMessage = "Property name is required and must be between 2 and 15 symbols!")]
-        public string Name { get; set; }
+        public string TraitType { get; set; }
     }
 }

@@ -10,7 +10,6 @@
         public Profile()
         {
             Erc721aUnits = new HashSet<Erc721aUnit>();
-            Holders = new HashSet<Wallet>();
         }
         public string Name { get; set; }
         public string Symbol { get; set; }
@@ -22,6 +21,5 @@
         public int ContractId { get; set; }
         public virtual Contract Contract { get; set; }
         public virtual ICollection<Erc721aUnit> Erc721aUnits { get; set; }
-        public virtual ICollection<Wallet> Holders { get; set; }
     }
 }

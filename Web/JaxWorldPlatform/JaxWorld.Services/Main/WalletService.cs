@@ -17,18 +17,11 @@
             this.mapper = mapper;
         }
 
-        public async Task<Wallet> CreateAsync(CreateWalletModel walletModel, int creatorId)
+        public async Task<Wallet> CreateAsync(CreateWalletModel walletModel, Provider provider, int creatorId)
         {
             var wallet = mapper.Map<Wallet>(walletModel);
-
-            var provider = walletModel.Provider == ProviderNames.MetamaskNum ||
-                walletModel.Provider.ToLower() == ProviderNames.Metamask.ToLower() ?
-                ProviderNames.Metamask : walletModel.Provider == ProviderNames.CoinBaseNum ||
-                walletModel.Provider.ToLower() == ProviderNames.CoinBase.ToLower() ? 
-                ProviderNames.CoinBase : ProviderNames.CoinBase;
-
-            wallet.ProviderId = 1;
-
+            wallet.Provider = provider;
+            wallet.OwnerId = creatorId;
             await CreateEntityAsync(wallet, creatorId);
             return wallet;
         }
