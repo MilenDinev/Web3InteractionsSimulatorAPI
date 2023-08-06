@@ -10,7 +10,7 @@
         public UtilityMappingProfile()
         {
             this.CreateMap<CreateUtilityModel, Utility>()
-                .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.Name.ToUpper()));
+                .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.TraitType.ToUpper()));
             this.CreateMap<Utility, CreatedUtilityModel>();
             this.CreateMap<Utility, EditedUtilityModel>();
             this.CreateMap<Utility, DeletedUtilityModel>();
