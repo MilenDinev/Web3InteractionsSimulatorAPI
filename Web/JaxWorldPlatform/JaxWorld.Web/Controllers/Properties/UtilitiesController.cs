@@ -54,7 +54,7 @@
         public async Task<ActionResult> Create(CreateUtilityModel utilityInput)
         {
             await AssignCurrentUserAsync();
-            var utility = await finder.FindByStringOrDefaultAsync<Utility>(utilityInput.Name);
+            var utility = await finder.FindByStringOrDefaultAsync<Utility>(utilityInput.TraitType);
             await validator.ValidateUniqueEntityAsync(utility);
 
             utility = await utilityService.CreateAsync(utilityInput, CurrentUser.Id);

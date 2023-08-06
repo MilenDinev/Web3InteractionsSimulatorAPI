@@ -54,7 +54,7 @@
         public async Task<ActionResult> Create(CreateAttributeModel attributeInput)
         {
             await AssignCurrentUserAsync();
-            var attribute = await finder.FindByStringOrDefaultAsync<Attribute>(attributeInput.Name);
+            var attribute = await finder.FindByStringOrDefaultAsync<Attribute>(attributeInput.TraitType);
             await validator.ValidateUniqueEntityAsync(attribute);
 
             attribute = await attributeService.CreateAsync(attributeInput, CurrentUser.Id);
