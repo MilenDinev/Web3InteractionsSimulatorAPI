@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Data.Seeders.SampleSeeders
 {
-    using Entities.Blockchain;
+    using Entities;
+
     public static class NetworksSampleSeeder
     {
         public static async Task Seed(JaxWorldDbContext context)
