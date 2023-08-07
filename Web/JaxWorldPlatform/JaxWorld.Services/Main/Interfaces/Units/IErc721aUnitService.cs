@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces.Units
 {
-    using Data.Entities.Blockchain.Units;
+    using Data.Entities.Units;
     using Models.Requests.BlockchainRequests.UnitModels;
 
     public interface IErc721aUnitService

@@ -1,12 +1,6 @@
-﻿using JaxWorld.Data.Interfaces.IEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JaxWorld.Services.Handlers.Interfaces
+﻿namespace JaxWorld.Services.Handlers.Interfaces
 {
+    using Data.Interfaces.IEntities;
     public interface IEntityChecker
     {
         Task<bool> NullableCheck<T>(T entity, string searchFlag) where T : class, IEntity;

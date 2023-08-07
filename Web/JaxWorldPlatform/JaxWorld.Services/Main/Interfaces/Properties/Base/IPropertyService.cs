@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces.Base
 {
+    using Data.Interfaces.IEntities.IBase;
     using Models.Requests.BlockchainRequests.Interfaces;
-    using Data.Interfaces.IEntities.IBlockchain.IProperties;
 
     public interface IPropertyService<TProperty, TCModel, TEModel> 
         where TProperty : class, IProperty 

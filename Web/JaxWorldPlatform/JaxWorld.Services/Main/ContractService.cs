@@ -2,9 +2,9 @@
 {
     using AutoMapper;
     using Base;
-    using Data;
     using Interfaces;
-    using Data.Entities.Blockchain.Contracts;
+    using Data;
+    using Data.Entities.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
 
     public class ContractService : BaseService<Contract>, IContractService

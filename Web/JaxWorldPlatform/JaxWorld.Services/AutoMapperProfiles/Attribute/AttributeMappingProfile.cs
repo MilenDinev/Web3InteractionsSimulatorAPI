@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.Attribute
 {
     using AutoMapper;
-    using Data.Entities.Blockchain.Properties;
+    using Data.Entities.Properties;
     using Models.Requests.BlockchainRequests.PropertiesModels;
     using Models.Responses.BlockchainResponses.PropertiesModels.Attribute;
 

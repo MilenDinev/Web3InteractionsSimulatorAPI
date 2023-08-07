@@ -1,10 +1,10 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.Wallet
 {
     using AutoMapper;
-    using Data.Entities.Blockchain.Wallets;
+    using System.Globalization;
+    using Data.Entities.Wallets;
     using Models.Requests.BlockchainRequests.WalletModels;
     using Models.Responses.BlockchainResponses.WalletModels;
-    using System.Globalization;
 
     public class WalletMappingProfile : Profile
     {

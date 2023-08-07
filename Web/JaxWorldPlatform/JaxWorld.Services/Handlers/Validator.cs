@@ -2,7 +2,7 @@
 {
     using Constants;
     using Exceptions;
-    using Handlers.Interfaces;
+    using Interfaces;
     using Data.Interfaces.IEntities;
 
     public class Validator : IValidator

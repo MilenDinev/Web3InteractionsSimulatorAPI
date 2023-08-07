@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.Network
 {
     using AutoMapper;
-    using Data.Entities.Blockchain;
+    using Data.Entities;
     using Models.Requests.BlockchainRequests.NetworkModels;
     using Models.Responses.BlockchainResponses.NetworkModels;
 

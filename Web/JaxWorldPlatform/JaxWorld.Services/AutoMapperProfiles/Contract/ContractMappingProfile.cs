@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.Contract
 {
     using AutoMapper;
-    using Data.Entities.Blockchain.Contracts;
+    using Data.Entities.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
 

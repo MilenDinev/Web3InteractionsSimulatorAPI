@@ -2,9 +2,9 @@
 {
     using AutoMapper;
     using Base;
-    using Data;
     using Interfaces.Properties;
-    using Data.Entities.Blockchain.Properties;
+    using Data;
+    using Data.Entities.Properties;
     using Models.Requests.BlockchainRequests.PropertiesModels;
 
     public class UtilityService : BaseService<Utility>, IUtilityService

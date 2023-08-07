@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces
 {
-    using Data.Entities.Blockchain.Wallets;
+    using Data.Entities.Wallets;
     using Models.Requests.BlockchainRequests.WalletModels;
 
     public interface IWalletService

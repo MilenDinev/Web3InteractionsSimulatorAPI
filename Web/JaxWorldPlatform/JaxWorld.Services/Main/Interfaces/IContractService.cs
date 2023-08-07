@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces
 {
-    using Data.Entities.Blockchain.Contracts;
+    using Data.Entities.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
 
     public interface IContractService

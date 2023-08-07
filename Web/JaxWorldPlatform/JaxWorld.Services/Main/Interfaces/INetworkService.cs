@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces
 {
-    using Data.Entities.Blockchain;
+    using Data.Entities;
     using Models.Requests.BlockchainRequests.NetworkModels;
 
     public interface INetworkService

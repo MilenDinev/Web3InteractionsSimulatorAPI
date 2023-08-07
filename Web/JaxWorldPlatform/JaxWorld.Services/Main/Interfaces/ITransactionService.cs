@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces
 {
-    using Data.Entities.Blockchain.Transactions;
+    using Data.Entities.Transactions;
     using Models.Requests.BlockchainRequests.TransactionModels;
 
     public interface ITransactionService

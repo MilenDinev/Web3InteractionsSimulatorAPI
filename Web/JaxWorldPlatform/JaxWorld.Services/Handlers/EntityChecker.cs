@@ -1,14 +1,9 @@
-﻿using JaxWorld.Data;
-using JaxWorld.Services.Handlers.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using JaxWorld.Data.Interfaces.IEntities;
-
-namespace JaxWorld.Services.Handlers
+﻿namespace JaxWorld.Services.Handlers
 {
+    using Interfaces;
+    using Data;
+    using Data.Interfaces.IEntities;
+
     public class EntityChecker : IEntityChecker
     {
         private readonly JaxWorldDbContext dbContext;

@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Services.Handlers
 {
-    using Data;
-    using Handlers.Interfaces;
-    using Data.Interfaces.IEntities;
     using Microsoft.EntityFrameworkCore;
+    using Interfaces;
+    using Data;
+    using Data.Interfaces.IEntities;
 
     public class Finder : IFinder
     {

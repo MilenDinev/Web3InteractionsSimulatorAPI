@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces
 {
-    using Data.Entities.Blockchain.Profiles;
+    using Data.Entities.Profiles;
     using Models.Requests.BlockchainRequests.ProfileModels;
 
     public interface IProfileService

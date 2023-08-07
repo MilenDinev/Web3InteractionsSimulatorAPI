@@ -1,11 +1,11 @@
 ﻿namespace JaxWorld.Services.Main.Properties
 {
     using AutoMapper;
-    using Data;
     using Base;
     using Interfaces.Properties;
+    using Data;
     using Models.Requests.BlockchainRequests.PropertiesModels;
-    using Attribute = Data.Entities.Blockchain.Properties.Attribute;
+    using Attribute = Data.Entities.Properties.Attribute;
 
     public class AttributeService : BaseService<Attribute>, IAttributeService
     {

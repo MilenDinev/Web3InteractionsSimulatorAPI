@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.Unit
 {
     using AutoMapper;
-    using Data.Entities.Blockchain.Units;
+    using Data.Entities.Units;
     using Models.Requests.BlockchainRequests.UnitModels;
     using Models.Responses.BlockchainResponses.UnitModels;
     using Models.Responses.BlockchainResponses.ProfileUnitModels;

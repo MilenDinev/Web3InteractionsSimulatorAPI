@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.Transaction
 {
     using AutoMapper;
-    using Data.Entities.Blockchain.Transactions;
+    using Data.Entities.Transactions;
     using Models.Requests.BlockchainRequests.TransactionModels;
     using Models.Responses.BlockchainResponses.TransactionModels;
 
