@@ -3,7 +3,6 @@
 
     internal interface IBaseService<TEntity>
     {
-
         Task SaveModificationAsync(TEntity user, int modifierId);
     }
 }
