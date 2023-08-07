@@ -2,14 +2,13 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Blockchain;
-    using Entities.Blockchain.Contracts;
+    using Entities;
+    using Entities.Contracts;
 
     public class NetworkContractConfig : IEntityTypeConfiguration<Contract>
     {
         public void Configure(EntityTypeBuilder<Contract> builder)
         {
-
             builder.HasMany(g => g.Networks)
              .WithMany(u => u.Contracts)
                 .UsingEntity<Dictionary<string, object>>("NetworksContracts",

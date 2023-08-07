@@ -3,8 +3,8 @@
     using System.Collections.Generic;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Blockchain;
-    using Entities.Blockchain.Wallets;
+    using Entities;
+    using Entities.Wallets;
 
     public class NetworkWalletConfig : IEntityTypeConfiguration<Wallet>
     {
