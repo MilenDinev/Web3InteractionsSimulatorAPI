@@ -7,7 +7,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
-    using Data.Entities;
+    using Entities;
     using EntitySeeders;
     using SampleSeeders;
 
