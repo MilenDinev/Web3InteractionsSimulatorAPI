@@ -3,5 +3,6 @@
     public class CreatedUtilityModel
     {
         public int Id { get; set; }
+        public string TraitType { get; set; }
     }
 }

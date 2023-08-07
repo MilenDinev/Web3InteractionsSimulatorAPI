@@ -2,5 +2,7 @@
 {
     public class UtilityListingModel
     {
+        public int Id { get; set; }
+        public string TraitType { get; set; }
     }
 }

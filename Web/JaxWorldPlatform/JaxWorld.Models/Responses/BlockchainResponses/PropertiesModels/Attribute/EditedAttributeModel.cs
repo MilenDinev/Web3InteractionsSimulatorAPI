@@ -2,5 +2,7 @@
 {
     public class EditedAttributeModel
     {
+        public int Id { get; set; }
+        public string TraitType { get; set; }
     }
 }
