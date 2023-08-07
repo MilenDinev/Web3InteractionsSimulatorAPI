@@ -2,9 +2,9 @@
 {
     using AutoMapper;
     using Base;
-    using Data;
     using Interfaces;
-    using Data.Entities.Blockchain.Transactions;
+    using Data;
+    using Data.Entities.Transactions;
     using Models.Requests.BlockchainRequests.TransactionModels;
 
     public class TransactionService : BaseService<Transaction>, ITransactionService

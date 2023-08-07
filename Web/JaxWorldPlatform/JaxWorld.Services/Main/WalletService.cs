@@ -2,11 +2,10 @@
 {
     using AutoMapper;
     using Base;
-    using Data;
     using Interfaces;
-    using Data.Entities.Blockchain.Wallets;
+    using Data;
+    using Data.Entities.Wallets;
     using Models.Requests.BlockchainRequests.WalletModels;
-    using JaxWorld.Services.Constants;
 
     public class WalletService : BaseService<Wallet>, IWalletService
     {

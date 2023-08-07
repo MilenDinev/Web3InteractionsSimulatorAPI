@@ -2,11 +2,10 @@
 {
     using AutoMapper;
     using Base;
-    using Data;
     using Interfaces;
-    using Data.Entities.Blockchain;
+    using Data;
+    using Data.Entities;
     using Models.Requests.BlockchainRequests.NetworkModels;
-
 
     public class NetworkService : BaseService<Network>, INetworkService
     {

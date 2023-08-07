@@ -1,11 +1,11 @@
 ﻿namespace JaxWorld.Services.Main
 {
     using AutoMapper;
-    using Services.Base;
-    using Services.Main.Interfaces;
-    using Models.Requests.BlockchainRequests.ProfileModels;
+    using Base;
+    using Interfaces;
     using Data;
-    using Profile = Data.Entities.Blockchain.Profiles.Profile;
+    using Profile = Data.Entities.Profiles.Profile;
+    using Models.Requests.BlockchainRequests.ProfileModels;
 
     public class ProfileService : BaseService<Profile>, IProfileService
     {

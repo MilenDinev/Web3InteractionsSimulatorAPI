@@ -3,10 +3,10 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
+    using Data.Entities.Properties;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
     using Services.Main.Interfaces.Properties;
-    using Data.Entities.Blockchain.Properties;
     using Models.Requests.BlockchainRequests.PropertiesModels;
     using Models.Responses.BlockchainResponses.PropertiesModels.Attribute;
 
