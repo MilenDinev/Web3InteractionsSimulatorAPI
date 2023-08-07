@@ -16,8 +16,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\IEntities\IBlockchain\IProperties\Base\" />
-  </ItemGroup>
-
 </Project>
