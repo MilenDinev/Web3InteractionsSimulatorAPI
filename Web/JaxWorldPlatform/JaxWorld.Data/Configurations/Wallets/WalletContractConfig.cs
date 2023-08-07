@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Blockchain.Contracts;
+    using Entities.Contracts;
 
     public class WalletContractConfig : IEntityTypeConfiguration<Contract>
     {

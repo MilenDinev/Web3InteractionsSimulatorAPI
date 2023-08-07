@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Data.Entities.Blockchain.Units;
+    using Entities.Units;
 
     public class WalletErc721aUnitConfig : IEntityTypeConfiguration<Erc721aUnit>
     {
