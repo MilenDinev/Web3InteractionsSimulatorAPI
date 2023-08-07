@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Blockchain.Wallets;
+    using Entities.Wallets;
 
     internal class ProviderConfig : IEntityTypeConfiguration<Provider>
     {
