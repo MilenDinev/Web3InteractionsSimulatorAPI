@@ -2,8 +2,8 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Blockchain.Profiles;
-    using Entities.Blockchain.Contracts;
+    using Entities.Profiles;
+    using Entities.Contracts;
 
     public class ProfileContractConfig : IEntityTypeConfiguration<Contract>
     {
