@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Blockchain.Profiles;
+    using Entities.Profiles;
 
     public class StandardProfileConfig : IEntityTypeConfiguration<Profile>
     {

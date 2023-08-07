@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Data.Entities.Blockchain;
+    using Entities;
 
     public class StandardConfig : IEntityTypeConfiguration<Standard>
     {
