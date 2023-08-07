@@ -4,13 +4,18 @@
 
     public class CreateContractModel
     {
-        [Required(ErrorMessage = "Contract name is required and must be between 2 and 15 symbols!")]
-        [MaxLength(15, ErrorMessage = "Contract name is required and must be between 2 and 15 symbols!")]
-        [MinLength(2, ErrorMessage = "Contract name is required and must be between 2 and 15 symbols!")]
+        [Required(ErrorMessage = "Name is required and must be between 2 and 15 symbols!")]
+        [MaxLength(15, ErrorMessage = "Name is required and must be between 2 and 15 symbols!")]
+        [MinLength(2, ErrorMessage = "Name is required and must be between 2 and 15 symbols!")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Contract address is required and must be more than 5 symbols!")]
-        [MinLength(5, ErrorMessage = "Contract address is required and must be more than 5 symbols!")]
+
+        [Required(ErrorMessage = "Address is required and must be more than 5 symbols!")]
+        [MinLength(5, ErrorMessage = "Address is required and must be more than 5 symbols!")]
         public string Address { get; set; }
+
+        [Required(ErrorMessage = "Network is required!")]
+        [RegularExpression("(^(?i)1$|^2$|^3$)",
+            ErrorMessage = "Network is not valid! Please type between \'1\' for Avalanche Mainnet Network and \'2\' for Avalanche FUJI C-Chain.")]
         public int NetworkId { get; set; }
     }
 }
