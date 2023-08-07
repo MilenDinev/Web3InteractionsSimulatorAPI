@@ -3,10 +3,10 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
+    using Data.Entities.Units;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
     using Services.Main.Interfaces.Units;
-    using Data.Entities.Blockchain.Units;
     using Models.Requests.BlockchainRequests.UnitModels;
     using Models.Responses.BlockchainResponses.UnitModels;
     using Models.Responses.BlockchainResponses.ProfileUnitModels;
