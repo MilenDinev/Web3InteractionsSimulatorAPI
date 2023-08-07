@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Blockchain.Transactions;
+    using Entities.Transactions;
 
     internal class TransactionStateConfig : IEntityTypeConfiguration<TransactionState>
     {

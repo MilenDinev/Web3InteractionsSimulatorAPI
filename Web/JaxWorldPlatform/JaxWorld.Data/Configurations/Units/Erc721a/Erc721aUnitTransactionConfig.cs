@@ -2,8 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Microsoft.EntityFrameworkCore;
-    using Entities.Blockchain.Units;
-    using Entities.Blockchain.Transactions;
+    using Entities.Transactions;
 
     public class Erc721aUnitTransactionConfig : IEntityTypeConfiguration<Transaction>
     {

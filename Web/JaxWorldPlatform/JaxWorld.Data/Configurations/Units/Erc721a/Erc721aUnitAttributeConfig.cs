@@ -2,8 +2,8 @@
 {
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Microsoft.EntityFrameworkCore;
-    using Entities.Blockchain.Units;
-    using Entities.Blockchain.Properties;
+    using Entities.Units;
+    using Entities.Properties;
 
     public class Erc721aUnitAttributeConfig : IEntityTypeConfiguration<Attribute>
     {
