@@ -2,7 +2,7 @@
 {
     using System;
     using Microsoft.AspNetCore.Identity;
-    using Blockchain.Wallets;
+    using Wallets;
     using Interfaces.IEntities;
 
     public class User : IdentityUser<int>, IEntity
