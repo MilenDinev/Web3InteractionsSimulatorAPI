@@ -3,7 +3,7 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Data.Entities.Blockchain;
+    using Data.Entities;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
     using Models.Requests.BlockchainRequests.NetworkModels;

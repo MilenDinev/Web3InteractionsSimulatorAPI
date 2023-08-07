@@ -3,9 +3,9 @@
     using AutoMapper;
     using Base;
     using Microsoft.AspNetCore.Mvc;
+    using Data.Entities.Wallets;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
-    using Data.Entities.Blockchain.Wallets;
     using Models.Responses.BlockchainResponses.WalletModels;
     using Models.Requests.BlockchainRequests.WalletModels;
 

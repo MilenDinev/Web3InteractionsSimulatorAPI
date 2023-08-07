@@ -3,9 +3,9 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
+    using Data.Entities.Contracts;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
-    using Data.Entities.Blockchain.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
 

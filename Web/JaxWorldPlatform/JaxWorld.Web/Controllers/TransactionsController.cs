@@ -1,11 +1,11 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
     using AutoMapper;
-    using Base;
-    using Services.Handlers.Interfaces;
-    using Services.Main.Interfaces;
     using Microsoft.AspNetCore.Mvc;
-    using Data.Entities.Blockchain.Transactions;
+    using Base;
+    using Data.Entities.Transactions;
+    using Services.Main.Interfaces;
+    using Services.Handlers.Interfaces;
     using Models.Requests.BlockchainRequests.TransactionModels;
     using Models.Responses.BlockchainResponses.TransactionModels;
 
