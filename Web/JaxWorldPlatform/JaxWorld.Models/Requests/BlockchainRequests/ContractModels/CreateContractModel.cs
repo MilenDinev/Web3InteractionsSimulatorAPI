@@ -4,13 +4,13 @@
 
     public class CreateContractModel
     {
-        [Required(ErrorMessage = "Name is required and must be between 2 and 15 symbols!")]
-        [MaxLength(15, ErrorMessage = "Name is required and must be between 2 and 15 symbols!")]
-        [MinLength(2, ErrorMessage = "Name is required and must be between 2 and 15 symbols!")]
+        [Required(ErrorMessage = "Name!")]
+        [MinLength(2, ErrorMessage = "Name must be between 2 and 15 symbols!")]
+        [MaxLength(15, ErrorMessage = "Name must be between 2 and 15 symbols!")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Address is required and must be more than 5 symbols!")]
-        [MinLength(5, ErrorMessage = "Address is required and must be more than 5 symbols!")]
+        [Required(ErrorMessage = "Address is required!")]
+        [MinLength(5, ErrorMessage = "Address must be atleast 5 symbols!")]
         public string Address { get; set; }
 
         [Required(ErrorMessage = "Network is required!")]
