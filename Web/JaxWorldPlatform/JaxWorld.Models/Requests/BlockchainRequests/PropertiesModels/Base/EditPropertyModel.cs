@@ -5,8 +5,8 @@
 
     public abstract class EditPropertyModel : IEditPropertyModel
     {
-        [MaxLength(15, ErrorMessage = "TraitType must be between 2 and 15 symbols!")]
         [MinLength(2, ErrorMessage = "TraitType must be between 2 and 15 symbols!")]
-        public string TraitType { get; set; }
+        [MaxLength(15, ErrorMessage = "TraitType must be between 2 and 15 symbols!")]
+        public string? TraitType { get; set; }
     }
 }
