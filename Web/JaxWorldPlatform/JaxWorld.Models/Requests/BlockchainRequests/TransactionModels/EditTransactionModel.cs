@@ -2,6 +2,6 @@
 {
     public class EditTransactionModel
     {
-        public string State { get; set; }
+        public string? State { get; set; }
     }
 }
