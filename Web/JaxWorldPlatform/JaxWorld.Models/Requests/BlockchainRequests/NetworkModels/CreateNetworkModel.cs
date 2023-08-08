@@ -10,18 +10,18 @@
         public string Name { get; init; }
 
         [Required(ErrorMessage = "Symbol is required!")]
-        [MinLength(1, ErrorMessage = "Symbol must be between 1 and 10 symbols!")]
-        [MaxLength(10, ErrorMessage = "Symbol must be between 1 and 10 symbols!")]
+        [MinLength(1, ErrorMessage = "Symbol must be between 1 and 5 symbols!")]
+        [MaxLength(5, ErrorMessage = "Symbol must be between 1 and 5 symbols!")]
         public string Symbol { get; init; }
 
         [Required(ErrorMessage = "RpcUrl is required!")]
-        [MinLength(5, ErrorMessage = "RpcUrl must be between 5 and 35 symbols!")]
-        [MaxLength(35, ErrorMessage = "RpcUrl must be between 5 and 35 symbols!")]
+        [MinLength(5, ErrorMessage = "RpcUrl must be between 5 and 55 symbols!")]
+        [MaxLength(55, ErrorMessage = "RpcUrl must be between 5 and 55 symbols!")]
         public string RpcUrl { get; init; }
         public int ChainId { get; init; }
 
-        [MinLength(5, ErrorMessage = "ExplorerUrl must be between 5 and 35 symbols!")]
-        [MaxLength(35, ErrorMessage = "ExplorerUrl must be between 5 and 35 symbols!")]
+        [MinLength(5, ErrorMessage = "ExplorerUrl must be between 5 and 55 symbols!")]
+        [MaxLength(55, ErrorMessage = "ExplorerUrl must be between 5 and 55 symbols!")]
         public string? ExplorerUrl { get; init; }
     }
 }
