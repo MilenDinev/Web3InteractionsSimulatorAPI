@@ -1,24 +1,21 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.NetworkModels
 {
     using System.ComponentModel.DataAnnotations;
+    using Constants;
 
     public class EditNetworkModel
     {
-        [MinLength(2, ErrorMessage = "Name must be between 2 and 25 symbols!")]
-        [MaxLength(25, ErrorMessage = "Name must be between 2 and 25 symbols!")]
+        [StringLength(25, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
         public string? Name { get; init; }
 
-        [MinLength(1, ErrorMessage = "Symbol must be between 1 and 10 symbols!")]
-        [MaxLength(10, ErrorMessage = "Symbol must be between 1 and 10 symbols!")]
+        [StringLength(10, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 1)]
         public string? Symbol { get; init; }
         public int? ChainId { get; init; }
 
-        [MinLength(5, ErrorMessage = "RpcUrl must be between 5 and 35 symbols!")]
-        [MaxLength(35, ErrorMessage = "RpcUrl must be between 5 and 35 symbols!")]
+        [StringLength(35, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 5)]
         public string? RpcUrl { get; init; }
 
-        [MinLength(5, ErrorMessage = "ExplorerUrl must be between 5 and 35 symbols!")]
-        [MaxLength(35, ErrorMessage = "ExplorerUrl must be between 5 and 35 symbols!")]
+        [StringLength(35, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 5)]
         public string? ExplorerUrl { get; init; }
     }
 }
