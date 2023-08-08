@@ -1,12 +1,14 @@
 ﻿namespace JaxWorld.Models.Requests.EntityRequests
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class EditUserModel
     {
-        public string Username { get; set; }
-        public string NormalizedName { get; set; }
-        public string WalletAddress { get; set; }
-        public int LastModifierId { get; set; }
-        public DateTime LastModifiedOn { get; set; }
-        public bool Deleted { get; set; }
+        public string? UserName { get; set; }
+        public string? WalletAddress { get; set; }
+        [EmailAddress(ErrorMessage = "Please provide valid email address!")]
+        public string? Email { get; set; }
+        public string? Password { get; set; }
+        public string? ConfirmPassword { get; set; }
     }
 }
