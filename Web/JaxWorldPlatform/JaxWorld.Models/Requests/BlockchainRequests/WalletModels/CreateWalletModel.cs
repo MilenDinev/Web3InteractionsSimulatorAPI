@@ -5,8 +5,8 @@
     public class CreateWalletModel
     {
         [Required(ErrorMessage = "Wallet address is required and must be between 5 and 50 symbols!")]
-        [MaxLength(50, ErrorMessage = "Wallet address is required and must be between 5 and 50 symbols!")]
         [MinLength(5, ErrorMessage = "Wallet address is required and must be between 5 and 50 symbols!")]
+        [MaxLength(50, ErrorMessage = "Wallet address is required and must be between 5 and 50 symbols!")]
         public string Address { get; set; }
         [Required(ErrorMessage = "Provider is required!")]
         [RegularExpression("(^(?i)metamask|^coinbase|^walletconnect|^1$|^2$|^3$)",
