@@ -4,6 +4,6 @@
 
     public interface IEditPropertyModel : IEditModel
     {
-        public string TraitType { get;}
+        public string? TraitType { get;}
     }
 }
