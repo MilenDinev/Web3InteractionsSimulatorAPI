@@ -1,13 +1,14 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.PropertiesModels.Base
 {
-    using Interfaces;
     using System.ComponentModel.DataAnnotations;
+    using Constants;
+    using Interfaces;
 
     public abstract class CreatePropertyModel : ICreatePropertyModel
     {
-        [Required(ErrorMessage = "TraitType is required!")]
-        [MinLength(2, ErrorMessage = "TraitType must be between 2 and 15 symbols!")]
-        [MaxLength(15, ErrorMessage = "TraitType must be between 2 and 15 symbols!")]
-        public string TraitType { get; set; }
+        [Required(ErrorMessage = ValidationMessages.Required)]
+        [StringLength(15, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 3)]
+        public string? TraitType { get; set; }
     }
 }
+
