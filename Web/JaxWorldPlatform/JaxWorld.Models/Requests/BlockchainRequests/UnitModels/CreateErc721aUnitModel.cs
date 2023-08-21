@@ -1,16 +1,15 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.UnitModels
 {
     using System.ComponentModel.DataAnnotations;
+    using Constants;
 
     public class CreateErc721aUnitModel
     {
-        [Required(ErrorMessage = "Name is required!")]
-        [MinLength(2, ErrorMessage = "Name must be between 2 and 15 symbols!")]
-        [MaxLength(15, ErrorMessage = "Name must be between 2 and 15 symbols!")]
-        public string Name { get; set; }
+        [Required(ErrorMessage = ValidationMessages.Required)]
+        [StringLength(15, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
+        public string? Name { get; set; }
         public int ProfileId { get; set; }
-        [MinLength(5, ErrorMessage = "DNA must be between 5 and 25 symbols!")]
-        [MaxLength(25, ErrorMessage = "DNA must be between 5 and 25 symbols!")]
+        [StringLength(30, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 5)]
         public string? DNA { get; set; }
     }
 }
