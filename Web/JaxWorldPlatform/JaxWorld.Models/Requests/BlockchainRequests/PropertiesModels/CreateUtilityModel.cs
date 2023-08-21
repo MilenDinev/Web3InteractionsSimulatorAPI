@@ -1,14 +1,14 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.PropertiesModels
 {
-    using Base;
     using System.ComponentModel.DataAnnotations;
+    using Base;
+    using Constants;
 
     public class CreateUtilityModel : CreatePropertyModel
     {
-        [Required(ErrorMessage = "DisplayType is required!")]
-        [MinLength(2, ErrorMessage = "DisplayType is required and must be between 2 and 15 symbols!")]
-        [MaxLength(15, ErrorMessage = "DisplayType is required and must be between 2 and 15 symbols!")]
-        public string DisplayType { get; set; }
+        [Required(ErrorMessage = ValidationMessages.Required)]
+        [StringLength(15, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 3)]
+        public string? DisplayType { get; set; }
         public decimal Value { get; set; }
     }
 }
