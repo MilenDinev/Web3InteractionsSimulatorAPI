@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JaxWorld.Data.Migrations
 {
     [DbContext(typeof(JaxWorldDbContext))]
-    [Migration("20230806213231_InitialCreate")]
+    [Migration("20230822004043_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -58,7 +58,55 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("Erc721aUnitsUtilities");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Base.Unit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LastModifierId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("NormalizedTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Unit");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Unit");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Contracts.Contract", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -80,10 +128,12 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreationTxnHash")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CreatorWalletId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Deleted")
@@ -109,12 +159,12 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatorId");
+                    b.HasIndex("CreatorWalletId");
 
                     b.ToTable("Contracts");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Network", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Network", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -167,7 +217,7 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("Networks");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Profiles.Profile", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Profiles.Profile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -230,7 +280,7 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("Profiles");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Properties.Attribute", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Properties.Attribute", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -274,7 +324,7 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("Attributes");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Properties.Utility", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Properties.Utility", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -322,7 +372,7 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("Utilities");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Standard", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Standard", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -406,7 +456,7 @@ namespace JaxWorld.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Transactions.Transaction", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Transaction", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -468,7 +518,7 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("Transactions");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Transactions.TransactionState", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TransactionState", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -539,214 +589,6 @@ namespace JaxWorld.Data.Migrations
                             NormalizedTag = "REJECTED",
                             State = "Rejected"
                         });
-                });
-
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Units.Erc721aUnit", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasColumnOrder(0);
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DNA")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ExternalUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("HolderId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("LastModificationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LastModifierId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Minted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MintedTxnHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Name")
-                        .HasColumnOrder(2);
-
-                    b.Property<string>("NormalizedTag")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProfileId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HolderId");
-
-                    b.HasIndex("ProfileId");
-
-                    b.ToTable("Erc721aUnits");
-                });
-
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Wallets.Provider", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasColumnOrder(0);
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastModificationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LastModifierId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedTag")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Providers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "Metamask",
-                            NormalizedTag = "METAMASK"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "Coinbase",
-                            NormalizedTag = "COINBASE"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "WalletConnect",
-                            NormalizedTag = "WALLETCONNECT"
-                        },
-                        new
-                        {
-                            Id = 99,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "Unknown",
-                            NormalizedTag = "UNKNOWN"
-                        });
-                });
-
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Wallets.Wallet", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasColumnOrder(0);
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Balance")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastModificationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LastModifierId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NormalizedTag")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("OwnerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProviderId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OwnerId");
-
-                    b.HasIndex("ProviderId");
-
-                    b.ToTable("Wallets");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.User", b =>
@@ -834,6 +676,142 @@ namespace JaxWorld.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Wallets.Provider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LastModifierId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Providers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatorId = 0,
+                            Deleted = false,
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModifierId = 0,
+                            Name = "Metamask",
+                            NormalizedTag = "METAMASK"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatorId = 0,
+                            Deleted = false,
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModifierId = 0,
+                            Name = "Coinbase",
+                            NormalizedTag = "COINBASE"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatorId = 0,
+                            Deleted = false,
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModifierId = 0,
+                            Name = "WalletConnect",
+                            NormalizedTag = "WALLETCONNECT"
+                        },
+                        new
+                        {
+                            Id = 99,
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatorId = 0,
+                            Deleted = false,
+                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModifierId = 0,
+                            Name = "Unknown",
+                            NormalizedTag = "UNKNOWN"
+                        });
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Wallets.Wallet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Balance")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LastModifierId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NormalizedTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OwnerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProviderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
+
+                    b.HasIndex("ProviderId");
+
+                    b.ToTable("Wallets");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -999,15 +977,54 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("NetworksWallets");
                 });
 
+            modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
+                {
+                    b.HasBaseType("JaxWorld.Data.Entities.Base.Unit");
+
+                    b.Property<string>("DNA")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExternalUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("HolderId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Minted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MintedTxnHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("HolderId");
+
+                    b.HasIndex("ProfileId");
+
+                    b.HasDiscriminator().HasValue("Erc721aUnit");
+                });
+
             modelBuilder.Entity("Erc721aUnitsAttributes", b =>
                 {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Properties.Attribute", null)
+                    b.HasOne("JaxWorld.Data.Entities.Properties.Attribute", null)
                         .WithMany()
                         .HasForeignKey("AttributeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Units.Erc721aUnit", null)
+                    b.HasOne("JaxWorld.Data.Entities.Units.Erc721aUnit", null)
                         .WithMany()
                         .HasForeignKey("Erc721aUnitId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1016,39 +1033,39 @@ namespace JaxWorld.Data.Migrations
 
             modelBuilder.Entity("Erc721aUnitsUtilities", b =>
                 {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Units.Erc721aUnit", null)
+                    b.HasOne("JaxWorld.Data.Entities.Units.Erc721aUnit", null)
                         .WithMany()
                         .HasForeignKey("Erc721aUnitId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Properties.Utility", null)
+                    b.HasOne("JaxWorld.Data.Entities.Properties.Utility", null)
                         .WithMany()
                         .HasForeignKey("UtilityId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Contracts.Contract", b =>
                 {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Wallets.Wallet", "Creator")
+                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "CreatorWallet")
                         .WithMany("CreatedContracts")
-                        .HasForeignKey("CreatorId")
+                        .HasForeignKey("CreatorWalletId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Creator");
+                    b.Navigation("CreatorWallet");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Profiles.Profile", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Profiles.Profile", b =>
                 {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", "Contract")
+                    b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", "Contract")
                         .WithOne("Profile")
-                        .HasForeignKey("JaxWorld.Data.Entities.Blockchain.Profiles.Profile", "ContractId")
+                        .HasForeignKey("JaxWorld.Data.Entities.Profiles.Profile", "ContractId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Standard", "Standard")
+                    b.HasOne("JaxWorld.Data.Entities.Standard", "Standard")
                         .WithMany("Profiles")
                         .HasForeignKey("StandardId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1059,33 +1076,33 @@ namespace JaxWorld.Data.Migrations
                     b.Navigation("Standard");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Transactions.Transaction", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Transaction", b =>
                 {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", "Contract")
+                    b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", "Contract")
                         .WithMany("Transactions")
                         .HasForeignKey("ContractId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Wallets.Wallet", "Creator")
+                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Creator")
                         .WithMany("Transactions")
                         .HasForeignKey("CreatorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Units.Erc721aUnit", "Erc721aUnit")
+                    b.HasOne("JaxWorld.Data.Entities.Units.Erc721aUnit", "Erc721aUnit")
                         .WithMany("Transactions")
                         .HasForeignKey("Erc721aUnitId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Network", "Network")
+                    b.HasOne("JaxWorld.Data.Entities.Network", "Network")
                         .WithMany("Transactions")
                         .HasForeignKey("NetworkId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Transactions.TransactionState", "State")
+                    b.HasOne("JaxWorld.Data.Entities.Transactions.TransactionState", "State")
                         .WithMany("Transactions")
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1102,37 +1119,18 @@ namespace JaxWorld.Data.Migrations
                     b.Navigation("State");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Units.Erc721aUnit", b =>
-                {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Wallets.Wallet", "Holder")
-                        .WithMany("Erc721aUnits")
-                        .HasForeignKey("HolderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Profiles.Profile", "Profile")
-                        .WithMany("Erc721aUnits")
-                        .HasForeignKey("ProfileId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Holder");
-
-                    b.Navigation("Profile");
-                });
-
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Wallets.Wallet", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Wallets.Wallet", b =>
                 {
                     b.HasOne("JaxWorld.Data.Entities.User", "Owner")
                         .WithMany("Wallets")
                         .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Wallets.Provider", "Provider")
+                    b.HasOne("JaxWorld.Data.Entities.Wallets.Provider", "Provider")
                         .WithMany("Wallets")
                         .HasForeignKey("ProviderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Owner");
@@ -1193,13 +1191,13 @@ namespace JaxWorld.Data.Migrations
 
             modelBuilder.Entity("NetworksContracts", b =>
                 {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", null)
+                    b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", null)
                         .WithMany()
                         .HasForeignKey("ContractId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Network", null)
+                    b.HasOne("JaxWorld.Data.Entities.Network", null)
                         .WithMany()
                         .HasForeignKey("NetworkId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1208,20 +1206,39 @@ namespace JaxWorld.Data.Migrations
 
             modelBuilder.Entity("NetworksWallets", b =>
                 {
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Network", null)
+                    b.HasOne("JaxWorld.Data.Entities.Network", null)
                         .WithMany()
                         .HasForeignKey("NetworkId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Blockchain.Wallets.Wallet", null)
+                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", null)
                         .WithMany()
                         .HasForeignKey("WalletId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Contracts.Contract", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Holder")
+                        .WithMany("Erc721aUnits")
+                        .HasForeignKey("HolderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.Profiles.Profile", "Profile")
+                        .WithMany("Erc721aUnits")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Holder");
+
+                    b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Contracts.Contract", b =>
                 {
                     b.Navigation("Profile")
                         .IsRequired();
@@ -1229,37 +1246,37 @@ namespace JaxWorld.Data.Migrations
                     b.Navigation("Transactions");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Network", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Network", b =>
                 {
                     b.Navigation("Transactions");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Profiles.Profile", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Profiles.Profile", b =>
                 {
                     b.Navigation("Erc721aUnits");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Standard", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Standard", b =>
                 {
                     b.Navigation("Profiles");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Transactions.TransactionState", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TransactionState", b =>
                 {
                     b.Navigation("Transactions");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Units.Erc721aUnit", b =>
-                {
-                    b.Navigation("Transactions");
-                });
-
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Wallets.Provider", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.User", b =>
                 {
                     b.Navigation("Wallets");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Blockchain.Wallets.Wallet", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Wallets.Provider", b =>
+                {
+                    b.Navigation("Wallets");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Wallets.Wallet", b =>
                 {
                     b.Navigation("CreatedContracts");
 
@@ -1268,9 +1285,9 @@ namespace JaxWorld.Data.Migrations
                     b.Navigation("Transactions");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.User", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
                 {
-                    b.Navigation("Wallets");
+                    b.Navigation("Transactions");
                 });
 #pragma warning restore 612, 618
         }
