@@ -4,6 +4,6 @@
 
     public interface ICreatePropertyModel : ICreateModel
     {
-        public string TraitType { get; set; }
+        public string? TraitType { get; set; }
     }
 }
