@@ -25,7 +25,7 @@
 
         public async Task EditAsync(Utility utility, EditUtilityModel utilityModel, int modifierId)
         {
-            utility.Value = utilityModel.Value;
+            utility.Value = utilityModel.Value ?? utility.Value;
 
             await SaveModificationAsync(utility, modifierId);
         }
