@@ -21,8 +21,9 @@
         public decimal Balance { get; set; }
         [Precision(18, 2)]
         public decimal EstimatedValue { get; set; }
-        public string CreationTxnHash { get; set; }
-        public virtual Wallet Creator { get; set; }
+        public string? CreationTxnHash { get; set; }
+        public int CreatorWalletId { get; set; }
+        public virtual Wallet CreatorWallet { get; set; }
         public virtual Profile Profile { get; set; }
         public virtual ICollection<Network> Networks { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
