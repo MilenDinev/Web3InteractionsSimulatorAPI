@@ -8,9 +8,9 @@
     {
         public void Configure(EntityTypeBuilder<Contract> builder)
         {
-            builder.HasOne(s => s.Creator)
+            builder.HasOne(s => s.CreatorWallet)
                 .WithMany(u => u.CreatedContracts)
-                .HasForeignKey(s => s.CreatorId)
+                .HasForeignKey(s => s.CreatorWalletId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
