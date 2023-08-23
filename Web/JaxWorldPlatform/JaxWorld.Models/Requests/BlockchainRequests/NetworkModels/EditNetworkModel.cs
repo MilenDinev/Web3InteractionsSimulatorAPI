@@ -5,17 +5,21 @@
 
     public class EditNetworkModel
     {
-        [StringLength(25, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
+        [StringLength(AttributesParams.NetworkNameMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.NetworkNameMinLength)]
         public string? Name { get; init; }
 
-        [StringLength(10, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 1)]
+        [StringLength(AttributesParams.NetworkSymbolMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.NetworkSymbolMinLength)]
         public string? Symbol { get; init; }
         public int? ChainId { get; init; }
 
-        [StringLength(35, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 5)]
+        [Url(ErrorMessage = ValidationMessages.URL)]
         public string? RpcUrl { get; init; }
 
-        [StringLength(35, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 5)]
+        [Url(ErrorMessage = ValidationMessages.URL)]
         public string? ExplorerUrl { get; init; }
     }
 }

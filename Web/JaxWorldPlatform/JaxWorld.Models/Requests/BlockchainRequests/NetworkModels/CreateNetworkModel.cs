@@ -6,11 +6,15 @@
     public class CreateNetworkModel
     {
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(25, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
+        [StringLength(AttributesParams.NetworkNameMaxLength, 
+            ErrorMessage = ValidationMessages.MinMaxLength, 
+            MinimumLength = AttributesParams.NetworkNameMinLength)]
         public string? Name { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(6, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
+        [StringLength(AttributesParams.NetworkSymbolMaxLength, 
+            ErrorMessage = ValidationMessages.MinMaxLength, 
+            MinimumLength = AttributesParams.NetworkSymbolMinLength)]
         public string? Symbol { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
