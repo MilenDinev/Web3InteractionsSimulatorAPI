@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JaxWorld.Data.Migrations
 {
     [DbContext(typeof(JaxWorldDbContext))]
-    [Migration("20230823112358_InitialMigration")]
+    [Migration("20230823123115_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -356,7 +356,7 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Standards");
+                    b.ToTable("Standard");
 
                     b.HasData(
                         new
@@ -409,7 +409,9 @@ namespace JaxWorld.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -424,6 +426,15 @@ namespace JaxWorld.Data.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Difficulty")
                         .HasColumnType("int");
 
@@ -437,7 +448,17 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LastModifierId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nonce")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedTag")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -638,7 +659,7 @@ namespace JaxWorld.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnLog", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnAction", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -667,24 +688,6 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TransactionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TransactionId");
-
-                    b.ToTable("TransactionLogs");
-                });
-
-            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnOperation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<string>("Operation")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -701,7 +704,194 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasIndex("TargetId");
 
-                    b.ToTable("TxnOperation");
+                    b.ToTable("TxnAction");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LastModifierId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NormalizedTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("QuantityClaimed")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<decimal?>("StartTokenId")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<decimal?>("Value")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("newURI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("prevURI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TxnData");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ContractId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LastModifierId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NormalizedTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TransactionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TxnDataId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TxnMethodId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContractId");
+
+                    b.HasIndex("TransactionId");
+
+                    b.HasIndex("TxnDataId");
+
+                    b.HasIndex("TxnMethodId");
+
+                    b.ToTable("TransactionLogs");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnMethod", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LastModifierId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Method")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TxnMethod");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnTopic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LastModifierId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NormalizedTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TopicHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TxnLogId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TxnLogId");
+
+                    b.ToTable("TxnTopic");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
@@ -898,7 +1088,7 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Providers");
+                    b.ToTable("Provider");
 
                     b.HasData(
                         new
@@ -1246,7 +1436,7 @@ namespace JaxWorld.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Transactions.TxnOperation", "Operation")
+                    b.HasOne("JaxWorld.Data.Entities.Transactions.TxnAction", "Operation")
                         .WithMany()
                         .HasForeignKey("OperationId");
 
@@ -1275,14 +1465,7 @@ namespace JaxWorld.Data.Migrations
                     b.Navigation("Target");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnLog", b =>
-                {
-                    b.HasOne("JaxWorld.Data.Entities.Transactions.Transaction", null)
-                        .WithMany("Logs")
-                        .HasForeignKey("TransactionId");
-                });
-
-            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnOperation", b =>
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnAction", b =>
                 {
                     b.HasOne("JaxWorld.Data.Entities.Profiles.Profile", "Profile")
                         .WithMany()
@@ -1299,6 +1482,44 @@ namespace JaxWorld.Data.Migrations
                     b.Navigation("Profile");
 
                     b.Navigation("Target");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnLog", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", "Contract")
+                        .WithMany()
+                        .HasForeignKey("ContractId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.Transactions.Transaction", null)
+                        .WithMany("Logs")
+                        .HasForeignKey("TransactionId");
+
+                    b.HasOne("JaxWorld.Data.Entities.Transactions.TxnData", "TxnData")
+                        .WithMany()
+                        .HasForeignKey("TxnDataId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.Transactions.TxnMethod", "TxnMethod")
+                        .WithMany()
+                        .HasForeignKey("TxnMethodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Contract");
+
+                    b.Navigation("TxnData");
+
+                    b.Navigation("TxnMethod");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnTopic", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.Transactions.TxnLog", null)
+                        .WithMany("Topics")
+                        .HasForeignKey("TxnLogId");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
@@ -1456,6 +1677,11 @@ namespace JaxWorld.Data.Migrations
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TransactionState", b =>
                 {
                     b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnLog", b =>
+                {
+                    b.Navigation("Topics");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
