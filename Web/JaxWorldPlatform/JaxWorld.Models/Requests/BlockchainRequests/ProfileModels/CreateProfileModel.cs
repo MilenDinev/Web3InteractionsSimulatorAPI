@@ -6,15 +6,21 @@
     public class CreateProfileModel
     {
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(20, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 5)]
+        [StringLength(AttributesParams.ProfileNameMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.ProfileNameMinLength)]
         public string Name { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(6, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
+        [StringLength(AttributesParams.ProfileSymbolMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.ProfileSymbolMinLength)]
         public string Symbol { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(100, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 10)]
+        [StringLength(AttributesParams.ProfileDescriptionMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.ProfileDescriptionMinLength)]
         public string Description { get; set; }
         public int TotalSupply { get; set; }
         public int StandardId { get; set; }

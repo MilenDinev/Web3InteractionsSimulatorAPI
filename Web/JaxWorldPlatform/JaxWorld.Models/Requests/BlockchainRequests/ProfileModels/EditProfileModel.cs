@@ -5,13 +5,19 @@
 
     public class EditProfileModel
     {
-        [StringLength(15, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
+        [StringLength(AttributesParams.ProfileNameMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.ProfileNameMinLength)]
         public string? Name { get; set; }
 
-        [StringLength(5, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 1)]
+        [StringLength(AttributesParams.ProfileSymbolMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.ProfileSymbolMinLength)]
         public string? Symbol { get; set; }
 
-        [StringLength(50, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 10)]
+        [StringLength(AttributesParams.ProfileDescriptionMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.ProfileDescriptionMinLength)]
         public string? Description { get; set; }
         public int? TotalSupply { get; set; }
     }
