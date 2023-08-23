@@ -1,11 +1,11 @@
 ﻿namespace JaxWorld.Data.Entities.Base
 {
     using System.ComponentModel.DataAnnotations.Schema;
-    using Interfaces.IEntities.IBase;
+    using Constants;
 
     public abstract class Unit : Entity
     {
-        [Column("Name", Order = 2)]
+        [Column(AttributesParams.Name, Order = 2)]
         public string Name { get; set; }
     }
 }
