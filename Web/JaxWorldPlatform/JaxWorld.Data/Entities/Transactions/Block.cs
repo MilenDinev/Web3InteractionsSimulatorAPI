@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Transactions
 {
     using Microsoft.EntityFrameworkCore;
+    using Constants;
 
     public class Block : Entity
     {
@@ -11,7 +12,7 @@
 
         public ulong BlockHeight { get; set; }
         public DateTime Timestamp { get; set; }
-        [Precision(18, 2)]
+        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal BurnedFees { get; set; }
         public int UnclesReward { get; set; }
         public int Difficulty { get; set; }
@@ -19,9 +20,9 @@
         public ulong Size { get; set; }
         public ulong GasUsed { get; set; }
         public ulong GasLimit { get; set; }
-        [Precision(18, 2)]
+        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal BaseFeePerGas { get; set; }
-        [Precision(18, 2)]
+        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal Price { get; set; }
         public string Hash { get; set; }
         public string ParentHash { get; set; }

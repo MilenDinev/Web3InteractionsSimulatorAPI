@@ -3,6 +3,7 @@
     using Microsoft.EntityFrameworkCore;
     using Wallets;
     using Contracts;
+    using JaxWorld.Data.Constants;
 
     public class Transaction : Entity
     {
@@ -25,13 +26,13 @@
         public virtual Contract Target { get; set; }
         public int? OperationId { get; set; }
         public virtual TxnAction Operation { get; set; }
-        [Precision(18, 2)]
+        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal Value { get; set; }
-        [Precision(18, 2)]
+        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal Fee { get; set; }
-        [Precision(18, 2)]
+        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal GasPrice { get; set; }
-        [Precision(18, 2)]
+        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal NativeValuePrice { get; set; }
         public int Nonce { get; set; }
         public virtual ICollection<TxnLog> Logs { get; set; }
