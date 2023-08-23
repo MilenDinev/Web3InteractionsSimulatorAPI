@@ -1,10 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace JaxWorld.Data.Entities.Transactions
+﻿namespace JaxWorld.Data.Entities.Transactions
 {
-    public class Block
+    using Microsoft.EntityFrameworkCore;
+
+    public class Block : Entity
     {
-        public int Id { get; set; }
+        public Block()
+        {
+            this.Transactions = new HashSet<Transaction>();
+        }
+
         public ulong BlockHeight { get; set; }
         public DateTime Timestamp { get; set; }
         [Precision(18, 2)]
