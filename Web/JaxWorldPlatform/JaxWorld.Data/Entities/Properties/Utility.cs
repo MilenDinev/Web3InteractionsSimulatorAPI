@@ -2,6 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Base;
+    using Constants;
     using Entities.Units;
 
     public class Utility : Property
@@ -11,7 +12,7 @@
             Erc721AUnits = new HashSet<Erc721aUnit>();
         }
         public string DisplayType { get; set; }
-        [Precision(18, 2)]
+        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal Value { get; set; }
         public virtual ICollection<Erc721aUnit> Erc721AUnits { get; set; }
     }
