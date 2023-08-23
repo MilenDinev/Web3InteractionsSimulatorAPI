@@ -3,6 +3,7 @@
     using Microsoft.EntityFrameworkCore;
     using Units;
     using Entities;
+    using Constants;
     using Contracts;
     using Transactions;
 
@@ -17,7 +18,7 @@
         }
 
         public string Address { get; set; }
-        [Precision(18, 2)]
+        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal Balance { get; set; }
         public int OwnerId { get; set; }
         public virtual User Owner { get; set; }
