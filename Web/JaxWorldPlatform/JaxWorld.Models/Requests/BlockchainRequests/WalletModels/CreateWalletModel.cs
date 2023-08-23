@@ -6,7 +6,9 @@
     public class CreateWalletModel
     {
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(50, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 5)]
+        [StringLength(AttributesParams.WalletAddressMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.WalletAddressMinLength)]
         public string? Address { get; set; }
         [Required(ErrorMessage = ValidationMessages.Required)]
         [RegularExpression("(^(?i)metamask|^coinbase|^walletconnect|^1$|^2$|^3$)",
