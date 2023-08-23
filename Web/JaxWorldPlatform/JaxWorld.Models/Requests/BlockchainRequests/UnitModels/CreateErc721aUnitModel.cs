@@ -6,10 +6,14 @@
     public class CreateErc721aUnitModel
     {
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(15, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
+        [StringLength(AttributesParams.UnitNameMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.UnitNameMinLength)]
         public string? Name { get; set; }
         public int ProfileId { get; set; }
-        [StringLength(30, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 5)]
+        [StringLength(AttributesParams.DNAMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.DNAMinLength)]
         public string? DNA { get; set; }
     }
 }
