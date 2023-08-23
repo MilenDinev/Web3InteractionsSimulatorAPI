@@ -10,16 +10,16 @@
         public int StateId { get; set; }
         public virtual TransactionState State { get; set; }
         public int NetworkId { get; set; }
-        public Network Network { get; set; }
+        public virtual Network Network { get; set; }
         public int BlockId  { get; set; }
-        public Block Block  { get; set; }
+        public virtual Block Block  { get; set; }
         public DateTime Timestamp  { get; set; }
         public int InitiatorId { get; set; }
         public virtual Wallet Initiator { get; set; }
         public int TargetId { get; set; }
         public virtual Contract Target { get; set; }
         public int? OperationId { get; set; }
-        public TxnOperation Operation { get; set; }
+        public virtual TxnOperation Operation { get; set; }
         public decimal Value { get; set; }
         public decimal Fee { get; set; }
         public decimal GasPrice { get; set; }

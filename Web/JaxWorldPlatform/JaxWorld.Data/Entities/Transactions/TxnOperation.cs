@@ -8,8 +8,8 @@
         public int Id { get; set; }
         public string Operation { get; set; }
         public int ProfileId { get; set; }
-        public Profile Profile { get; set; }
+        public virtual Profile Profile { get; set; }
         public int TargetId { get; set; }
-        public Wallet Target { get; set; }
+        public virtual Wallet Target { get; set; }
     }
 }
