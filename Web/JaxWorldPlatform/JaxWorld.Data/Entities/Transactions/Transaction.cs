@@ -3,7 +3,7 @@
     using Microsoft.EntityFrameworkCore;
     using Wallets;
     using Contracts;
-    using JaxWorld.Data.Constants;
+    using Constants;
 
     public class Transaction : Entity
     {
