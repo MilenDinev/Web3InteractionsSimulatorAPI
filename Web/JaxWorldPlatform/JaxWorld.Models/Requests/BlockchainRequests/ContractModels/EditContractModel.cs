@@ -5,7 +5,9 @@
 
     public class EditContractModel
     {
-        [StringLength(15, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
+        [StringLength(AttributesParams.ContractNameMaxLength, 
+            ErrorMessage = ValidationMessages.MinMaxLength, 
+            MinimumLength = AttributesParams.ContractNameMinLength)]
         public string? Name { get; set; }
     }
 }

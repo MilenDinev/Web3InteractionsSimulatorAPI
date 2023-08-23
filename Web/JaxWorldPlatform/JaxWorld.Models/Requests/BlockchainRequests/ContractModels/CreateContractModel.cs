@@ -6,19 +6,24 @@
     public class CreateContractModel
     {
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(15, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
+        [StringLength(AttributesParams.ContractNameMaxLength, 
+            ErrorMessage = ValidationMessages.MinMaxLength, 
+            MinimumLength = AttributesParams.ContractNameMinLength)]
         public string Name { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [MinLength(5, ErrorMessage = ValidationMessages.MinLength)]
+        [MinLength(AttributesParams.ContractAddressMinLength, 
+            ErrorMessage = ValidationMessages.MinLength)]
         public string ContractAddress { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [MinLength(5, ErrorMessage = ValidationMessages.MinLength)]
+        [MinLength(AttributesParams.WalletAddressMinLength, 
+            ErrorMessage = ValidationMessages.MinLength)]
         public string CreatorAddress { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [MinLength(5, ErrorMessage = ValidationMessages.MinLength)]
+        [MinLength(AttributesParams.TxnHashMinLength, 
+            ErrorMessage = ValidationMessages.MinLength)]
         public string CreationTxnHash { get; set; }
 
         [RegularExpression("(^(?i)1$|^2$|^3$)",
