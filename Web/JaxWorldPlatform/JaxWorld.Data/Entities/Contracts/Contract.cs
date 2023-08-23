@@ -21,8 +21,6 @@
         public decimal Balance { get; set; }
         [Precision(18, 2)]
         public decimal EstimatedValue { get; set; }
-        public int CreationTxnId { get; set; }
-        public virtual Transaction CreationTxn { get; set; }
         public int CreatorWalletId { get; set; }
         public virtual Wallet CreatorWallet { get; set; }
         public virtual Profile Profile { get; set; }
