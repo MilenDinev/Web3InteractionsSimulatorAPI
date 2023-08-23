@@ -4,9 +4,8 @@
     using Wallets;
     using Profiles;
     using Transactions;
-    using Interfaces.IEntities.IContracts;
 
-    public class Contract : Entity, IContract
+    public class Contract : Entity
     {
         public Contract()
         {

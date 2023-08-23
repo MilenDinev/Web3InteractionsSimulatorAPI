@@ -5,9 +5,8 @@
     using Profiles;
     using Properties;
     using Transactions;
-    using Interfaces.IEntities.IUnits;
 
-    public class Erc721aUnit : Unit, IErc721aUnit
+    public class Erc721aUnit : Unit
     {
         public Erc721aUnit()
         {

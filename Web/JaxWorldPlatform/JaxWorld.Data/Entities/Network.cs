@@ -3,9 +3,8 @@
     using Wallets;
     using Contracts;
     using Transactions;
-    using Interfaces.IEntities;
 
-    public class Network : Entity, INetwork
+    public class Network : Entity
     {
         public Network()
         {

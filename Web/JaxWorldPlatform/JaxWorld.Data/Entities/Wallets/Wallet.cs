@@ -5,9 +5,8 @@
     using Entities;
     using Contracts;
     using Transactions;
-    using Interfaces.IEntities.IWallets;
 
-    public class Wallet : Entity, IWallet
+    public class Wallet : Entity
     {
         public Wallet()
         {

@@ -2,9 +2,8 @@
 {
     using Units;
     using Entities.Contracts;
-    using Interfaces.IEntities.IProfiles;
 
-    public class Profile : Entity, IProfile
+    public class Profile : Entity
     {
         public Profile()
         {

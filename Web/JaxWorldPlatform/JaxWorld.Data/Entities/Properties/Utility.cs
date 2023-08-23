@@ -3,9 +3,8 @@
     using Microsoft.EntityFrameworkCore;
     using Base;
     using Entities.Units;
-    using Interfaces.IEntities.IProperties;
 
-    public class Utility : Property, IUtility
+    public class Utility : Property
     {
         public Utility()
         {

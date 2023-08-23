@@ -1,16 +1,16 @@
 ﻿namespace JaxWorld.Data.Entities.Transactions
 {
+    using Microsoft.EntityFrameworkCore;
     using Wallets;
     using Contracts;
-    using Interfaces.IEntities.ITransactions;
-    using Microsoft.EntityFrameworkCore;
 
-    public class Transaction : Entity, ITransaction
+    public class Transaction : Entity
     {
         public Transaction()
         {
             this.Logs = new HashSet<TxnLog>();
         }
+
         public string TxnHash { get; set; }
         public int StateId { get; set; }
         public virtual TransactionState State { get; set; }
@@ -24,7 +24,7 @@
         public int TargetId { get; set; }
         public virtual Contract Target { get; set; }
         public int? OperationId { get; set; }
-        public virtual TxnOperation Operation { get; set; }
+        public virtual TxnAction Operation { get; set; }
         [Precision(18, 2)]
         public decimal Value { get; set; }
         [Precision(18, 2)]

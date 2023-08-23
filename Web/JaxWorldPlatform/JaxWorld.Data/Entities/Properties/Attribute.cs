@@ -2,9 +2,8 @@
 {
     using Base;
     using Entities.Units;
-    using Interfaces.IEntities.IProperties;
 
-    public class Attribute : Property, IAttribute
+    public class Attribute : Property
     {
         public Attribute()
         {
