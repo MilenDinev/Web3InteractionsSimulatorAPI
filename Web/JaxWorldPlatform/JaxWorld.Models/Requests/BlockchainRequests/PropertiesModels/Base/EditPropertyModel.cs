@@ -6,7 +6,9 @@
 
     public abstract class EditPropertyModel : IEditPropertyModel
     {
-        [StringLength(15, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 2)]
+        [StringLength(AttributesParams.TraitTypeMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.TraitTypeMinLength)]
         public string? TraitType { get; set; }
     }
 }

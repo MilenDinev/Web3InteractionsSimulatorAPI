@@ -7,7 +7,9 @@
     public abstract class CreatePropertyModel : ICreatePropertyModel
     {
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(15, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 3)]
+        [StringLength(AttributesParams.TraitTypeMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.TraitTypeMinLength)]
         public string? TraitType { get; set; }
     }
 }
