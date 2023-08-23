@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Data.Configurations.Transactions
+﻿namespace JaxWorld.Data.Configurations.Transaction
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
