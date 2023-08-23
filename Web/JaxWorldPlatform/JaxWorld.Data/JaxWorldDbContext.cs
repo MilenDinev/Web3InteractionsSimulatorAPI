@@ -17,6 +17,8 @@
         { }
 
         public virtual DbSet<Network> Networks { get; set; }
+        public virtual DbSet<Block> Blocks { get; set; }
+        public virtual DbSet<TxnLog> TransactionLogs { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<Contract> Contracts { get; set; }
         public virtual DbSet<Standard> Standards { get; set; }
