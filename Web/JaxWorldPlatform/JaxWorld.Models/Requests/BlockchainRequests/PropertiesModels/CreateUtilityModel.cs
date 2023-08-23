@@ -7,7 +7,9 @@
     public class CreateUtilityModel : CreatePropertyModel
     {
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(15, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 3)]
+        [StringLength(AttributesParams.DisplayTypeMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.DisplayTypeMinLength)]
         public string? DisplayType { get; set; }
         public decimal Value { get; set; }
     }
