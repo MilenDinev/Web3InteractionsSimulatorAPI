@@ -1,16 +1,16 @@
-﻿namespace JaxWorld.Data.Configurations.Wallets
+﻿namespace JaxWorld.Data.Configurations.Transactions
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Entities.Transactions;
 
-    public class WalletTransactionConfig : IEntityTypeConfiguration<Transaction>
+    public class TransactionConfig : IEntityTypeConfiguration<Transaction>
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
-            builder.HasOne(s => s.Creator)
+            builder.HasOne(s => s.Network)
             .WithMany(u => u.Transactions)
-            .HasForeignKey(s => s.CreatorId)
+            .HasForeignKey(s => s.NetworkId)
             .OnDelete(DeleteBehavior.Restrict);
         }
     }

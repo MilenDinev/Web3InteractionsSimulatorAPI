@@ -1,10 +1,10 @@
-﻿namespace JaxWorld.Data.Configurations.Wallets
+﻿namespace JaxWorld.Data.Configurations.Contract
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Entities.Contracts;
 
-    public class WalletContractConfig : IEntityTypeConfiguration<Contract>
+    public class ContractConfig : IEntityTypeConfiguration<Contract>
     {
         public void Configure(EntityTypeBuilder<Contract> builder)
         {
