@@ -3,9 +3,14 @@
     using Wallets;
     using Contracts;
     using Interfaces.IEntities.ITransactions;
+    using Microsoft.EntityFrameworkCore;
 
     public class Transaction : Entity, ITransaction
     {
+        public Transaction()
+        {
+            this.Logs = new HashSet<TxnLog>();
+        }
         public string TxnHash { get; set; }
         public int StateId { get; set; }
         public virtual TransactionState State { get; set; }
@@ -20,11 +25,15 @@
         public virtual Contract Target { get; set; }
         public int? OperationId { get; set; }
         public virtual TxnOperation Operation { get; set; }
+        [Precision(18, 2)]
         public decimal Value { get; set; }
+        [Precision(18, 2)]
         public decimal Fee { get; set; }
+        [Precision(18, 2)]
         public decimal GasPrice { get; set; }
+        [Precision(18, 2)]
         public decimal NativeValuePrice { get; set; }
         public int Nonce { get; set; }
-        public ICollection<int> Logs { get; set; }
+        public virtual ICollection<TxnLog> Logs { get; set; }
     }
 }
