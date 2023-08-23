@@ -5,10 +5,14 @@
 
     public class EditUserModel
     {
-        [StringLength(25, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 4)]
+        [StringLength(AttributesParams.UserNameMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.UserNameMinLength)]
         public string? UserName { get; set; }
 
-        [StringLength(50, ErrorMessage = ValidationMessages.MinMaxLength, MinimumLength = 5)]
+        [StringLength(AttributesParams.WalletAddressMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
+            MinimumLength = AttributesParams.WalletAddressMinLength)]
         public string? WalletAddress { get; set; }
 
         [EmailAddress(ErrorMessage = ValidationMessages.Email)]
