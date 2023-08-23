@@ -55,54 +55,6 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("Erc721aUnitsUtilities");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Base.Unit", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasColumnOrder(0);
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("LastModificationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LastModifierId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Name")
-                        .HasColumnOrder(2);
-
-                    b.Property<string>("NormalizedTag")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Unit");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Unit");
-
-                    b.UseTphMappingStrategy();
-                });
-
             modelBuilder.Entity("JaxWorld.Data.Entities.Contracts.Contract", b =>
                 {
                     b.Property<int>("Id")
@@ -123,9 +75,6 @@ namespace JaxWorld.Data.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("CreationTxnHash")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CreatorId")
                         .HasColumnType("int");
@@ -453,6 +402,71 @@ namespace JaxWorld.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Block", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("BaseFeePerGas")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("BlockHeight")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<decimal>("BurnedFees")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Difficulty")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("GasLimit")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<decimal>("GasUsed")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<string>("Hash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nonce")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ParentHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Sha3Uncles")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Size")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TotalDifficulty")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<int>("UnclesReward")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Blocks");
+                });
+
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Transaction", b =>
                 {
                     b.Property<int>("Id")
@@ -463,8 +477,7 @@ namespace JaxWorld.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("ContractId")
-                        .IsRequired()
+                    b.Property<int>("BlockId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreationDate")
@@ -477,7 +490,17 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int?>("Erc721aUnitId")
-                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Fee")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GasPrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("InitiatorId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("LastModificationDate")
@@ -486,31 +509,55 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("LastModifierId")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("NativeValuePrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("NetworkId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Nonce")
                         .HasColumnType("int");
 
                     b.Property<string>("NormalizedTag")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OperationId")
+                        .HasColumnType("int");
+
                     b.Property<int>("StateId")
                         .HasColumnType("int");
+
+                    b.Property<int>("TargetId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("TxnHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Value")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ContractId");
-
-                    b.HasIndex("CreatorId");
+                    b.HasIndex("BlockId");
 
                     b.HasIndex("Erc721aUnitId");
 
+                    b.HasIndex("InitiatorId");
+
                     b.HasIndex("NetworkId");
 
+                    b.HasIndex("OperationId");
+
                     b.HasIndex("StateId");
+
+                    b.HasIndex("TargetId");
 
                     b.ToTable("Transactions");
                 });
@@ -586,6 +633,144 @@ namespace JaxWorld.Data.Migrations
                             NormalizedTag = "REJECTED",
                             State = "Rejected"
                         });
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LastModifierId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NormalizedTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TransactionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TransactionId");
+
+                    b.ToTable("TransactionLogs");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnOperation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Operation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TargetId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProfileId");
+
+                    b.HasIndex("TargetId");
+
+                    b.ToTable("TxnOperation");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DNA")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExternalUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("HolderId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LastModifierId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Minted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MintedTxnHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("NormalizedTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HolderId");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("Erc721aUnits");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.User", b =>
@@ -974,45 +1159,6 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("NetworksWallets");
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
-                {
-                    b.HasBaseType("JaxWorld.Data.Entities.Base.Unit");
-
-                    b.Property<string>("DNA")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ExternalUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("HolderId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Minted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MintedTxnHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProfileId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("HolderId");
-
-                    b.HasIndex("ProfileId");
-
-                    b.HasDiscriminator().HasValue("Erc721aUnit");
-                });
-
             modelBuilder.Entity("Erc721aUnitsAttributes", b =>
                 {
                     b.HasOne("JaxWorld.Data.Entities.Properties.Attribute", null)
@@ -1075,22 +1221,20 @@ namespace JaxWorld.Data.Migrations
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Transaction", b =>
                 {
-                    b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", "Contract")
+                    b.HasOne("JaxWorld.Data.Entities.Transactions.Block", "Block")
                         .WithMany("Transactions")
-                        .HasForeignKey("ContractId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("BlockId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Creator")
+                    b.HasOne("JaxWorld.Data.Entities.Units.Erc721aUnit", null)
                         .WithMany("Transactions")
-                        .HasForeignKey("CreatorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("Erc721aUnitId");
 
-                    b.HasOne("JaxWorld.Data.Entities.Units.Erc721aUnit", "Erc721aUnit")
+                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Initiator")
                         .WithMany("Transactions")
-                        .HasForeignKey("Erc721aUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("InitiatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("JaxWorld.Data.Entities.Network", "Network")
@@ -1099,21 +1243,78 @@ namespace JaxWorld.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("JaxWorld.Data.Entities.Transactions.TxnOperation", "Operation")
+                        .WithMany()
+                        .HasForeignKey("OperationId");
+
                     b.HasOne("JaxWorld.Data.Entities.Transactions.TransactionState", "State")
                         .WithMany("Transactions")
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Contract");
+                    b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", "Target")
+                        .WithMany("Transactions")
+                        .HasForeignKey("TargetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Creator");
+                    b.Navigation("Block");
 
-                    b.Navigation("Erc721aUnit");
+                    b.Navigation("Initiator");
 
                     b.Navigation("Network");
 
+                    b.Navigation("Operation");
+
                     b.Navigation("State");
+
+                    b.Navigation("Target");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnLog", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.Transactions.Transaction", null)
+                        .WithMany("Logs")
+                        .HasForeignKey("TransactionId");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnOperation", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.Profiles.Profile", "Profile")
+                        .WithMany()
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Target")
+                        .WithMany()
+                        .HasForeignKey("TargetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Profile");
+
+                    b.Navigation("Target");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Holder")
+                        .WithMany("Erc721aUnits")
+                        .HasForeignKey("HolderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.Profiles.Profile", "Profile")
+                        .WithMany("Erc721aUnits")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Holder");
+
+                    b.Navigation("Profile");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Wallets.Wallet", b =>
@@ -1216,25 +1417,6 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
-                {
-                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Holder")
-                        .WithMany("Erc721aUnits")
-                        .HasForeignKey("HolderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("JaxWorld.Data.Entities.Profiles.Profile", "Profile")
-                        .WithMany("Erc721aUnits")
-                        .HasForeignKey("ProfileId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Holder");
-
-                    b.Navigation("Profile");
-                });
-
             modelBuilder.Entity("JaxWorld.Data.Entities.Contracts.Contract", b =>
                 {
                     b.Navigation("Profile")
@@ -1258,7 +1440,22 @@ namespace JaxWorld.Data.Migrations
                     b.Navigation("Profiles");
                 });
 
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Block", b =>
+                {
+                    b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Transaction", b =>
+                {
+                    b.Navigation("Logs");
+                });
+
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TransactionState", b =>
+                {
+                    b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
                 {
                     b.Navigation("Transactions");
                 });
@@ -1279,11 +1476,6 @@ namespace JaxWorld.Data.Migrations
 
                     b.Navigation("Erc721aUnits");
 
-                    b.Navigation("Transactions");
-                });
-
-            modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
-                {
                     b.Navigation("Transactions");
                 });
 #pragma warning restore 612, 618
