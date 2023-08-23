@@ -2,11 +2,12 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Constants;
     using Interfaces.IEntities;
 
     public abstract class Entity : IEntity
     {
-        [Column("Id", Order = 0)]
+        [Column(AttributesParams.Id, Order = 0)]
         public int Id { get; set; }
         public string NormalizedTag { get; set; }
         public int CreatorId { get; set; }
