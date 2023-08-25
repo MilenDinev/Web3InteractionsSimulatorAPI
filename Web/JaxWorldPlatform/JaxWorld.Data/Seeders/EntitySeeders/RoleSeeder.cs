@@ -4,9 +4,9 @@
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
 
-    public static class RolesSeeder
+    internal static class RolesSeeder
     {
-        public static async Task SeedRolesAsync(RoleManager<IdentityRole<int>> roleManager)
+        internal static async Task SeedRolesAsync(RoleManager<IdentityRole<int>> roleManager)
         {
             var adminRole = new IdentityRole<int>()
             {

@@ -3,9 +3,9 @@
     using Microsoft.AspNetCore.Identity;
     using Entities;
 
-    public static class UsersSeeder
+    internal static class UsersSeeder
     {
-        public static async Task SeedUsersAsync(UserManager<User> userManager)
+        internal static async Task SeedUsersAsync(UserManager<User> userManager)
         {
             var adminUser = new User()
             {
