@@ -5,7 +5,7 @@
     using Entities.Units;
     using Entities.Properties;
 
-    public class Erc721aUnitUtilityConfig : IEntityTypeConfiguration<Utility>
+    internal class Erc721aUnitUtilityConfig : IEntityTypeConfiguration<Utility>
     {
         public void Configure(EntityTypeBuilder<Utility> builder)
         {
