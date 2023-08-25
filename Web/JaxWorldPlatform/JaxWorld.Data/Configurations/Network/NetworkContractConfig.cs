@@ -5,7 +5,7 @@
     using Entities;
     using Entities.Contracts;
 
-    public class NetworkContractConfig : IEntityTypeConfiguration<Contract>
+    internal class NetworkContractConfig : IEntityTypeConfiguration<Contract>
     {
         public void Configure(EntityTypeBuilder<Contract> builder)
         {

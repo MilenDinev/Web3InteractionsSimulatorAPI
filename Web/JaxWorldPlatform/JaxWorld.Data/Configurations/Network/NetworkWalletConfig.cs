@@ -6,7 +6,7 @@
     using Entities;
     using Entities.Wallets;
 
-    public class NetworkWalletConfig : IEntityTypeConfiguration<Wallet>
+    internal class NetworkWalletConfig : IEntityTypeConfiguration<Wallet>
     {
         public void Configure(EntityTypeBuilder<Wallet> builder)
         {
