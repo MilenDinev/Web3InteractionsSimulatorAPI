@@ -8,35 +8,17 @@
     {
         public void Configure(EntityTypeBuilder<Provider> builder)
         {
-            builder.HasData(
-                    new Provider
-                    {
-                        Id = 1,
-                        Name = "Metamask",
-                        NormalizedTag = "Metamask".ToUpper()
-                    });
-            builder.HasData(
-                    new Provider
-                    {
-                        Id = 2,
-                        Name = "Coinbase",
-                        NormalizedTag = "Coinbase".ToUpper()
-                    });
 
-            builder.HasData(
-                    new Provider
-                    {
-                        Id = 3,
-                        Name = "WalletConnect",
-                        NormalizedTag = "WalletConnect".ToUpper()
-                    });
-            builder.HasData(
-                    new Provider
-                    {
-                        Id = 99,
-                        Name = "Unknown",
-                        NormalizedTag = "Unknown".ToUpper()
-                    });
+            builder.HasOne(s => s.Creator)
+                .WithMany()
+                .HasForeignKey(s => s.CreatorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(s => s.LastModifier)
+                .WithMany()
+                .HasForeignKey(s => s.LastModifierId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }
