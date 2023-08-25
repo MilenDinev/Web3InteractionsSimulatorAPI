@@ -28,8 +28,12 @@
                 {
                     await RolesSeeder.SeedRolesAsync(roleManager);
                     await UsersSeeder.SeedUsersAsync(userManager);
+                    await StandardSeeder.Seed(context);
+                    await ProviderSeeder.Seed(context);
                     await NetworksSampleSeeder.Seed(context);
+                    await TransactionStateSeeder.Seed(context);
                 }
+
             }
         }
     }
