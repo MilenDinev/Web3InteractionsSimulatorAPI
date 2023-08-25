@@ -8,28 +8,15 @@
     {
         public void Configure(EntityTypeBuilder<TransactionState> builder)
         {
-            builder.HasData(
-                    new TransactionState
-                    {
-                        Id = 1,
-                        State = "Pending",
-                        NormalizedTag = "Pending".ToUpper()
-                    });
-            builder.HasData(
-                    new TransactionState
-                    {
-                        Id = 2,
-                        State = "Approved",
-                        NormalizedTag = "Approved".ToUpper()
-                    });
+            builder.HasOne(s => s.Creator)
+                .WithMany()
+                .HasForeignKey(s => s.CreatorId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasData(
-                    new TransactionState
-                    {
-                        Id = 3,
-                        State = "Rejected",
-                        NormalizedTag = "Rejected".ToUpper()
-                    });
+            builder.HasOne(s => s.LastModifier)
+                .WithMany()
+                .HasForeignKey(s => s.LastModifierId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
