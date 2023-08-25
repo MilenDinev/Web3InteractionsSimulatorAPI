@@ -4,14 +4,24 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Entities.Transactions;
 
-    public class TransactionConfig : IEntityTypeConfiguration<Transaction>
+    internal class TransactionConfig : IEntityTypeConfiguration<Transaction>
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
             builder.HasOne(s => s.Network)
-            .WithMany(u => u.Transactions)
-            .HasForeignKey(s => s.NetworkId)
-            .OnDelete(DeleteBehavior.Restrict);
+                .WithMany(u => u.Transactions)
+                .HasForeignKey(s => s.NetworkId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(s => s.Creator)
+                .WithMany()
+                .HasForeignKey(s => s.CreatorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(s => s.LastModifier)
+                .WithMany()
+                .HasForeignKey(s => s.LastModifierId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
