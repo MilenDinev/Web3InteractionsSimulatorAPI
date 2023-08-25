@@ -2,9 +2,9 @@
 {
     using Entities;
 
-    public static class NetworksSampleSeeder
+    internal static class NetworksSampleSeeder
     {
-        public static async Task Seed(JaxWorldDbContext context)
+        internal static async Task Seed(JaxWorldDbContext context)
         {
             var avalancheMainet = new Network
 
@@ -15,6 +15,8 @@
                 Symbol= "AVAX",
                 ExplorerUrl= "https://snowtrace.io/ ",
                 NormalizedTag = "Avalanche Mainnet Network".ToUpper(),
+                CreatorId = 1,
+                LastModifierId = 1
             };
 
             var avalancheFujiTestNet = new Network
@@ -25,11 +27,11 @@
                 Symbol = "AVAX",
                 ExplorerUrl = "https://testnet.snowtrace.io/",
                 NormalizedTag = "Avalanche FUJI C-Chain".ToUpper(),
+                CreatorId = 1,
+                LastModifierId = 1
             };
 
-
             await context.Networks.AddRangeAsync(avalancheMainet, avalancheFujiTestNet);
-
             await context.SaveChangesAsync();
         }
     }
