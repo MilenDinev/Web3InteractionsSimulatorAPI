@@ -105,7 +105,11 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatorId");
+
                     b.HasIndex("CreatorWalletId");
+
+                    b.HasIndex("LastModifierId");
 
                     b.ToTable("Contracts");
                 });
@@ -159,6 +163,10 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
 
                     b.ToTable("Networks");
                 });
@@ -221,6 +229,10 @@ namespace JaxWorld.Data.Migrations
                     b.HasIndex("ContractId")
                         .IsUnique();
 
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
+
                     b.HasIndex("StandardId");
 
                     b.ToTable("Profiles");
@@ -266,6 +278,10 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
 
                     b.ToTable("Attributes");
                 });
@@ -315,6 +331,10 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
+
                     b.ToTable("Utilities");
                 });
 
@@ -353,53 +373,11 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Standard");
+                    b.HasIndex("CreatorId");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "ERC721",
-                            NormalizedTag = "ERC721"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "ERC721a",
-                            NormalizedTag = "ERC721A"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "ERC20",
-                            NormalizedTag = "ERC20"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "ERC1155",
-                            NormalizedTag = "ERC1155"
-                        });
+                    b.HasIndex("LastModifierId");
+
+                    b.ToTable("Standards");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Block", b =>
@@ -485,6 +463,10 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
+
                     b.ToTable("Blocks");
                 });
 
@@ -568,9 +550,13 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasIndex("BlockId");
 
+                    b.HasIndex("CreatorId");
+
                     b.HasIndex("Erc721aUnitId");
 
                     b.HasIndex("InitiatorId");
+
+                    b.HasIndex("LastModifierId");
 
                     b.HasIndex("NetworkId");
 
@@ -618,42 +604,11 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TransactionState");
+                    b.HasIndex("CreatorId");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            NormalizedTag = "PENDING",
-                            State = "Pending"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            NormalizedTag = "APPROVED",
-                            State = "Approved"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            NormalizedTag = "REJECTED",
-                            State = "Rejected"
-                        });
+                    b.HasIndex("LastModifierId");
+
+                    b.ToTable("TransactionStates");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnAction", b =>
@@ -696,6 +651,10 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
 
                     b.HasIndex("ProfileId");
 
@@ -744,14 +703,16 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("newURI")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("prevURI")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
 
                     b.ToTable("TxnData");
                 });
@@ -801,6 +762,10 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasIndex("ContractId");
 
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
+
                     b.HasIndex("TransactionId");
 
                     b.HasIndex("TxnDataId");
@@ -845,6 +810,10 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
+
                     b.ToTable("TxnMethod");
                 });
 
@@ -885,6 +854,10 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
 
                     b.HasIndex("TxnLogId");
 
@@ -956,7 +929,11 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatorId");
+
                     b.HasIndex("HolderId");
+
+                    b.HasIndex("LastModifierId");
 
                     b.HasIndex("ProfileId");
 
@@ -1039,6 +1016,10 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -1085,53 +1066,11 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Provider");
+                    b.HasIndex("CreatorId");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "Metamask",
-                            NormalizedTag = "METAMASK"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "Coinbase",
-                            NormalizedTag = "COINBASE"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "WalletConnect",
-                            NormalizedTag = "WALLETCONNECT"
-                        },
-                        new
-                        {
-                            Id = 99,
-                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatorId = 0,
-                            Deleted = false,
-                            LastModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastModifierId = 0,
-                            Name = "Unknown",
-                            NormalizedTag = "UNKNOWN"
-                        });
+                    b.HasIndex("LastModifierId");
+
+                    b.ToTable("WalletProviders");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Wallets.Wallet", b =>
@@ -1178,6 +1117,10 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("LastModifierId");
 
                     b.HasIndex("OwnerId");
 
@@ -1381,13 +1324,48 @@ namespace JaxWorld.Data.Migrations
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Contracts.Contract", b =>
                 {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "CreatorWallet")
                         .WithMany("CreatedContracts")
                         .HasForeignKey("CreatorWalletId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
                     b.Navigation("CreatorWallet");
+
+                    b.Navigation("LastModifier");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Network", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Profiles.Profile", b =>
@@ -1395,6 +1373,18 @@ namespace JaxWorld.Data.Migrations
                     b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", "Contract")
                         .WithOne("Profile")
                         .HasForeignKey("JaxWorld.Data.Entities.Profiles.Profile", "ContractId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -1406,7 +1396,87 @@ namespace JaxWorld.Data.Migrations
 
                     b.Navigation("Contract");
 
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
+
                     b.Navigation("Standard");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Properties.Attribute", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Properties.Utility", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Standard", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Block", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Transaction", b =>
@@ -1417,6 +1487,12 @@ namespace JaxWorld.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("JaxWorld.Data.Entities.Units.Erc721aUnit", null)
                         .WithMany("Transactions")
                         .HasForeignKey("Erc721aUnitId");
@@ -1425,6 +1501,12 @@ namespace JaxWorld.Data.Migrations
                         .WithMany("Transactions")
                         .HasForeignKey("InitiatorId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JaxWorld.Data.Entities.Network", "Network")
@@ -1451,7 +1533,11 @@ namespace JaxWorld.Data.Migrations
 
                     b.Navigation("Block");
 
+                    b.Navigation("Creator");
+
                     b.Navigation("Initiator");
+
+                    b.Navigation("LastModifier");
 
                     b.Navigation("Network");
 
@@ -1462,8 +1548,39 @@ namespace JaxWorld.Data.Migrations
                     b.Navigation("Target");
                 });
 
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TransactionState", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
+                });
+
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnAction", b =>
                 {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("JaxWorld.Data.Entities.Profiles.Profile", "Profile")
                         .WithMany()
                         .HasForeignKey("ProfileId")
@@ -1476,9 +1593,32 @@ namespace JaxWorld.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
+
                     b.Navigation("Profile");
 
                     b.Navigation("Target");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnData", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnLog", b =>
@@ -1487,6 +1627,18 @@ namespace JaxWorld.Data.Migrations
                         .WithMany()
                         .HasForeignKey("ContractId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JaxWorld.Data.Entities.Transactions.Transaction", null)
@@ -1507,23 +1659,74 @@ namespace JaxWorld.Data.Migrations
 
                     b.Navigation("Contract");
 
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
+
                     b.Navigation("TxnData");
 
                     b.Navigation("TxnMethod");
                 });
 
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnMethod", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
+                });
+
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnTopic", b =>
                 {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("JaxWorld.Data.Entities.Transactions.TxnLog", null)
                         .WithMany("Topics")
                         .HasForeignKey("TxnLogId");
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
                 {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Holder")
                         .WithMany("Erc721aUnits")
                         .HasForeignKey("HolderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -1533,13 +1736,67 @@ namespace JaxWorld.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.Navigation("Creator");
+
                     b.Navigation("Holder");
+
+                    b.Navigation("LastModifier");
 
                     b.Navigation("Profile");
                 });
 
+            modelBuilder.Entity("JaxWorld.Data.Entities.User", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Wallets.Provider", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
+                });
+
             modelBuilder.Entity("JaxWorld.Data.Entities.Wallets.Wallet", b =>
                 {
+                    b.HasOne("JaxWorld.Data.Entities.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
+                        .WithMany()
+                        .HasForeignKey("LastModifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("JaxWorld.Data.Entities.User", "Owner")
                         .WithMany("Wallets")
                         .HasForeignKey("OwnerId")
@@ -1551,6 +1808,10 @@ namespace JaxWorld.Data.Migrations
                         .HasForeignKey("ProviderId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("LastModifier");
 
                     b.Navigation("Owner");
 
