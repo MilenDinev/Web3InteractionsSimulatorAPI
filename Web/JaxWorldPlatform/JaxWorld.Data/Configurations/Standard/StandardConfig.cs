@@ -4,40 +4,19 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Entities;
 
-    public class StandardConfig : IEntityTypeConfiguration<Standard>
+    internal class StandardConfig : IEntityTypeConfiguration<Standard>
     {
         public void Configure(EntityTypeBuilder<Standard> builder)
         {
-            builder.HasData(
-                    new Standard
-                    {
-                        Id = 1,
-                        Name = "ERC721",
-                        NormalizedTag = "ERC721".ToUpper()
-                    });
-            builder.HasData(
-                    new Standard
-                    {
-                        Id = 2,
-                        Name = "ERC721a",
-                        NormalizedTag = "ERC721a".ToUpper()
-                    });
+            builder.HasOne(s => s.Creator)
+                .WithMany()
+                .HasForeignKey(s => s.CreatorId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasData(
-                    new Standard
-                    {
-                        Id = 3,
-                        Name = "ERC20",
-                        NormalizedTag = "ERC20".ToUpper()
-                    });
-
-            builder.HasData(
-                    new Standard
-                    {
-                        Id = 4,
-                        Name = "ERC1155",
-                        NormalizedTag = "ERC1155".ToUpper()
-                    });
+            builder.HasOne(s => s.LastModifier)
+                .WithMany()
+                .HasForeignKey(s => s.LastModifierId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
