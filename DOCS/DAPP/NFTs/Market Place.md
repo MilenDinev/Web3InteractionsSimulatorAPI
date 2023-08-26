@@ -1,1 +1,0 @@
-The place where users can acquire mining equipment with G Tokens and JAX Tokens.  
