@@ -6,20 +6,20 @@
     public class CreateNetworkModel
     {
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(AttributesParams.NetworkNameMaxLength, 
-            ErrorMessage = ValidationMessages.MinMaxLength, 
+        [StringLength(AttributesParams.NetworkNameMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.NetworkNameMinLength)]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [StringLength(AttributesParams.NetworkSymbolMaxLength, 
-            ErrorMessage = ValidationMessages.MinMaxLength, 
+        [StringLength(AttributesParams.NetworkSymbolMaxLength,
+            ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.NetworkSymbolMinLength)]
-        public string? Symbol { get; set; }
+        public string Symbol { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
         [Url(ErrorMessage = ValidationMessages.URL)]
-        public string? RpcUrl { get; set; }
+        public string RpcUrl { get; set; }
         public int ChainId { get; set; }
 
         [Url(ErrorMessage = ValidationMessages.URL)]

@@ -9,19 +9,19 @@
         [StringLength(AttributesParams.UserNameMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.UserNameMinLength)]
-        public string? UserName { get; set; }
+        public string UserName { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
         [StringLength(AttributesParams.WalletAddressMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.WalletAddressMinLength)]
-        public string? WalletAddress { get; set; }
+        public string WalletAddress { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
         [EmailAddress(ErrorMessage = ValidationMessages.Email)]
-        public string? Email { get; set; }
+        public string Email { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.Required)]
-        public string? Password { get; set; }
+        public string Password { get; set; }
     }
 }

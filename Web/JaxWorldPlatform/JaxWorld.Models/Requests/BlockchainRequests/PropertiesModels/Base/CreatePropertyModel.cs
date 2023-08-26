@@ -10,7 +10,7 @@
         [StringLength(AttributesParams.TraitTypeMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.TraitTypeMinLength)]
-        public string? TraitType { get; set; }
+        public string TraitType { get; set; }
     }
 }
 

@@ -10,7 +10,7 @@
         [StringLength(AttributesParams.DisplayTypeMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.DisplayTypeMinLength)]
-        public string? DisplayType { get; set; }
+        public string DisplayType { get; set; }
         public decimal Value { get; set; }
     }
 }

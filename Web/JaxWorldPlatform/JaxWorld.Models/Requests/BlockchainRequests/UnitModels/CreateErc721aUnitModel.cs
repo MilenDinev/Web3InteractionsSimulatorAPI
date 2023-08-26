@@ -9,7 +9,7 @@
         [StringLength(AttributesParams.UnitNameMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.UnitNameMinLength)]
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public int ProfileId { get; set; }
         [StringLength(AttributesParams.DNAMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
