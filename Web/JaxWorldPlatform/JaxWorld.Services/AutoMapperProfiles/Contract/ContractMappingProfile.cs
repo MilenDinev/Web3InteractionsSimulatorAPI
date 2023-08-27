@@ -4,6 +4,7 @@
     using Data.Entities.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
+    using System.Globalization;
 
     public class ContractMappingProfile : Profile
     {
@@ -16,7 +17,10 @@
             this.CreateMap<Contract, CreatedContractModel>();
             this.CreateMap<Contract, EditedContractModel>();
             this.CreateMap<Contract, DeletedContractModel>();
-            this.CreateMap<Contract, ContractListingModel>();
+            this.CreateMap<Contract, ContractListingModel>()
+                .ForMember(m => m.CreatorAddress, e => e.MapFrom(e => e.CreatorWallet.Address))
+                .ForMember(m => m.Balance, e => e.MapFrom(e => e.Balance.ToString("F", CultureInfo.InvariantCulture) + " AVAX"))
+                .ForMember(m => m.EstimatedValue, e => e.MapFrom(e => "$" + (e.EstimatedValue).ToString("F", CultureInfo.InvariantCulture)));
         }
     }
 }
