@@ -16,12 +16,12 @@
 
         public async Task ValidateEntityAsync<T>(T entity, string flag) where T : class, IEntity
         {
-            var entityType = typeof(T).ToString().Substring(typeof(T).ToString().LastIndexOf('.') + 1);
-            var isNullable = await this.entityChecker.NullableCheck(entity, flag);
-            if (isNullable)
+            string entityType = typeof(T).Name;
+
+            if (await entityChecker.NullableCheck(entity, flag))
                 throw new ResourceNotFoundException(string.Format(ErrorMessages.EntityDoesNotExist, entityType));
-            var isDeleted = await this.entityChecker.DeletedCheck(entity);
-            if (isDeleted)
+
+            if (await entityChecker.DeletedCheck(entity))
                 throw new ResourceNotFoundException(string.Format(ErrorMessages.EntityHasBeenDeleted, entityType));
         }
 
