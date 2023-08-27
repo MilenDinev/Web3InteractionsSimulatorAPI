@@ -52,23 +52,9 @@
 
         public async Task<bool> ValidateUserCredentials(string userName, string password)
         {
-            User user = await FindByNameAsync(userName);
+            User? user = await FindByNameAsync(userName) ?? await FindByEmailAsync(userName);
 
-            if (user != null)
-            {
-                bool result = await CheckPasswordAsync(user, password);
-                return result;
-            }
-            else
-            {
-                user = await FindByEmailAsync(userName);
-                if (user != null)
-                {
-                    bool result = await CheckPasswordAsync(user, password);
-                    return result;
-                }
-            }
-            return false;
+            return user != null ? await CheckPasswordAsync(user, password) : false;
         }
     }
 }
