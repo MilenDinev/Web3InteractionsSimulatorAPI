@@ -12,10 +12,10 @@
         Task<IdentityResult> UpdateAsync(User user);
         Task<IdentityResult> DeleteAsync(User user);
         Task<IdentityResult> AddToRoleAsync(User user, string role);
-        Task<User> GetUserAsync(ClaimsPrincipal claimsPrincipal);
-        Task<User> FindByNameAsync(string userName);
-        Task<User> FindByEmailAsync(string userName);
-        Task<User> FindByIdAsync(string id);
+        Task<User?> GetUserAsync(ClaimsPrincipal claimsPrincipal);
+        Task<User?> FindByNameAsync(string userName);
+        Task<User?> FindByEmailAsync(string userName);
+        Task<User?> FindByIdAsync(string id);
         Task<ICollection<User>> GetAllAsync();
         Task<bool> IsUserInRole(int userId, string roleId);
         Task<List<string>> GetUserRolesAsync(User user);
