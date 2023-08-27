@@ -27,7 +27,8 @@
 
         public async Task ValidateUniqueEntityAsync<T>(T entity) where T : class, IEntity
         {
-            var entityType = typeof(T).ToString().Substring(typeof(T).ToString().LastIndexOf('.') + 1);
+            var entityType = typeof(T).Name;
+
             if (await Task.Run(() => entity != null))
                 throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.EntityAlreadyContained, entityType));
         }
