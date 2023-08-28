@@ -22,7 +22,7 @@
 
             if (user != null)
             {
-                var authResult = await userManager.ValidateUserCredentials(context.UserName, context.Password);
+                var authResult = await userManager.ValidateUserCredentialsAsync(context.UserName, context.Password);
 
                 if (authResult)
                 {
