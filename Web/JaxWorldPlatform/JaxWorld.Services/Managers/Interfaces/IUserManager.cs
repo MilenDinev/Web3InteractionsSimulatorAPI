@@ -17,7 +17,7 @@
         Task<User?> FindByEmailAsync(string userName);
         Task<User?> FindByIdAsync(string id);
         Task<ICollection<User>> GetAllAsync();
-        Task<bool> IsUserInRole(int userId, string roleId);
+        Task<bool> IsUserInRoleAsync(int userId, string roleId);
         Task<List<string>> GetUserRolesAsync(User user);
         Task<bool> ValidateUserCredentials(string userName, string password);
     }
