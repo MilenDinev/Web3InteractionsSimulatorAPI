@@ -17,6 +17,7 @@
         {
             return await Task.Run(() => entity == null);
         }
+
         public async Task<bool> DeletedCheck<T>(T entity) where T : class, IEntity
         {
             return await Task.Run(() => entity.Deleted);
