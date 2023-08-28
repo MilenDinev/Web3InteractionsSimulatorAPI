@@ -26,6 +26,7 @@
             using var httpClientHandler = new HttpClientHandler();
             using var client = new HttpClient(httpClientHandler);
             var token = await this.userService.GetEligibilityTokenAsync(client, user.UsernameOrEmail, user.Password);
+
             return token;
         }
     }
