@@ -38,6 +38,7 @@
         public async Task<ActionResult<IEnumerable<ContractListingModel>>> Get()
         {
             var allContracts = await this.finder.GetAllActiveAsync<Contract>();
+
             return mapper.Map<ICollection<ContractListingModel>>(allContracts).ToList();
         }
 
@@ -47,6 +48,7 @@
         {
             var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
             await this.validator.ValidateEntityAsync(contract, contractId.ToString());
+
             return mapper.Map<ContractListingModel>(contract);
         }
 
@@ -55,6 +57,7 @@
         public async Task<ActionResult> Create(CreateContractModel contractInput)
         {
             await AssignCurrentUserAsync();
+
             var contract = await this.finder.FindByStringOrDefaultAsync<Contract>(contractInput.Name);
             await this.validator.ValidateUniqueEntityAsync(contract);
 
@@ -71,8 +74,8 @@
             await AssignCurrentUserAsync();
 
             var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
-            await this.validator.ValidateEntityAsync(contract, contractId.ToString());
 
+            await this.validator.ValidateEntityAsync(contract, contractId.ToString());
             await this.contractService.EditAsync(contract, contractInput, CurrentUser.Id);
 
             return mapper.Map<EditedContractModel>(contract);
@@ -83,9 +86,12 @@
         public async Task<DeletedContractModel> Delete(int contractId)
         {
             await AssignCurrentUserAsync();
+
             var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
+
             await this.validator.ValidateEntityAsync(contract, contractId.ToString());
             await this.contractService.DeleteAsync(contract, CurrentUser.Id);
+
             return mapper.Map<DeletedContractModel>(contract);
         }
     }
