@@ -33,6 +33,7 @@
 
             return entities;
         }
+
         public async Task<ICollection<T>> GetAllActiveAsync<T>() where T : class, IEntity
         {
             var entities = await GetAllAsync<T>();
