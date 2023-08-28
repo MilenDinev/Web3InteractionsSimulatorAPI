@@ -19,6 +19,6 @@
         Task<ICollection<User>> GetAllAsync();
         Task<bool> IsUserInRoleAsync(int userId, string roleId);
         Task<List<string>> GetUserRolesAsync(User user);
-        Task<bool> ValidateUserCredentials(string userName, string password);
+        Task<bool> ValidateUserCredentialsAsync(string userName, string password);
     }
 }
