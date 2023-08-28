@@ -37,6 +37,7 @@
         public async Task<ActionResult<IEnumerable<UtilityListingModel>>> Get()
         {
             var allUtilities = await finder.GetAllActiveAsync<Utility>();
+
             return mapper.Map<ICollection<UtilityListingModel>>(allUtilities).ToList();
         }
 
@@ -46,6 +47,7 @@
         {
             var utility = await finder.FindByIdOrDefaultAsync<Utility>(utilityId);
             await validator.ValidateEntityAsync(utility, utilityId.ToString());
+
             return mapper.Map<UtilityListingModel>(utility);
         }
 
@@ -54,6 +56,7 @@
         public async Task<ActionResult> Create(CreateUtilityModel utilityInput)
         {
             await AssignCurrentUserAsync();
+
             var utility = await finder.FindByStringOrDefaultAsync<Utility>(utilityInput.TraitType);
             await validator.ValidateUniqueEntityAsync(utility);
 
@@ -82,9 +85,12 @@
         public async Task<DeletedUtilityModel> Delete(int utilityId)
         {
             await AssignCurrentUserAsync();
+
             var utility = await finder.FindByIdOrDefaultAsync<Utility>(utilityId);
+
             await validator.ValidateEntityAsync(utility, utilityId.ToString());
             await utilityService.DeleteAsync(utility, CurrentUser.Id);
+
             return mapper.Map<DeletedUtilityModel>(utility);
         }
     }
