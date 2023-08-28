@@ -40,6 +40,7 @@
         public async Task<ActionResult<IEnumerable<UserListingModel>>> Get()
         {
             var allUsers = await this.finder.GetAllActiveAsync<User>();
+
             return mapper.Map<ICollection<UserListingModel>>(allUsers).ToList();
         }
 
@@ -49,6 +50,7 @@
         {
             var user = await userManager.FindByIdAsync(userId.ToString());
             await this.validator.ValidateEntityAsync(user, userId.ToString());
+
             return mapper.Map<UserListingModel>(user);
         }
 
@@ -63,10 +65,10 @@
             if (user != null)
                 throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.EntityAlreadyExists, nameof(userInput.WalletAddress), userInput.WalletAddress));
 
-
             user = await this.userService.CreateAsync(userInput);
 
             var userResponse = mapper.Map<CreatedUserModel>(user);
+
             return CreatedAtAction(nameof(Get), "Users", new { id = userResponse.Id }, userResponse);
 
         }
@@ -77,8 +79,8 @@
             await AssignCurrentUserAsync();
 
             var user = await this.finder.FindByIdOrDefaultAsync<User>(userId);
-            await this.validator.ValidateEntityAsync(user, userId.ToString());
 
+            await this.validator.ValidateEntityAsync(user, userId.ToString());
             await this.userService.EditAsync(user, userInput, CurrentUser.Id);
 
             return mapper.Map<EditedUserModel>(user);
@@ -90,9 +92,10 @@
             await AssignCurrentUserAsync();
 
             var user = await this.finder.FindByIdOrDefaultAsync<User>(userId);
-            await this.validator.ValidateEntityAsync(user, userId.ToString());
 
+            await this.validator.ValidateEntityAsync(user, userId.ToString());
             await this.userService.DeleteAsync(user, CurrentUser.Id);
+
             return mapper.Map<DeletedUserModel>(user);
         }
     }

@@ -38,6 +38,7 @@
         public async Task<ActionResult<IEnumerable<TransactionListingModel>>> Get()
         {
             var allTransactions = await this.finder.GetAllActiveAsync<Transaction>();
+
             return mapper.Map<ICollection<TransactionListingModel>>(allTransactions).ToList();
         }
 
@@ -47,6 +48,7 @@
         {
             var transaction = await this.finder.FindByIdOrDefaultAsync<Transaction>(transactionId);
             await this.validator.ValidateEntityAsync(transaction, transactionId.ToString());
+
             return mapper.Map<TransactionListingModel>(transaction);
         }
 
@@ -55,6 +57,7 @@
         public async Task<ActionResult> Create(CreateTransactionModel transactionInput)
         {
             await AssignCurrentUserAsync();
+
             var transaction = await this.finder.FindByStringOrDefaultAsync<Transaction>(transactionInput.State);
             await this.validator.ValidateUniqueEntityAsync(transaction);
 
@@ -71,8 +74,8 @@
             await AssignCurrentUserAsync();
 
             var transaction = await this.finder.FindByIdOrDefaultAsync<Transaction>(transactionId);
-            await this.validator.ValidateEntityAsync(transaction, transactionId.ToString());
 
+            await this.validator.ValidateEntityAsync(transaction, transactionId.ToString());
             await this.transactionService.EditAsync(transaction, transactionInput, CurrentUser.Id);
 
             return mapper.Map<EditedTransactionModel>(transaction);
@@ -83,9 +86,12 @@
         public async Task<DeletedTransactionModel> Delete(int transactionId)
         {
             await AssignCurrentUserAsync();
+
             var transaction = await this.finder.FindByIdOrDefaultAsync<Transaction>(transactionId);
+
             await this.validator.ValidateEntityAsync(transaction, transactionId.ToString());
             await this.transactionService.DeleteAsync(transaction, CurrentUser.Id);
+
             return mapper.Map<DeletedTransactionModel>(transaction);
         }
     }

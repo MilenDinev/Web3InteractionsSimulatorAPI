@@ -39,6 +39,7 @@
         public async Task<ActionResult<IEnumerable<WalletListingModel>>> Get()
         {
             var allWallets = await this.finder.GetAllActiveAsync<Wallet>();
+
             return mapper.Map<ICollection<WalletListingModel>>(allWallets).ToList();
         }
 
@@ -48,6 +49,7 @@
         {
             var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
             await this.validator.ValidateEntityAsync(wallet, walletId.ToString());
+
             return mapper.Map<WalletListingModel>(wallet);
         }
 
@@ -56,6 +58,7 @@
         public async Task<ActionResult> Create(CreateWalletModel walletInput)
         {
             await AssignCurrentUserAsync();
+
             var wallet = await this.finder.FindByStringOrDefaultAsync<Wallet>(walletInput.Address);
             await this.validator.ValidateUniqueEntityAsync(wallet);
 
@@ -63,6 +66,7 @@
                 ?? await this.finder.FindByIdOrDefaultAsync<Provider>(int.Parse(walletInput.Provider));
 
             wallet = await this.walletService.CreateAsync(walletInput, provider, CurrentUser.Id);
+
             var createdWallet = mapper.Map<CreatedWalletModel>(wallet);
 
             return CreatedAtAction(nameof(Get), "Wallets", new { id = createdWallet.Id }, createdWallet);
@@ -75,8 +79,8 @@
             await AssignCurrentUserAsync();
 
             var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
-            await this.validator.ValidateEntityAsync(wallet, walletId.ToString());
 
+            await this.validator.ValidateEntityAsync(wallet, walletId.ToString());
             await this.walletService.EditAsync(wallet, walletInput, CurrentUser.Id);
 
             return mapper.Map<EditedWalletModel>(wallet);
@@ -87,9 +91,12 @@
         public async Task<DeletedWalletModel> Delete(int walletId)
         {
             await AssignCurrentUserAsync();
+
             var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
+
             await this.validator.ValidateEntityAsync(wallet, walletId.ToString());
             await this.walletService.DeleteAsync(wallet, CurrentUser.Id);
+
             return mapper.Map<DeletedWalletModel>(wallet);
         }
     }
