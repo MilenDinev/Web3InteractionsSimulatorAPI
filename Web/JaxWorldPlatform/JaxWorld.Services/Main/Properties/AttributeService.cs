@@ -19,7 +19,9 @@
         public async Task<Attribute> CreateAsync(CreateAttributeModel attributeModel, int creatorId)
         {
             var attribute = mapper.Map<Attribute>(attributeModel);
+
             await CreateEntityAsync(attribute, creatorId);
+
             return attribute;
         }
 
