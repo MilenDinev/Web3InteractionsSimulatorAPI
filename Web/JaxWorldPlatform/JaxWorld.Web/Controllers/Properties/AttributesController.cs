@@ -37,6 +37,7 @@
         public async Task<ActionResult<IEnumerable<AttributeListingModel>>> Get()
         {
             var allAttributes = await finder.GetAllActiveAsync<Attribute>();
+
             return mapper.Map<ICollection<AttributeListingModel>>(allAttributes).ToList();
         }
 
@@ -45,7 +46,9 @@
         public async Task<ActionResult<AttributeListingModel>> GetById(int attributeId)
         {
             var attribute = await finder.FindByIdOrDefaultAsync<Attribute>(attributeId);
+
             await validator.ValidateEntityAsync(attribute, attributeId.ToString());
+
             return mapper.Map<AttributeListingModel>(attribute);
         }
 
@@ -54,6 +57,7 @@
         public async Task<ActionResult> Create(CreateAttributeModel attributeInput)
         {
             await AssignCurrentUserAsync();
+
             var attribute = await finder.FindByStringOrDefaultAsync<Attribute>(attributeInput.TraitType);
             await validator.ValidateUniqueEntityAsync(attribute);
 
@@ -70,8 +74,8 @@
             await AssignCurrentUserAsync();
 
             var attribute = await finder.FindByIdOrDefaultAsync<Attribute>(attributeId);
-            await validator.ValidateEntityAsync(attribute, attributeId.ToString());
 
+            await validator.ValidateEntityAsync(attribute, attributeId.ToString());
             await attributeService.EditAsync(attribute, attributeInput, CurrentUser.Id);
 
             return mapper.Map<EditedAttributeModel>(attribute);
@@ -82,9 +86,12 @@
         public async Task<DeletedAttributeModel> Delete(int attributeId)
         {
             await AssignCurrentUserAsync();
+
             var attribute = await finder.FindByIdOrDefaultAsync<Attribute>(attributeId);
+
             await validator.ValidateEntityAsync(attribute, attributeId.ToString());
             await attributeService.DeleteAsync(attribute, CurrentUser.Id);
+
             return mapper.Map<DeletedAttributeModel>(attribute);
         }
     }
