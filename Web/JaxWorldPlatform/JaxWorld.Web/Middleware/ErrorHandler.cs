@@ -28,32 +28,16 @@
             {
                 var response = context.Response;
                 response.ContentType = "application/json";
-
-                switch (error)
+                response.StatusCode = error switch
                 {
-                    case ArgumentException argumentEx:
-                        response.StatusCode = (int)HttpStatusCode.Conflict;
-                        break;
-                    case KeyNotFoundException keyNotFoundEx:
-                        response.StatusCode = (int)HttpStatusCode.NotFound;
-                        break;
-                    case ResourceNotFoundException resourceNotFoundEx:
-                        response.StatusCode = (int)HttpStatusCode.NotFound;
-                        break;
-                    case ResourceAlreadyExistsException resourceAlreadyExistsEx:
-                        response.StatusCode = (int)HttpStatusCode.Conflict;
-                        break;
-                    case UnauthorizedAccessException unauthorizedAccessEx:
-                        response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                        break;
-                    case NullReferenceException nullReferenceEx:
-                        response.StatusCode = (int)HttpStatusCode.BadRequest;
-                        break;
-                    default:
-                        response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                        break;
-                }
-
+                    ArgumentException => (int)HttpStatusCode.Conflict,
+                    KeyNotFoundException => (int)HttpStatusCode.NotFound,
+                    ResourceNotFoundException => (int)HttpStatusCode.NotFound,
+                    ResourceAlreadyExistsException => (int)HttpStatusCode.Conflict,
+                    UnauthorizedAccessException => (int)HttpStatusCode.Unauthorized,
+                    NullReferenceException => (int)HttpStatusCode.BadRequest,
+                    _ => (int)HttpStatusCode.InternalServerError,
+                };
                 var result = JsonSerializer.Serialize(new ErrorMessageModel { Message = error?.Message });
                 await response.WriteAsync(result);
             }
