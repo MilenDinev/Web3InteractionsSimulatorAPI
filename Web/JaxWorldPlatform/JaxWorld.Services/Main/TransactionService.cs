@@ -20,6 +20,7 @@
         {
             var transaction = mapper.Map<Transaction>(transactionModel);
             await CreateEntityAsync(transaction, creatorId);
+
             return transaction;
         }
 
@@ -28,10 +29,11 @@
             transaction.State = new TransactionState
             {
                 State = transactionModel.State
-        };
+            };
 
             await SaveModificationAsync(transaction, modifierId);
         }
+
         public async Task DeleteAsync(Transaction transaction, int modifierId)
         {
             await DeleteEntityAsync(transaction, modifierId);

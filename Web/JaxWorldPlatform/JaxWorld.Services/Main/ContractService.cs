@@ -19,7 +19,9 @@
         public async Task<Contract> CreateAsync(CreateContractModel contractModel, int creatorId)
         {
             var contract = mapper.Map<Contract>(contractModel);
+
             await CreateEntityAsync(contract, creatorId);
+
             return contract;
         }
 
@@ -29,6 +31,7 @@
 
             await SaveModificationAsync(contract, modifierId);
         }
+
         public async Task DeleteAsync(Contract contract, int modifierId)
         {
             await DeleteEntityAsync(contract, modifierId);

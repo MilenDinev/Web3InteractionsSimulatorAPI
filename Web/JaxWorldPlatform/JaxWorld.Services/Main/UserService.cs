@@ -39,6 +39,7 @@
         {
 
             var user = mapper.Map<User>(userInput);
+
             await userManager.CreateAsync(user, userInput.Password);
             await userManager.AddToRoleAsync(user, "regular");
 
@@ -49,8 +50,8 @@
         {
             user.UserName = userModel.UserName;
             user.NormalizedTag = userModel.UserName.ToUpper();
-
             user.NormalizedUserName = user.UserName.ToUpper();
+
             await SaveModificationAsync(user, modifierId);
         }
 

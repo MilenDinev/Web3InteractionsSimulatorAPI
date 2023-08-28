@@ -19,7 +19,9 @@
         public async Task<Utility> CreateAsync(CreateUtilityModel utilityModel, int creatorId)
         {
             var utility = mapper.Map<Utility>(utilityModel);
+
             await CreateEntityAsync(utility, creatorId);
+
             return utility;
         }
 

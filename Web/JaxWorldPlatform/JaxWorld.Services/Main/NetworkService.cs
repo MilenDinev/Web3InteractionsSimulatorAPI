@@ -19,7 +19,9 @@
         public async Task<Network> CreateAsync(CreateNetworkModel networkModel, int creatorId)
         {
             var network = mapper.Map<Network>(networkModel);
+
             await CreateEntityAsync(network, creatorId);
+
             return network;
         }
 
@@ -34,6 +36,7 @@
 
             await SaveModificationAsync(network, modifierId);
         }
+
         public async Task DeleteAsync(Network network, int modifierId)
         {
             await DeleteEntityAsync(network, modifierId);

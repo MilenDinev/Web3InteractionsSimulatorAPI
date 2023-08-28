@@ -19,7 +19,9 @@
         public async Task<Erc721aUnit> CreateAsync(CreateErc721aUnitModel profileUnitModel, int creatorId)
         {
             var profileUnit = mapper.Map<Erc721aUnit>(profileUnitModel);
+
             await CreateEntityAsync(profileUnit, creatorId);
+
             return profileUnit;
         }
 
@@ -29,6 +31,7 @@
 
             await SaveModificationAsync(profileUnit, modifierId);
         }
+
         public async Task DeleteAsync(Erc721aUnit profileUnit, int modifierId)
         {
             await DeleteEntityAsync(profileUnit, modifierId);

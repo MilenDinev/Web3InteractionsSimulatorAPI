@@ -19,7 +19,9 @@
         public async Task<Profile> CreateAsync(CreateProfileModel profileModel, int creatorId)
         {
             var profile = mapper.Map<Profile>(profileModel);
+
             await CreateEntityAsync(profile, creatorId);
+
             return profile;
         }
 
@@ -29,6 +31,7 @@
 
             await SaveModificationAsync(profile, modifierId);
         }
+
         public async Task DeleteAsync(Profile profile, int modifierId)
         {
             await DeleteEntityAsync(profile, modifierId);

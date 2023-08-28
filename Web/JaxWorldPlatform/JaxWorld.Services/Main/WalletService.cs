@@ -19,9 +19,12 @@
         public async Task<Wallet> CreateAsync(CreateWalletModel walletModel, Provider provider, int creatorId)
         {
             var wallet = mapper.Map<Wallet>(walletModel);
+
             wallet.Provider = provider;
             wallet.OwnerId = creatorId;
+
             await CreateEntityAsync(wallet, creatorId);
+
             return wallet;
         }
 
@@ -31,6 +34,7 @@
 
             await SaveModificationAsync(wallet, modifierId);
         }
+
         public async Task DeleteAsync(Wallet wallet, int modifierId)
         {
             await DeleteEntityAsync(wallet, modifierId);
