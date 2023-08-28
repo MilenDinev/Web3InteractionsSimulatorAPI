@@ -18,12 +18,7 @@
 
         public async Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
         {
-            var user = await userManager.FindByNameAsync(context.UserName);
-
-            if (user == null)
-            {
-                user = await userManager.FindByEmailAsync(context.UserName);
-            }
+            var user = await userManager.FindByNameAsync(context.UserName) ?? await userManager.FindByEmailAsync(context.UserName);
 
             if (user != null)
             {
@@ -32,24 +27,17 @@
                 if (authResult)
                 {
                     var roles = await userManager.GetUserRolesAsync(user);
-                    var claims = new List<Claim>();
-
-                    claims.Add(new Claim(ClaimTypes.Name, user.UserName));
-                    claims.Add(new Claim(ClaimTypes.Email, user.Email));
-
-                    foreach (var role in roles)
+                    var claims = new List<Claim>
                     {
-                        claims.Add(new Claim(ClaimTypes.Role, role));
-                    }
+                        new Claim(ClaimTypes.Name, user.UserName),
+                        new Claim(ClaimTypes.Email, user.Email)
+                    };
+
+                    claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
                     context.Result = new GrantValidationResult(subject: user.Id.ToString(), authenticationMethod: "password", claims: claims);
+                    return;
                 }
-                else
-                {
-                    context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, ErrorMessages.InvalidCredentials);
-                }
-
-                return;
             }
 
             context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, ErrorMessages.InvalidCredentials);
