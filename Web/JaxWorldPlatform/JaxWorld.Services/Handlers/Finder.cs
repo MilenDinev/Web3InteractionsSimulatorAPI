@@ -17,11 +17,13 @@
         public async Task<T?> FindByIdOrDefaultAsync<T>(int id) where T : class, IEntity
         {
             var entity = await this.dbContext.Set<T>().FirstOrDefaultAsync(e => e.Id == id);
+
             return entity;
         }
         public async Task<T?> FindByStringOrDefaultAsync<T>(string stringValue) where T : class, IEntity
         {
             var entity = await this.dbContext.Set<T>().FirstOrDefaultAsync(e => e.NormalizedTag == stringValue.ToUpper() && !e.Deleted);
+
             return entity;
         }
 
