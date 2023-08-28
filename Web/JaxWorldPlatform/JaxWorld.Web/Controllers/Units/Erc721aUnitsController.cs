@@ -40,6 +40,7 @@
         public async Task<ActionResult<IEnumerable<Erc721aUnitListingModel>>> Get()
         {
             var allUnits = await finder.GetAllActiveAsync<Erc721aUnit>();
+
             return mapper.Map<ICollection<Erc721aUnitListingModel>>(allUnits).ToList();
         }
 
@@ -49,6 +50,7 @@
         {
             var unit = await finder.FindByIdOrDefaultAsync<Erc721aUnit>(unitId);
             await validator.ValidateEntityAsync(unit, unitId.ToString());
+
             return mapper.Map<Erc721aUnitListingModel>(unit);
         }
 
@@ -57,6 +59,7 @@
         public async Task<ActionResult> Create(CreateErc721aUnitModel unitInput)
         {
             await AssignCurrentUserAsync();
+
             var unit = await finder.FindByStringOrDefaultAsync<Erc721aUnit>(unitInput.Name);
             await validator.ValidateUniqueEntityAsync(unit);
 
@@ -73,8 +76,8 @@
             await AssignCurrentUserAsync();
 
             var unit = await finder.FindByIdOrDefaultAsync<Erc721aUnit>(unitId);
-            await validator.ValidateEntityAsync(unit, unitId.ToString());
 
+            await validator.ValidateEntityAsync(unit, unitId.ToString());
             await unitService.EditAsync(unit, unitInput, CurrentUser.Id);
 
             return mapper.Map<EditedErc721aUnitModel>(unit);
@@ -85,9 +88,12 @@
         public async Task<DeletedErc721aUnitModel> Delete(int unitId)
         {
             await AssignCurrentUserAsync();
+
             var unit = await finder.FindByIdOrDefaultAsync<Erc721aUnit>(unitId);
+
             await validator.ValidateEntityAsync(unit, unitId.ToString());
             await unitService.DeleteAsync(unit, CurrentUser.Id);
+
             return mapper.Map<DeletedErc721aUnitModel>(unit);
         }
     }
