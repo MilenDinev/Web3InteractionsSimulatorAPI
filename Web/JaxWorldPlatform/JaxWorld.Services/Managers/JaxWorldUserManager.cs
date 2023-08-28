@@ -49,11 +49,10 @@
             return user != null && await IsInRoleAsync(user, roleName);
         }
 
-        public async Task<bool> ValidateUserCredentials(string userName, string password)
+        public async Task<bool> ValidateUserCredentialsAsync(string userName, string password)
         {
-            User? user = await FindByNameAsync(userName) ?? await FindByEmailAsync(userName);
-
-            return user != null ? await CheckPasswordAsync(user, password) : false;
+            var user = await FindByNameAsync(userName) ?? await FindByEmailAsync(userName);
+            return user != null && await CheckPasswordAsync(user, password);
         }
     }
 }
