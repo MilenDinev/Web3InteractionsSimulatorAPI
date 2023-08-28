@@ -43,12 +43,10 @@
             return (await GetRolesAsync(user)).ToList();
         }
 
-        public async Task<bool> IsUserInRole(int userId, string roleName)
+        public async Task<bool> IsUserInRoleAsync(int userId, string roleName)
         {
-            User? user = await FindByIdAsync(userId.ToString());
-
-            return user != null ? await IsInRoleAsync(user, roleName) : false;
-
+            var user = await FindByIdAsync(userId.ToString());
+            return user != null && await IsInRoleAsync(user, roleName);
         }
 
         public async Task<bool> ValidateUserCredentials(string userName, string password)
