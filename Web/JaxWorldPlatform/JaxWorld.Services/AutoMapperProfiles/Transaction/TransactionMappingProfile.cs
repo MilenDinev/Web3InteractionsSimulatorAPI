@@ -2,6 +2,8 @@
 {
     using AutoMapper;
     using Data.Entities.Transactions;
+    using JaxWorld.Models.Requests.BlockchainRequests.TransactionModels;
+    using Models.Requests.BlockchainRequests;
     using Models.Requests.BlockchainRequests.TransactionModels;
     using Models.Responses.BlockchainResponses.TransactionModels;
 
@@ -11,10 +13,10 @@
         {
             this.CreateMap<CreateTransactionModel, Transaction>()
                 .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.State.ToUpper()));
-            this.CreateMap<Transaction, CreatedTransactionModel>();
-            this.CreateMap<Transaction, EditedTransactionModel>();
-            this.CreateMap<Transaction, DeletedTransactionModel>();
+            this.CreateMap<Transaction, DeployedContractTransactionModel>();
             this.CreateMap<Transaction, TransactionListingModel>();
+            this.CreateMap<Transaction, TransactionListingModel>();
+            this.CreateMap<TransferUnitTransactionModel, DeployedContractTransactionModel>();
         }
     }
 }
