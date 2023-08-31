@@ -19,24 +19,10 @@
         public async Task<Transaction> CreateAsync(CreateTransactionModel transactionModel, int creatorId)
         {
             var transaction = mapper.Map<Transaction>(transactionModel);
+
             await CreateEntityAsync(transaction, creatorId);
 
             return transaction;
-        }
-
-        public async Task EditAsync(Transaction transaction, EditTransactionModel transactionModel, int modifierId)
-        {
-            transaction.State = new TransactionState
-            {
-                State = transactionModel.State
-            };
-
-            await SaveModificationAsync(transaction, modifierId);
-        }
-
-        public async Task DeleteAsync(Transaction transaction, int modifierId)
-        {
-            await DeleteEntityAsync(transaction, modifierId);
         }
     }
 }
