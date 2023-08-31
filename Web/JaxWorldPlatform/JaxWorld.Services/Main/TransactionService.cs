@@ -24,5 +24,10 @@
 
             return transaction;
         }
+
+        public async Task UpdateStateAsync(Transaction transaction)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

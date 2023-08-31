@@ -6,5 +6,6 @@
     public interface ITransactionService
     {
         public Task<Transaction> CreateAsync(CreateTransactionModel model, int creatorId);
+        Task UpdateStateAsync(Transaction transaction);
     }
 }
