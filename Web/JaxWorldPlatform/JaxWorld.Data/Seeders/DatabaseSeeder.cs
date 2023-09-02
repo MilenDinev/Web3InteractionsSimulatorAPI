@@ -31,6 +31,7 @@
                     await StandardSeeder.Seed(context);
                     await ProviderSeeder.Seed(context);
                     await NetworksSampleSeeder.Seed(context);
+                    await WalletsSampleSeeder.Seed(context);
                     await TransactionStateSeeder.Seed(context);
                 }
 
