@@ -12,8 +12,8 @@
 
         public ulong BlockHeight { get; set; }
         public DateTime Timestamp { get; set; }
-        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
-        public decimal BurnedFees { get; set; }
+        public long GasUsed { get; set; }
+        public long GasLimit { get; set; }
         public int UnclesReward { get; set; }
         public int Difficulty { get; set; }
         public ulong TotalDifficulty { get; set; }
