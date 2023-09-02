@@ -1,6 +1,4 @@
-﻿using JaxWorld.Models.Requests.BlockchainRequests.TransactionModels;
-
-namespace JaxWorld.Services.AutoMapperProfiles.Block
+﻿namespace JaxWorld.Services.AutoMapperProfiles.Block
 {
     using AutoMapper;
     using Data.Entities.Transactions;
@@ -14,7 +12,6 @@ namespace JaxWorld.Services.AutoMapperProfiles.Block
             this.CreateMap<CreateBlockModel, Block>()
                 .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.Hash.ToUpper()))
                 .ForMember(e => e.GasLimit, m => m.MapFrom(m => 15000000));
-            this.CreateMap<CreateTransactionModel, CreateBlockModel>();
             this.CreateMap<Block, CreatedBlockModel>();
             this.CreateMap<Block, EditedBlockModel>();
             this.CreateMap<Block, BlockListingModel>();
