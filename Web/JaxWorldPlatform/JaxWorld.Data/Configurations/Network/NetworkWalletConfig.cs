@@ -11,7 +11,7 @@
         public void Configure(EntityTypeBuilder<Wallet> builder)
         {
             builder.HasMany(g => g.Networks)
-             .WithMany(u => u.Users)
+             .WithMany(u => u.Wallets)
                 .UsingEntity<Dictionary<string, object>>("NetworksWallets",
                 x => x.HasOne<Network>().WithMany().HasForeignKey("NetworkId")
                       .OnDelete(DeleteBehavior.Restrict),
