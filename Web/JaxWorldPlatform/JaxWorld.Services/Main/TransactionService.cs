@@ -20,14 +20,19 @@
         {
             var transaction = mapper.Map<Transaction>(transactionModel);
 
+
             await CreateEntityAsync(transaction, creatorId);
 
             return transaction;
         }
 
-        public async Task UpdateStateAsync(Transaction transaction)
+        public async Task UpdateStateAsync(Transaction transaction, int state, int modifierId)
         {
-            throw new NotImplementedException();
+            var transactionState = await dbContext.TransactionStates.FindAsync(state);
+
+            transaction.State = transactionState;
+
+            await SaveModificationAsync(transaction, modifierId);
         }
     }
 }
