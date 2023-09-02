@@ -15,7 +15,7 @@
             this.userService = userService;
         }
 
-        public User CurrentUser { get; set; }
+        public User CurrentUser { get; private set; }
 
         [ApiExplorerSettings(IgnoreApi = true)]
         protected async Task<ActionResult> AssignCurrentUserAsync()
