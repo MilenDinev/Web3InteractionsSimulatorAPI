@@ -1,10 +1,10 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.Contract
 {
+    using System.Globalization;
     using AutoMapper;
     using Data.Entities.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
-    using System.Globalization;
 
     public class ContractMappingProfile : Profile
     {
@@ -12,9 +12,10 @@
         {
             this.CreateMap<CreateContractModel, Contract>()
                 .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.Name.ToUpper()))
-                .ForMember(e => e.Address, m => m.MapFrom(m => m.ContractAddress))
                 .ForMember(e => e.CreatorWalletId, m => m.MapFrom(m => 1));
-            this.CreateMap<Contract, CreatedContractModel>();
+            this.CreateMap<Contract, CreatedContractModel>()
+                .ForMember(e => e.Creator, m => m.MapFrom(m => m.Creator.UserName))
+                .ForMember(e => e.CreatorWallet, m => m.MapFrom(m => m.CreatorWallet.Address));
             this.CreateMap<Contract, EditedContractModel>();
             this.CreateMap<Contract, DeletedContractModel>();
             this.CreateMap<Contract, ContractListingModel>()
