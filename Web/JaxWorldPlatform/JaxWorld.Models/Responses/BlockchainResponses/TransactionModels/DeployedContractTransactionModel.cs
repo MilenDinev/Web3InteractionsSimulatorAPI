@@ -2,9 +2,12 @@
 {
     public class DeployedContractTransactionModel
     {
-        public int Id { get; set; }
         public int ContractId { get; set; }
         public string TxnHash { get; set; }
-        public string State { get; set; }
+        public string TxnState { get; set; }
+        public string ContractName { get; set; }
+        public string ContractAddress { get; set; }
+        public string CreatorAddress { get; set; }
+        public string OwnerAddress { get; set; }
     }
 }
