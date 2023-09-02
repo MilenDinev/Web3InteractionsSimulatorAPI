@@ -21,6 +21,9 @@
             builder.HasOne(s => s.LastModifier)
                 .WithMany()
                 .HasForeignKey(s => s.LastModifierId)
+            builder.HasOne(t => t.State)
+                .WithMany(ts => ts.Transactions)
+                .HasForeignKey(t => t.StateId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
