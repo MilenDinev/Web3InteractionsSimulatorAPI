@@ -39,5 +39,15 @@
         {
             await DeleteEntityAsync(contract, modifierId);
         }
+
+
+        internal async Task<string> CreateContractAddressAsync(string hashKey)
+        {
+            var hasher = new PasswordHasher<string>();
+            var timestamp = DateTime.UtcNow.ToString("F", CultureInfo.InvariantCulture);
+            var address = hasher.HashPassword(hashKey, timestamp);
+
+            return await Task.Run(address.ToString);
+        }
     }
 }
