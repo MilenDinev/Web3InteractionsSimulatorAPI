@@ -10,7 +10,6 @@
             this.Transactions = new HashSet<Transaction>();
         }
 
-        public ulong BlockHeight { get; set; }
         public DateTime Timestamp { get; set; }
         public long GasUsed { get; set; }
         public long GasLimit { get; set; }
