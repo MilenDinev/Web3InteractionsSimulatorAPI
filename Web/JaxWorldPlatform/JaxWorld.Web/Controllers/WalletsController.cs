@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
     using AutoMapper;
-    using Base;
     using Microsoft.AspNetCore.Mvc;
+    using Base;
     using Data.Entities.Wallets;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
