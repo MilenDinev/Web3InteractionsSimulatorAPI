@@ -19,9 +19,8 @@
         [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal Price { get; set; }
         public string Hash { get; set; }
-        public string ParentHash { get; set; }
-        public string Sha3Uncles { get; set; }
-        public string Nonce { get; set; }
+        public int NetworkId { get; set; }
+        public virtual Network Network { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }
