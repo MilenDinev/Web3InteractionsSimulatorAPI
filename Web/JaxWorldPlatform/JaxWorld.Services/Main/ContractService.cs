@@ -20,6 +20,9 @@
         {
             var contract = mapper.Map<Contract>(contractModel);
 
+            var contractAddress = await CreateContractAddressAsync(contractModel.Name);
+            contract.Address = contractAddress;
+
             await CreateEntityAsync(contract, creatorId);
 
             return contract;
