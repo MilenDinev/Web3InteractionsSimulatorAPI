@@ -1,10 +1,10 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
     using AutoMapper;
+    using Microsoft.AspNetCore.Mvc;
+    using Base;
     using Services.Handlers.Interfaces;
     using Services.Main.Interfaces;
-    using Web.Controllers.Base;
-    using Microsoft.AspNetCore.Mvc;
     using Models.Requests.BlockchainRequests.ProfileModels;
     using Models.Responses.BlockchainResponses.ProfileModels;
     using Profile = Data.Entities.Profiles.Profile;
