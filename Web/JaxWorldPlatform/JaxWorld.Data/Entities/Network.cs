@@ -11,6 +11,7 @@
             Users = new HashSet<Wallet>();
             Contracts = new HashSet<Contract>();
             Transactions = new HashSet<Transaction>();
+            Blocks = new HashSet<Block>();
         }
 
         public string Name { get; set; }
@@ -19,6 +20,7 @@
         public string Symbol { get; set; }
         public string? ExplorerUrl { get; set; }
         public virtual ICollection<Wallet> Users { get; set; }
+        public virtual ICollection<Block> Blocks { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
         public virtual ICollection<Contract> Contracts { get; set; }
     }
