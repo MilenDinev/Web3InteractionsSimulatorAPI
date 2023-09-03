@@ -18,6 +18,8 @@
         }
 
         public string Address { get; set; }
+        public bool IsActive { get; set; }
+
         [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal Balance { get; set; }
         public int OwnerId { get; set; }
