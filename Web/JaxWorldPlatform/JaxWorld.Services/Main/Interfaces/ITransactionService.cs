@@ -5,7 +5,7 @@
 
     public interface ITransactionService
     {
-        Task<Transaction> CreateAsync(CreateTransactionModel model, int creatorId);
+        Task<Transaction> CreateAsync(CreateTransactionModel model, int targetContractId);
         Task UpdateStateAsync(Transaction transaction, int state, int modifierId);
     }
 }
