@@ -1,12 +1,8 @@
 ﻿namespace JaxWorld.Services.Handlers
 {
-    using System.Globalization;
-    using Data.Entities;
     using Interfaces;
     using Main.Interfaces;
-    using Microsoft.AspNetCore.Identity;
     using Models.Requests.BlockchainRequests.BlockModels;
-    using Models.Responses.BlockchainResponses.ContractModels;
     using Models.Requests.BlockchainRequests.TransactionModels;
     using Models.Responses.BlockchainResponses.TransactionModels;
 
@@ -36,31 +32,23 @@
             return await Task.Run(() => createTransactionModel);
         }
 
+        public async Task<DeployedContractTransactionModel> DeployTransactionAsync(CreateTransactionModel createTransactionModel, int targetContractId)
             {
-                BaseFeePerGas = 0.000000025m,
-                GasUsed = 275345,
-                TxnHash = transactionHash
-            };
-
-            var block = await blockService.CreateAsync(createBlockModel, creator.Id);
-
-            createTransactionModel.BlockId = block.Id;
-
-            var transaction = await transactionService.CreateAsync(createTransactionModel, creator.Id);
+            var transaction = await transactionService.CreateAsync(createTransactionModel, targetContractId);
+            await this.transactionService.UpdateStateAsync(transaction, createTransactionModel.StateId + 1, transaction.CreatorId);
 
             var deployedContractModel = new DeployedContractTransactionModel
             {
-                ContractId = createdContractModel.Id,
+                ContractId = transaction.TargetId,
+                BlockId = transaction.BlockId,
                 TxnHash = transaction.TxnHash,
-                ContractName = createdContractModel.Name,
-                ContractAddress = createdContractModel.Address,
-                CreatorAddress = createdContractModel.CreatorWallet,
-                OwnerAddress = createdContractModel.OwnerWallet,
+                ContractName = transaction.Target.Name,
+                TxnState = transaction.State.State,
+                ContractAddress = transaction.Target.Address,
+                CreatorAddress = transaction.Initiator.Address,
+                OwnerAddress = transaction.Initiator.Address,
             };
 
-            await this.transactionService.UpdateStateAsync(transaction, createTransactionModel.StateId + 1, creator.Id);
-
-            deployedContractModel.TxnState = transaction.State.State;
 
             return await Task.Run(() => deployedContractModel);
         }
