@@ -1,7 +1,8 @@
 ﻿namespace JaxWorld.Services.Main
 {
-    using Microsoft.AspNetCore.Identity;
     using System.Globalization;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
     using AutoMapper;
     using Base;
     using Main.Interfaces;
@@ -20,10 +21,9 @@
 
         public async Task<Block> CreateAsync(CreateBlockModel blockModel, int creatorId)
         {
-         
+            blockModel.Hash = await CreateBlockHashAsync(blockModel.TxnHash);
+
             var block = mapper.Map<Block>(blockModel);
-            block.Hash = await CreateBlockHashAsync(blockModel.TxnHash);
-            block.NormalizedTag = block.Hash.ToString().ToUpper();
 
             await CreateEntityAsync(block, creatorId);
 
