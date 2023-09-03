@@ -3,6 +3,8 @@
     using Constants;
     using Exceptions;
     using Interfaces;
+    using Data.Entities;
+    using Data.Entities.Wallets;
     using Data.Interfaces.IEntities;
 
     public class Validator : IValidator
@@ -14,11 +16,11 @@
             this.entityChecker = entityChecker;
         }
 
-        public async Task ValidateEntityAsync<T>(T entity, string flag) where T : class, IEntity
+        public async Task ValidateEntityAsync<T>(T entity) where T : class, IEntity
         {
             string entityType = typeof(T).Name;
 
-            if (await entityChecker.NullableCheck(entity, flag))
+            if (await entityChecker.NullableCheck(entity))
                 throw new ResourceNotFoundException(string.Format(ErrorMessages.EntityDoesNotExist, entityType));
 
             if (await entityChecker.DeletedCheck(entity))
