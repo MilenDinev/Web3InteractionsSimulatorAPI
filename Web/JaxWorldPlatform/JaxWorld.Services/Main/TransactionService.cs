@@ -1,5 +1,7 @@
 ﻿namespace JaxWorld.Services.Main
 {
+    using System.Globalization;
+    using Microsoft.AspNetCore.Identity;
     using AutoMapper;
     using Base;
     using Interfaces;
@@ -37,6 +39,15 @@
             transaction.State = transactionState;
 
             await SaveModificationAsync(transaction, modifierId);
+        }
+
+        private static async Task<string> CreateTxnHashAsync(string hashKey)
+        {
+            var hasher = new PasswordHasher<string>();
+            var timestamp = DateTime.UtcNow.ToString("F", CultureInfo.InvariantCulture);
+            var txnHash = hasher.HashPassword(hashKey, timestamp);
+
+            return await Task.Run(txnHash.ToString);
         }
     }
 }
