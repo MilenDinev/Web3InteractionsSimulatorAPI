@@ -21,19 +21,21 @@
             this.transactionService = transactionService;
         }
 
-        public async Task<DeployedContractTransactionModel> DeployContractAsync(CreatedContractModel createdContractModel, User creator)
+        public async Task<CreateTransactionModel> GetCreateTransactionModelAsync(int creatorId, int networkId, int initWalletId)
         {
-            var transactionHash = await CreateTxnHashAsync(createdContractModel.CreatorWallet);
-
+            var availableBlockId = await GetAvailableBlockAsync(networkId, creatorId);
             var createTransactionModel = new CreateTransactionModel
             {
-                TxnHash = transactionHash,
-                InitiatorId = createdContractModel.CreatorWalletId,
-                TargetId = createdContractModel.CreatorWalletId,
+                CreatorId = creatorId,
+                BlockId = availableBlockId,
+                NetworkId = networkId,
+                InitiatorWalletId = initWalletId,
                 StateId = 1,
             };
 
-            var createBlockModel = new CreateBlockModel
+            return await Task.Run(() => createTransactionModel);
+        }
+
             {
                 BaseFeePerGas = 0.000000025m,
                 GasUsed = 275345,
