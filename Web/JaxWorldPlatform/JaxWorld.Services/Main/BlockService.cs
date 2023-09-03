@@ -30,6 +30,13 @@
             return block;
         }
 
+        public async Task<Block> GetCurrentBlockAsync()
+        {
+            var currentBlock = await this.dbContext.Blocks.FirstOrDefaultAsync(x => x.Transactions.Count < 10 && x.GasUsed <= 15000000 - 275345);
+            return currentBlock;
+        }
+
+
         internal async Task<string> CreateBlockHashAsync(string hashKey)
         {
             var hasher = new PasswordHasher<string>();
