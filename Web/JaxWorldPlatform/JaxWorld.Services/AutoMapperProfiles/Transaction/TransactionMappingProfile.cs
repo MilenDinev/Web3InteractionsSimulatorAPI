@@ -10,7 +10,9 @@
         public TransactionMappingProfile()
         {
             this.CreateMap<CreateTransactionModel, Transaction>()
-                .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.TxnHash.ToUpper()));
+                .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.TxnHash.ToUpper()))
+                .ForMember(e => e.CreatorId, m => m.Ignore())
+                .ForMember(e => e.InitiatorId, m => m.Ignore());
             this.CreateMap<Transaction, DeployedContractTransactionModel>();
             this.CreateMap<Transaction, TransactionListingModel>();
             this.CreateMap<Transaction, TransactionListingModel>();

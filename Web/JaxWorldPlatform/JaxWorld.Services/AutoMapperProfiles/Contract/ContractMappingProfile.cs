@@ -12,10 +12,11 @@
         {
             this.CreateMap<CreateContractModel, Contract>()
                 .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.Name.ToUpper()))
-                .ForMember(e => e.CreatorWalletId, m => m.MapFrom(m => 1));
+                .ForMember(e => e.CreatorWalletId, m => m.Ignore());
             this.CreateMap<Contract, CreatedContractModel>()
-                .ForMember(e => e.Creator, m => m.MapFrom(m => m.Creator.UserName))
-                .ForMember(e => e.CreatorWallet, m => m.MapFrom(m => m.CreatorWallet.Address));
+                .ForMember(m => m.Creator, e => e.MapFrom(e => e.Creator.UserName))
+                .ForMember(m => m.CreatorWallet, e => e.MapFrom(e => e.CreatorWallet.Address))
+                .ForMember(m => m.OwnerWallet, e => e.MapFrom(e => e.CreatorWallet.Address));
             this.CreateMap<Contract, EditedContractModel>();
             this.CreateMap<Contract, DeletedContractModel>();
             this.CreateMap<Contract, ContractListingModel>()
