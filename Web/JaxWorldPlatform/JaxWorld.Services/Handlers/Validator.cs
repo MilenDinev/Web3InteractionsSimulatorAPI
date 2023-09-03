@@ -32,5 +32,13 @@
             if (await Task.Run(() => entity != null))
                 throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.EntityAlreadyContained, entityType));
         }
+
+        public async Task ValidateWalletOwnershipAsync(User Owner, Wallet wallet)
+        {
+            var entityType = typeof(User).Name;
+
+            if (await Task.Run(() => !Owner.Wallets.Contains(wallet)))
+                throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.UserDoesNotOwnWallet, entityType, wallet.Address));
+        }
     }
 }
