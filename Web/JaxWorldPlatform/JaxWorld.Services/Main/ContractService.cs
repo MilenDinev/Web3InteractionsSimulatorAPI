@@ -8,6 +8,7 @@
     using Data;
     using Data.Entities.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
+    using Models.Responses.BlockchainResponses.ContractModels;
 
     public class ContractService : BaseService<Contract>, IContractService
     {
@@ -18,16 +19,19 @@
             this.mapper = mapper;
         }
 
-        public async Task<Contract> CreateAsync(CreateContractModel contractModel, int creatorId)
+        public async Task<CreatedContractModel> CreateAsync(CreateContractModel contractModel, int creatorWalletId, int creatorId)
         {
             var contract = mapper.Map<Contract>(contractModel);
+            contract.CreatorWalletId = creatorWalletId;
 
             var contractAddress = await CreateContractAddressAsync(contractModel.Name);
             contract.Address = contractAddress;
 
             await CreateEntityAsync(contract, creatorId);
 
-            return contract;
+            var createdContract = mapper.Map<CreatedContractModel>(contract);
+
+            return createdContract;
         }
 
         public async Task EditAsync(Contract contract, EditContractModel contractModel, int modifierId)
