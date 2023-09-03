@@ -3,6 +3,7 @@
     public class DeployedContractTransactionModel
     {
         public int ContractId { get; set; }
+        public int BlockId { get; set; }
         public string TxnHash { get; set; }
         public string TxnState { get; set; }
         public string ContractName { get; set; }
