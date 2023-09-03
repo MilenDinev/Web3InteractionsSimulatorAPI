@@ -8,24 +8,24 @@
     {
         public void Configure(EntityTypeBuilder<Profile> builder)
         {
-            builder.HasOne(s => s.Contract)
-                .WithOne(u => u.Profile)
-                .HasForeignKey<Profile>(e => e.ContractId)
+            builder.HasOne(p => p.Contract)
+                .WithOne(c => c.Profile)
+                .HasForeignKey<Profile>(p => p.ContractId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.Standard)
-                .WithMany(u => u.Profiles)
-                .HasForeignKey(s => s.StandardId)
+            builder.HasOne(p => p.Standard)
+                .WithMany(s => s.Profiles)
+                .HasForeignKey(p => p.StandardId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.Creator)
+            builder.HasOne(p => p.Creator)
                 .WithMany()
-                .HasForeignKey(s => s.CreatorId)
+                .HasForeignKey(p => p.CreatorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.LastModifier)
+            builder.HasOne(p => p.LastModifier)
                 .WithMany()
-                .HasForeignKey(s => s.LastModifierId)
+                .HasForeignKey(p => p.LastModifierId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

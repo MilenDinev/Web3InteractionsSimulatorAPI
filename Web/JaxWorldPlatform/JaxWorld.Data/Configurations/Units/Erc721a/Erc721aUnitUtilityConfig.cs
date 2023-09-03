@@ -9,12 +9,12 @@
     {
         public void Configure(EntityTypeBuilder<Utility> builder)
         {
-            builder.HasMany(g => g.Erc721AUnits)
-             .WithMany(u => u.Utilities)
+            builder.HasMany(u => u.Erc721AUnits)
+             .WithMany(erc => erc.Utilities)
                 .UsingEntity<Dictionary<string, object>>("Erc721aUnitsUtilities",
-                x => x.HasOne<Erc721aUnit>().WithMany().HasForeignKey("Erc721aUnitId")
+                eu => eu.HasOne<Erc721aUnit>().WithMany().HasForeignKey("Erc721aUnitId")
                       .OnDelete(DeleteBehavior.Restrict),
-                x => x.HasOne<Utility>().WithMany().HasForeignKey("UtilityId")
+                eu => eu.HasOne<Utility>().WithMany().HasForeignKey("UtilityId")
                       .OnDelete(DeleteBehavior.Restrict));
         }
     }
