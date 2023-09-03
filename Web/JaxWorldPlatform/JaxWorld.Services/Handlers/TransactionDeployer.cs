@@ -26,14 +26,14 @@
                 BlockId = availableBlockId,
                 NetworkId = networkId,
                 InitiatorWalletId = initWalletId,
-                StateId = 1,
+                StateId = 1,          
             };
 
             return await Task.Run(() => createTransactionModel);
         }
 
         public async Task<DeployedContractTransactionModel> DeployTransactionAsync(CreateTransactionModel createTransactionModel, int targetContractId)
-            {
+        {
             var transaction = await transactionService.CreateAsync(createTransactionModel, targetContractId);
             await this.transactionService.UpdateStateAsync(transaction, createTransactionModel.StateId + 1, transaction.CreatorId);
 
@@ -60,7 +60,7 @@
             if (currentBlockAvailable == null)
             {
                 var createBlockModel = new CreateBlockModel
-        {
+                {
                     NetworkId = networkId,
                     BaseFeePerGas = 0.000000025m,
                     GasUsed = 275345,
