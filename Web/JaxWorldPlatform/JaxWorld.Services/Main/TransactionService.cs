@@ -16,12 +16,16 @@
             this.mapper = mapper;
         }
 
-        public async Task<Transaction> CreateAsync(CreateTransactionModel transactionModel, int creatorId)
+        public async Task<Transaction> CreateAsync(CreateTransactionModel transactionModel, int targetContractId)
         {
+            transactionModel.TxnHash = await CreateTxnHashAsync(Guid.NewGuid().ToString());
+
             var transaction = mapper.Map<Transaction>(transactionModel);
 
+            transaction.InitiatorId = transactionModel.InitiatorWalletId;
+            transaction.TargetId = targetContractId;
 
-            await CreateEntityAsync(transaction, creatorId);
+            await CreateEntityAsync(transaction, transactionModel.CreatorId);
 
             return transaction;
         }
