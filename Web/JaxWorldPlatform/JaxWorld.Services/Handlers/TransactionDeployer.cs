@@ -63,13 +63,27 @@
             return await Task.Run(() => deployedContractModel);
         }
 
-        private static async Task<string> CreateTxnHashAsync(string hashKey)
+        private async Task<int> GetAvailableBlockAsync(int networkId, int creatorId)
         {
-            var hasher = new PasswordHasher<string>();
-            var timestamp = DateTime.UtcNow.ToString("F", CultureInfo.InvariantCulture);
-            var txnHash = hasher.HashPassword(hashKey, timestamp);
+            var currentBlockAvailable = await blockService.GetCurrentBlockAsync();
 
-            return await Task.Run(txnHash.ToString);
+            if (currentBlockAvailable == null)
+            {
+                var createBlockModel = new CreateBlockModel
+        {
+                    NetworkId = networkId,
+                    BaseFeePerGas = 0.000000025m,
+                    GasUsed = 275345,
+                    TxnHash = "test"
+                };
+
+                var newBlock = await blockService.CreateAsync(createBlockModel, creatorId);
+                return newBlock.Id;
+            }
+
+            currentBlockAvailable.GasUsed += 275345;
+
+            return await Task.Run(() => currentBlockAvailable.Id);
         }
 
         public async Task<TransferedUnitTransactionModel> TransferAsync(TransferUnitTransactionModel initiateTransactionModel, int creatorId)
