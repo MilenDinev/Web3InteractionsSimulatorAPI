@@ -2,10 +2,11 @@
 {
     using AutoMapper;
     using Base;
-    using Interfaces;
     using Data;
+    using Interfaces;
     using Profile = Data.Entities.Profiles.Profile;
     using Models.Requests.BlockchainRequests.ProfileModels;
+    using Models.Responses.BlockchainResponses.ProfileModels;
 
     public class ProfileService : BaseService<Profile>, IProfileService
     {
@@ -20,9 +21,14 @@
         {
             var profile = mapper.Map<Profile>(profileModel);
 
+            profile.ContractId = profileModel.ContractId;
+            profile.StandardId = profileModel.StandardId;
+
             await CreateEntityAsync(profile, creatorId);
 
-            return profile;
+            var createdProfile = mapper.Map<CreatedProfileModel>(profile);
+
+            return createdProfile;
         }
 
         public async Task EditAsync(Profile profile, EditProfileModel profileModel, int modifierId)
