@@ -45,7 +45,7 @@
         public async Task<ActionResult<ProfileListingModel>> GetById(int profileId)
         {
             var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
-            await this.validator.ValidateEntityAsync(profile, profileId.ToString());
+            await this.validator.ValidateEntityAsync(profile);
 
             return mapper.Map<ProfileListingModel>(profile);
         }
@@ -74,7 +74,7 @@
 
             var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
 
-            await this.validator.ValidateEntityAsync(profile, profileId.ToString());
+            await this.validator.ValidateEntityAsync(profile);
             await this.profileService.EditAsync(profile, profileInput, CurrentUser.Id);
 
             return mapper.Map<EditedProfileModel>(profile);
@@ -88,7 +88,7 @@
 
             var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
 
-            await this.validator.ValidateEntityAsync(profile, profileId.ToString());
+            await this.validator.ValidateEntityAsync(profile);
             await this.profileService.DeleteAsync(profile, CurrentUser.Id);
 
             return mapper.Map<DeletedProfileModel>(profile);
