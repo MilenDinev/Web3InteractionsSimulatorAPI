@@ -3,6 +3,8 @@
     using Interfaces;
     using Main.Interfaces;
     using Models.Requests.BlockchainRequests.BlockModels;
+    using Models.Responses.BlockchainResponses.ProfileModels;
+    using Models.Responses.BlockchainResponses.ContractModels;
     using Models.Requests.BlockchainRequests.TransactionModels;
     using Models.Responses.BlockchainResponses.TransactionModels;
 
@@ -63,6 +65,21 @@
             return await Task.Run(() => deployedProfileModel);
         }
 
+        private async Task<CreateTransactionModel> GetCreateTxnModelAsync(int creatorId, int networkId, int initWalletId)
+        {
+            var availableBlockId = await GetAvailableBlockAsync(networkId, creatorId);
+
+            var createTransactionModel = new CreateTransactionModel
+            {
+                CreatorId = creatorId,
+                BlockId = availableBlockId,
+                NetworkId = networkId,
+                InitiatorWalletId = initWalletId,
+                StateId = 1,
+            };
+
+            return await Task.Run(() => createTransactionModel);
+        }
 
         private async Task<int> GetAvailableBlockAsync(int networkId, int creatorId)
         {
