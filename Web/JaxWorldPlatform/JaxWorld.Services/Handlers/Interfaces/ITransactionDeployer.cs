@@ -5,7 +5,7 @@
 
     public interface ITransactionDeployer
     {
-        Task<CreateTransactionModel> GetCreateTransactionModelAsync(int creatorId, int networkId, int initWalletId);
+        Task<DeployedContractTxnModel> DeployContractTxnAsync(CreatedContractModel createdContractModel, int creatorId);
         Task<DeployedContractTransactionModel> DeployTransactionAsync(CreateTransactionModel createTransactionModel, int targetContractId);
         Task<TransferedUnitTransactionModel> TransferAsync(TransferUnitTransactionModel initiateTransactionModel, int creatorId);
         Task<ClaimedUnitTransactionModel> ClaimAsync(ClaimUnitTransactionModel initiateTransactionModel, int creatorId);
