@@ -16,7 +16,7 @@
             this.mapper = mapper;
         }
 
-        public async Task<Profile> CreateAsync(CreateProfileModel profileModel, int creatorId)
+        public async Task<CreatedProfileModel> CreateAsync(CreateProfileModel profileModel, int creatorId)
         {
             var profile = mapper.Map<Profile>(profileModel);
 
