@@ -17,27 +17,15 @@
             this.transactionService = transactionService;
         }
 
-        public async Task<CreateTransactionModel> GetCreateTransactionModelAsync(int creatorId, int networkId, int initWalletId)
+        public async Task<DeployedContractTxnModel> DeployContractTxnAsync(CreatedContractModel createdContractModel, int creatorId)
         {
-            var availableBlockId = await GetAvailableBlockAsync(networkId, creatorId);
-            var createTransactionModel = new CreateTransactionModel
-            {
-                CreatorId = creatorId,
-                BlockId = availableBlockId,
-                NetworkId = networkId,
-                InitiatorWalletId = initWalletId,
-                StateId = 1,          
-            };
+            var createTransactionModel = await GetCreateTxnModelAsync(creatorId, createdContractModel.NetworkId, createdContractModel.CreatorWalletId);
 
-            return await Task.Run(() => createTransactionModel);
-        }
+            var transaction = await transactionService.CreateAsync(createTransactionModel, createdContractModel.Id);
 
-        public async Task<DeployedContractTransactionModel> DeployTransactionAsync(CreateTransactionModel createTransactionModel, int targetContractId)
-        {
-            var transaction = await transactionService.CreateAsync(createTransactionModel, targetContractId);
-            await this.transactionService.UpdateStateAsync(transaction, createTransactionModel.StateId + 1, transaction.CreatorId);
+            await this.transactionService.UpdateStateAsync(transaction, transaction.CreatorId);
 
-            var deployedContractModel = new DeployedContractTransactionModel
+            var deployedContractModel = new DeployedContractTxnModel
             {
                 ContractId = transaction.TargetId,
                 BlockId = transaction.BlockId,
