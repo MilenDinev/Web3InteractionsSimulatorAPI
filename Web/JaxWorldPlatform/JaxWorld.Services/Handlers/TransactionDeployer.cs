@@ -41,6 +41,29 @@
             return await Task.Run(() => deployedContractModel);
         }
 
+        public async Task<DeployedProfileTxnModel> DeployProfileTxnAsync(CreatedProfileModel createdProfileModel, int creatorId)
+        {
+            var createTransactionModel = await GetCreateTxnModelAsync(creatorId, createdProfileModel.NetworkId, createdProfileModel.CreatorWalletId);
+            var transaction = await transactionService.CreateAsync(createTransactionModel, createdProfileModel.ContractId);
+
+            await this.transactionService.UpdateStateAsync(transaction, transaction.CreatorId);
+
+            var deployedProfileModel = new DeployedProfileTxnModel
+            {
+                ProfileId = transaction.Target.Profile.Id,
+                ProfileName = transaction.Target.Profile.Name,
+                Standard = transaction.Target.Profile.Standard.Name,
+                Symbol = transaction.Target.Profile.Symbol,
+                Description = transaction.Target.Profile.Description,
+                TotalSupply = transaction.Target.Profile.TotalSupply,
+                ContractAddress = transaction.Target.Address,
+            };
+
+
+            return await Task.Run(() => deployedProfileModel);
+        }
+
+
         private async Task<int> GetAvailableBlockAsync(int networkId, int creatorId)
         {
             var currentBlockAvailable = await blockService.GetCurrentBlockAsync();
