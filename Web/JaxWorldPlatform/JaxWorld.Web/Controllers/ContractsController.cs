@@ -8,6 +8,10 @@
     using Services.Handlers.Interfaces;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
+    using JaxWorld.Services.Handlers;
+    using System.Diagnostics.Metrics;
+    using JaxWorld.Data.Entities;
+    using JaxWorld.Data.Entities.Wallets;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,11 +20,13 @@
     public class ContractsController : JaxWorldBaseController
     {
         private readonly IContractService contractService;
+        private readonly ITransactionDeployer transactionDeployer;
         private readonly IFinder finder;
         private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public ContractsController(IContractService contractService,
+            ITransactionDeployer transactionDeployer,
             IFinder finder,
             IValidator validator,
             IMapper mapper,
@@ -28,6 +34,7 @@
             : base(userService)
         {
             this.contractService = contractService;
+            this.transactionDeployer = transactionDeployer;
             this.finder = finder;
             this.validator = validator;
             this.mapper = mapper;
@@ -61,10 +68,21 @@
             var contract = await this.finder.FindByStringOrDefaultAsync<Contract>(contractInput.Name);
             await this.validator.ValidateUniqueEntityAsync(contract);
 
-            contract = await this.contractService.CreateAsync(contractInput, CurrentUser.Id);
-            var createdContract = mapper.Map<CreatedContractModel>(contract);
+            var network = await this.finder.FindByIdOrDefaultAsync<Network>(contractInput.NetworkId);
+            await this.validator.ValidateEntityAsync(network);
 
-            return CreatedAtAction(nameof(Get), "Contracts", new { id = createdContract.Id }, createdContract);
+            var wallet = await this.finder.FindByStringOrDefaultAsync<Wallet>(contractInput.CreatorAddress);
+            await this.validator.ValidateEntityAsync(wallet);
+
+            await this.validator.ValidateWalletOwnershipAsync(CurrentUser, wallet);
+
+            wallet.IsActive = true;
+
+            var createdContract = await this.contractService.CreateAsync(contractInput, wallet.Id, CurrentUser.Id);
+
+            var deployedContract = await this.transactionDeployer.DeployContractTxnAsync(createdContract, CurrentUser.Id);
+
+            return CreatedAtAction(nameof(Get), "Contracts", new { id = deployedContract.ContractId }, deployedContract);
         }
 
         // PUT api/<ContractsController>/5
