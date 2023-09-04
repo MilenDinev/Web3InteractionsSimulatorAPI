@@ -32,13 +32,15 @@
             return transaction;
         }
 
-        public async Task UpdateStateAsync(Transaction transaction, int state, int modifierId)
+        public async Task UpdateStateAsync(Transaction transaction, int modifierId)
         {
-            var transactionState = await dbContext.TransactionStates.FindAsync(state);
+            var transactionState = await dbContext.TransactionStates.FindAsync(transaction.StateId+1);
 
-            transaction.State = transactionState;
-
-            await SaveModificationAsync(transaction, modifierId);
+            if (transactionState != null)
+            {
+                transaction.State = transactionState ;
+                await SaveModificationAsync(transaction, modifierId);
+            }
         }
 
         private static async Task<string> CreateTxnHashAsync(string hashKey)
