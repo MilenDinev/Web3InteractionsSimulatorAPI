@@ -48,7 +48,7 @@
         public async Task<ActionResult<WalletListingModel>> GetById(int walletId)
         {
             var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
-            await this.validator.ValidateEntityAsync(wallet, walletId.ToString());
+            await this.validator.ValidateEntityAsync(wallet);
 
             return mapper.Map<WalletListingModel>(wallet);
         }
@@ -80,7 +80,7 @@
 
             var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
 
-            await this.validator.ValidateEntityAsync(wallet, walletId.ToString());
+            await this.validator.ValidateEntityAsync(wallet);
             await this.walletService.EditAsync(wallet, walletInput, CurrentUser.Id);
 
             return mapper.Map<EditedWalletModel>(wallet);
@@ -94,7 +94,7 @@
 
             var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
 
-            await this.validator.ValidateEntityAsync(wallet, walletId.ToString());
+            await this.validator.ValidateEntityAsync(wallet);
             await this.walletService.DeleteAsync(wallet, CurrentUser.Id);
 
             return mapper.Map<DeletedWalletModel>(wallet);

@@ -46,7 +46,7 @@
         public async Task<ActionResult<TransactionListingModel>> GetById(int transactionId)
         {
             var transaction = await this.finder.FindByIdOrDefaultAsync<Transaction>(transactionId);
-            await this.validator.ValidateEntityAsync(transaction, transactionId.ToString());
+            await this.validator.ValidateEntityAsync(transaction);
 
             return mapper.Map<TransactionListingModel>(transaction);
         }

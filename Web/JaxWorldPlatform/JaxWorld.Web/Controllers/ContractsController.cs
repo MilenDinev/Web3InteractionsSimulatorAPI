@@ -47,7 +47,7 @@
         public async Task<ActionResult<ContractListingModel>> GetById(int contractId)
         {
             var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
-            await this.validator.ValidateEntityAsync(contract, contractId.ToString());
+            await this.validator.ValidateEntityAsync(contract);
 
             return mapper.Map<ContractListingModel>(contract);
         }
@@ -75,7 +75,7 @@
 
             var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
 
-            await this.validator.ValidateEntityAsync(contract, contractId.ToString());
+            await this.validator.ValidateEntityAsync(contract);
             await this.contractService.EditAsync(contract, contractInput, CurrentUser.Id);
 
             return mapper.Map<EditedContractModel>(contract);
@@ -89,7 +89,7 @@
 
             var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
 
-            await this.validator.ValidateEntityAsync(contract, contractId.ToString());
+            await this.validator.ValidateEntityAsync(contract);
             await this.contractService.DeleteAsync(contract, CurrentUser.Id);
 
             return mapper.Map<DeletedContractModel>(contract);

@@ -49,7 +49,7 @@
         public async Task<ActionResult<Erc721aUnitListingModel>> GetById(int unitId)
         {
             var unit = await finder.FindByIdOrDefaultAsync<Erc721aUnit>(unitId);
-            await validator.ValidateEntityAsync(unit, unitId.ToString());
+            await validator.ValidateEntityAsync(unit);
 
             return mapper.Map<Erc721aUnitListingModel>(unit);
         }
@@ -77,7 +77,7 @@
 
             var unit = await finder.FindByIdOrDefaultAsync<Erc721aUnit>(unitId);
 
-            await validator.ValidateEntityAsync(unit, unitId.ToString());
+            await validator.ValidateEntityAsync(unit);
             await unitService.EditAsync(unit, unitInput, CurrentUser.Id);
 
             return mapper.Map<EditedErc721aUnitModel>(unit);
@@ -91,7 +91,7 @@
 
             var unit = await finder.FindByIdOrDefaultAsync<Erc721aUnit>(unitId);
 
-            await validator.ValidateEntityAsync(unit, unitId.ToString());
+            await validator.ValidateEntityAsync(unit);
             await unitService.DeleteAsync(unit, CurrentUser.Id);
 
             return mapper.Map<DeletedErc721aUnitModel>(unit);
