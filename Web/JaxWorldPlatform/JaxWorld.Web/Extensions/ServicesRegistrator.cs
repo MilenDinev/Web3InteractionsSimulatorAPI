@@ -20,14 +20,12 @@
         {
             services.AddAutoMapper(Assembly.Load(AutoMapperConfigValues.Assembly));
             services.AddTransient<IUserManager, JaxWorldUserManager>();
-            services.AddTransient<ITransactionDeployer, TransactionDeployer>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<INetworkService, NetworkService>();
             services.AddTransient<IContractService, ContractService>();
             services.AddTransient<IProfileService, ProfileService>();
             services.AddTransient<IErc721aUnitService, Erc721aUnitService>();
             services.AddTransient<ITransactionService, TransactionService>();
-            services.AddTransient<IBlockService, BlockService>();
             services.AddTransient<IAttributeService, AttributeService>();
             services.AddTransient<IUtilityService, UtilityService>();
             services.AddTransient<IWalletService, WalletService>();

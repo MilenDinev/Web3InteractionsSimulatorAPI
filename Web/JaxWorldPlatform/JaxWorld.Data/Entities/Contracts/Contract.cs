@@ -10,6 +10,8 @@
     {
         public Contract()
         {
+
+            Networks = new HashSet<Network>();
             Transactions = new HashSet<Transaction>();
         }
 
@@ -22,8 +24,7 @@
         public int CreatorWalletId { get; set; }
         public virtual Wallet CreatorWallet { get; set; }
         public virtual Profile Profile { get; set; }
-        public int NetworkId { get; set; }
-        public virtual Network Network { get; set; }
+        public virtual ICollection<Network> Networks { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

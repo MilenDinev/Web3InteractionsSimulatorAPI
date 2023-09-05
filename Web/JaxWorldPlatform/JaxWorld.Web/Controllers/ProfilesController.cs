@@ -1,12 +1,10 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
     using AutoMapper;
-    using Microsoft.AspNetCore.Mvc;
-    using Base;
-    using Data.Entities;
-    using Data.Entities.Contracts;
     using Services.Handlers.Interfaces;
     using Services.Main.Interfaces;
+    using Web.Controllers.Base;
+    using Microsoft.AspNetCore.Mvc;
     using Models.Requests.BlockchainRequests.ProfileModels;
     using Models.Responses.BlockchainResponses.ProfileModels;
     using Profile = Data.Entities.Profiles.Profile;
@@ -16,13 +14,11 @@
     public class ProfilesController : JaxWorldBaseController
     {
         private readonly IProfileService profileService;
-        private readonly ITransactionDeployer transactionDeployer;
         private readonly IFinder finder;
         private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public ProfilesController(IProfileService profileService,
-            ITransactionDeployer transactionDeployer,
             IFinder finder,
             IValidator validator,
             IMapper mapper,
@@ -30,7 +26,6 @@
             : base(userService)
         {
             this.profileService = profileService;
-            this.transactionDeployer = transactionDeployer;
             this.finder = finder;
             this.validator = validator;
             this.mapper = mapper;
@@ -50,7 +45,7 @@
         public async Task<ActionResult<ProfileListingModel>> GetById(int profileId)
         {
             var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
-            await this.validator.ValidateEntityAsync(profile);
+            await this.validator.ValidateEntityAsync(profile, profileId.ToString());
 
             return mapper.Map<ProfileListingModel>(profile);
         }
@@ -64,17 +59,10 @@
             var profile = await this.finder.FindByStringOrDefaultAsync<Profile>(profileInput.Name);
             await this.validator.ValidateUniqueEntityAsync(profile);
 
-            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(profileInput.ContractId);
-            await this.validator.ValidateEntityAsync(contract);
+            profile = await this.profileService.CreateAsync(profileInput, CurrentUser.Id);
+            var createdProfile = mapper.Map<CreatedProfileModel>(profile);
 
-            var standard = await this.finder.FindByIdOrDefaultAsync<Standard>(profileInput.StandardId);
-            await this.validator.ValidateEntityAsync(standard);
-
-            var createdProfile = await this.profileService.CreateAsync(profileInput, CurrentUser.Id);
-
-            var deployedProfile = await this.transactionDeployer.DeployProfileTxnAsync(createdProfile, CurrentUser.Id);
-
-            return CreatedAtAction(nameof(Get), "Profiles", new { id = deployedProfile.ProfileId }, deployedProfile);
+            return CreatedAtAction(nameof(Get), "Profiles", new { id = createdProfile.Id }, createdProfile);
         }
 
 
@@ -86,7 +74,7 @@
 
             var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
 
-            await this.validator.ValidateEntityAsync(profile);
+            await this.validator.ValidateEntityAsync(profile, profileId.ToString());
             await this.profileService.EditAsync(profile, profileInput, CurrentUser.Id);
 
             return mapper.Map<EditedProfileModel>(profile);
@@ -100,7 +88,7 @@
 
             var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
 
-            await this.validator.ValidateEntityAsync(profile);
+            await this.validator.ValidateEntityAsync(profile, profileId.ToString());
             await this.profileService.DeleteAsync(profile, CurrentUser.Id);
 
             return mapper.Map<DeletedProfileModel>(profile);

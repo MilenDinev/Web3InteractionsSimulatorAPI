@@ -4,6 +4,7 @@
     using Wallets;
     using Profiles;
     using Properties;
+    using Transactions;
 
     public class Erc721aUnit : Unit
     {
@@ -11,9 +12,10 @@
         {
             Attributes = new HashSet<Attribute>();
             Utilities = new HashSet<Utility>();
+            Transactions = new HashSet<Transaction>();
         }
         public string Description { get; set; }
-        public string? ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
         public string? ExternalUrl { get; set; }
         public bool Minted { get; set; }
         public string? MintedTxnHash { get; set; }
@@ -23,7 +25,8 @@
         public virtual ICollection<Attribute> Attributes { get; set; }
         public virtual ICollection<Utility> Utilities { get; set; }
         public int? HolderId { get; set; }
-        public virtual Wallet? Holder { get; set; }
+        public virtual Wallet Holder { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }
 

@@ -13,7 +13,7 @@
             this.dbContext = dbContext;
         }
 
-        public async Task<bool> NullableCheck<T>(T entity) where T : class, IEntity
+        public async Task<bool> NullableCheck<T>(T entity, string searchFlag) where T : class, IEntity
         {
             return await Task.Run(() => entity == null);
         }

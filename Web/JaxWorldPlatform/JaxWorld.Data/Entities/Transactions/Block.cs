@@ -10,16 +10,24 @@
             this.Transactions = new HashSet<Transaction>();
         }
 
+        public ulong BlockHeight { get; set; }
         public DateTime Timestamp { get; set; }
-        public long GasUsed { get; set; }
-        public long GasLimit { get; set; }
+        [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
+        public decimal BurnedFees { get; set; }
+        public int UnclesReward { get; set; }
+        public int Difficulty { get; set; }
+        public ulong TotalDifficulty { get; set; }
+        public ulong Size { get; set; }
+        public ulong GasUsed { get; set; }
+        public ulong GasLimit { get; set; }
         [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal BaseFeePerGas { get; set; }
         [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal Price { get; set; }
         public string Hash { get; set; }
-        public int NetworkId { get; set; }
-        public virtual Network Network { get; set; }
+        public string ParentHash { get; set; }
+        public string Sha3Uncles { get; set; }
+        public string Nonce { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

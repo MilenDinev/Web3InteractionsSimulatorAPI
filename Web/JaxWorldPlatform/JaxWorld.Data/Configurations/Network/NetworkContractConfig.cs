@@ -1,21 +1,20 @@
 ﻿namespace JaxWorld.Data.Configurations.Network
 {
-    using System.Collections.Generic;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Entities;
-    using Entities.Wallets;
+    using Entities.Contracts;
 
-    internal class NetworkWalletConfig : IEntityTypeConfiguration<Wallet>
+    internal class NetworkContractConfig : IEntityTypeConfiguration<Contract>
     {
-        public void Configure(EntityTypeBuilder<Wallet> builder)
+        public void Configure(EntityTypeBuilder<Contract> builder)
         {
             builder.HasMany(g => g.Networks)
-             .WithMany(u => u.Users)
-                .UsingEntity<Dictionary<string, object>>("NetworksWallets",
+             .WithMany(u => u.Contracts)
+                .UsingEntity<Dictionary<string, object>>("NetworksContracts",
                 x => x.HasOne<Network>().WithMany().HasForeignKey("NetworkId")
                       .OnDelete(DeleteBehavior.Restrict),
-                x => x.HasOne<Wallet>().WithMany().HasForeignKey("WalletId")
+                x => x.HasOne<Contract>().WithMany().HasForeignKey("ContractId")
                       .OnDelete(DeleteBehavior.Restrict));
         }
     }
