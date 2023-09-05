@@ -7,6 +7,7 @@
     using Models.Responses.BlockchainResponses.ContractModels;
     using Models.Requests.BlockchainRequests.TransactionModels;
     using Models.Responses.BlockchainResponses.TransactionModels;
+    using Models.Responses.BlockchainResponses.ProfileUnitModels;
 
     public class TransactionDeployer : ITransactionDeployer
     {
@@ -65,6 +66,39 @@
             return await Task.Run(() => deployedProfileModel);
         }
 
+        public async Task<MintedErc721aUnitTxnModel> MintedErc721aUnitTxnAsync(CreatedErc721aUnitModel createdErc721aUnitModel, int creatorId)
+        {
+            var createTransactionModel = await GetCreateTxnModelAsync(creatorId, createdErc721aUnitModel.NetworkId, createdErc721aUnitModel.MinterId);
+            var transaction = await transactionService.CreateAsync(createTransactionModel, createdErc721aUnitModel.ContractId);
+
+            await this.transactionService.UpdateStateAsync(transaction, transaction.CreatorId);
+
+            var mintedErc721aUnitModel = new MintedErc721aUnitTxnModel
+            {
+                //Name = transaction.Target.Profile.Erc721aUnits.Select(x => x.Name.Where(y => x.Name== createdErc721aUnitModel.Name).FirstOrDefault(),
+                Id = transaction.CreatorId,
+                Name = createdErc721aUnitModel.Name,
+                MinterAddress = createdErc721aUnitModel.MinterAddress,
+                ContractAddress = transaction.Target.Address,
+                TxnHash = transaction.TxnHash,
+                
+                
+            };
+
+
+            return await Task.Run(() => mintedErc721aUnitModel);
+        }
+
+        public async Task<TransferedUnitTransactionModel> TransferAsync(TransferUnitTransactionModel initiateTransactionModel, int creatorId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ClaimedUnitTransactionModel> ClaimAsync(ClaimUnitTransactionModel initiateTransactionModel, int creatorId)
+        {
+            throw new NotImplementedException();
+        }
+
         private async Task<CreateTransactionModel> GetCreateTxnModelAsync(int creatorId, int networkId, int initWalletId)
         {
             var availableBlockId = await GetAvailableBlockAsync(networkId, creatorId);
@@ -104,14 +138,5 @@
             return await Task.Run(() => currentBlockAvailable.Id);
         }
 
-        public async Task<TransferedUnitTransactionModel> TransferAsync(TransferUnitTransactionModel initiateTransactionModel, int creatorId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<ClaimedUnitTransactionModel> ClaimAsync(ClaimUnitTransactionModel initiateTransactionModel, int creatorId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
