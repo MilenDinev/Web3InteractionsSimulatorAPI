@@ -70,9 +70,7 @@
             var standard = await this.finder.FindByIdOrDefaultAsync<Standard>(profileInput.StandardId);
             await this.validator.ValidateEntityAsync(standard);
 
-
             var createdProfile = await this.profileService.CreateAsync(profileInput, CurrentUser.Id);
-
 
             var deployedProfile = await this.transactionDeployer.DeployProfileTxnAsync(createdProfile, CurrentUser.Id);
 
