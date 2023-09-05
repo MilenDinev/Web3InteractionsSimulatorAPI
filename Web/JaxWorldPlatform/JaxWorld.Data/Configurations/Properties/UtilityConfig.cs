@@ -8,14 +8,14 @@
     {
         public void Configure(EntityTypeBuilder<Utility> builder)
         {
-            builder.HasOne(s => s.Creator)
+            builder.HasOne(u => u.Creator)
                 .WithMany()
-                .HasForeignKey(s => s.CreatorId)
+                .HasForeignKey(u => u.CreatorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.LastModifier)
+            builder.HasOne(u => u.LastModifier)
                 .WithMany()
-                .HasForeignKey(s => s.LastModifierId)
+                .HasForeignKey(u => u.LastModifierId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

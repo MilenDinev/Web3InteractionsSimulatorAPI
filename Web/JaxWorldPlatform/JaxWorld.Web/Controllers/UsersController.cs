@@ -49,7 +49,7 @@
         public async Task<ActionResult<UserListingModel>> GetById(int userId)
         {
             var user = await userManager.FindByIdAsync(userId.ToString());
-            await this.validator.ValidateEntityAsync(user, userId.ToString());
+            await this.validator.ValidateEntityAsync(user);
 
             return mapper.Map<UserListingModel>(user);
         }
@@ -80,7 +80,7 @@
 
             var user = await this.finder.FindByIdOrDefaultAsync<User>(userId);
 
-            await this.validator.ValidateEntityAsync(user, userId.ToString());
+            await this.validator.ValidateEntityAsync(user);
             await this.userService.EditAsync(user, userInput, CurrentUser.Id);
 
             return mapper.Map<EditedUserModel>(user);
@@ -93,7 +93,7 @@
 
             var user = await this.finder.FindByIdOrDefaultAsync<User>(userId);
 
-            await this.validator.ValidateEntityAsync(user, userId.ToString());
+            await this.validator.ValidateEntityAsync(user);
             await this.userService.DeleteAsync(user, CurrentUser.Id);
 
             return mapper.Map<DeletedUserModel>(user);

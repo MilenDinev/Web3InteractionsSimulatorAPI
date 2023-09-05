@@ -8,9 +8,14 @@
     {
         public void Configure(EntityTypeBuilder<Contract> builder)
         {
-            builder.HasOne(s => s.CreatorWallet)
-                .WithMany(u => u.CreatedContracts)
-                .HasForeignKey(s => s.CreatorWalletId)
+            builder.HasOne(c => c.CreatorWallet)
+                .WithMany(w => w.CreatedContracts)
+                .HasForeignKey(c => c.CreatorWalletId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(c => c.Network)
+                .WithMany(n => n.Contracts)
+                .HasForeignKey(c => c.NetworkId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(s => s.Creator)

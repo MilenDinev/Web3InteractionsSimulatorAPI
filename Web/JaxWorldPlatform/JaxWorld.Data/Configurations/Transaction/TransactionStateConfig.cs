@@ -8,14 +8,14 @@
     {
         public void Configure(EntityTypeBuilder<TransactionState> builder)
         {
-            builder.HasOne(s => s.Creator)
+            builder.HasOne(ts => ts.Creator)
                 .WithMany()
-                .HasForeignKey(s => s.CreatorId)
+                .HasForeignKey(ts => ts.CreatorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.LastModifier)
+            builder.HasOne(ts => ts.LastModifier)
                 .WithMany()
-                .HasForeignKey(s => s.LastModifierId)
+                .HasForeignKey(ts => ts.LastModifierId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

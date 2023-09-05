@@ -16,7 +16,9 @@
                 ExplorerUrl= "https://snowtrace.io/ ",
                 NormalizedTag = "Avalanche Mainnet Network".ToUpper(),
                 CreatorId = 1,
-                LastModifierId = 1
+                CreationDate = DateTime.Now,
+                LastModifierId = 1,
+                LastModificationDate = DateTime.Now
             };
 
             var avalancheFujiTestNet = new Network
@@ -28,7 +30,9 @@
                 ExplorerUrl = "https://testnet.snowtrace.io/",
                 NormalizedTag = "Avalanche FUJI C-Chain".ToUpper(),
                 CreatorId = 1,
-                LastModifierId = 1
+                CreationDate = DateTime.Now,
+                LastModifierId = 1,
+                LastModificationDate = DateTime.Now
             };
 
             await context.Networks.AddRangeAsync(avalancheMainet, avalancheFujiTestNet);
