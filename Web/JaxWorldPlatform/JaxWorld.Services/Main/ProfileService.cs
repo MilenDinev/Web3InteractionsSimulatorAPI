@@ -21,9 +21,6 @@
         {
             var profile = mapper.Map<Profile>(profileModel);
 
-            profile.ContractId = profileModel.ContractId;
-            profile.StandardId = profileModel.StandardId;
-
             await CreateEntityAsync(profile, creatorId);
 
             var createdProfile = mapper.Map<CreatedProfileModel>(profile);
