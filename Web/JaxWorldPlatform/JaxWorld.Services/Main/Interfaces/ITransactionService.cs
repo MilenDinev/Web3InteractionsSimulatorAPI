@@ -5,8 +5,7 @@
 
     public interface ITransactionService
     {
-        Task<Transaction> CreateAsync(CreateTransactionModel model, int creatorId);
-        Task EditAsync(Transaction transaction, EditTransactionModel model, int modifierId);
-        Task DeleteAsync(Transaction transaction, int modifierId);
+        Task<Transaction> CreateAsync(CreateTransactionModel model, int targetContractId);
+        Task UpdateStateAsync(Transaction transaction, int modifierId);
     }
 }

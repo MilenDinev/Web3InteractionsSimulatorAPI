@@ -1,7 +1,6 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.TransactionModels
 {
-    public class EditTransactionModel
+    public class TransferUnitTransactionModel
     {
-        public string? State { get; set; }
     }
 }

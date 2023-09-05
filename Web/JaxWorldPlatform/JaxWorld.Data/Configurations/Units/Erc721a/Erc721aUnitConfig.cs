@@ -8,24 +8,24 @@
     {
         public void Configure(EntityTypeBuilder<Erc721aUnit> builder)
         {
-            builder.HasOne(s => s.Profile)
-                .WithMany(u => u.Erc721aUnits)
-                .HasForeignKey(s => s.ProfileId)
+            builder.HasOne(erc => erc.Profile)
+                .WithMany(p => p.Erc721aUnits)
+                .HasForeignKey(erc => erc.ProfileId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.Holder)
-                .WithMany(u => u.Erc721aUnits)
-                .HasForeignKey(e => e.HolderId)
+            builder.HasOne(erc => erc.Holder)
+                .WithMany(w => w.Erc721aUnits)
+                .HasForeignKey(erc => erc.HolderId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.Creator)
+            builder.HasOne(erc => erc.Creator)
                 .WithMany()
-                .HasForeignKey(s => s.CreatorId)
+                .HasForeignKey(erc => erc.CreatorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.LastModifier)
+            builder.HasOne(erc => erc.LastModifier)
                 .WithMany()
-                .HasForeignKey(s => s.LastModifierId)
+                .HasForeignKey(erc => erc.LastModifierId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

@@ -8,24 +8,24 @@
     {
         public void Configure(EntityTypeBuilder<Wallet> builder)
         {
-            builder.HasOne(s => s.Owner)
+            builder.HasOne(w => w.Owner)
                 .WithMany(u => u.Wallets)
-                .HasForeignKey(s => s.OwnerId)
+                .HasForeignKey(w => w.OwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.Provider)
-                .WithMany(u => u.Wallets)
-                .HasForeignKey(s => s.ProviderId)
+            builder.HasOne(w => w.Provider)
+                .WithMany(p => p.Wallets)
+                .HasForeignKey(w => w.ProviderId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.Creator)
+            builder.HasOne(w => w.Creator)
                 .WithMany()
-                .HasForeignKey(s => s.CreatorId)
+                .HasForeignKey(w => w.CreatorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(s => s.LastModifier)
+            builder.HasOne(w => w.LastModifier)
                 .WithMany()
-                .HasForeignKey(s => s.LastModifierId)
+                .HasForeignKey(w => w.LastModifierId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

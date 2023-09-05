@@ -47,7 +47,7 @@
         {
             var attribute = await finder.FindByIdOrDefaultAsync<Attribute>(attributeId);
 
-            await validator.ValidateEntityAsync(attribute, attributeId.ToString());
+            await validator.ValidateEntityAsync(attribute);
 
             return mapper.Map<AttributeListingModel>(attribute);
         }
@@ -75,7 +75,7 @@
 
             var attribute = await finder.FindByIdOrDefaultAsync<Attribute>(attributeId);
 
-            await validator.ValidateEntityAsync(attribute, attributeId.ToString());
+            await validator.ValidateEntityAsync(attribute);
             await attributeService.EditAsync(attribute, attributeInput, CurrentUser.Id);
 
             return mapper.Map<EditedAttributeModel>(attribute);
@@ -89,7 +89,7 @@
 
             var attribute = await finder.FindByIdOrDefaultAsync<Attribute>(attributeId);
 
-            await validator.ValidateEntityAsync(attribute, attributeId.ToString());
+            await validator.ValidateEntityAsync(attribute);
             await attributeService.DeleteAsync(attribute, CurrentUser.Id);
 
             return mapper.Map<DeletedAttributeModel>(attribute);

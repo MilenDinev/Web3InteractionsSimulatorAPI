@@ -9,7 +9,7 @@
         public ulong? QuantityClaimed { get; set; }
         [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal? Value { get; set; }
-        public string? prevURI { get; set; }
-        public string? newURI { get; set; }
+        public string? PrevURI { get; set; }
+        public string? NewURI { get; set; }
     }
 }

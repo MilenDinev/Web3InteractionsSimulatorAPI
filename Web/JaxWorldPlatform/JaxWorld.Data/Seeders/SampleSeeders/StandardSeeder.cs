@@ -12,7 +12,9 @@
                 Name = "ERC721",
                 NormalizedTag = "ERC721".ToUpper(),
                 CreatorId = 1,
-                LastModifierId = 1
+                CreationDate = DateTime.Now,
+                LastModifierId = 1,
+                LastModificationDate = DateTime.Now
             };
 
             var Erc721aStandard = new Standard
@@ -20,7 +22,9 @@
                 Name = "ERC721a",
                 NormalizedTag = "ERC721a".ToUpper(),
                 CreatorId = 1,
-                LastModifierId = 1
+                CreationDate = DateTime.Now,
+                LastModifierId = 1,
+                LastModificationDate = DateTime.Now
             };
 
             var Erc20Standard = new Standard
@@ -28,7 +32,9 @@
                 Name = "ERC20",
                 NormalizedTag = "ERC20".ToUpper(),
                 CreatorId = 1,
-                LastModifierId = 1
+                CreationDate = DateTime.Now,
+                LastModifierId = 1,
+                LastModificationDate = DateTime.Now
             };
 
             var Erc1155Standard = new Standard
@@ -36,7 +42,9 @@
                 Name = "ERC1155",
                 NormalizedTag = "ERC1155".ToUpper(),
                 CreatorId = 1,
-                LastModifierId = 1
+                CreationDate = DateTime.Now,
+                LastModifierId = 1,
+                LastModificationDate = DateTime.Now
             };
 
             await context.Standards.AddRangeAsync(Erc721Standard, Erc721aStandard, Erc20Standard, Erc1155Standard);

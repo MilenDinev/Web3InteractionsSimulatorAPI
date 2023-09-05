@@ -1,5 +1,7 @@
 ﻿namespace JaxWorld.Services.Main
 {
+    using System.Globalization;
+    using Microsoft.AspNetCore.Identity;
     using AutoMapper;
     using Base;
     using Interfaces;
@@ -16,27 +18,38 @@
             this.mapper = mapper;
         }
 
-        public async Task<Transaction> CreateAsync(CreateTransactionModel transactionModel, int creatorId)
+        public async Task<Transaction> CreateAsync(CreateTransactionModel transactionModel, int targetContractId)
         {
+            transactionModel.TxnHash = await CreateTxnHashAsync(Guid.NewGuid().ToString());
+
             var transaction = mapper.Map<Transaction>(transactionModel);
-            await CreateEntityAsync(transaction, creatorId);
+
+            transaction.InitiatorId = transactionModel.InitiatorWalletId;
+            transaction.TargetId = targetContractId;
+
+            await CreateEntityAsync(transaction, transactionModel.CreatorId);
 
             return transaction;
         }
 
-        public async Task EditAsync(Transaction transaction, EditTransactionModel transactionModel, int modifierId)
+        public async Task UpdateStateAsync(Transaction transaction, int modifierId)
         {
-            transaction.State = new TransactionState
-            {
-                State = transactionModel.State
-            };
+            var transactionState = await dbContext.TransactionStates.FindAsync(transaction.StateId+1);
 
-            await SaveModificationAsync(transaction, modifierId);
+            if (transactionState != null)
+            {
+                transaction.State = transactionState ;
+                await SaveModificationAsync(transaction, modifierId);
+            }
         }
 
-        public async Task DeleteAsync(Transaction transaction, int modifierId)
+        private static async Task<string> CreateTxnHashAsync(string hashKey)
         {
-            await DeleteEntityAsync(transaction, modifierId);
+            var hasher = new PasswordHasher<string>();
+            var timestamp = DateTime.UtcNow.ToString("F", CultureInfo.InvariantCulture);
+            var txnHash = hasher.HashPassword(hashKey, timestamp);
+
+            return await Task.Run(txnHash.ToString);
         }
     }
 }
