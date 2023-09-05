@@ -24,8 +24,8 @@
         public virtual Wallet Initiator { get; set; }
         public int TargetId { get; set; }
         public virtual Contract Target { get; set; }
-        public int? TxnActionId { get; set; }
-        public virtual TxnAction TxnAction { get; set; }
+        public int? OperationId { get; set; }
+        public virtual TxnAction Operation { get; set; }
         [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]
         public decimal Value { get; set; }
         [Precision(AttributesParams.DecimalPrecision, AttributesParams.DecimalScale)]

@@ -8,14 +8,14 @@
     {
         public void Configure(EntityTypeBuilder<TxnTopic> builder)
         {
-            builder.HasOne(tt => tt.Creator)
+            builder.HasOne(s => s.Creator)
                 .WithMany()
-                .HasForeignKey(tt => tt.CreatorId)
+                .HasForeignKey(s => s.CreatorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(tt => tt.LastModifier)
+            builder.HasOne(s => s.LastModifier)
                 .WithMany()
-                .HasForeignKey(tt => tt.LastModifierId)
+                .HasForeignKey(s => s.LastModifierId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

@@ -8,24 +8,19 @@
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
-            builder.HasOne(t => t.Network)
-                .WithMany(n => n.Transactions)
-                .HasForeignKey(t => t.NetworkId)
+            builder.HasOne(s => s.Network)
+                .WithMany(u => u.Transactions)
+                .HasForeignKey(s => s.NetworkId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(t => t.Creator)
+            builder.HasOne(s => s.Creator)
                 .WithMany()
-                .HasForeignKey(t => t.CreatorId)
+                .HasForeignKey(s => s.CreatorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(t => t.LastModifier)
+            builder.HasOne(s => s.LastModifier)
                 .WithMany()
-                .HasForeignKey(t => t.LastModifierId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(t => t.State)
-                .WithMany(ts => ts.Transactions)
-                .HasForeignKey(t => t.StateId)
+                .HasForeignKey(s => s.LastModifierId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

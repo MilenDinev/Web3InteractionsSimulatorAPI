@@ -12,19 +12,15 @@
                 State = "Pending",
                 NormalizedTag = "Pending".ToUpper(),
                 CreatorId = 1,
-                CreationDate = DateTime.Now,
-                LastModifierId = 1,
-                LastModificationDate = DateTime.Now
+                LastModifierId = 1
             };
 
-            var Confirmed = new TransactionState
+            var Approved = new TransactionState
             {
-                State = "Confirmed",
-                NormalizedTag = "Confirmed".ToUpper(),
+                State = "Approved",
+                NormalizedTag = "Approved".ToUpper(),
                 CreatorId = 1,
-                CreationDate = DateTime.Now,
-                LastModifierId = 1,
-                LastModificationDate = DateTime.Now
+                LastModifierId = 1
             };
 
             var Rejected = new TransactionState
@@ -32,12 +28,10 @@
                 State = "Rejected",
                 NormalizedTag = "Rejected".ToUpper(),
                 CreatorId = 1,
-                CreationDate = DateTime.Now,
-                LastModifierId = 1,
-                LastModificationDate = DateTime.Now
+                LastModifierId = 1
             };
 
-            await context.TransactionStates.AddRangeAsync(Pending, Confirmed, Rejected);
+            await context.TransactionStates.AddRangeAsync(Pending, Approved, Rejected);
             await context.SaveChangesAsync();
         }
     }

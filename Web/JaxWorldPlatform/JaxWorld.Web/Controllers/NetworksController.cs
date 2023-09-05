@@ -47,7 +47,7 @@
         public async Task<ActionResult<NetworkListingModel>> GetById(int networkId)
         {
             var network = await this.finder.FindByIdOrDefaultAsync<Network>(networkId);
-            await this.validator.ValidateEntityAsync(network);
+            await this.validator.ValidateEntityAsync(network, networkId.ToString());
 
             return mapper.Map<NetworkListingModel>(network);
         }
@@ -75,7 +75,7 @@
 
             var network = await this.finder.FindByIdOrDefaultAsync<Network>(networkId);
 
-            await this.validator.ValidateEntityAsync(network);
+            await this.validator.ValidateEntityAsync(network, networkId.ToString());
             await this.networkService.EditAsync(network, networkInput, CurrentUser.Id);
 
             return mapper.Map<EditedNetworkModel>(network);
@@ -89,7 +89,7 @@
 
             var network = await this.finder.FindByIdOrDefaultAsync<Network>(networkId);
 
-            await this.validator.ValidateEntityAsync(network);
+            await this.validator.ValidateEntityAsync(network, networkId.ToString());
             await this.networkService.DeleteAsync(network, CurrentUser.Id);
 
             return mapper.Map<DeletedNetworkModel>(network);

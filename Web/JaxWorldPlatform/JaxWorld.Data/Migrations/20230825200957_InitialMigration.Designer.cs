@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JaxWorld.Data.Migrations
 {
     [DbContext(typeof(JaxWorldDbContext))]
-    [Migration("20230905214535_InitialMigration")]
+    [Migration("20230825200957_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -102,9 +102,6 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NetworkId")
-                        .HasColumnType("int");
-
                     b.Property<string>("NormalizedTag")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -116,8 +113,6 @@ namespace JaxWorld.Data.Migrations
                     b.HasIndex("CreatorWalletId");
 
                     b.HasIndex("LastModifierId");
-
-                    b.HasIndex("NetworkId");
 
                     b.ToTable("Contracts");
                 });
@@ -402,6 +397,13 @@ namespace JaxWorld.Data.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal>("BlockHeight")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<decimal>("BurnedFees")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
@@ -411,11 +413,14 @@ namespace JaxWorld.Data.Migrations
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
-                    b.Property<long>("GasLimit")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Difficulty")
+                        .HasColumnType("int");
 
-                    b.Property<long>("GasUsed")
-                        .HasColumnType("bigint");
+                    b.Property<decimal>("GasLimit")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<decimal>("GasUsed")
+                        .HasColumnType("decimal(20,0)");
 
                     b.Property<string>("Hash")
                         .IsRequired()
@@ -427,10 +432,15 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("LastModifierId")
                         .HasColumnType("int");
 
-                    b.Property<int>("NetworkId")
-                        .HasColumnType("int");
+                    b.Property<string>("Nonce")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ParentHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -438,16 +448,27 @@ namespace JaxWorld.Data.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("Sha3Uncles")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Size")
+                        .HasColumnType("decimal(20,0)");
+
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TotalDifficulty")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<int>("UnclesReward")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CreatorId");
 
                     b.HasIndex("LastModifierId");
-
-                    b.HasIndex("NetworkId");
 
                     b.ToTable("Blocks");
                 });
@@ -473,6 +494,9 @@ namespace JaxWorld.Data.Migrations
 
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
+
+                    b.Property<int?>("Erc721aUnitId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Fee")
                         .HasPrecision(18, 2)
@@ -505,6 +529,9 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OperationId")
+                        .HasColumnType("int");
+
                     b.Property<int>("StateId")
                         .HasColumnType("int");
 
@@ -513,9 +540,6 @@ namespace JaxWorld.Data.Migrations
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("TxnActionId")
-                        .HasColumnType("int");
 
                     b.Property<string>("TxnHash")
                         .IsRequired()
@@ -531,17 +555,19 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasIndex("CreatorId");
 
+                    b.HasIndex("Erc721aUnitId");
+
                     b.HasIndex("InitiatorId");
 
                     b.HasIndex("LastModifierId");
 
                     b.HasIndex("NetworkId");
 
+                    b.HasIndex("OperationId");
+
                     b.HasIndex("StateId");
 
                     b.HasIndex("TargetId");
-
-                    b.HasIndex("TxnActionId");
 
                     b.ToTable("Transactions");
                 });
@@ -665,14 +691,8 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("LastModifierId")
                         .HasColumnType("int");
 
-                    b.Property<string>("NewURI")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("NormalizedTag")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PrevURI")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("QuantityClaimed")
@@ -684,6 +704,12 @@ namespace JaxWorld.Data.Migrations
                     b.Property<decimal?>("Value")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("newURI")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("prevURI")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -872,9 +898,11 @@ namespace JaxWorld.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("HolderId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("LastModificationDate")
@@ -1075,9 +1103,6 @@ namespace JaxWorld.Data.Migrations
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("LastModificationDate")
                         .HasColumnType("datetime2");
 
@@ -1240,6 +1265,21 @@ namespace JaxWorld.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("NetworksContracts", b =>
+                {
+                    b.Property<int>("ContractId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NetworkId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ContractId", "NetworkId");
+
+                    b.HasIndex("NetworkId");
+
+                    b.ToTable("NetworksContracts");
+                });
+
             modelBuilder.Entity("NetworksWallets", b =>
                 {
                     b.Property<int>("NetworkId")
@@ -1305,19 +1345,11 @@ namespace JaxWorld.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Network", "Network")
-                        .WithMany("Contracts")
-                        .HasForeignKey("NetworkId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("Creator");
 
                     b.Navigation("CreatorWallet");
 
                     b.Navigation("LastModifier");
-
-                    b.Navigation("Network");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Network", b =>
@@ -1445,17 +1477,9 @@ namespace JaxWorld.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Network", "Network")
-                        .WithMany("Blocks")
-                        .HasForeignKey("NetworkId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Creator");
 
                     b.Navigation("LastModifier");
-
-                    b.Navigation("Network");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.Transaction", b =>
@@ -1471,6 +1495,10 @@ namespace JaxWorld.Data.Migrations
                         .HasForeignKey("CreatorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.Units.Erc721aUnit", null)
+                        .WithMany("Transactions")
+                        .HasForeignKey("Erc721aUnitId");
 
                     b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Initiator")
                         .WithMany("Transactions")
@@ -1490,10 +1518,14 @@ namespace JaxWorld.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("JaxWorld.Data.Entities.Transactions.TxnAction", "Operation")
+                        .WithMany()
+                        .HasForeignKey("OperationId");
+
                     b.HasOne("JaxWorld.Data.Entities.Transactions.TransactionState", "State")
                         .WithMany("Transactions")
                         .HasForeignKey("StateId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", "Target")
@@ -1501,10 +1533,6 @@ namespace JaxWorld.Data.Migrations
                         .HasForeignKey("TargetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("JaxWorld.Data.Entities.Transactions.TxnAction", "TxnAction")
-                        .WithMany()
-                        .HasForeignKey("TxnActionId");
 
                     b.Navigation("Block");
 
@@ -1516,11 +1544,11 @@ namespace JaxWorld.Data.Migrations
 
                     b.Navigation("Network");
 
+                    b.Navigation("Operation");
+
                     b.Navigation("State");
 
                     b.Navigation("Target");
-
-                    b.Navigation("TxnAction");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TransactionState", b =>
@@ -1696,7 +1724,8 @@ namespace JaxWorld.Data.Migrations
                     b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Holder")
                         .WithMany("Erc721aUnits")
                         .HasForeignKey("HolderId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("JaxWorld.Data.Entities.User", "LastModifier")
                         .WithMany()
@@ -1843,6 +1872,21 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("NetworksContracts", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", null)
+                        .WithMany()
+                        .HasForeignKey("ContractId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.Network", null)
+                        .WithMany()
+                        .HasForeignKey("NetworkId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("NetworksWallets", b =>
                 {
                     b.HasOne("JaxWorld.Data.Entities.Network", null)
@@ -1868,10 +1912,6 @@ namespace JaxWorld.Data.Migrations
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Network", b =>
                 {
-                    b.Navigation("Blocks");
-
-                    b.Navigation("Contracts");
-
                     b.Navigation("Transactions");
                 });
 
@@ -1903,6 +1943,11 @@ namespace JaxWorld.Data.Migrations
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnLog", b =>
                 {
                     b.Navigation("Topics");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Units.Erc721aUnit", b =>
+                {
+                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.User", b =>

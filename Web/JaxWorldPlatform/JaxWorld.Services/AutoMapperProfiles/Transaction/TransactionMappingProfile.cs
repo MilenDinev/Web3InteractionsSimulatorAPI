@@ -10,13 +10,11 @@
         public TransactionMappingProfile()
         {
             this.CreateMap<CreateTransactionModel, Transaction>()
-                .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.TxnHash.ToUpper()))
-                .ForMember(e => e.CreatorId, m => m.Ignore())
-                .ForMember(e => e.InitiatorId, m => m.Ignore());
-            this.CreateMap<Transaction, DeployedContractTxnModel>();
+                .ForMember(e => e.NormalizedTag, m => m.MapFrom(m => m.State.ToUpper()));
+            this.CreateMap<Transaction, CreatedTransactionModel>();
+            this.CreateMap<Transaction, EditedTransactionModel>();
+            this.CreateMap<Transaction, DeletedTransactionModel>();
             this.CreateMap<Transaction, TransactionListingModel>();
-            this.CreateMap<Transaction, TransactionListingModel>();
-            this.CreateMap<TransferUnitTransactionModel, DeployedContractTxnModel>();
         }
     }
 }
