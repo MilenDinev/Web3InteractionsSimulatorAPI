@@ -35,12 +35,21 @@
                 throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.EntityAlreadyContained, entityType));
         }
 
-        public async Task ValidateWalletOwnershipAsync(User Owner, Wallet wallet)
+        public async Task ValidateWalletOwnershipAsync(User owner, Wallet wallet)
         {
             var entityType = typeof(User).Name;
 
-            if (await Task.Run(() => !Owner.Wallets.Contains(wallet)))
+            if (await Task.Run(() => !owner.Wallets.Contains(wallet)))
                 throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.UserDoesNotOwnWallet, entityType, wallet.Address));
+        }
+
+        public async Task ValidateProfileOwnershipAsync(Wallet wallet, int contraId)
+        {
+            var entityType = typeof(Wallet).Name;
+            
+
+            if (await Task.Run(() => !wallet.CreatedContracts.Select(x => x.Id).Any(y => y == contraId)))
+                throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.WalletDoesNotHaveRightsToMint, entityType, contraId));
         }
     }
 }
