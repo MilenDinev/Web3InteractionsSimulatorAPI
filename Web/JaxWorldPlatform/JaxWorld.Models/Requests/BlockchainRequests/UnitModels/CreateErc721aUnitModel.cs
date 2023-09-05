@@ -10,6 +10,13 @@
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.UnitNameMinLength)]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = ValidationMessages.Required)]
+        [StringLength(AttributesParams.ProfileDescriptionMaxLength,
+    ErrorMessage = ValidationMessages.MinMaxLength,
+    MinimumLength = AttributesParams.ProfileDescriptionMinLength)]
+        public string Description { get; set; }
+
         public int ProfileId { get; set; }
         [StringLength(AttributesParams.DNAMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
