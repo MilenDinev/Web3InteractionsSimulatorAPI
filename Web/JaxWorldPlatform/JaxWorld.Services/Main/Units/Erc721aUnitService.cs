@@ -6,6 +6,7 @@
     using Data;
     using Data.Entities.Units;
     using Models.Requests.BlockchainRequests.UnitModels;
+    using Models.Responses.BlockchainResponses.ProfileUnitModels;
 
     public class Erc721aUnitService : BaseService<Erc721aUnit>, IErc721aUnitService
     {
@@ -16,13 +17,15 @@
             this.mapper = mapper;
         }
 
-        public async Task<Erc721aUnit> CreateAsync(CreateErc721aUnitModel profileUnitModel, int creatorId)
+        public async Task<CreatedErc721aUnitModel> CreateAsync(CreateErc721aUnitModel unitModel, int creatorId)
         {
-            var profileUnit = mapper.Map<Erc721aUnit>(profileUnitModel);
+            var unit = mapper.Map<Erc721aUnit>(unitModel);
 
-            await CreateEntityAsync(profileUnit, creatorId);
+            await CreateEntityAsync(unit, creatorId);
 
-            return profileUnit;
+            var createdUnit = mapper.Map<CreatedErc721aUnitModel>(unit);
+
+            return createdUnit;
         }
 
         public async Task EditAsync(Erc721aUnit profileUnit, EditErc721aUnitModel profileUnitModel, int modifierId)
