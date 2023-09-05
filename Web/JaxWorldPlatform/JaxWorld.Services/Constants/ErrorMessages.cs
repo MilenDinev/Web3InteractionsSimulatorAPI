@@ -10,6 +10,7 @@
         internal const string EntityAlreadyAssignedId = @"{0} with id '{1}' has already been assigned to this {2}!";
         internal const string EntityAlreadyContained = @"{0} already exists in this collection!";
         internal const string UserDoesNotOwnWallet = @"{0} does not own wallet: {1}!";
+        internal const string WalletDoesNotHaveRightsToMint = @"{0} does not have right to mint from contract: {1}!";
         internal const string EntityHasBeenDeleted = @"{0} has already been deleted and cannot be modified!";
     }
 }
