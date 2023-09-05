@@ -3,15 +3,13 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
+    using Data.Entities;
+    using Data.Entities.Wallets;
     using Data.Entities.Contracts;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
-    using JaxWorld.Services.Handlers;
-    using System.Diagnostics.Metrics;
-    using JaxWorld.Data.Entities;
-    using JaxWorld.Data.Entities.Wallets;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -59,9 +57,9 @@
             return mapper.Map<ContractListingModel>(contract);
         }
 
-        // POST api/<ContractsController/Add>
-        [HttpPost("Add/")]
-        public async Task<ActionResult> Create(CreateContractModel contractInput)
+        // POST api/<ContractsController/Deploy>
+        [HttpPost("Deploy/")]
+        public async Task<ActionResult> Post(CreateContractModel contractInput)
         {
             await AssignCurrentUserAsync();
 
@@ -87,7 +85,7 @@
 
         // PUT api/<ContractsController>/5
         [HttpPut("Edit/Contract/{contractId}")]
-        public async Task<ActionResult<EditedContractModel>> Edit(EditContractModel contractInput, int contractId)
+        public async Task<ActionResult<EditedContractModel>> Put(EditContractModel contractInput, int contractId)
         {
             await AssignCurrentUserAsync();
 
