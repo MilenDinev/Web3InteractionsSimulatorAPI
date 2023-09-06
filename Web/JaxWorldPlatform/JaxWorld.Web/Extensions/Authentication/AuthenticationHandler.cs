@@ -1,13 +1,13 @@
 ﻿namespace JaxWorld.Web.Extensions.Authentication
 {
-    using System;
-    using System.Net.Http;
-    using System.Text.Json;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
     using Constants;
     using Models.Responses;
     using Services.Main.Interfaces;
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Text.Json;
+    using System.Threading.Tasks;
 
     public static class AuthenticationHandler
     {

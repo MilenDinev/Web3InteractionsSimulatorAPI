@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Web.Extensions
 {
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.Extensions.DependencyInjection;
     using Data;
     using Data.Entities;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.Extensions.DependencyInjection;
 
     public static class IdentityConfigurator
     {

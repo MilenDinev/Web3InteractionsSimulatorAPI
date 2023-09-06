@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Web.Extensions.Authentication
 {
-    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Constants;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
 
     public static class AuthenticationConfigurator
     {
