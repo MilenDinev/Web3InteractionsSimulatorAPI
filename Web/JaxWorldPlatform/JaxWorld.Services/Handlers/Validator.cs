@@ -9,21 +9,14 @@
 
     public class Validator : IValidator
     {
-        private readonly IEntityChecker entityChecker;
-
-        public Validator(IEntityChecker entityChecker)
-        {
-            this.entityChecker = entityChecker;
-        }
-
-        public async Task ValidateEntityAsync<T>(T entity) where T : class, IEntity
+        public async Task ValidateTargetEntityAvailabilityAsync<T>(T entity) where T : class, IEntity
         {
             string entityType = typeof(T).Name;
 
-            if (await entityChecker.NullableCheck(entity))
+            if (await Task.Run(() => entity == null))
                 throw new ResourceNotFoundException(string.Format(ErrorMessages.EntityDoesNotExist, entityType));
 
-            if (await entityChecker.DeletedCheck(entity))
+            if (await Task.Run(() => entity.Deleted))
                 throw new ResourceNotFoundException(string.Format(ErrorMessages.EntityHasBeenDeleted, entityType));
         }
 
@@ -43,13 +36,12 @@
                 throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.UserDoesNotOwnWallet, entityType, wallet.Address));
         }
 
-        public async Task ValidateProfileOwnershipAsync(Wallet wallet, int contraId)
+        public async Task ValidateContractOwnershipAsync(Wallet wallet, int contractId)
         {
             var entityType = typeof(Wallet).Name;
             
-
-            if (await Task.Run(() => !wallet.CreatedContracts.Select(x => x.Id).Any(y => y == contraId)))
-                throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.WalletDoesNotHaveRightsToMint, entityType, contraId));
+            if (await Task.Run(() => !wallet.CreatedContracts.Select(x => x.Id).Any(y => y == contractId)))
+                throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.WalletDoesNotHaveRightsToMint, entityType, contractId));
         }
     }
 }

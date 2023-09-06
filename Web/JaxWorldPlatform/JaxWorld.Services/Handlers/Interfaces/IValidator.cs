@@ -6,9 +6,9 @@
 
     public interface IValidator
     {
-        Task ValidateEntityAsync<T>(T entity) where T : class, IEntity;
+        Task ValidateTargetEntityAvailabilityAsync<T>(T entity) where T : class, IEntity;
         Task ValidateUniqueEntityAsync<T>(T entity) where T : class, IEntity;
         Task ValidateWalletOwnershipAsync(User Owner, Wallet wallet);
-        Task ValidateProfileOwnershipAsync(Wallet wallet, int contraId);
+        Task ValidateContractOwnershipAsync(Wallet wallet, int contraId);
     }
 }
