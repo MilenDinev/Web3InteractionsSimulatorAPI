@@ -3,12 +3,8 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Data.Entities;
-    using Services.Constants;
-    using Services.Exceptions;
     using Services.Main.Interfaces;
     using Services.Managers.Interfaces;
-    using Services.Handlers.Interfaces;
     using Models.Requests.EntityRequests;
     using Models.Responses.EntityResponses.UserModels;
 
@@ -19,58 +15,39 @@
     public class UsersController : JaxWorldBaseController
     {
         private readonly IUserManager userManager;
-        private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public UsersController(IUserManager userManager,
-            IFinder finder,
-            IValidator validator,
             IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.userManager = userManager;
-            this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<UserListingModel>>> Get()
         {
-            var allUsers = await this.finder.GetAllActiveAsync<User>();
+            var allUsers = await this.userService.GetAllActiveAsync();
 
-            return mapper.Map<ICollection<UserListingModel>>(allUsers).ToList();
+            return allUsers.ToList();
         }
-
 
         [HttpGet("Get/User/{userId}")]
         public async Task<ActionResult<UserListingModel>> GetById(int userId)
         {
-            var user = await userManager.FindByIdAsync(userId.ToString());
-            await this.validator.ValidateEntityAsync(user);
+            var user = await userService.GetByIdAsync(userId);
 
             return mapper.Map<UserListingModel>(user);
         }
 
-
         [HttpPost("Register/")]
         public async Task<ActionResult> Create(CreateUserModel userInput)
         {
-            var user = await userManager.FindByNameAsync(userInput.UserName);
-            await this.validator.ValidateUniqueEntityAsync(user);
+            var createdUser = await this.userService.CreateAsync(userInput);
 
-            user = await userManager.FindByEmailAsync(userInput.WalletAddress);
-            if (user != null)
-                throw new ResourceAlreadyExistsException(string.Format(ErrorMessages.EntityAlreadyExists, nameof(userInput.WalletAddress), userInput.WalletAddress));
-
-            user = await this.userService.CreateAsync(userInput);
-
-            var userResponse = mapper.Map<CreatedUserModel>(user);
-
-            return CreatedAtAction(nameof(Get), "Users", new { id = userResponse.Id }, userResponse);
-
+            return CreatedAtAction(nameof(Get), "Users", new { id = createdUser.Id }, createdUser);
         }
 
         [HttpPut("Edit/User/{userId}")]
@@ -78,12 +55,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var user = await this.finder.FindByIdOrDefaultAsync<User>(userId);
+            var editedUser = await this.userService.EditAsync(userInput, userId, CurrentUser.Id);
 
-            await this.validator.ValidateEntityAsync(user);
-            await this.userService.EditAsync(user, userInput, CurrentUser.Id);
-
-            return mapper.Map<EditedUserModel>(user);
+            return editedUser;
         }
 
         [HttpDelete("Delete/User/{userId}")]
@@ -91,12 +65,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var user = await this.finder.FindByIdOrDefaultAsync<User>(userId);
+            var deletedUser = await this.userService.DeleteAsync(userId, CurrentUser.Id);
 
-            await this.validator.ValidateEntityAsync(user);
-            await this.userService.DeleteAsync(user, CurrentUser.Id);
-
-            return mapper.Map<DeletedUserModel>(user);
+            return deletedUser;
         }
     }
 }

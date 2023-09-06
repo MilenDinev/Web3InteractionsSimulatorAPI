@@ -7,11 +7,12 @@
 
     public interface IUserService
     {
-        Task<User> CreateAsync(CreateUserModel userRequestModel);
-        Task EditAsync(User user, EditUserModel userModel, int modifierId);
-        Task DeleteAsync(User user, int modifierId);
         Task<User> GetCurrentUserAsync(ClaimsPrincipal principal);
-        Task<UserListingModel> ListUserByIdAsync(int userId);
+        Task<UserListingModel> GetByIdAsync(int userId);
         Task<ICollection<UserListingModel>> GetAllUsersAsync();
+        Task<IEnumerable<UserListingModel>> GetAllActiveAsync();
+        Task<CreatedUserModel> CreateAsync(CreateUserModel userInput);
+        Task<EditedUserModel> EditAsync(EditUserModel userModel, int userId, int modifierId);
+        Task<DeletedUserModel> DeleteAsync(int userId, int modifierId);
     }
 }

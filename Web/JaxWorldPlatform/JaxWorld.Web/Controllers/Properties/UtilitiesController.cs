@@ -3,9 +3,7 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Data.Entities.Properties;
     using Services.Main.Interfaces;
-    using Services.Handlers.Interfaces;
     using Services.Main.Interfaces.Properties;
     using Models.Requests.BlockchainRequests.PropertiesModels;
     using Models.Responses.BlockchainResponses.PropertiesModels.Utility;
@@ -15,20 +13,14 @@
     public class UtilitiesController : JaxWorldBaseController
     {
         private readonly IUtilityService utilityService;
-        private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public UtilitiesController(IUtilityService utilityService,
-            IFinder finder,
-            IValidator validator,
             IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.utilityService = utilityService;
-            this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
@@ -36,19 +28,18 @@
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<UtilityListingModel>>> Get()
         {
-            var allUtilities = await finder.GetAllActiveAsync<Utility>();
+            var allUtilities = await this.utilityService.GetAllActiveAsync();
 
-            return mapper.Map<ICollection<UtilityListingModel>>(allUtilities).ToList();
+            return allUtilities.ToList();
         }
 
         // GET api/<UtilitiesController>/Utility/5
         [HttpGet("Get/Utility/{utilityId}")]
         public async Task<ActionResult<UtilityListingModel>> GetById(int utilityId)
         {
-            var utility = await finder.FindByIdOrDefaultAsync<Utility>(utilityId);
-            await validator.ValidateEntityAsync(utility);
+            var utilityListingModel = await this.utilityService.GetByIdAsync(utilityId);
 
-            return mapper.Map<UtilityListingModel>(utility);
+            return utilityListingModel;
         }
 
         // POST api/<UtilitiesController/Add>
@@ -57,11 +48,7 @@
         {
             await AssignCurrentUserAsync();
 
-            var utility = await finder.FindByStringOrDefaultAsync<Utility>(utilityInput.TraitType);
-            await validator.ValidateUniqueEntityAsync(utility);
-
-            utility = await utilityService.CreateAsync(utilityInput, CurrentUser.Id);
-            var createdUtility = mapper.Map<CreatedUtilityModel>(utility);
+            var createdUtility = await utilityService.CreateAsync(utilityInput, CurrentUser.Id);
 
             return CreatedAtAction(nameof(Get), "Utilities", new { id = createdUtility.Id }, createdUtility);
         }
@@ -72,12 +59,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var utility = await finder.FindByIdOrDefaultAsync<Utility>(utilityId);
-            await validator.ValidateEntityAsync(utility);
+            var editedUtility = await utilityService.EditAsync(utilityInput, utilityId, CurrentUser.Id);
 
-            await utilityService.EditAsync(utility, utilityInput, CurrentUser.Id);
-
-            return mapper.Map<EditedUtilityModel>(utility);
+            return editedUtility;
         }
 
         // DELETE api/<UtilitiesController>/Utility/5
@@ -86,12 +70,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var utility = await finder.FindByIdOrDefaultAsync<Utility>(utilityId);
+            var deletedUtilityModel = await utilityService.DeleteAsync(utilityId, CurrentUser.Id);
 
-            await validator.ValidateEntityAsync(utility);
-            await utilityService.DeleteAsync(utility, CurrentUser.Id);
-
-            return mapper.Map<DeletedUtilityModel>(utility);
+            return deletedUtilityModel;
         }
     }
 }

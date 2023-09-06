@@ -1,13 +1,16 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces.Units
 {
-    using Data.Entities.Units;
+    using Data.Entities;
+    using Models.Responses.BlockchainResponses.UnitModels;
     using Models.Requests.BlockchainRequests.UnitModels;
     using Models.Responses.BlockchainResponses.ProfileUnitModels;
 
     public interface IErc721aUnitService
     {
-        Task<CreatedErc721aUnitModel> CreateAsync(CreateErc721aUnitModel model, int creatorId);
-        Task EditAsync(Erc721aUnit unit, EditErc721aUnitModel model, int modifierId);
-        Task DeleteAsync(Erc721aUnit unit, int modifierId);
+        Task<CreatedErc721aUnitModel> CreateAsync(CreateErc721aUnitModel unitModel, User user);
+        Task<EditedErc721aUnitModel> EditAsync(EditErc721aUnitModel unitModel, int unitId, int modifierId);
+        Task<DeletedErc721aUnitModel> DeleteAsync(int unitId, int modifierId);
+        Task<Erc721aUnitListingModel> GetByIdAsync(int unitId);
+        Task<IEnumerable<Erc721aUnitListingModel>> GetAllActiveAsync();
     }
 }

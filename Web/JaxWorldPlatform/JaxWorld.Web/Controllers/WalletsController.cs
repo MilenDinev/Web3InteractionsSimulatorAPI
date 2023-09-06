@@ -3,34 +3,28 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Data.Entities.Wallets;
     using Services.Main.Interfaces;
-    using Services.Handlers.Interfaces;
     using Models.Responses.BlockchainResponses.WalletModels;
     using Models.Requests.BlockchainRequests.WalletModels;
+    using JaxWorld.Data.Entities.Wallets;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 
     [Route("api/[controller]")]
     [ApiController]
     public class WalletsController : JaxWorldBaseController
     {
         private readonly IWalletService walletService;
-        private readonly IFinder finder;
-        private readonly IValidator validator;
+
         private readonly IMapper mapper;
 
         public WalletsController(IWalletService walletService,
-            IFinder finder,
-            IValidator validator,
+
             IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.walletService = walletService;
-            this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
@@ -38,19 +32,18 @@
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<WalletListingModel>>> Get()
         {
-            var allWallets = await this.finder.GetAllActiveAsync<Wallet>();
+            var allWallets = await this.walletService.GetAllActiveAsync();
 
-            return mapper.Map<ICollection<WalletListingModel>>(allWallets).ToList();
+            return allWallets.ToList();
         }
 
         // GET api/<WalletsController>/Wallet/5
         [HttpGet("Get/Wallet/{walletId}")]
         public async Task<ActionResult<WalletListingModel>> GetById(int walletId)
         {
-            var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
-            await this.validator.ValidateEntityAsync(wallet);
+            var walletListingModel = await this.walletService.GetById(walletId);
 
-            return mapper.Map<WalletListingModel>(wallet);
+            return walletListingModel;
         }
 
         // POST api/<WalletsController/Add>
@@ -59,15 +52,7 @@
         {
             await AssignCurrentUserAsync();
 
-            var wallet = await this.finder.FindByStringOrDefaultAsync<Wallet>(walletInput.Address);
-            await this.validator.ValidateUniqueEntityAsync(wallet);
-
-            var provider = await this.finder.FindByStringOrDefaultAsync<Provider>(walletInput.Provider)
-                ?? await this.finder.FindByIdOrDefaultAsync<Provider>(int.Parse(walletInput.Provider));
-
-            wallet = await this.walletService.CreateAsync(walletInput, provider, CurrentUser.Id);
-
-            var createdWallet = mapper.Map<CreatedWalletModel>(wallet);
+            var createdWallet = await this.walletService.CreateAsync(walletInput, CurrentUser.Id);
 
             return CreatedAtAction(nameof(Get), "Wallets", new { id = createdWallet.Id }, createdWallet);
         }
@@ -78,12 +63,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
+            var updatedWallet = await this.walletService.EditAsync(walletInput, walletId, CurrentUser.Id);
 
-            await this.validator.ValidateEntityAsync(wallet);
-            await this.walletService.EditAsync(wallet, walletInput, CurrentUser.Id);
-
-            return mapper.Map<EditedWalletModel>(wallet);
+            return updatedWallet;
         }
 
         // DELETE api/<WalletsController>/Wallet/5
@@ -92,12 +74,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
+            var deletedWalletModel = await this.walletService.DeleteAsync(walletId, CurrentUser.Id);
 
-            await this.validator.ValidateEntityAsync(wallet);
-            await this.walletService.DeleteAsync(wallet, CurrentUser.Id);
-
-            return mapper.Map<DeletedWalletModel>(wallet);
+            return deletedWalletModel;
         }
     }
 }

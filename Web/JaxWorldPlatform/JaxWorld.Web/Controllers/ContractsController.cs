@@ -3,9 +3,6 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Data.Entities;
-    using Data.Entities.Wallets;
-    using Data.Entities.Contracts;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
     using Models.Requests.BlockchainRequests.ContractModels;
@@ -19,22 +16,16 @@
     {
         private readonly IContractService contractService;
         private readonly ITransactionDeployer transactionDeployer;
-        private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public ContractsController(IContractService contractService,
             ITransactionDeployer transactionDeployer,
-            IFinder finder,
-            IValidator validator,
             IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.contractService = contractService;
             this.transactionDeployer = transactionDeployer;
-            this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
@@ -42,19 +33,18 @@
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<ContractListingModel>>> Get()
         {
-            var allContracts = await this.finder.GetAllActiveAsync<Contract>();
+            var allContracts = await this.contractService.GetAllActiveAsync();
 
-            return mapper.Map<ICollection<ContractListingModel>>(allContracts).ToList();
+            return allContracts.ToList();
         }
 
         // GET api/<ContractsController>/Contract/5
         [HttpGet("Get/Contract/{contractId}")]
         public async Task<ActionResult<ContractListingModel>> GetById(int contractId)
         {
-            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
-            await this.validator.ValidateEntityAsync(contract);
+            var contractListing = await this.contractService.GetByIdAsync(contractId);
 
-            return mapper.Map<ContractListingModel>(contract);
+            return contractListing;
         }
 
         // POST api/<ContractsController/Deploy>
@@ -63,20 +53,7 @@
         {
             await AssignCurrentUserAsync();
 
-            var contract = await this.finder.FindByStringOrDefaultAsync<Contract>(contractInput.Name);
-            await this.validator.ValidateUniqueEntityAsync(contract);
-
-            var network = await this.finder.FindByIdOrDefaultAsync<Network>(contractInput.NetworkId);
-            await this.validator.ValidateEntityAsync(network);
-
-            var wallet = await this.finder.FindByStringOrDefaultAsync<Wallet>(contractInput.CreatorAddress);
-            await this.validator.ValidateEntityAsync(wallet);
-
-            await this.validator.ValidateWalletOwnershipAsync(CurrentUser, wallet);
-
-            wallet.IsActive = true;
-
-            var createdContract = await this.contractService.CreateAsync(contractInput, wallet.Id, CurrentUser.Id);
+            var createdContract = await this.contractService.CreateAsync(contractInput, CurrentUser);
 
             var deployedContract = await this.transactionDeployer.DeployContractTxnAsync(createdContract, CurrentUser.Id);
 
@@ -89,12 +66,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
+            var editedContract = await this.contractService.EditAsync(contractInput, contractId, CurrentUser.Id);
 
-            await this.validator.ValidateEntityAsync(contract);
-            await this.contractService.EditAsync(contract, contractInput, CurrentUser.Id);
-
-            return mapper.Map<EditedContractModel>(contract);
+            return editedContract;
         }
 
         // DELETE api/<ContractsController>/Network/5
@@ -103,12 +77,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
+            var deletedContract = await this.contractService.DeleteAsync(contractId, CurrentUser.Id);
 
-            await this.validator.ValidateEntityAsync(contract);
-            await this.contractService.DeleteAsync(contract, CurrentUser.Id);
-
-            return mapper.Map<DeletedContractModel>(contract);
+            return deletedContract;
         }
     }
 }
