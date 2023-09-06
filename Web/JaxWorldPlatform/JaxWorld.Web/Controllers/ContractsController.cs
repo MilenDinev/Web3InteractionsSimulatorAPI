@@ -1,12 +1,12 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
     using AutoMapper;
-    using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Services.Main.Interfaces;
-    using Services.Handlers.Interfaces;
+    using Microsoft.AspNetCore.Mvc;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
+    using Services.Handlers.Interfaces;
+    using Services.Main.Interfaces;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -33,7 +33,7 @@
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<ContractListingModel>>> Get()
         {
-            var allContracts = await this.contractService.GetAllActiveAsync();
+            var allContracts = await this.contractService.GetAllActiveContractsAsync();
 
             return allContracts.ToList();
         }
