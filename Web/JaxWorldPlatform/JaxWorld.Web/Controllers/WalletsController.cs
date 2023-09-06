@@ -1,12 +1,11 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
     using AutoMapper;
-    using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Services.Main.Interfaces;
-    using Models.Responses.BlockchainResponses.WalletModels;
+    using Microsoft.AspNetCore.Mvc;
     using Models.Requests.BlockchainRequests.WalletModels;
-    using JaxWorld.Data.Entities.Wallets;
+    using Models.Responses.BlockchainResponses.WalletModels;
+    using Services.Main.Interfaces;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -32,7 +31,7 @@
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<WalletListingModel>>> Get()
         {
-            var allWallets = await this.walletService.GetAllActiveAsync();
+            var allWallets = await this.walletService.GetAllActiveWalletsAsync();
 
             return allWallets.ToList();
         }
@@ -55,17 +54,6 @@
             var createdWallet = await this.walletService.CreateAsync(walletInput, CurrentUser.Id);
 
             return CreatedAtAction(nameof(Get), "Wallets", new { id = createdWallet.Id }, createdWallet);
-        }
-
-        // PUT api/<WalletsController>/5
-        [HttpPut("Edit/Wallet/{walletId}")]
-        public async Task<ActionResult<EditedWalletModel>> Edit(EditWalletModel walletInput, int walletId)
-        {
-            await AssignCurrentUserAsync();
-
-            var updatedWallet = await this.walletService.EditAsync(walletInput, walletId, CurrentUser.Id);
-
-            return updatedWallet;
         }
 
         // DELETE api/<WalletsController>/Wallet/5
