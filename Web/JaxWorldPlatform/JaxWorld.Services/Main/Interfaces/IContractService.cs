@@ -1,13 +1,15 @@
 ﻿namespace JaxWorld.Services.Main.Interfaces
 {
-    using Data.Entities.Contracts;
+    using Data.Entities;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
 
     public interface IContractService
     {
-        Task<CreatedContractModel> CreateAsync(CreateContractModel model, int creatorWalletId, int creatorId);
-        Task EditAsync(Contract contract, EditContractModel model, int modifierId);
-        Task DeleteAsync(Contract contract, int modifierId);
+        Task<CreatedContractModel> CreateAsync(CreateContractModel contractModel, User user);
+        Task<EditedContractModel> EditAsync(EditContractModel contractModel, int contractId, int modifierId);
+        Task<DeletedContractModel> DeleteAsync(int contractId, int modifierId);
+        Task<ContractListingModel> GetByIdAsync(int contractId);
+        Task<IEnumerable<ContractListingModel>> GetAllActiveAsync();
     }
 }
