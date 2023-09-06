@@ -3,13 +3,10 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Data.Entities;
-    using Data.Entities.Contracts;
     using Services.Handlers.Interfaces;
     using Services.Main.Interfaces;
     using Models.Requests.BlockchainRequests.ProfileModels;
     using Models.Responses.BlockchainResponses.ProfileModels;
-    using Profile = Data.Entities.Profiles.Profile;
 
     [Route("api/[controller]")]
     [ApiController]
@@ -17,22 +14,19 @@
     {
         private readonly IProfileService profileService;
         private readonly ITransactionDeployer transactionDeployer;
-        private readonly IFinder finder;
-        private readonly IValidator validator;
+
         private readonly IMapper mapper;
 
         public ProfilesController(IProfileService profileService,
             ITransactionDeployer transactionDeployer,
-            IFinder finder,
-            IValidator validator,
+
             IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.profileService = profileService;
             this.transactionDeployer = transactionDeployer;
-            this.finder = finder;
-            this.validator = validator;
+
             this.mapper = mapper;
         }
 
@@ -40,19 +34,18 @@
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<ProfileListingModel>>> Get()
         {
-            var allProfiles = await this.finder.GetAllActiveAsync<Profile>();
+            var allProfiles = await this.profileService.GetAllActiveAsync();
 
-            return mapper.Map<ICollection<ProfileListingModel>>(allProfiles).ToList();
+            return allProfiles.ToList();
         }
 
         // GET api/<ProfilesController>/Profile/5
         [HttpGet("Get/Profile/{profileId}")]
         public async Task<ActionResult<ProfileListingModel>> GetById(int profileId)
         {
-            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
-            await this.validator.ValidateEntityAsync(profile);
+            var profileListingModel = await this.profileService.GetByIdAsync(profileId);
 
-            return mapper.Map<ProfileListingModel>(profile);
+            return profileListingModel;
         }
 
         // POST api/<ProfilesController/Add>
@@ -60,15 +53,6 @@
         public async Task<ActionResult> Create(CreateProfileModel profileInput)
         {
             await AssignCurrentUserAsync();
-
-            var profile = await this.finder.FindByStringOrDefaultAsync<Profile>(profileInput.Name);
-            await this.validator.ValidateUniqueEntityAsync(profile);
-
-            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(profileInput.ContractId);
-            await this.validator.ValidateEntityAsync(contract);
-
-            var standard = await this.finder.FindByIdOrDefaultAsync<Standard>(profileInput.StandardId);
-            await this.validator.ValidateEntityAsync(standard);
 
             var createdProfile = await this.profileService.CreateAsync(profileInput, CurrentUser.Id);
 
@@ -84,12 +68,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
+            var editedProfile = await this.profileService.EditAsync(profileInput, profileId, CurrentUser.Id);
 
-            await this.validator.ValidateEntityAsync(profile);
-            await this.profileService.EditAsync(profile, profileInput, CurrentUser.Id);
-
-            return mapper.Map<EditedProfileModel>(profile);
+            return editedProfile;
         }
 
         // DELETE api/<ProfilesController>/Profile/5
@@ -98,12 +79,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
+            var deletedProfile = await this.profileService.DeleteAsync(profileId, CurrentUser.Id);
 
-            await this.validator.ValidateEntityAsync(profile);
-            await this.profileService.DeleteAsync(profile, CurrentUser.Id);
-
-            return mapper.Map<DeletedProfileModel>(profile);
+            return deletedProfile;
         }
     }
 }
