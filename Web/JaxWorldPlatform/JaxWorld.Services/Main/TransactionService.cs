@@ -5,16 +5,25 @@
     using AutoMapper;
     using Base;
     using Interfaces;
+    using Handlers.Interfaces;
     using Data;
     using Data.Entities.Transactions;
     using Models.Requests.BlockchainRequests.TransactionModels;
+    using Models.Responses.BlockchainResponses.TransactionModels;
 
     public class TransactionService : BaseService<Transaction>, ITransactionService
     {
+        private readonly IFinder finder;
+        private readonly IValidator validator;
         private readonly IMapper mapper;
 
-        public TransactionService(JaxWorldDbContext dbContext, IMapper mapper) : base(dbContext)
+        public TransactionService(JaxWorldDbContext dbContext,
+            IFinder finder,
+            IValidator validator,
+            IMapper mapper) : base(dbContext)
         {
+            this.finder = finder;
+            this.validator = validator;
             this.mapper = mapper;
         }
 
@@ -30,6 +39,21 @@
             await CreateEntityAsync(transaction, transactionModel.CreatorId);
 
             return transaction;
+        }
+
+        public async Task<TransactionListingModel> GetByIdAsync(int transactionId)
+        {
+            var transaction = await this.finder.FindByIdOrDefaultAsync<Transaction>(transactionId);
+            await this.validator.ValidateTargetEntityAvailabilityAsync(transaction);
+
+            return mapper.Map<TransactionListingModel>(transaction);
+        }
+
+        public async Task<IEnumerable<TransactionListingModel>> GetAllActiveAsync()
+        {
+            var allTransactions = await this.finder.GetAllActiveAsync<Transaction>();
+
+            return mapper.Map<ICollection<TransactionListingModel>>(allTransactions).ToList();
         }
 
         public async Task UpdateStateAsync(Transaction transaction, int modifierId)
