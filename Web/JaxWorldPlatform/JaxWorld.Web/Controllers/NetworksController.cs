@@ -3,9 +3,7 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Data.Entities;
     using Services.Main.Interfaces;
-    using Services.Handlers.Interfaces;
     using Models.Requests.BlockchainRequests.NetworkModels;
     using Models.Responses.BlockchainResponses.NetworkModels;
 
@@ -16,20 +14,15 @@
     public class NetworksController : JaxWorldBaseController
     {
         private readonly INetworkService networkService;
-        private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public NetworksController(INetworkService networkService,
-            IFinder finder,
-            IValidator validator,
             IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.networkService = networkService;
-            this.finder = finder;
-            this.validator = validator;
+
             this.mapper = mapper;
         }
 
@@ -37,19 +30,18 @@
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<NetworkListingModel>>>Get()
         {
-            var allNetworks = await this.finder.GetAllActiveAsync<Network>();
+            var allNetworks = await this.networkService.GetGetAllActiveAsync();
 
-            return mapper.Map<ICollection<NetworkListingModel>>(allNetworks).ToList();
+            return allNetworks.ToList();
         }
 
         // GET api/<NetworksController>/Network/5
         [HttpGet("Get/Network/{networkId}")]
         public async Task<ActionResult<NetworkListingModel>> GetById(int networkId)
         {
-            var network = await this.finder.FindByIdOrDefaultAsync<Network>(networkId);
-            await this.validator.ValidateEntityAsync(network);
+            var networkListingModel = await this.networkService.GetByIdAsync(networkId);
 
-            return mapper.Map<NetworkListingModel>(network);
+            return networkListingModel;
         }
 
         // POST api/<NetworksController/Add>
@@ -58,11 +50,7 @@
         {
             await AssignCurrentUserAsync();
 
-            var network = await this.finder.FindByStringOrDefaultAsync<Network>(networkInput.Name);
-            await this.validator.ValidateUniqueEntityAsync(network);
-
-            network = await this.networkService.CreateAsync(networkInput, CurrentUser.Id);
-            var createdNetwork = mapper.Map<CreatedNetworkModel>(network);
+            var createdNetwork = await this.networkService.CreateAsync(networkInput, CurrentUser.Id);
 
             return CreatedAtAction(nameof(Get), "Networks", new { id = createdNetwork.Id }, createdNetwork);
         }
@@ -73,12 +61,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var network = await this.finder.FindByIdOrDefaultAsync<Network>(networkId);
+            var editedNetwork = await this.networkService.EditAsync(networkInput, networkId, CurrentUser.Id);
 
-            await this.validator.ValidateEntityAsync(network);
-            await this.networkService.EditAsync(network, networkInput, CurrentUser.Id);
-
-            return mapper.Map<EditedNetworkModel>(network);
+            return editedNetwork;
         }
 
         // DELETE api/<NetworksController>/Network/5
@@ -87,12 +72,9 @@
         {
             await AssignCurrentUserAsync();
 
-            var network = await this.finder.FindByIdOrDefaultAsync<Network>(networkId);
+            var deletedNetwork = await this.networkService.DeleteAsync(networkId, CurrentUser.Id);
 
-            await this.validator.ValidateEntityAsync(network);
-            await this.networkService.DeleteAsync(network, CurrentUser.Id);
-
-            return mapper.Map<DeletedNetworkModel>(network);
+            return deletedNetwork;
         }
     }
 }
