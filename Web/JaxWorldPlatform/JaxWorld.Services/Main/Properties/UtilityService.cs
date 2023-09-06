@@ -2,14 +2,13 @@
 {
     using AutoMapper;
     using Base;
-    using Interfaces.Properties;
+    using Interfaces.Base;
     using Handlers.Interfaces;
+    using Interfaces.Properties;
     using Data;
     using Data.Entities.Properties;
     using Models.Requests.BlockchainRequests.PropertiesModels;
-    using Models.Responses.BlockchainResponses.ContractModels;
     using Models.Responses.BlockchainResponses.PropertiesModels.Utility;
-    using JaxWorld.Services.Main.Interfaces.Base;
 
     public class UtilityService : BaseService<Utility>, IUtilityService
     {

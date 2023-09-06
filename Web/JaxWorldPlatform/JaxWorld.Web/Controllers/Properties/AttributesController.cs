@@ -3,7 +3,6 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Data.Entities.Properties;
     using Services.Main.Interfaces;
     using Services.Handlers.Interfaces;
     using Services.Main.Interfaces.Properties;
@@ -36,63 +35,51 @@
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<AttributeListingModel>>> Get()
         {
-            var allAttributes = await finder.GetAllActiveAsync<Attribute>();
+            var allAttributes = await this.attributeService.GetAllActiveAsync();
 
-            return mapper.Map<ICollection<AttributeListingModel>>(allAttributes).ToList();
+            return allAttributes.ToList();
         }
 
         // GET api/<AttributesController>/Attribute/5
         [HttpGet("Get/Attribute/{attributeId}")]
-        public async Task<ActionResult<AttributeListingModel>> GetById(int attributeId)
+        public async Task<ActionResult<AttributeListingModel>> GetById(int аttributeId)
         {
-            var attribute = await finder.FindByIdOrDefaultAsync<Attribute>(attributeId);
+            var аttributeListingModel = await this.attributeService.GetByIdAsync(аttributeId);
 
-            await validator.ValidateEntityAsync(attribute);
-
-            return mapper.Map<AttributeListingModel>(attribute);
+            return аttributeListingModel;
         }
 
         // POST api/<AttributesController/Add>
         [HttpPost("Add/")]
-        public async Task<ActionResult> Create(CreateAttributeModel attributeInput)
+        public async Task<ActionResult> Create(CreateAttributeModel аttributeInput)
         {
             await AssignCurrentUserAsync();
 
-            var attribute = await finder.FindByStringOrDefaultAsync<Attribute>(attributeInput.TraitType);
-            await validator.ValidateUniqueEntityAsync(attribute);
+            var createdAttribute = await attributeService.CreateAsync(аttributeInput, CurrentUser.Id);
 
-            attribute = await attributeService.CreateAsync(attributeInput, CurrentUser.Id);
-            var createdAttribute = mapper.Map<CreatedAttributeModel>(attribute);
-
-            return CreatedAtAction(nameof(Get), "Attributes", new { id = createdAttribute.Id }, createdAttribute);
+            return CreatedAtAction(nameof(Get), "Utilities", new { id = createdAttribute.Id }, createdAttribute);
         }
 
         // PUT api/<AttributesController>/5
         [HttpPut("Edit/Attribute/{attributeId}")]
-        public async Task<ActionResult<EditedAttributeModel>> Edit(EditAttributeModel attributeInput, int attributeId)
+        public async Task<ActionResult<EditedAttributeModel>> Edit(EditAttributeModel аttributeInput, int аttributeId)
         {
             await AssignCurrentUserAsync();
 
-            var attribute = await finder.FindByIdOrDefaultAsync<Attribute>(attributeId);
+            var editedAttribute = await attributeService.EditAsync(аttributeInput, аttributeId, CurrentUser.Id);
 
-            await validator.ValidateEntityAsync(attribute);
-            await attributeService.EditAsync(attribute, attributeInput, CurrentUser.Id);
-
-            return mapper.Map<EditedAttributeModel>(attribute);
+            return editedAttribute;
         }
 
         // DELETE api/<AttributesController>/Attribute/5
         [HttpDelete("Delete/Attribute/{attributeId}")]
-        public async Task<DeletedAttributeModel> Delete(int attributeId)
+        public async Task<DeletedAttributeModel> Delete(int аttributeId)
         {
             await AssignCurrentUserAsync();
 
-            var attribute = await finder.FindByIdOrDefaultAsync<Attribute>(attributeId);
+            var deletedAttributeModel = await attributeService.DeleteAsync(аttributeId, CurrentUser.Id);
 
-            await validator.ValidateEntityAsync(attribute);
-            await attributeService.DeleteAsync(attribute, CurrentUser.Id);
-
-            return mapper.Map<DeletedAttributeModel>(attribute);
+            return deletedAttributeModel;
         }
     }
 }
