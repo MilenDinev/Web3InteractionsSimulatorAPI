@@ -2,5 +2,6 @@
 {
     public class EditedErc721aUnitModel
     {
+        public string Name { get; set; }
     }
 }
