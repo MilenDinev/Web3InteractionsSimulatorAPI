@@ -2,6 +2,6 @@
 {
     public class CreatedBlockModel
     {
-        public int BlockId { get; set; }
+        public int Id { get; set; }
     }
 }
