@@ -10,6 +10,6 @@
         [StringLength(AttributesParams.ValueMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.ValueMinLength)]
-        public string Value { get; set; }
+        public string? Value { get; set; }
     }
 }
