@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.NetworkModels
 {
-    using System.ComponentModel.DataAnnotations;
     using Constants;
+    using System.ComponentModel.DataAnnotations;
 
     public class EditNetworkModel
     {
@@ -14,6 +14,8 @@
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.NetworkSymbolMinLength)]
         public string? Symbol { get; init; }
+
+        [Range(1, int.MaxValue)]
         public int? ChainId { get; init; }
 
         [Url(ErrorMessage = ValidationMessages.URL)]

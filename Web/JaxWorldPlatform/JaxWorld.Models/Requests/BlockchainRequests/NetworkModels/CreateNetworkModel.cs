@@ -20,9 +20,11 @@
         [Required(ErrorMessage = ValidationMessages.Required)]
         [Url(ErrorMessage = ValidationMessages.URL)]
         public string RpcUrl { get; set; }
+
+        [Range(1, int.MaxValue)]
         public int ChainId { get; set; }
 
         [Url(ErrorMessage = ValidationMessages.URL)]
-        public string? ExplorerUrl { get; set; }
+        public string? ExplorerUrl { get; set; } 
     }
 }
