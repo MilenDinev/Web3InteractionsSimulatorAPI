@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Configurations.Properties
 {
-    using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Microsoft.EntityFrameworkCore;
     using Entities.Properties;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
     internal class UtilityConfig : IEntityTypeConfiguration<Utility>
     {
