@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Transactions
 {
-    using Microsoft.EntityFrameworkCore;
     using Constants;
+    using Microsoft.EntityFrameworkCore;
 
     public class Block : Entity
     {

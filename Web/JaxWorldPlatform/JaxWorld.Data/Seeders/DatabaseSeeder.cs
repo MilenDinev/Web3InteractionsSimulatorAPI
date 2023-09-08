@@ -1,15 +1,15 @@
 ﻿namespace JaxWorld.Data.Seeders
 {
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Diagnostics.CodeAnalysis;
+    using Entities;
+    using EntitySeeders;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
-    using Entities;
-    using EntitySeeders;
     using SampleSeeders;
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     [ExcludeFromCodeCoverage]
     public static class DatabaseSeeder

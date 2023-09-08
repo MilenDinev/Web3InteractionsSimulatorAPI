@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Data.Entities
 {
-    using System;
-    using System.ComponentModel.DataAnnotations.Schema;
     using Constants;
     using Interfaces.IEntities;
+    using System;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public abstract class Entity : IEntity
     {

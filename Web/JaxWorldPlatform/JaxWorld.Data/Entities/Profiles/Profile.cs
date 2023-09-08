@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Profiles
 {
-    using Units;
     using Entities.Contracts;
+    using Units;
 
     public class Profile : Entity
     {

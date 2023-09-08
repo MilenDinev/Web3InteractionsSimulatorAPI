@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Data.Seeders.EntitySeeders
 {
-    using Microsoft.AspNetCore.Identity;
     using Entities;
+    using Microsoft.AspNetCore.Identity;
 
     internal static class UsersSeeder
     {

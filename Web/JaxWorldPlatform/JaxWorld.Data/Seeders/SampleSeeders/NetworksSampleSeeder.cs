@@ -10,10 +10,10 @@
 
             {
                 Name = "Avalanche Mainnet Network",
-                RpcUrl= "https://api.avax.network/ext/bc/C/rpc",
-                ChainId= "43114",
-                Symbol= "AVAX",
-                ExplorerUrl= "https://snowtrace.io/ ",
+                RpcUrl = "https://api.avax.network/ext/bc/C/rpc",
+                ChainId = "43114",
+                Symbol = "AVAX",
+                ExplorerUrl = "https://snowtrace.io/ ",
                 NormalizedTag = "Avalanche Mainnet Network".ToUpper(),
                 CreatorId = 1,
                 CreationDate = DateTime.Now,

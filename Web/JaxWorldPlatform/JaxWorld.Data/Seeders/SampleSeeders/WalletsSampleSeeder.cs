@@ -1,7 +1,6 @@
 ﻿namespace JaxWorld.Data.Seeders.SampleSeeders
 {
     using Entities.Wallets;
-    using Microsoft.EntityFrameworkCore;
 
     internal class WalletsSampleSeeder
     {
