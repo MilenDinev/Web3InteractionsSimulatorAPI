@@ -1,10 +1,10 @@
 ﻿namespace JaxWorld.Data.Configurations.Network
 {
-    using System.Collections.Generic;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Entities;
     using Entities.Wallets;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using System.Collections.Generic;
 
     internal class NetworkWalletConfig : IEntityTypeConfiguration<Wallet>
     {
