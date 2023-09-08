@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Configurations.Network
 {
-    using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Microsoft.EntityFrameworkCore;
     using Entities;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
     internal class NetworkConfig : IEntityTypeConfiguration<Network>
     {
