@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Configurations.Transaction
 {
+    using Entities.Transactions;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Transactions;
 
     internal class TransactionStateConfig : IEntityTypeConfiguration<TransactionState>
     {

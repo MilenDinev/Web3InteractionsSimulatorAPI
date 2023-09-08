@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Configurations.Transaction
 {
-    using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Microsoft.EntityFrameworkCore;
     using Entities.Transactions;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
     internal class BlockConfig : IEntityTypeConfiguration<Block>
     {

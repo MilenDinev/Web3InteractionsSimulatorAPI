@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Configurations.Wallet
 {
+    using Entities.Wallets;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Wallets;
 
     internal class WalletConfig : IEntityTypeConfiguration<Wallet>
     {
