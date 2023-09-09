@@ -1,10 +1,9 @@
 ﻿namespace JaxWorld.Services.Base
 {
-    using Interfaces;
     using Data;
     using Data.Interfaces.IEntities;
 
-    public abstract class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, IEntity
+    public abstract class BaseService<TEntity> where TEntity : class, IEntity
     {
         protected readonly JaxWorldDbContext dbContext;
 
@@ -26,14 +25,6 @@
             await SaveModificationAsync(entity, modifierId);
         }
 
-        public async Task SaveModificationAsync(TEntity entity, int modifierId)
-        {
-            entity.LastModifierId = modifierId;
-            entity.LastModificationDate = DateTime.UtcNow;
-
-            await dbContext.SaveChangesAsync();
-        }
-
         private async Task AddEntityAsync(TEntity entity, int creatorId)
         {
             entity.CreatorId = creatorId;
@@ -41,5 +32,15 @@
 
             await dbContext.AddAsync(entity);
         }
+
+        protected async Task SaveModificationAsync(TEntity entity, int modifierId)
+        {
+            entity.LastModifierId = modifierId;
+            entity.LastModificationDate = DateTime.UtcNow;
+
+            await dbContext.SaveChangesAsync();
+        }
+
     }
 }
+//[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
