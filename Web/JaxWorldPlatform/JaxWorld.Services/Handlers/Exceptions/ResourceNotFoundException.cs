@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Services.Exceptions
+﻿namespace JaxWorld.Services.Handlers.Exceptions
 {
     public class ResourceNotFoundException : Exception
     {
