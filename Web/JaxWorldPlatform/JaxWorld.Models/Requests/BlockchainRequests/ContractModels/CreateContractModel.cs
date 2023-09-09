@@ -9,12 +9,7 @@
         [StringLength(AttributesParams.ContractNameMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.ContractNameMinLength)]
-        public string Name { get; set; }
-
-        [Required(ErrorMessage = ValidationMessages.Required)]
-        [MinLength(AttributesParams.WalletAddressMinLength,
-            ErrorMessage = ValidationMessages.MinLength)]
-        public string CreatorAddress { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [RegularExpression("(^(?i)1$|^2$|^3$)",
             ErrorMessage = ValidationMessages.Network)]
