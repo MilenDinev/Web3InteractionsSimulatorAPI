@@ -2,7 +2,7 @@
 {
     using Microsoft.AspNetCore.Http;
     using Models.Responses;
-    using Services.Exceptions;
+    using Services.Handlers.Exceptions;
     using System;
     using System.Collections.Generic;
     using System.Net;
