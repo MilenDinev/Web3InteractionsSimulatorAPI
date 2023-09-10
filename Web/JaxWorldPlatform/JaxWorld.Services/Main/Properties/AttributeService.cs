@@ -2,37 +2,33 @@
 {
     using AutoMapper;
     using Base;
+    using Data;
     using Handlers.Interfaces;
     using Interfaces.Properties;
-    using Data;
+    using Services.Constants;
     using Models.Requests.BlockchainRequests.PropertiesModels;
     using Models.Responses.BlockchainResponses.PropertiesModels.Attribute;
     using Attribute = Data.Entities.Properties.Attribute;
-    using JaxWorld.Services.Main.Interfaces.Base;
+    using Handlers.Exceptions;
 
     public class AttributeService : BaseService<Attribute>, IAttributeService
     {
         private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public AttributeService(JaxWorldDbContext dbContext,
             IFinder finder,
-            IValidator validator,
             IMapper mapper) : base(dbContext)
         {
             this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
         public async Task<CreatedAttributeModel> CreateAsync(CreateAttributeModel аttributeModel, int creatorId)
         {
+            await ValidateAttributeCreateInputAsync(аttributeModel.TraitType);
 
-            var аttribute = await finder.FindByStringOrDefaultAsync<Attribute>(аttributeModel.TraitType);
-            await validator.ValidateUniqueEntityAsync(аttribute);
-
-            аttribute = mapper.Map<Attribute>(аttributeModel);
+            var аttribute = mapper.Map<Attribute>(аttributeModel);
 
             await CreateEntityAsync(аttribute, creatorId);
 
@@ -41,8 +37,7 @@
 
         public async Task<EditedAttributeModel> EditAsync(EditAttributeModel аttributeModel, int аttributeId, int modifierId)
         {
-            var аttribute = await finder.FindByIdOrDefaultAsync<Attribute>(аttributeId);
-            await validator.ValidateTargetEntityAvailabilityAsync(аttribute);
+            var аttribute = await this.GetAttributeAsync(аttributeId);
 
             аttribute.Value = аttributeModel.Value ?? аttribute.Value;
 
@@ -53,9 +48,7 @@
 
         public async Task<DeletedAttributeModel> DeleteAsync(int аttributeId, int modifierId)
         {
-            var аttribute = await finder.FindByIdOrDefaultAsync<Attribute>(аttributeId);
-
-            await validator.ValidateTargetEntityAvailabilityAsync(аttribute);
+            var аttribute = await this.GetAttributeAsync(аttributeId);
 
             await DeleteEntityAsync(аttribute, modifierId);
 
@@ -64,32 +57,36 @@
 
         public async Task<AttributeListingModel> GetByIdAsync(int аttributeId)
         {
-            var аttribute = await this.finder.FindByIdOrDefaultAsync<Attribute>(аttributeId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(аttribute);
+            var аttribute = await this.GetAttributeAsync(аttributeId);
 
             return mapper.Map<AttributeListingModel>(аttribute);
         }
 
-        public async Task<IEnumerable<AttributeListingModel>> GetAllActiveAsync()
+        public async Task<IEnumerable<AttributeListingModel>> GetAllActiveAttributesAsync()
         {
-            var allAttributes = await this.finder.GetAllActiveAsync<Attribute>();
+            var allAttributes = await this.finder.GetAllAsync<Attribute>();
 
-            return mapper.Map<ICollection<AttributeListingModel>>(allAttributes).ToList();
+            return mapper.Map<ICollection<AttributeListingModel>>(allAttributes.Where(x => !x.Deleted)).ToList();
         }
 
-        public Task EditAsync(Attribute property, EditAttributeModel model, int modifierId)
+        private async Task<Attribute> GetAttributeAsync(int attributeId)
         {
-            throw new NotImplementedException();
+            var attribute = await this.finder.FindByIdOrDefaultAsync<Attribute>(attributeId);
+
+            if (attribute != null)
+                return attribute;
+
+            throw new ResourceNotFoundException(string.Format(
+                ErrorMessages.EntityDoesNotExist, typeof(Attribute).Name));
         }
 
-        Task<Attribute> IPropertyService<Attribute, CreateAttributeModel, EditAttributeModel>.CreateAsync(CreateAttributeModel model, int creatorId)
+        private async Task ValidateAttributeCreateInputAsync(string traitType)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(Attribute property, int modifierId)
-        {
-            throw new NotImplementedException();
+            var isAnyAttribute = await this.finder.AnyByStringAsync<Attribute>(traitType);
+            if (isAnyAttribute)
+                throw new ResourceAlreadyExistsException(string.Format(
+                    ErrorMessages.NamedEntityAlreadyExists,
+                    typeof(Attribute).Name, traitType));
         }
     }
 }

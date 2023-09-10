@@ -3,43 +3,34 @@
     using System.Collections.Generic;
     using AutoMapper;
     using Base;
-    using Interfaces;
-    using Handlers.Interfaces;
-    using Profile = Data.Entities.Profiles.Profile;
     using Data;
-    using Data.Entities;
     using Data.Entities.Contracts;
+    using Interfaces;
+    using Services.Constants;
+    using Handlers.Exceptions;
+    using Handlers.Interfaces;
     using Models.Requests.BlockchainRequests.ProfileModels;
     using Models.Responses.BlockchainResponses.ProfileModels;
+    using Profile = Data.Entities.Profiles.Profile;
 
     public class ProfileService : BaseService<Profile>, IProfileService
     {
         private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public ProfileService(JaxWorldDbContext dbContext,
             IFinder finder,
-            IValidator validator,
             IMapper mapper) : base(dbContext)
         {
             this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
         public async Task<CreatedProfileModel> CreateAsync(CreateProfileModel profileModel, int creatorId)
         {
-            var profile = await this.finder.FindByStringOrDefaultAsync<Profile>(profileModel.Name);
-            await this.validator.ValidateUniqueEntityAsync(profile);
+            await this.ValidateProfileCreateInputAsync(profileModel);
 
-            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(profileModel.ContractId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(contract);
-
-            var standard = await this.finder.FindByIdOrDefaultAsync<Standard>(profileModel.StandardId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(standard);
-
-            profile = mapper.Map<Profile>(profileModel);
+            var profile = mapper.Map<Profile>(profileModel);
 
             await CreateEntityAsync(profile, creatorId);
 
@@ -50,10 +41,7 @@
 
         public async Task<EditedProfileModel> EditAsync(EditProfileModel profileModel, int profileId, int modifierId)
         {
-            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(profile);
-
-            profile.Name = profileModel.Name ?? profile.Name;
+            var profile = await this.GetProfileAsync(profileId);
 
             await SaveModificationAsync(profile, modifierId);
 
@@ -62,27 +50,51 @@
 
         public async Task<DeletedProfileModel> DeleteAsync(int profileId, int modifierId)
         {
-            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(profile);
+            var profile = await this.GetProfileAsync(profileId);
 
             await DeleteEntityAsync(profile, modifierId);
 
             return mapper.Map<DeletedProfileModel>(profile);
         }
 
-        public async Task<IEnumerable<ProfileListingModel>> GetAllActiveAsync()
+        public async Task<IEnumerable<ProfileListingModel>> GetAllActiveProfilesAsync()
         {
-            var allProfiles = await this.finder.GetAllActiveAsync<Profile>();
+            var allProfiles = await this.finder.GetAllAsync<Profile>();
 
-            return mapper.Map<ICollection<ProfileListingModel>>(allProfiles).ToList();
+            return mapper.Map<ICollection<ProfileListingModel>>(allProfiles.Where(p => !p.Deleted)).ToList();
         }
 
         public async Task<ProfileListingModel> GetByIdAsync(int profileId)
         {
-            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(profile);
+            var profile = await this.GetProfileAsync(profileId);
 
             return mapper.Map<ProfileListingModel>(profile);
+        }
+
+        private async Task<Profile> GetProfileAsync(int profileId)
+        {
+            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
+
+            if (profile != null)
+                return profile;
+
+            throw new ResourceNotFoundException(string.Format(
+                ErrorMessages.EntityDoesNotExist, typeof(Profile).Name));
+        }
+
+        private async Task ValidateProfileCreateInputAsync(CreateProfileModel profileModel)
+        {
+            var IsProfileExists = await this.finder.AnyByStringAsync<Profile>(profileModel.Name);
+            if (IsProfileExists)
+                throw new ResourceAlreadyExistsException(string.Format(
+                    ErrorMessages.NamedEntityAlreadyExists,
+                    typeof(Profile).Name, profileModel.Name));
+
+            var IsContractExists = await this.finder.AnyByIdAsync<Contract>(profileModel.ContractId);
+            if (IsContractExists)
+                throw new ResourceNotFoundException(string.Format(
+                    ErrorMessages.EntityDoesNotExist,
+                    typeof(Contract).Name));
         }
     }
 }

@@ -1,14 +1,15 @@
 ﻿namespace JaxWorld.Services.Main
 {
-    using AutoMapper;
     using System.Globalization;
     using Microsoft.AspNetCore.Identity;
-    using Base;
+    using AutoMapper;
     using Interfaces;
+    using Constants;
+    using Base;
+    using Handlers.Exceptions;
     using Handlers.Interfaces;
     using Data;
     using Data.Entities;
-    using Data.Entities.Wallets;
     using Data.Entities.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
@@ -16,57 +17,35 @@
     public class ContractService : BaseService<Contract>, IContractService
     {
         private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public ContractService(JaxWorldDbContext dbContext,
             IFinder finder,
-            IValidator validator,
             IMapper mapper) : base(dbContext)
         {
             this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
         public async Task<CreatedContractModel> CreateAsync(CreateContractModel contractModel, User user)
         {
+            await this.ValidateCreateInputAsync(contractModel);
 
-            var contract = await this.finder.FindByStringOrDefaultAsync<Contract>(contractModel.Name);
-            await this.validator.ValidateUniqueEntityAsync(contract);
+            var contract = mapper.Map<Contract>(contractModel);
 
-            var network = await this.finder.FindByIdOrDefaultAsync<Network>(contractModel.NetworkId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(network);
-
-            var wallet = await this.finder.FindByStringOrDefaultAsync<Wallet>(contractModel.CreatorAddress);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(wallet);
-            
-
-            await this.validator.ValidateWalletOwnershipAsync(user, wallet);
-
-            wallet.IsActive = true;
-
-            contract = mapper.Map<Contract>(contractModel);
-            contract.CreatorWalletId = wallet.Id;
-
-            var contractAddress = await CreateContractAddressAsync(contractModel.Name);
-            contract.Address = contractAddress;
+            contract.CreatorWalletId = user.WalletId;
+            contract.Address = await CreateContractAddressAsync(contractModel.Name);
 
             await CreateEntityAsync(contract, user.Id);
 
-            var createdContract = mapper.Map<CreatedContractModel>(contract);
-
-            return createdContract;
+            return mapper.Map<CreatedContractModel>(contract);
         }
 
         public async Task<EditedContractModel> EditAsync(EditContractModel contractModel, int contractId, int modifierId)
         {
+            var contract = await GetContractAsync(contractId);
 
-            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
-
-            await this.validator.ValidateTargetEntityAvailabilityAsync(contract);
-
-            contract.Name = contractModel.Name;
+            contract.Name = contractModel.Name ?? contract.Name;
 
             await SaveModificationAsync(contract, modifierId);
 
@@ -75,10 +54,7 @@
 
         public async Task<DeletedContractModel> DeleteAsync(int contractId, int modifierId)
         {
-
-            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
-
-            await this.validator.ValidateTargetEntityAvailabilityAsync(contract);
+            var contract = await GetContractAsync(contractId);
 
             await DeleteEntityAsync(contract, modifierId);
 
@@ -87,27 +63,45 @@
 
         public async Task<ContractListingModel> GetByIdAsync(int contractId)
         {
-            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(contract);
+            var contract = await GetContractAsync(contractId);
 
             return mapper.Map<ContractListingModel>(contract);
         }
 
-        public async Task<IEnumerable<ContractListingModel>> GetAllActiveAsync()
+        public async Task<IEnumerable<ContractListingModel>> GetAllActiveContractsAsync()
         {
-            var allContracts = await this.finder.GetAllActiveAsync<Contract>();
+            var allContracts = await this.finder.GetAllAsync<Contract>();
 
-            return mapper.Map<ICollection<ContractListingModel>>(allContracts).ToList();
+            return mapper.Map<ICollection<ContractListingModel>>(allContracts.Where(x => !x.Deleted)).ToList();
         }
 
-
-        internal async Task<string> CreateContractAddressAsync(string hashKey)
+        private async Task<string> CreateContractAddressAsync(string hashKey)
         {
             var hasher = new PasswordHasher<string>();
             var timestamp = DateTime.UtcNow.ToString("F", CultureInfo.InvariantCulture);
             var address = hasher.HashPassword(hashKey, timestamp);
 
             return await Task.Run(address.ToString);
+        }
+
+        private async Task<Contract> GetContractAsync(int contractId)
+        {
+            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId);
+
+            if (contract != null)
+                return contract;
+
+            throw new ResourceNotFoundException(string.Format(
+                ErrorMessages.EntityDoesNotExist, typeof(Contract).Name));
+        }
+
+        private async Task ValidateCreateInputAsync(CreateContractModel contractModel)
+        {
+            var isAnyContract = await this.finder.AnyByStringAsync<Contract>(contractModel.Name);
+            if (isAnyContract)
+                throw new ResourceAlreadyExistsException(string.Format(
+                    ErrorMessages.NamedEntityAlreadyExists,
+                    typeof(Contract).Name, contractModel.Name));
         }
     }
 }

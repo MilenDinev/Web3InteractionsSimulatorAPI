@@ -2,35 +2,33 @@
 {
     using AutoMapper;
     using Base;
-    using Interfaces;
     using Data;
     using Data.Entities;
+    using Interfaces;
     using Models.Requests.BlockchainRequests.NetworkModels;
     using Models.Responses.BlockchainResponses.NetworkModels;
+    using Constants;
+    using Handlers.Exceptions;
     using Handlers.Interfaces;
 
     public class NetworkService : BaseService<Network>, INetworkService
     {
         private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public NetworkService(JaxWorldDbContext dbContext,
             IFinder finder,
-            IValidator validator,
             IMapper mapper) : base(dbContext)
         {
             this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
         public async Task<CreatedNetworkModel> CreateAsync(CreateNetworkModel networkModel, int creatorId)
         {
-            var network = await this.finder.FindByStringOrDefaultAsync<Network>(networkModel.Name);
-            await this.validator.ValidateUniqueEntityAsync(network);
+            await this.ValidateNetworkCreateInputAsync(networkModel.Name);
 
-             network = mapper.Map<Network>(networkModel);
+            var network = mapper.Map<Network>(networkModel);
 
             await CreateEntityAsync(network, creatorId);
 
@@ -39,17 +37,14 @@
 
         public async Task<EditedNetworkModel> EditAsync(EditNetworkModel networkModel, int networkId, int modifierId)
         {
+            var network = await this.GetNetworkAsync(networkId);
 
-            var network = await this.finder.FindByIdOrDefaultAsync<Network>(networkId);
-
-            await this.validator.ValidateTargetEntityAvailabilityAsync(network);
-
-            network.Name = networkModel.Name;
-            network.RpcUrl = networkModel.RpcUrl;
-            network.ExplorerUrl = networkModel.ExplorerUrl;
-            network.ChainId = networkModel.ChainId.ToString();
-            network.NormalizedTag = networkModel.Name.ToUpper();
-            network.Symbol = networkModel.Symbol;
+            network.Name = networkModel.Name ?? network.Name;
+            network.RpcUrl = networkModel.RpcUrl ?? network.RpcUrl;
+            network.ExplorerUrl = networkModel.ExplorerUrl ?? network.ExplorerUrl;
+            network.ChainId = networkModel.ChainId.ToString() ?? network.ChainId;
+            network.NormalizedTag = networkModel.Name?.ToUpper() ?? network.Name.ToUpper();
+            network.Symbol = networkModel.Symbol ?? network.Symbol;
 
             await SaveModificationAsync(network, modifierId);
 
@@ -58,30 +53,46 @@
 
         public async Task<DeletedNetworkModel> DeleteAsync(int networkId, int modifierId)
         {
-
-            var network = await this.finder.FindByIdOrDefaultAsync<Network>(networkId);
-
-            await this.validator.ValidateTargetEntityAvailabilityAsync(network);
+            var network = await this.GetNetworkAsync(networkId);
 
             await DeleteEntityAsync(network, modifierId);
 
             return mapper.Map<DeletedNetworkModel>(network);
         }
 
+        public async Task<IEnumerable<NetworkListingModel>> GetAllActiveNetworksAsync()
+        {
+            var allNetworks = await this.finder.GetAllAsync<Network>();
+
+            return mapper.Map<ICollection<NetworkListingModel>>(allNetworks.Where(x => !x.Deleted)).ToList();
+        }
 
         public async Task<NetworkListingModel> GetByIdAsync(int networkId)
         {
-            var network = await this.finder.FindByIdOrDefaultAsync<Network>(networkId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(network);
+            var network = await this.GetNetworkAsync(networkId);
 
             return mapper.Map<NetworkListingModel>(network);
         }
 
-        public async Task<IEnumerable<NetworkListingModel>> GetGetAllActiveAsync()
+        private async Task<Network> GetNetworkAsync(int networkId)
         {
-            var allNetworks = await this.finder.GetAllActiveAsync<Network>();
+            var network = await this.finder.FindByIdOrDefaultAsync<Network>(networkId);
 
-            return mapper.Map<ICollection<NetworkListingModel>>(allNetworks);
+            if (network != null)
+                return network;
+
+            throw new ResourceNotFoundException(string.Format(
+                ErrorMessages.EntityDoesNotExist, typeof(Network).Name));
+        }
+
+        private async Task ValidateNetworkCreateInputAsync(string networkName)
+        {
+            var network = await this.finder.AnyByStringAsync<Network>(networkName);
+
+            if (network)
+                throw new ResourceAlreadyExistsException(string.Format(
+                    ErrorMessages.NamedEntityAlreadyExists,
+                    typeof(Network).Name, networkName));
         }
     }
 }

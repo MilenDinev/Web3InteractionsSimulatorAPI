@@ -2,37 +2,34 @@
 {
     using AutoMapper;
     using Base;
-    using Interfaces.Base;
-    using Handlers.Interfaces;
-    using Interfaces.Properties;
     using Data;
     using Data.Entities.Properties;
-    using Models.Requests.BlockchainRequests.PropertiesModels;
+    using Handlers.Interfaces;
+    using Interfaces.Properties;
     using Models.Responses.BlockchainResponses.PropertiesModels.Utility;
+    using Constants;
+    using Handlers.Exceptions;
+    using Models.Requests.BlockchainRequests.PropertiesModels;
 
     public class UtilityService : BaseService<Utility>, IUtilityService
     {
         private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public UtilityService(JaxWorldDbContext dbContext,
             IFinder finder,
-            IValidator validator,
             IMapper mapper) : base(dbContext)
         {
             this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
         public async Task<CreatedUtilityModel> CreateAsync(CreateUtilityModel utilityModel, int creatorId)
         {
 
-            var utility = await finder.FindByStringOrDefaultAsync<Utility>(utilityModel.TraitType);
-            await validator.ValidateUniqueEntityAsync(utility);
+            await ValidateUtilityCreateInputAsync(utilityModel.TraitType);
 
-            utility = mapper.Map<Utility>(utilityModel);
+            var utility = mapper.Map<Utility>(utilityModel);
 
             await CreateEntityAsync(utility, creatorId);
 
@@ -41,8 +38,7 @@
 
         public async Task<EditedUtilityModel> EditAsync(EditUtilityModel utilityModel, int utilityId, int modifierId)
         {
-            var utility = await finder.FindByIdOrDefaultAsync<Utility>(utilityId);
-            await validator.ValidateTargetEntityAvailabilityAsync(utility);
+            var utility = await this.GetUtilityAsync(utilityId);
 
             utility.Value = utilityModel.Value ?? utility.Value;
 
@@ -53,9 +49,8 @@
 
         public async Task<DeletedUtilityModel> DeleteAsync(int utilityId, int modifierId)
         {
-            var utility = await finder.FindByIdOrDefaultAsync<Utility>(utilityId);
+            var utility = await this.GetUtilityAsync(utilityId);
 
-            await validator.ValidateTargetEntityAvailabilityAsync(utility);
 
             await DeleteEntityAsync(utility, modifierId);
 
@@ -64,32 +59,37 @@
 
         public async Task<UtilityListingModel> GetByIdAsync(int utilityId)
         {
-            var utility = await this.finder.FindByIdOrDefaultAsync<Utility>(utilityId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(utility);
+            var utility = await this.GetUtilityAsync(utilityId);
 
             return mapper.Map<UtilityListingModel>(utility);
         }
 
-        public async Task<IEnumerable<UtilityListingModel>> GetAllActiveAsync()
+        public async Task<IEnumerable<UtilityListingModel>> GetAllActiveUtillitiesAsync()
         {
-            var allUtilities = await this.finder.GetAllActiveAsync<Utility>();
-      
-            return mapper.Map<ICollection<UtilityListingModel>>(allUtilities).ToList();
+            var allUtilities = await this.finder.GetAllAsync<Utility>();
+
+            return mapper.Map<ICollection<UtilityListingModel>>(allUtilities.Where(x => !x.Deleted)).ToList();
         }
 
-        Task<Utility> IPropertyService<Utility, CreateUtilityModel, EditUtilityModel>.CreateAsync(CreateUtilityModel model, int creatorId)
+        private async Task<Utility> GetUtilityAsync(int utilityId)
         {
-            throw new NotImplementedException();
+            var utility = await this.finder.FindByIdOrDefaultAsync<Utility>(utilityId);
+
+            if (utility != null)
+                return utility;
+
+            throw new ResourceNotFoundException(string.Format(
+                ErrorMessages.EntityDoesNotExist, typeof(Utility).Name));
         }
 
-        public Task EditAsync(Utility property, EditUtilityModel model, int modifierId)
+        private async Task ValidateUtilityCreateInputAsync(string traitType)
         {
-            throw new NotImplementedException();
+            var isAnyUtility = await this.finder.AnyByStringAsync<Utility>(traitType);
+            if (isAnyUtility)
+                throw new ResourceAlreadyExistsException(string.Format(
+                    ErrorMessages.NamedEntityAlreadyExists,
+                    typeof(Utility).Name, traitType));
         }
 
-        public Task DeleteAsync(Utility property, int modifierId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
