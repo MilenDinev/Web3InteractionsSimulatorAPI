@@ -10,6 +10,7 @@
             var adminUser = new User()
             {
                 UserName = "admin",
+                WalletId = 1,
                 Email = "TheMostImportanAdminEmail@yahoo.com",
                 NormalizedEmail = "TheMostImportanAdminEmail@yahoo.com".ToUpper(),
                 EmailConfirmed = true,

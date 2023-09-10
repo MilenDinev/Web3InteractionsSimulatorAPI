@@ -9,8 +9,8 @@
         public void Configure(EntityTypeBuilder<Wallet> builder)
         {
             builder.HasOne(w => w.Owner)
-                .WithMany(u => u.Wallets)
-                .HasForeignKey(w => w.OwnerId)
+                .WithOne(u => u.Wallet)
+                .HasForeignKey<Wallet>(u => u.OwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(w => w.Provider)
