@@ -10,6 +10,6 @@
         Task<EditedContractModel> EditAsync(EditContractModel contractModel, int contractId, int modifierId);
         Task<DeletedContractModel> DeleteAsync(int contractId, int modifierId);
         Task<ContractListingModel> GetByIdAsync(int contractId);
-        Task<IEnumerable<ContractListingModel>> GetAllActiveAsync();
+        Task<IEnumerable<ContractListingModel>> GetAllActiveContractsAsync();
     }
 }

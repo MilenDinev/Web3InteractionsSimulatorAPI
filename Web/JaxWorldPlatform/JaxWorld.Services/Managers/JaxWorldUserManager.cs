@@ -32,7 +32,7 @@
 
         }
 
- 
+
         public async Task<ICollection<User>> GetAllAsync()
         {
             return await Users.ToListAsync();

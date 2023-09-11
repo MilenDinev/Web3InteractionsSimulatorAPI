@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Base
 {
-    using System.ComponentModel.DataAnnotations.Schema;
     using Constants;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public abstract class Unit : Entity
     {

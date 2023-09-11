@@ -2,8 +2,8 @@
 {
     using Constants;
     using Data.Entities;
-    using Services.Main.Interfaces;
     using Microsoft.AspNetCore.Mvc;
+    using Services.Main.Interfaces;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
     public class JaxWorldBaseController : ControllerBase

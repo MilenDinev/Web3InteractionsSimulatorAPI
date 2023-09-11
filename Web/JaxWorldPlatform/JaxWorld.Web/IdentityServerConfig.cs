@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Web
 {
+    using Constants;
+    using IdentityServer4.Models;
     using System.Collections.Generic;
     using System.Security.Claims;
-    using IdentityServer4.Models;
-    using Constants;
 
     public class IdentityServerConfig
     {

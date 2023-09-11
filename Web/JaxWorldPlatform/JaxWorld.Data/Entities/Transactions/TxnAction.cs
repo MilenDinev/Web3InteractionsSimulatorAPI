@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Transactions
 {
-    using Wallets;
     using Profiles;
+    using Wallets;
 
     public class TxnAction : Entity
     {

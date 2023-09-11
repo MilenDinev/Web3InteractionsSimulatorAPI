@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JaxWorld.Data.Migrations
 {
     [DbContext(typeof(JaxWorldDbContext))]
-    [Migration("20230905214535_InitialMigration")]
+    [Migration("20230910202321_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -989,6 +989,9 @@ namespace JaxWorld.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<int>("WalletId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CreatorId");
@@ -1100,7 +1103,8 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasIndex("LastModifierId");
 
-                    b.HasIndex("OwnerId");
+                    b.HasIndex("OwnerId")
+                        .IsUnique();
 
                     b.HasIndex("ProviderId");
 
@@ -1772,8 +1776,8 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("JaxWorld.Data.Entities.User", "Owner")
-                        .WithMany("Wallets")
-                        .HasForeignKey("OwnerId")
+                        .WithOne("Wallet")
+                        .HasForeignKey("JaxWorld.Data.Entities.Wallets.Wallet", "OwnerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -1907,7 +1911,8 @@ namespace JaxWorld.Data.Migrations
 
             modelBuilder.Entity("JaxWorld.Data.Entities.User", b =>
                 {
-                    b.Navigation("Wallets");
+                    b.Navigation("Wallet")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Wallets.Provider", b =>

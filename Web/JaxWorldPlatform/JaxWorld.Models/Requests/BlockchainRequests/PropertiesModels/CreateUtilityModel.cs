@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.PropertiesModels
 {
-    using System.ComponentModel.DataAnnotations;
     using Base;
     using Constants;
+    using System.ComponentModel.DataAnnotations;
 
     public class CreateUtilityModel : CreatePropertyModel
     {
@@ -10,7 +10,9 @@
         [StringLength(AttributesParams.DisplayTypeMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.DisplayTypeMinLength)]
-        public string DisplayType { get; set; }
-        public decimal Value { get; set; }
+        public string? DisplayType { get; set; }
+
+        [Required(ErrorMessage = ValidationMessages.Required)]
+        public decimal? Value { get; set; }
     }
 }

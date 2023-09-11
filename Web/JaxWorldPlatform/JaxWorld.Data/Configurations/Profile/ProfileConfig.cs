@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Configurations.Profile
 {
+    using Entities.Profiles;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Profiles;
 
     internal class ProfileConfig : IEntityTypeConfiguration<Profile>
     {

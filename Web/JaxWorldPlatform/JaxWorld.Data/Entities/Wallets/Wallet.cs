@@ -1,11 +1,11 @@
 ﻿namespace JaxWorld.Data.Entities.Wallets
 {
-    using Microsoft.EntityFrameworkCore;
-    using Units;
-    using Entities;
     using Constants;
     using Contracts;
+    using Entities;
+    using Microsoft.EntityFrameworkCore;
     using Transactions;
+    using Units;
 
     public class Wallet : Entity
     {

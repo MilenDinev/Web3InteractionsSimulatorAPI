@@ -1,12 +1,11 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
-    using AutoMapper;
-    using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Services.Main.Interfaces;
-    using Services.Handlers.Interfaces;
+    using Microsoft.AspNetCore.Mvc;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
+    using Services.Handlers.Interfaces;
+    using Services.Main.Interfaces;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,24 +15,21 @@
     {
         private readonly IContractService contractService;
         private readonly ITransactionDeployer transactionDeployer;
-        private readonly IMapper mapper;
 
         public ContractsController(IContractService contractService,
             ITransactionDeployer transactionDeployer,
-            IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.contractService = contractService;
             this.transactionDeployer = transactionDeployer;
-            this.mapper = mapper;
         }
 
         // GET: api/<ContractsController>
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<ContractListingModel>>> Get()
         {
-            var allContracts = await this.contractService.GetAllActiveAsync();
+            var allContracts = await this.contractService.GetAllActiveContractsAsync();
 
             return allContracts.ToList();
         }
@@ -55,9 +51,9 @@
 
             var createdContract = await this.contractService.CreateAsync(contractInput, CurrentUser);
 
-            var deployedContract = await this.transactionDeployer.DeployContractTxnAsync(createdContract, CurrentUser.Id);
+            await this.transactionDeployer.DeployContractTxnAsync(createdContract, CurrentUser.Id);
 
-            return CreatedAtAction(nameof(Get), "Contracts", new { id = deployedContract.ContractId }, deployedContract);
+            return CreatedAtAction(nameof(Get), "Contracts", new { id = createdContract.Id }, createdContract);
         }
 
         // PUT api/<ContractsController>/5

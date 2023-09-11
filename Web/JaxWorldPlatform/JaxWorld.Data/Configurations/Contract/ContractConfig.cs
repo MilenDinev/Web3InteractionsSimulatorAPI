@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Configurations.Contract
 {
+    using Entities.Contracts;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Contracts;
 
     internal class ContractConfig : IEntityTypeConfiguration<Contract>
     {

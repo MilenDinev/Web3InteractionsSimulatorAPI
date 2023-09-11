@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Data.Entities.Transactions
 {
+    using Constants;
+    using Contracts;
     using Microsoft.EntityFrameworkCore;
     using Wallets;
-    using Contracts;
-    using Constants;
 
     public class Transaction : Entity
     {
@@ -17,9 +17,9 @@
         public virtual TransactionState State { get; set; }
         public int NetworkId { get; set; }
         public virtual Network Network { get; set; }
-        public int BlockId  { get; set; }
-        public virtual Block Block  { get; set; }
-        public DateTime Timestamp  { get; set; }
+        public int BlockId { get; set; }
+        public virtual Block Block { get; set; }
+        public DateTime Timestamp { get; set; }
         public int InitiatorId { get; set; }
         public virtual Wallet Initiator { get; set; }
         public int TargetId { get; set; }

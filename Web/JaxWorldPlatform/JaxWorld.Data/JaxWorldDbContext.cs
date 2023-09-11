@@ -1,17 +1,17 @@
 ﻿namespace JaxWorld.Data
 {
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Entities;
-    using Entities.Units;
-    using Entities.Wallets;
-    using Entities.Profiles;
     using Entities.Contracts;
+    using Entities.Profiles;
     using Entities.Properties;
     using Entities.Transactions;
+    using Entities.Units;
+    using Entities.Wallets;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore;
 
-    public class JaxWorldDbContext: IdentityDbContext<User, IdentityRole<int>, int>
+    public class JaxWorldDbContext : IdentityDbContext<User, IdentityRole<int>, int>
     {
         public JaxWorldDbContext(DbContextOptions<JaxWorldDbContext> options) : base(options)
         { }

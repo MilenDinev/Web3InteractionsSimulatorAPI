@@ -1,10 +1,8 @@
 ﻿namespace JaxWorld.Web.Controllers.Properties
 {
-    using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
     using Services.Main.Interfaces;
-    using Services.Handlers.Interfaces;
     using Services.Main.Interfaces.Properties;
     using Models.Requests.BlockchainRequests.PropertiesModels;
     using Models.Responses.BlockchainResponses.PropertiesModels.Attribute;
@@ -14,28 +12,19 @@
     public class AttributesController : JaxWorldBaseController
     {
         private readonly IAttributeService attributeService;
-        private readonly IFinder finder;
-        private readonly IValidator validator;
-        private readonly IMapper mapper;
 
         public AttributesController(IAttributeService attributeService,
-            IFinder finder,
-            IValidator validator,
-            IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.attributeService = attributeService;
-            this.finder = finder;
-            this.validator = validator;
-            this.mapper = mapper;
         }
 
         // GET: api/<AttributesController>
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<AttributeListingModel>>> Get()
         {
-            var allAttributes = await this.attributeService.GetAllActiveAsync();
+            var allAttributes = await this.attributeService.GetAllActiveAttributesAsync();
 
             return allAttributes.ToList();
         }

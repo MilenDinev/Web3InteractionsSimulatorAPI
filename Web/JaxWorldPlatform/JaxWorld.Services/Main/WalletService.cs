@@ -1,8 +1,11 @@
 ﻿namespace JaxWorld.Services.Main
 {
     using AutoMapper;
+    using System.Collections.Generic;
     using Base;
+    using Constants;
     using Interfaces;
+    using Handlers.Exceptions;
     using Handlers.Interfaces;
     using Data;
     using Data.Entities.Wallets;
@@ -12,31 +15,23 @@
     public class WalletService : BaseService<Wallet>, IWalletService
     {
         private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public WalletService(JaxWorldDbContext dbContext,
             IFinder finder,
-            IValidator validator, 
             IMapper mapper) : base(dbContext)
         {
             this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
         public async Task<CreatedWalletModel> CreateAsync(CreateWalletModel walletModel, int creatorId)
         {
-            var wallet = await this.finder.FindByStringOrDefaultAsync<Wallet>(walletModel.Address);
-            await this.validator.ValidateUniqueEntityAsync(wallet);
+            await this.ValidateWalletCreateInputAsync(walletModel.Address);
 
-            var provider = await this.finder.FindByStringOrDefaultAsync<Provider>(walletModel.Provider)
-                ?? await this.finder.FindByIdOrDefaultAsync<Provider>(int.Parse(walletModel.Provider));
-
-            wallet = mapper.Map<Wallet>(walletModel);
+            var wallet = mapper.Map<Wallet>(walletModel);
 
             wallet.OwnerId = creatorId;
-            wallet.Provider = provider;
 
             await CreateEntityAsync(wallet, creatorId);
 
@@ -45,22 +40,9 @@
             return createdWallet;
         }
 
-        public async Task<EditedWalletModel> EditAsync(EditWalletModel walletModel, int walletId, int modifierId)
-        {
-            var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(wallet);
-
-            wallet.Owner.UserName = walletModel.Owner;
-
-            await SaveModificationAsync(wallet, modifierId);
-
-            return mapper.Map<EditedWalletModel>(wallet);
-        }
-
         public async Task<DeletedWalletModel> DeleteAsync(int walletId, int modifierId)
         {
-            var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(wallet);
+            var wallet = await this.GetWalletAsync(walletId);
 
             await DeleteEntityAsync(wallet, modifierId);
 
@@ -69,17 +51,38 @@
 
         public async Task<WalletListingModel> GetById(int walletId)
         {
-            var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(wallet);
+            var wallet = await this.GetWalletAsync(walletId);
 
             return mapper.Map<WalletListingModel>(wallet);
         }
 
-        public async Task<IEnumerable<WalletListingModel>> GetAllActiveAsync()
+        public async Task<IEnumerable<WalletListingModel>> GetAllActiveWalletsAsync()
         {
-            var allWallets = await this.finder.GetAllActiveAsync<Wallet>();
+            var allWallets = await this.finder.GetAllAsync<Wallet>();
 
-            return mapper.Map<ICollection<WalletListingModel>>(allWallets).ToList();
+            return mapper.Map<ICollection<WalletListingModel>>(allWallets.Where(x => !x.Deleted)).ToList();
         }
+
+        private async Task<Wallet> GetWalletAsync(int walletId)
+        {
+            var wallet = await this.finder.FindByIdOrDefaultAsync<Wallet>(walletId);
+
+            if (wallet != null)
+                return wallet;
+
+            throw new ResourceNotFoundException(string.Format(
+                ErrorMessages.EntityDoesNotExist, typeof(Wallet).Name));
+        }
+
+        private async Task ValidateWalletCreateInputAsync(string walletAddress)
+        {
+            var wallet = await this.finder.AnyByStringAsync<Wallet>(walletAddress);
+
+            if (wallet)
+                throw new ResourceAlreadyExistsException(string.Format(
+                    ErrorMessages.AddresableEntityAlreadyExists,
+                    typeof(Wallet).Name, walletAddress));
+        }
+
     }
 }

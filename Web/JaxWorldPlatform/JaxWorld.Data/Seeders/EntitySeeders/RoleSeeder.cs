@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Seeders.EntitySeeders
 {
+    using Microsoft.AspNetCore.Identity;
     using System;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Identity;
 
     internal static class RolesSeeder
     {

@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Configurations.Standard
 {
+    using Entities;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities;
 
     internal class StandardConfig : IEntityTypeConfiguration<Standard>
     {

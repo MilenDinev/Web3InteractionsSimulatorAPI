@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.PropertiesModels.Base
 {
-    using System.ComponentModel.DataAnnotations;
     using Constants;
     using Interfaces;
+    using System.ComponentModel.DataAnnotations;
 
     public abstract class CreatePropertyModel : ICreatePropertyModel
     {
@@ -10,7 +10,7 @@
         [StringLength(AttributesParams.TraitTypeMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.TraitTypeMinLength)]
-        public string TraitType { get; set; }
+        public string? TraitType { get; set; }
     }
 }
 

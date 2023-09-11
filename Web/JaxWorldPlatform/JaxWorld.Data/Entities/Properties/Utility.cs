@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Data.Entities.Properties
 {
-    using Microsoft.EntityFrameworkCore;
     using Base;
     using Constants;
     using Entities.Units;
+    using Microsoft.EntityFrameworkCore;
 
     public class Utility : Property
     {

@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.UnitModels
 {
-    using System.ComponentModel.DataAnnotations;
     using Constants;
+    using System.ComponentModel.DataAnnotations;
 
     public class CreateErc721aUnitModel
     {
@@ -17,10 +17,7 @@
     MinimumLength = AttributesParams.ProfileDescriptionMinLength)]
         public string Description { get; set; }
 
+        [Range(1, int.MaxValue)]
         public int ProfileId { get; set; }
-        [StringLength(AttributesParams.DNAMaxLength,
-            ErrorMessage = ValidationMessages.MinMaxLength,
-            MinimumLength = AttributesParams.DNAMinLength)]
-        public string? DNA { get; set; }
     }
 }

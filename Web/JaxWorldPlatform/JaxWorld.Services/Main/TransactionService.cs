@@ -4,31 +4,31 @@
     using Microsoft.AspNetCore.Identity;
     using AutoMapper;
     using Base;
-    using Interfaces;
-    using Handlers.Interfaces;
     using Data;
     using Data.Entities.Transactions;
+    using Constants;
+    using Interfaces;
+    using Handlers.Interfaces;
+    using Handlers.Exceptions;
     using Models.Requests.BlockchainRequests.TransactionModels;
     using Models.Responses.BlockchainResponses.TransactionModels;
 
     public class TransactionService : BaseService<Transaction>, ITransactionService
     {
         private readonly IFinder finder;
-        private readonly IValidator validator;
         private readonly IMapper mapper;
 
         public TransactionService(JaxWorldDbContext dbContext,
             IFinder finder,
-            IValidator validator,
             IMapper mapper) : base(dbContext)
         {
             this.finder = finder;
-            this.validator = validator;
             this.mapper = mapper;
         }
 
         public async Task<Transaction> CreateAsync(CreateTransactionModel transactionModel, int targetContractId)
         {
+
             transactionModel.TxnHash = await CreateTxnHashAsync(Guid.NewGuid().ToString());
 
             var transaction = mapper.Map<Transaction>(transactionModel);
@@ -43,26 +43,25 @@
 
         public async Task<TransactionListingModel> GetByIdAsync(int transactionId)
         {
-            var transaction = await this.finder.FindByIdOrDefaultAsync<Transaction>(transactionId);
-            await this.validator.ValidateTargetEntityAvailabilityAsync(transaction);
+            var transaction = await GetTransactionAsync(transactionId);
 
             return mapper.Map<TransactionListingModel>(transaction);
         }
 
-        public async Task<IEnumerable<TransactionListingModel>> GetAllActiveAsync()
+        public async Task<IEnumerable<TransactionListingModel>> GetAllActiveTxnsAsync()
         {
-            var allTransactions = await this.finder.GetAllActiveAsync<Transaction>();
+            var allTransactions = await this.finder.GetAllAsync<Transaction>();
 
-            return mapper.Map<ICollection<TransactionListingModel>>(allTransactions).ToList();
+            return mapper.Map<ICollection<TransactionListingModel>>(allTransactions.Where(x => !x.Deleted)).ToList();
         }
 
         public async Task UpdateStateAsync(Transaction transaction, int modifierId)
         {
-            var transactionState = await dbContext.TransactionStates.FindAsync(transaction.StateId+1);
+            var transactionState = await dbContext.TransactionStates.FindAsync(transaction.StateId + 1);
 
             if (transactionState != null)
             {
-                transaction.State = transactionState ;
+                transaction.State = transactionState;
                 await SaveModificationAsync(transaction, modifierId);
             }
         }
@@ -74,6 +73,17 @@
             var txnHash = hasher.HashPassword(hashKey, timestamp);
 
             return await Task.Run(txnHash.ToString);
+        }
+
+        private async Task<Transaction> GetTransactionAsync(int txnId)
+        {
+            var transaction = await this.finder.FindByIdOrDefaultAsync<Transaction>(txnId);
+
+            if (transaction != null)
+                return transaction;
+
+            throw new ResourceNotFoundException(string.Format(
+                ErrorMessages.EntityDoesNotExist, typeof(Transaction).Name));
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Web.Extensions
 {
-    using Microsoft.EntityFrameworkCore;
     using Data;
+    using Microsoft.EntityFrameworkCore;
 
     public static class DatabaseConfigurator
     {

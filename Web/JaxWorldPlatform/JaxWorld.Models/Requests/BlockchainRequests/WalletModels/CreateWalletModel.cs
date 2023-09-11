@@ -10,10 +10,11 @@
             ErrorMessage = ValidationMessages.MinMaxLength,
             MinimumLength = AttributesParams.WalletAddressMinLength)]
         public string Address { get; set; }
+
         [Required(ErrorMessage = ValidationMessages.Required)]
-        [RegularExpression("(^(?i)metamask|^coinbase|^walletconnect|^1$|^2$|^3$)",
+        [RegularExpression("(^(?i)^1$|^2$|^3$)",
             ErrorMessage = ValidationMessages.Provider)]
-        public string Provider { get; set; }
+        public string ProviderId { get; set; }
     }
 }
 

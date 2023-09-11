@@ -2,10 +2,10 @@
 {
     using Base;
     using Extensions.Authentication;
-    using Services.Main.Interfaces;
-    using Models.Responses;
-    using Models.Requests.EntityRequests;
     using Microsoft.AspNetCore.Mvc;
+    using Models.Requests.EntityRequests;
+    using Models.Responses;
+    using Services.Main.Interfaces;
 
     [Route("api/[controller]")]
     [ApiController]

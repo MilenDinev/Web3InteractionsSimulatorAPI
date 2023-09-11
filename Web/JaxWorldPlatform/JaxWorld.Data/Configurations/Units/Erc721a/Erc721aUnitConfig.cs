@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Configurations.Units.Erc721a
 {
+    using Entities.Units;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Entities.Units;
 
     internal class Erc721aUnitConfig : IEntityTypeConfiguration<Erc721aUnit>
     {

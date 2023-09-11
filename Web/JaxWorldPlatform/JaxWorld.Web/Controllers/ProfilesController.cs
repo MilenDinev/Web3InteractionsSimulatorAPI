@@ -1,6 +1,5 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
-    using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
     using Services.Handlers.Interfaces;
@@ -15,26 +14,20 @@
         private readonly IProfileService profileService;
         private readonly ITransactionDeployer transactionDeployer;
 
-        private readonly IMapper mapper;
-
         public ProfilesController(IProfileService profileService,
             ITransactionDeployer transactionDeployer,
-
-            IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.profileService = profileService;
             this.transactionDeployer = transactionDeployer;
-
-            this.mapper = mapper;
         }
 
         // GET: api/<ProfilesController>
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<ProfileListingModel>>> Get()
         {
-            var allProfiles = await this.profileService.GetAllActiveAsync();
+            var allProfiles = await this.profileService.GetAllActiveProfilesAsync();
 
             return allProfiles.ToList();
         }
@@ -56,9 +49,9 @@
 
             var createdProfile = await this.profileService.CreateAsync(profileInput, CurrentUser.Id);
 
-            var deployedProfile = await this.transactionDeployer.DeployProfileTxnAsync(createdProfile, CurrentUser.Id);
+            await this.transactionDeployer.DeployProfileTxnAsync(createdProfile, CurrentUser.Id);
 
-            return CreatedAtAction(nameof(Get), "Profiles", new { id = deployedProfile.ProfileId }, deployedProfile);
+            return CreatedAtAction(nameof(Get), "Profiles", new { id = createdProfile.Id }, createdProfile);
         }
 
 

@@ -1,7 +1,7 @@
 ﻿namespace JaxWorld.Data.Seeders.EntitySeeders
 {
-    using Microsoft.AspNetCore.Identity;
     using Entities;
+    using Microsoft.AspNetCore.Identity;
 
     internal static class UsersSeeder
     {
@@ -10,6 +10,7 @@
             var adminUser = new User()
             {
                 UserName = "admin",
+                WalletId = 1,
                 Email = "TheMostImportanAdminEmail@yahoo.com",
                 NormalizedEmail = "TheMostImportanAdminEmail@yahoo.com".ToUpper(),
                 EmailConfirmed = true,

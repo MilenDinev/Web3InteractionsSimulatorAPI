@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Web.Extensions
 {
-    using System.Collections.Generic;
-    using Microsoft.OpenApi.Models;
-    using Microsoft.Extensions.DependencyInjection;
     using Constants;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.OpenApi.Models;
+    using System.Collections.Generic;
 
     public static class SwaggerConfigurator
     {
