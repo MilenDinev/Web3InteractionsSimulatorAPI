@@ -36,7 +36,7 @@
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<Erc721aUnitListingModel>>> Get()
         {
-            var allUnits = await unitService.GetAllActiveAsync();
+            var allUnits = await unitService.GetAllActiveErc721aUnitsAsync();
 
             return allUnits.ToList();
         }
@@ -57,9 +57,9 @@
             await AssignCurrentUserAsync();
 
             var createdUnit = await unitService.CreateAsync(unitInput, CurrentUser);
-            var mintedUnit = await this.transactionDeployer.MintedErc721aUnitTxnAsync(createdUnit, CurrentUser.Id);
+            await this.transactionDeployer.MintErc721aUnitTxnAsync(createdUnit, CurrentUser.Id);
 
-            return CreatedAtAction(nameof(Get), "Erc721aUnits", new { id = mintedUnit.Id }, mintedUnit);
+            return CreatedAtAction(nameof(Get), "Erc721aUnits", new { id = createdUnit.Id }, createdUnit);
         }
 
         // PUT api/<Erc721aUnitsController>/5
