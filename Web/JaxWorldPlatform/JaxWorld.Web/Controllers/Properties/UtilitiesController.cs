@@ -1,6 +1,5 @@
 ﻿namespace JaxWorld.Web.Controllers.Properties
 {
-    using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
     using Services.Main.Interfaces;
@@ -13,22 +12,19 @@
     public class UtilitiesController : JaxWorldBaseController
     {
         private readonly IUtilityService utilityService;
-        private readonly IMapper mapper;
 
         public UtilitiesController(IUtilityService utilityService,
-            IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.utilityService = utilityService;
-            this.mapper = mapper;
         }
 
         // GET: api/<UtilitiesController>
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<UtilityListingModel>>> Get()
         {
-            var allUtilities = await this.utilityService.GetAllActiveAsync();
+            var allUtilities = await this.utilityService.GetAllActiveUtillitiesAsync();
 
             return allUtilities.ToList();
         }
