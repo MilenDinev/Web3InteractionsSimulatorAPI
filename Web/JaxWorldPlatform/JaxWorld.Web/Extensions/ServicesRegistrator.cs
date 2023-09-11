@@ -33,9 +33,6 @@
             services.AddTransient<IUtilityService, UtilityService>();
             services.AddTransient<IWalletService, WalletService>();
             services.AddTransient<IFinder, Finder>();
-            services.AddTransient<IEntityChecker, EntityChecker>();
-            services.AddTransient<IValidator, Validator>();
-            services.AddTransient<IWalletValidator, WalletValidator>();
             services.AddHttpContextAccessor();
         }
     }
