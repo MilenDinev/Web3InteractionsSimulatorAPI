@@ -29,7 +29,7 @@
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<UserListingModel>>> Get()
         {
-            var allUsers = await this.userService.GetAllActiveAsync();
+            var allUsers = await this.userService.GetAllActiveUsersAsync();
 
             return allUsers.ToList();
         }
