@@ -1,5 +1,6 @@
 ﻿namespace JaxWorld.Web.Extensions
 {
+    using System.Reflection;
     using Constants;
     using Microsoft.Extensions.DependencyInjection;
     using Services.Handlers;
@@ -12,7 +13,6 @@
     using Services.Main.Units;
     using Services.Managers;
     using Services.Managers.Interfaces;
-    using System.Reflection;
 
     public static class ServicesRegistrator
     {
