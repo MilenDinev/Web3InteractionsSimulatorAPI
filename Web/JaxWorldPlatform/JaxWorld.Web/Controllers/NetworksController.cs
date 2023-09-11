@@ -1,6 +1,5 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
-    using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
     using Services.Main.Interfaces;
@@ -14,23 +13,19 @@
     public class NetworksController : JaxWorldBaseController
     {
         private readonly INetworkService networkService;
-        private readonly IMapper mapper;
 
         public NetworksController(INetworkService networkService,
-            IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.networkService = networkService;
-
-            this.mapper = mapper;
         }
 
         // GET: api/<NetworksController>
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<NetworkListingModel>>>Get()
         {
-            var allNetworks = await this.networkService.GetGetAllActiveAsync();
+            var allNetworks = await this.networkService.GetAllActiveNetworksAsync();
 
             return allNetworks.ToList();
         }
