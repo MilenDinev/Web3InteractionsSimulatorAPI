@@ -1,6 +1,5 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
-    using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using Base;
     using Services.Main.Interfaces;
@@ -13,22 +12,19 @@
     public class TransactionsController : JaxWorldBaseController
     {
         private readonly ITransactionService transactionService;
-        private readonly IMapper mapper;
 
         public TransactionsController(ITransactionService transactionService,
-            IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.transactionService = transactionService;
-            this.mapper = mapper;
         }
 
         // GET: api/<TransactionsController>
         [HttpGet("List/")]
         public async Task<ActionResult<IEnumerable<TransactionListingModel>>> Get()
         {
-            var allTransactions = await this.transactionService.GetAllActiveAsync();
+            var allTransactions = await this.transactionService.GetAllActiveTxnsAsync();
 
             return allTransactions.ToList();
         }
