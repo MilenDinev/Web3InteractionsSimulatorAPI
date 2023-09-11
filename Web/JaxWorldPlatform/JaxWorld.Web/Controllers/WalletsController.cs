@@ -1,6 +1,5 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
-    using AutoMapper;
     using Base;
     using Microsoft.AspNetCore.Mvc;
     using Models.Requests.BlockchainRequests.WalletModels;
@@ -15,16 +14,11 @@
     {
         private readonly IWalletService walletService;
 
-        private readonly IMapper mapper;
-
         public WalletsController(IWalletService walletService,
-
-            IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.walletService = walletService;
-            this.mapper = mapper;
         }
 
         // GET: api/<WalletsController>
