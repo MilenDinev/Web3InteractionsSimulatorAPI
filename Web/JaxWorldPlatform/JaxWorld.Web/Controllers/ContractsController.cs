@@ -1,6 +1,5 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
-    using AutoMapper;
     using Base;
     using Microsoft.AspNetCore.Mvc;
     using Models.Requests.BlockchainRequests.ContractModels;
@@ -16,17 +15,14 @@
     {
         private readonly IContractService contractService;
         private readonly ITransactionDeployer transactionDeployer;
-        private readonly IMapper mapper;
 
         public ContractsController(IContractService contractService,
             ITransactionDeployer transactionDeployer,
-            IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.contractService = contractService;
             this.transactionDeployer = transactionDeployer;
-            this.mapper = mapper;
         }
 
         // GET: api/<ContractsController>
@@ -55,9 +51,9 @@
 
             var createdContract = await this.contractService.CreateAsync(contractInput, CurrentUser);
 
-            var deployedContract = await this.transactionDeployer.DeployContractTxnAsync(createdContract, CurrentUser.Id);
+            await this.transactionDeployer.DeployContractTxnAsync(createdContract, CurrentUser.Id);
 
-            return CreatedAtAction(nameof(Get), "Contracts", new { id = deployedContract.ContractId }, deployedContract);
+            return CreatedAtAction(nameof(Get), "Contracts", new { id = createdContract.Id }, createdContract);
         }
 
         // PUT api/<ContractsController>/5
