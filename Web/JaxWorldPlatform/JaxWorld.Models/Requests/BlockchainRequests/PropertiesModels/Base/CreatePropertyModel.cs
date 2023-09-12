@@ -1,10 +1,9 @@
 ﻿namespace JaxWorld.Models.Requests.BlockchainRequests.PropertiesModels.Base
 {
     using Constants;
-    using Interfaces;
     using System.ComponentModel.DataAnnotations;
 
-    public abstract class CreatePropertyModel : ICreatePropertyModel
+    public abstract class CreatePropertyModel
     {
         [Required(ErrorMessage = ValidationMessages.Required)]
         [StringLength(AttributesParams.TraitTypeMaxLength,

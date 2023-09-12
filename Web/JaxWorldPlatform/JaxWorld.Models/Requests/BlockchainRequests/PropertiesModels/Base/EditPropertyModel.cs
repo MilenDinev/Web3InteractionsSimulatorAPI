@@ -2,9 +2,8 @@
 {
     using System.ComponentModel.DataAnnotations;
     using Constants;
-    using Interfaces;
 
-    public abstract class EditPropertyModel : IEditPropertyModel
+    public abstract class EditPropertyModel 
     {
         [StringLength(AttributesParams.TraitTypeMaxLength,
             ErrorMessage = ValidationMessages.MinMaxLength,
