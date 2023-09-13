@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Requests\BlockchainRequests\PropertiesModels\Base\Interfaces\" />
+    <Compile Remove="Requests\BlockchainRequests\PropertiesModels\Base\Interfaces\**" />
+    <EmbeddedResource Remove="Requests\BlockchainRequests\PropertiesModels\Base\Interfaces\**" />
+    <None Remove="Requests\BlockchainRequests\PropertiesModels\Base\Interfaces\**" />
   </ItemGroup>
 
 </Project>
