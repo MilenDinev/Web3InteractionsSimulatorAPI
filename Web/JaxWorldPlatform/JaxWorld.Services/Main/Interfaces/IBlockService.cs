@@ -6,6 +6,6 @@
     public interface IBlockService
     {
         Task<Block> CreateAsync(CreateBlockModel model, int creatorId);
-        Task<Block> GetCurrentBlockAsync();
+        Task<Block> GetCurrentBlockAsync(long gasUsed);
     }
 }

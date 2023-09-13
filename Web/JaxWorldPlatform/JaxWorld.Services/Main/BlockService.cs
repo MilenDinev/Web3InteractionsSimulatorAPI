@@ -30,9 +30,9 @@
             return block;
         }
 
-        public async Task<Block> GetCurrentBlockAsync()
+        public async Task<Block> GetCurrentBlockAsync(long gasUsed)
         {
-            var currentBlock = await this.dbContext.Blocks.FirstOrDefaultAsync(x => x.Transactions.Count < 10 && x.GasUsed <= 15000000 - 275345);
+            var currentBlock = await this.dbContext.Blocks.FirstOrDefaultAsync(x => x.Transactions.Count < 10 && x.GasUsed <= 15000000 - gasUsed);
             return currentBlock;
         }
 
