@@ -51,7 +51,7 @@
 
             var createdContract = await this.contractService.CreateAsync(contractInput, CurrentUser);
 
-            await this.transactionDeployer.DeployContractTxnAsync(createdContract, CurrentUser.Id);
+            await this.transactionDeployer.DeployContractTxnAsync(createdContract, CurrentUser.Id, CurrentUser.WalletId);
 
             return CreatedAtAction(nameof(Get), "Contracts", new { id = createdContract.Id }, createdContract);
         }
