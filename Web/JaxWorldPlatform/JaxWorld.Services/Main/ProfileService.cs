@@ -91,7 +91,7 @@
                     typeof(Profile).Name, profileModel.Name));
 
             var IsContractExists = await this.finder.AnyByIdAsync<Contract>(profileModel.ContractId);
-            if (IsContractExists)
+            if (!IsContractExists)
                 throw new ResourceNotFoundException(string.Format(
                     ErrorMessages.EntityDoesNotExist,
                     typeof(Contract).Name));
