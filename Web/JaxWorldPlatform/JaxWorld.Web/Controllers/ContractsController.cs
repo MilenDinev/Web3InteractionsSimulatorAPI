@@ -4,7 +4,6 @@
     using Microsoft.AspNetCore.Mvc;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
-    using Services.Handlers.Interfaces;
     using Services.Main.Interfaces;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,15 +13,13 @@
     public class ContractsController : JaxWorldBaseController
     {
         private readonly IContractService contractService;
-        private readonly ITransactionDeployer transactionDeployer;
-
+        
         public ContractsController(IContractService contractService,
-            ITransactionDeployer transactionDeployer,
             IUserService userService)
             : base(userService)
         {
             this.contractService = contractService;
-            this.transactionDeployer = transactionDeployer;
+
         }
 
         // GET: api/<ContractsController>
@@ -50,8 +47,6 @@
             await AssignCurrentUserAsync();
 
             var createdContract = await this.contractService.CreateAsync(contractInput, CurrentUser);
-
-            await this.transactionDeployer.DeployContractTxnAsync(createdContract, CurrentUser.Id, CurrentUser.WalletId);
 
             return CreatedAtAction(nameof(Get), "Contracts", new { id = createdContract.Id }, createdContract);
         }
