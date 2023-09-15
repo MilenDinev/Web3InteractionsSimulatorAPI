@@ -1,17 +1,18 @@
 ﻿namespace JaxWorld.Services.Handlers
 {
+    using Constants;
     using Interfaces;
     using Main.Interfaces;
-    using Models.Requests.BlockchainRequests.BlockModels;
-    using Models.Requests.BlockchainRequests.TransactionModels;
-    using Models.Responses.BlockchainResponses.ContractModels;
+    using Models.Responses.BlockchainResponses.Interfaces;
     using Models.Responses.BlockchainResponses.ProfileModels;
     using Models.Responses.BlockchainResponses.ProfileUnitModels;
+    using Models.Requests.BlockchainRequests.BlockModels;
+    using Models.Requests.BlockchainRequests.TransactionModels;
 
     public class TransactionDeployer : ITransactionDeployer
     {
         private readonly IBlockService blockService;
-        private readonly ITransactionService transactionService;
+        protected readonly ITransactionService transactionService;
 
         public TransactionDeployer(IBlockService blockService, ITransactionService transactionService)
         {
@@ -19,19 +20,9 @@
             this.transactionService = transactionService;
         }
 
-        public async Task DeployContractTxnAsync(CreatedContractModel createdContractModel, int creatorId, int initiatorWalletId)
-        {
-            var createTransactionModel = await GetCreateTxnModelAsync(creatorId, initiatorWalletId, createdContractModel.NetworkId, 525345);
-
-            var transaction = await transactionService.CreateAsync(createTransactionModel, createdContractModel.Id);
-
-            await this.transactionService.UpdateStateAsync(transaction, transaction.CreatorId);
-
-        }
-
         public async Task DeployProfileTxnAsync(CreatedProfileModel createdProfileModel, int creatorId)
         {
-            var createTransactionModel = await GetCreateTxnModelAsync(creatorId, createdProfileModel.Id, createdProfileModel.Id, 423421);
+            var createTransactionModel = await GetCreateTxnModelAsync(createdProfileModel, GasUsedParams.ProfileDeployGas);
             var transaction = await transactionService.CreateAsync(createTransactionModel, createdProfileModel.Id);
 
             await this.transactionService.UpdateStateAsync(transaction, transaction.CreatorId);
@@ -40,30 +31,31 @@
 
         public async Task MintErc721aUnitTxnAsync(CreatedErc721aUnitModel createdErc721aUnitModel, int creatorId)
         {
-            var createTransactionModel = await GetCreateTxnModelAsync(creatorId, createdErc721aUnitModel.Id, createdErc721aUnitModel.Id, 325345);
+            var createTransactionModel = await GetCreateTxnModelAsync(createdErc721aUnitModel,GasUsedParams.Erc721aMintGas);
             var transaction = await transactionService.CreateAsync(createTransactionModel, createdErc721aUnitModel.Id);
 
             await this.transactionService.UpdateStateAsync(transaction, transaction.CreatorId);
 
         }
 
-        private async Task<CreateTransactionModel> GetCreateTxnModelAsync(int creatorId, int initWalletId, int networkId, long gasUsed)
+        internal async Task<CreateTransactionModel> GetCreateTxnModelAsync<T>(T createdModel, long gasUsed) where T : class, ICreated
         {
-            var availableBlockId = await GetAvailableBlockAsync(networkId, creatorId, gasUsed);
+            var availableBlockId = await GetAvailableBlockAsync(createdModel.NetworkId, createdModel.CreatorId, gasUsed);
 
             var createTransactionModel = new CreateTransactionModel
             {
-                CreatorId = creatorId,
+                CreatorId = createdModel.CreatorId,
                 BlockId = availableBlockId,
-                NetworkId = networkId,
-                InitiatorWalletId = initWalletId,
+                NetworkId = createdModel.NetworkId,
+                InitiatorWalletId = createdModel.CreatorWalletId,
+                TargetId = createdModel.Id,
                 StateId = 1,
             };
 
             return await Task.Run(() => createTransactionModel);
         }
 
-        private async Task<int> GetAvailableBlockAsync(int networkId, int creatorId, long gasUsed)
+        internal async Task<int> GetAvailableBlockAsync(int networkId, int creatorId, long gasUsed)
         {
             var currentBlockAvailable = await blockService.GetCurrentBlockAsync(gasUsed);
 
