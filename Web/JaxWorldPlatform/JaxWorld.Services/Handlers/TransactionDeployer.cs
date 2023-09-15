@@ -20,7 +20,6 @@
             this.transactionService = transactionService;
         }
 
-
         public async Task DeployProfileTxnAsync(CreatedProfileModel createdProfileModel, int creatorId)
         {
             var createTransactionModel = await GetCreateTxnModelAsync(createdProfileModel, GasUsedParams.ProfileDeployGas);
