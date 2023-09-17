@@ -22,7 +22,7 @@
         public DateTime Timestamp { get; set; }
         public int InitiatorId { get; set; }
         public virtual Wallet Initiator { get; set; }
-        public int TargetId { get; set; }
+        public int? TargetId { get; set; }
         public virtual Contract Target { get; set; }
         public int? TxnActionId { get; set; }
         public virtual TxnAction TxnAction { get; set; }
