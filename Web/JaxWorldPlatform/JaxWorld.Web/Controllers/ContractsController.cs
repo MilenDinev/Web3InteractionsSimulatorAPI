@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
     using Base;
+    using JaxWorld.Services.Handlers.Interfaces;
     using Microsoft.AspNetCore.Mvc;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
@@ -13,12 +14,15 @@
     public class ContractsController : JaxWorldBaseController
     {
         private readonly IContractService contractService;
+        private readonly IContractTxnDeployer contractTransactionDeployer;
         
         public ContractsController(IContractService contractService,
+            IContractTxnDeployer contractTransactionDeployer,
             IUserService userService)
             : base(userService)
         {
             this.contractService = contractService;
+            this.contractTransactionDeployer = contractTransactionDeployer;
 
         }
 
@@ -46,7 +50,7 @@
         {
             await AssignCurrentUserAsync();
 
-            var createdContract = await this.contractService.CreateAsync(contractInput, CurrentUser);
+            var createdContract = await this.contractTransactionDeployer.DeployContractTxnAsync(contractInput, CurrentUser);
 
             return CreatedAtAction(nameof(Get), "Contracts", new { id = createdContract.Id }, createdContract);
         }
