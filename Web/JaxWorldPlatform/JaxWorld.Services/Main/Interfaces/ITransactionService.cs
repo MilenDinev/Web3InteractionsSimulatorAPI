@@ -10,5 +10,6 @@
         Task<IEnumerable<TransactionListingModel>> GetAllActiveTxnsAsync();
         Task<TransactionListingModel> GetByIdAsync(int transactionId);
         Task<int> GetTransactionStateIdAsync(string state);
+        Task UpdateStateAsync(Transaction transaction, string state, int modifierId);
     }
 }
