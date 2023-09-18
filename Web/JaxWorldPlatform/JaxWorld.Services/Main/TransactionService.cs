@@ -26,7 +26,7 @@
             this.mapper = mapper;
         }
 
-        public async Task<Transaction> CreateAsync(CreateTransactionModel transactionModel, int targetContractId)
+        public async Task<Transaction> CreateAsync(CreateTransactionModel transactionModel, int? targetContractId = null)
         {
 
             transactionModel.TxnHash = await CreateTxnHashAsync(Guid.NewGuid().ToString());
@@ -34,7 +34,8 @@
             var transaction = mapper.Map<Transaction>(transactionModel);
 
             transaction.InitiatorId = transactionModel.InitiatorWalletId;
-            transaction.TargetId = targetContractId;
+            if (targetContractId.HasValue)
+                transaction.TargetId = targetContractId;
 
             await CreateEntityAsync(transaction, transactionModel.CreatorId);
 
@@ -55,15 +56,23 @@
             return mapper.Map<ICollection<TransactionListingModel>>(allTransactions.Where(x => !x.Deleted)).ToList();
         }
 
-        public async Task UpdateStateAsync(Transaction transaction, int modifierId)
+        public async Task<int> GetTransactionStateIdAsync(string state)
         {
-            var transactionState = await dbContext.TransactionStates.FindAsync(transaction.StateId + 1);
+            var transactionState = await finder.FindByStringOrDefaultAsync<TransactionState>(state);
 
             if (transactionState != null)
-            {
-                transaction.State = transactionState;
-                await SaveModificationAsync(transaction, modifierId);
-            }
+                return transactionState.Id;
+
+            throw new ResourceNotFoundException(string.Format(
+                ErrorMessages.EntityDoesNotExist, typeof(Transaction).Name));
+        }
+
+        public async Task UpdateStateAsync(Transaction transaction, string state, int modifierId)
+        {
+            var transactionStateId = await GetTransactionStateIdAsync(state);
+
+            transaction.StateId = transactionStateId;
+            await SaveModificationAsync(transaction, modifierId);
         }
 
         private static async Task<string> CreateTxnHashAsync(string hashKey)

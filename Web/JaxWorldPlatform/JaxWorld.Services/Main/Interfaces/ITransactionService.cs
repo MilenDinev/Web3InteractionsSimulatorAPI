@@ -6,9 +6,10 @@
 
     public interface ITransactionService
     {
-        Task<Transaction> CreateAsync(CreateTransactionModel model, int targetContractId);
+        Task<Transaction> CreateAsync(CreateTransactionModel model, int? targetContractId = null);
         Task<IEnumerable<TransactionListingModel>> GetAllActiveTxnsAsync();
         Task<TransactionListingModel> GetByIdAsync(int transactionId);
-        Task UpdateStateAsync(Transaction transaction, int modifierId);
+        Task<int> GetTransactionStateIdAsync(string state);
+        Task UpdateStateAsync(Transaction transaction, string state, int modifierId);
     }
 }

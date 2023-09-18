@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JaxWorld.Data.Migrations
 {
     [DbContext(typeof(JaxWorldDbContext))]
-    [Migration("20230910202321_InitialMigration")]
+    [Migration("20230915230410_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -508,7 +508,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("StateId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TargetId")
+                    b.Property<int?>("TargetId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Timestamp")
@@ -1502,9 +1502,7 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", "Target")
                         .WithMany("Transactions")
-                        .HasForeignKey("TargetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TargetId");
 
                     b.HasOne("JaxWorld.Data.Entities.Transactions.TxnAction", "TxnAction")
                         .WithMany()

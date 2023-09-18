@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Services.Base
+﻿namespace JaxWorld.Services.Main.Base
 {
     using Data;
     using Data.Interfaces.IEntities;

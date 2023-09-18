@@ -803,7 +803,7 @@ namespace JaxWorld.Data.Migrations
                     BlockId = table.Column<int>(type: "int", nullable: false),
                     Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false),
                     InitiatorId = table.Column<int>(type: "int", nullable: false),
-                    TargetId = table.Column<int>(type: "int", nullable: false),
+                    TargetId = table.Column<int>(type: "int", nullable: true),
                     TxnActionId = table.Column<int>(type: "int", nullable: true),
                     Value = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Fee = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
@@ -842,8 +842,7 @@ namespace JaxWorld.Data.Migrations
                         name: "FK_Transactions_Contracts_TargetId",
                         column: x => x.TargetId,
                         principalTable: "Contracts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Transactions_Networks_NetworkId",
                         column: x => x.NetworkId,

@@ -2,6 +2,7 @@
 {
     using System.Reflection;
     using Constants;
+    using JaxWorld.Services.Handlers.TxnDeployers;
     using Microsoft.Extensions.DependencyInjection;
     using Services.Handlers;
     using Services.Handlers.Interfaces;
@@ -20,7 +21,7 @@
         {
             services.AddAutoMapper(Assembly.Load(AutoMapperConfigValues.Assembly));
             services.AddTransient<IUserManager, JaxWorldUserManager>();
-            services.AddTransient<ITransactionDeployer, TransactionDeployer>();
+            services.AddTransient<IContractTxnDeployer, ContractTxnDeployer>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<INetworkService, NetworkService>();
             services.AddTransient<IContractService, ContractService>();

@@ -505,7 +505,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("StateId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TargetId")
+                    b.Property<int?>("TargetId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Timestamp")
@@ -1499,9 +1499,7 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", "Target")
                         .WithMany("Transactions")
-                        .HasForeignKey("TargetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TargetId");
 
                     b.HasOne("JaxWorld.Data.Entities.Transactions.TxnAction", "TxnAction")
                         .WithMany()
