@@ -69,6 +69,16 @@
             return mapper.Map<ProfileListingModel>(profile);
         }
 
+        public async Task<int> GetProfileNetworkIdAsync(int contractId)
+        {
+            var contract = await this.finder.FindByIdOrDefaultAsync<Contract>(contractId) 
+                ?? throw new ResourceNotFoundException(string.Format(
+                    ErrorMessages.EntityDoesNotExist,
+                    typeof(Contract).Name));
+
+            return contract.NetworkId;
+        }
+
         private async Task<Profile> GetProfileAsync(int profileId)
         {
             var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId);
