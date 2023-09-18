@@ -79,7 +79,7 @@
         public async Task<UserListingModel> GetByIdAsync(int userId)
         {
             var user = await userManager.FindByIdAsync(userId.ToString())
-                ?? throw new ResourceNotFoundException(string.Format(ErrorMessages.EntityIdDoesNotExist, nameof(User), userId));
+                ?? throw new ResourceNotFoundException(string.Format(ErrorMessages.EntityDoesNotExist, nameof(User), userId));
 
             return mapper.Map<UserListingModel>(user);
         }
