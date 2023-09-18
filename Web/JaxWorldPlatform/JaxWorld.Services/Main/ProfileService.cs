@@ -34,9 +34,7 @@
 
             await CreateEntityAsync(profile, creatorId);
 
-            var createdProfile = mapper.Map<CreatedProfileModel>(profile);
-
-            return createdProfile;
+            return mapper.Map<CreatedProfileModel>(profile);
         }
 
         public async Task<EditedProfileModel> EditAsync(EditProfileModel profileModel, int profileId, int modifierId)
