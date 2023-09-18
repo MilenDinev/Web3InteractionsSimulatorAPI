@@ -9,6 +9,6 @@
         Task<Transaction> CreateAsync(CreateTransactionModel model, int targetContractId);
         Task<IEnumerable<TransactionListingModel>> GetAllActiveTxnsAsync();
         Task<TransactionListingModel> GetByIdAsync(int transactionId);
-        Task UpdateStateAsync(Transaction transaction, int modifierId);
+        Task<int> GetTransactionStateIdAsync(string state);
     }
 }
