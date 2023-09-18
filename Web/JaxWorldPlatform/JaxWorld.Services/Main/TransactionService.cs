@@ -35,7 +35,7 @@
 
             transaction.InitiatorId = transactionModel.InitiatorWalletId;
             if (targetContractId.HasValue)
-            transaction.TargetId = targetContractId;
+                transaction.TargetId = targetContractId;
 
             await CreateEntityAsync(transaction, transactionModel.CreatorId);
 
@@ -68,12 +68,11 @@
         }
 
         public async Task UpdateStateAsync(Transaction transaction, string state, int modifierId)
-            {
+        {
             var transactionStateId = await GetTransactionStateIdAsync(state);
 
             transaction.StateId = transactionStateId;
-                await SaveModificationAsync(transaction, modifierId);
-            }
+            await SaveModificationAsync(transaction, modifierId);
         }
 
         private static async Task<string> CreateTxnHashAsync(string hashKey)
