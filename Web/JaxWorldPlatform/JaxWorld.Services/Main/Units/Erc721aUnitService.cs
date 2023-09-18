@@ -35,9 +35,7 @@
 
             await CreateEntityAsync(unit, user.Id);
 
-            var createdUnit = mapper.Map<CreatedErc721aUnitModel>(unit);
-
-            return createdUnit;
+            return mapper.Map<CreatedErc721aUnitModel>(unit);
         }
 
         public async Task<EditedErc721aUnitModel> EditAsync(EditErc721aUnitModel unitModel, int unitId, int modifierId)
