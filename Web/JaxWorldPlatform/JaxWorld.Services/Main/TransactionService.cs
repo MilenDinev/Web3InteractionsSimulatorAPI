@@ -55,11 +55,16 @@
             return mapper.Map<ICollection<TransactionListingModel>>(allTransactions.Where(x => !x.Deleted)).ToList();
         }
 
-        public async Task UpdateStateAsync(Transaction transaction, int modifierId)
+        public async Task<int> GetTransactionStateIdAsync(string state)
         {
-            var transactionState = await dbContext.TransactionStates.FindAsync(transaction.StateId + 1);
+            var transactionState = await finder.FindByStringOrDefaultAsync<TransactionState>(state);
 
             if (transactionState != null)
+                return transactionState.Id;
+
+            throw new ResourceNotFoundException(string.Format(
+                ErrorMessages.EntityDoesNotExist, typeof(Transaction).Name));
+        }
             {
                 transaction.State = transactionState;
                 await SaveModificationAsync(transaction, modifierId);
