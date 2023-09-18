@@ -66,8 +66,12 @@
             throw new ResourceNotFoundException(string.Format(
                 ErrorMessages.EntityDoesNotExist, typeof(Transaction).Name));
         }
+
+        public async Task UpdateStateAsync(Transaction transaction, string state, int modifierId)
             {
-                transaction.State = transactionState;
+            var transactionStateId = await GetTransactionStateIdAsync(state);
+
+            transaction.StateId = transactionStateId;
                 await SaveModificationAsync(transaction, modifierId);
             }
         }
