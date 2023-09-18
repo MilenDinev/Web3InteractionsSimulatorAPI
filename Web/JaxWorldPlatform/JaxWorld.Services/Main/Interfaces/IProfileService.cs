@@ -10,5 +10,6 @@
         Task<DeletedProfileModel> DeleteAsync(int profileId, int modifierId);
         Task<IEnumerable<ProfileListingModel>> GetAllActiveProfilesAsync();
         Task<ProfileListingModel> GetByIdAsync(int profileId);
+        Task<int> GetProfileNetworkIdAsync(int contractId);
     }
 }
