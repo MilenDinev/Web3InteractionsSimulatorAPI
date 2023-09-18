@@ -6,7 +6,6 @@
     using Models.Requests.BlockchainRequests.UnitModels;
     using Models.Responses.BlockchainResponses.ProfileUnitModels;
     using Models.Responses.BlockchainResponses.UnitModels;
-    using Services.Handlers.Interfaces;
     using Services.Main.Interfaces;
     using Services.Main.Interfaces.Units;
 
@@ -18,17 +17,14 @@
     public class Erc721aUnitsController : JaxWorldBaseController
     {
         private readonly IErc721aUnitService unitService;
-        private readonly ITransactionDeployer transactionDeployer;
         private readonly IMapper mapper;
 
         public Erc721aUnitsController(IErc721aUnitService unitService,
-            ITransactionDeployer transactionDeployer,
             IMapper mapper,
             IUserService userService)
             : base(userService)
         {
             this.unitService = unitService;
-            this.transactionDeployer = transactionDeployer;
             this.mapper = mapper;
         }
 
@@ -57,7 +53,6 @@
             await AssignCurrentUserAsync();
 
             var createdUnit = await unitService.CreateAsync(unitInput, CurrentUser);
-            await this.transactionDeployer.MintErc721aUnitTxnAsync(createdUnit, CurrentUser.Id);
 
             return CreatedAtAction(nameof(Get), "Erc721aUnits", new { id = createdUnit.Id }, createdUnit);
         }
