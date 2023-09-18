@@ -23,30 +23,29 @@
 
         public async Task<CreatedContractModel> DeployContractTxnAsync(CreateContractModel createContractModel, User user)
         {
-            var createTransactionModel = await GetCreateTxnModelAsync(TransactionStates.Pending,
-                createContractModel.NetworkId, user.Id,
-                user.WalletId, GasUsedParams.ContractDeployGas);
+            var createTransactionModel = await GetCreateTxnModelAsync(
+                TransactionStates.Pending,
+                createContractModel.NetworkId,
+                user.Id,
+                user.WalletId,
+                GasUsedParams.ContractDeployGas);
 
-            //update wallet validation.
+            // Validate the wallet
             var isValidWallet = await ValidateWallet(user.Wallet);
+
+            var transaction = await transactionService.CreateAsync(createTransactionModel);
 
             if (isValidWallet)
             {
-                var transaction = await transactionService.CreateAsync(createTransactionModel);
-
                 var createdContractModel = await contractService.CreateAsync(createContractModel, user);
 
                 transaction.TargetId = createdContractModel.Id;
-
                 await transactionService.UpdateStateAsync(transaction, TransactionStates.Confirmed, user.Id);
 
                 return createdContractModel;
-
             }
 
-            var rejectedtransaction = await transactionService.CreateAsync(createTransactionModel);
-            await transactionService.UpdateStateAsync(rejectedtransaction, TransactionStates.Rejected, user.Id);
-
+            await transactionService.UpdateStateAsync(transaction, TransactionStates.Rejected, user.Id);
             throw new ResourceNotFoundException(string.Format(ErrorMessages.NotAvailableWalletBalnce, typeof(Wallet).Name));
         }
     }
