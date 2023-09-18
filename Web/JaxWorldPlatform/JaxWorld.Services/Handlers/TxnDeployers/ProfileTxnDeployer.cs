@@ -1,19 +1,17 @@
-﻿namespace JaxWorld.Services.Handlers
+﻿namespace JaxWorld.Services.Handlers.TxnDeployers
 {
     using Constants;
     using Main.Interfaces;
     using Data.Entities;
     using Models.Requests.BlockchainRequests.ProfileModels;
-    using JaxWorld.Models.Requests.BlockchainRequests.ContractModels;
-    using JaxWorld.Models.Responses.BlockchainResponses.ContractModels;
-    using JaxWorld.Models.Responses.BlockchainResponses.ProfileModels;
+    using Models.Responses.BlockchainResponses.ProfileModels;
 
-    public class ProfileTransactionDeployer : TransactionDeployer
+    public class ProfileTxnDeployer : TransactionDeployer
     {
         protected readonly IProfileService profileService;
 
-        public ProfileTransactionDeployer(IProfileService profileService, 
-            IBlockService blockService, 
+        public ProfileTxnDeployer(IProfileService profileService,
+            IBlockService blockService,
             ITransactionService transactionService
             ) : base(blockService, transactionService)
         {
@@ -30,9 +28,9 @@
 
             var transaction = await transactionService.CreateAsync(createTransactionModel, createProfileModel.ContractId);
 
-            var createdProfileModel = await this.profileService.CreateAsync(createProfileModel, user.Id);
+            var createdProfileModel = await profileService.CreateAsync(createProfileModel, user.Id);
 
-            await this.transactionService.UpdateStateAsync(transaction, TransactionStates.Confirmed, user.Id);
+            await transactionService.UpdateStateAsync(transaction, TransactionStates.Confirmed, user.Id);
 
             return createdProfileModel;
         }
