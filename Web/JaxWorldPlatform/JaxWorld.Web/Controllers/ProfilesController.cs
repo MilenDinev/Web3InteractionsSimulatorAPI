@@ -2,7 +2,6 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Base;
-    using Services.Handlers.Interfaces;
     using Services.Main.Interfaces;
     using Models.Requests.BlockchainRequests.ProfileModels;
     using Models.Responses.BlockchainResponses.ProfileModels;
@@ -12,15 +11,12 @@
     public class ProfilesController : JaxWorldBaseController
     {
         private readonly IProfileService profileService;
-        private readonly ITransactionDeployer transactionDeployer;
 
         public ProfilesController(IProfileService profileService,
-            ITransactionDeployer transactionDeployer,
             IUserService userService)
             : base(userService)
         {
             this.profileService = profileService;
-            this.transactionDeployer = transactionDeployer;
         }
 
         // GET: api/<ProfilesController>
@@ -48,8 +44,6 @@
             await AssignCurrentUserAsync();
 
             var createdProfile = await this.profileService.CreateAsync(profileInput, CurrentUser.Id);
-
-            await this.transactionDeployer.DeployProfileTxnAsync(createdProfile, CurrentUser.Id);
 
             return CreatedAtAction(nameof(Get), "Profiles", new { id = createdProfile.Id }, createdProfile);
         }
