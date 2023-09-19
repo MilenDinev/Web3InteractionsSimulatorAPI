@@ -46,7 +46,7 @@
             }
 
             await transactionService.UpdateStateAsync(transaction, TransactionStates.Rejected, user.Id);
-            throw new ResourceNotFoundException(string.Format(ErrorMessages.NotAvailableWalletBalnce, typeof(Wallet).Name));
+            throw new ResourceNotFoundException(string.Format(ErrorMessages.NotAvailableWalletBalance, typeof(Wallet).Name));
         }
     }
 }
