@@ -25,6 +25,7 @@
         {
             var createTransactionModel = await GetCreateTxnModelAsync(
                 TransactionStates.Pending,
+                TxnActions.Deploy,
                 createContractModel.NetworkId,
                 user.Id,
                 user.WalletId,
