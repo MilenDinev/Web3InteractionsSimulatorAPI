@@ -16,11 +16,12 @@
             this.transactionService = transactionService;
         }
 
-        protected async Task<CreateTransactionModel> GetCreateTxnModelAsync(string state,
+        protected async Task<CreateTransactionModel> GetCreateTxnModelAsync(string state, string action,
             int networkId, int creatorId, int initWalletId, long gasUsed, int? targetId = null)
         {
             var availableBlockId = await GetAvailableBlockIdAsync(networkId, creatorId, gasUsed);
-            var transactionStateId = await transactionService.GetTransactionStateIdAsync(state);
+            var txnStateId = await transactionService.GetTransactionStateIdAsync(state);
+            var txnActionId = await transactionService.GetTxnActioIdAsync(action);
 
             var createTransactionModel = new CreateTransactionModel
             {
@@ -28,7 +29,8 @@
                 BlockId = availableBlockId,
                 NetworkId = networkId,
                 InitiatorWalletId = initWalletId,
-                StateId = transactionStateId,
+                StateId = txnStateId,
+                TxnActionId = txnActionId
             };
 
             if (targetId.HasValue)
@@ -64,6 +66,16 @@
             currentBlockAvailable.GasUsed += gasUsed;
 
             return currentBlockAvailable.Id;
+        }
+
+        protected async Task<int> GetTxnActionIdAsync(string action)
+        {
+            return await transactionService.GetTxnActioIdAsync(action);
+        }
+
+        protected async Task<int> GetTransactionStateIdAsync(string state)
+        {
+            return await transactionService.GetTransactionStateIdAsync(state);
         }
 
     }
