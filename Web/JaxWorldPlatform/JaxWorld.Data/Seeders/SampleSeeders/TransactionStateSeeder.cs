@@ -7,7 +7,7 @@
         internal static async Task Seed(JaxWorldDbContext context)
         {
 
-            var Pending = new TransactionState
+            var pending = new TransactionState
             {
                 State = "Pending",
                 NormalizedTag = "Pending".ToUpper(),
@@ -17,7 +17,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            var Confirmed = new TransactionState
+            var confirmed = new TransactionState
             {
                 State = "Confirmed",
                 NormalizedTag = "Confirmed".ToUpper(),
@@ -27,7 +27,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            var Rejected = new TransactionState
+            var rejected = new TransactionState
             {
                 State = "Rejected",
                 NormalizedTag = "Rejected".ToUpper(),
@@ -37,7 +37,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            await context.TransactionStates.AddRangeAsync(Pending, Confirmed, Rejected);
+            await context.TransactionStates.AddRangeAsync(pending, confirmed, rejected);
             await context.SaveChangesAsync();
         }
     }

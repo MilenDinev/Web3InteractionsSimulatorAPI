@@ -7,7 +7,7 @@
         internal static async Task Seed(JaxWorldDbContext context)
         {
             var avaxNetwork = await context.Networks.FindAsync(1);
-            var AdminWallet = new Wallet
+            var adminWallet = new Wallet
             {
                 ProviderId = 1,
                 Address = "0x72d0672Dc344F9389aF2Df418256A82F8BEFB",
@@ -20,9 +20,9 @@
                 LastModificationDate = DateTime.Now
             };
 
-            AdminWallet.Networks.Add(avaxNetwork);
+            adminWallet.Networks.Add(avaxNetwork);
 
-            await context.Wallets.AddAsync(AdminWallet);
+            await context.Wallets.AddAsync(adminWallet);
             await context.SaveChangesAsync();
         }
     }

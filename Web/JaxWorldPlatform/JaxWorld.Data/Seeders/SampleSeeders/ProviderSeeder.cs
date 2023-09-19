@@ -7,7 +7,7 @@
         internal static async Task Seed(JaxWorldDbContext context)
         {
 
-            var Metamask = new Provider
+            var metamask = new Provider
             {
                 Name = "Metamask",
                 NormalizedTag = "Metamask".ToUpper(),
@@ -17,7 +17,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            var Coinbase = new Provider
+            var coinbase = new Provider
             {
                 Name = "Coinbase",
                 NormalizedTag = "Coinbase".ToUpper(),
@@ -27,7 +27,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            var WalletConnect = new Provider
+            var walletConnect = new Provider
             {
                 Name = "WalletConnect",
                 NormalizedTag = "WalletConnect".ToUpper(),
@@ -37,7 +37,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            var Unknown = new Provider
+            var unknown = new Provider
             {
                 Name = "Unknown",
                 NormalizedTag = "Unknown".ToUpper(),
@@ -47,7 +47,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            await context.WalletProviders.AddRangeAsync(Metamask, Coinbase, WalletConnect, Unknown);
+            await context.WalletProviders.AddRangeAsync(metamask, coinbase, walletConnect, unknown);
             await context.SaveChangesAsync();
         }
     }

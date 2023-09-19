@@ -7,7 +7,7 @@
         internal static async Task Seed(JaxWorldDbContext context)
         {
 
-            var Erc721Standard = new Standard
+            var erc721Standard = new Standard
             {
                 Name = "ERC721",
                 NormalizedTag = "ERC721".ToUpper(),
@@ -17,7 +17,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            var Erc721aStandard = new Standard
+            var erc721aStandard = new Standard
             {
                 Name = "ERC721a",
                 NormalizedTag = "ERC721a".ToUpper(),
@@ -27,7 +27,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            var Erc20Standard = new Standard
+            var erc20Standard = new Standard
             {
                 Name = "ERC20",
                 NormalizedTag = "ERC20".ToUpper(),
@@ -37,7 +37,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            var Erc1155Standard = new Standard
+            var erc1155Standard = new Standard
             {
                 Name = "ERC1155",
                 NormalizedTag = "ERC1155".ToUpper(),
@@ -47,7 +47,7 @@
                 LastModificationDate = DateTime.Now
             };
 
-            await context.Standards.AddRangeAsync(Erc721Standard, Erc721aStandard, Erc20Standard, Erc1155Standard);
+            await context.Standards.AddRangeAsync(erc721Standard, erc721aStandard, erc20Standard, erc1155Standard);
             await context.SaveChangesAsync();
         }
     }
