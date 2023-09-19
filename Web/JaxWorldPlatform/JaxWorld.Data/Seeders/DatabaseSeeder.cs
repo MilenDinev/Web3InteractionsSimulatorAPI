@@ -33,6 +33,7 @@
                     await NetworksSampleSeeder.Seed(context);
                     await WalletsSampleSeeder.Seed(context);
                     await TransactionStateSeeder.Seed(context);
+                    await TxnActionSeeder.Seed(context);
                 }
 
             }
