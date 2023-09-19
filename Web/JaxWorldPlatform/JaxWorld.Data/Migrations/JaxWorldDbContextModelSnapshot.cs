@@ -511,7 +511,7 @@ namespace JaxWorld.Data.Migrations
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("TxnActionId")
+                    b.Property<int>("TxnActionId")
                         .HasColumnType("int");
 
                     b.Property<string>("TxnHash")
@@ -1493,7 +1493,9 @@ namespace JaxWorld.Data.Migrations
 
                     b.HasOne("JaxWorld.Data.Entities.Transactions.TxnAction", "TxnAction")
                         .WithMany("Transactions")
-                        .HasForeignKey("TxnActionId");
+                        .HasForeignKey("TxnActionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Block");
 

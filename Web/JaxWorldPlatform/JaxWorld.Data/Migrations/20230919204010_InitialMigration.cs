@@ -691,7 +691,7 @@ namespace JaxWorld.Data.Migrations
                     Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false),
                     InitiatorId = table.Column<int>(type: "int", nullable: false),
                     TargetId = table.Column<int>(type: "int", nullable: true),
-                    TxnActionId = table.Column<int>(type: "int", nullable: true),
+                    TxnActionId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Fee = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     GasPrice = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
@@ -746,7 +746,8 @@ namespace JaxWorld.Data.Migrations
                         name: "FK_Transactions_TxnActions_TxnActionId",
                         column: x => x.TxnActionId,
                         principalTable: "TxnActions",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Transactions_Wallets_InitiatorId",
                         column: x => x.InitiatorId,
