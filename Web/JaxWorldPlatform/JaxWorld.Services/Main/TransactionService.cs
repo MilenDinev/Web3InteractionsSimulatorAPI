@@ -28,14 +28,13 @@
 
         public async Task<Transaction> CreateAsync(CreateTransactionModel transactionModel, int? targetContractId = null)
         {
-
-            transactionModel.TxnHash = await CreateTxnHashAsync(Guid.NewGuid().ToString());
+            transactionModel.TxnHash = await CreateTxnHashAsync(Guid.NewGuid().ToString("D")) ;
 
             var transaction = mapper.Map<Transaction>(transactionModel);
 
             transaction.InitiatorId = transactionModel.InitiatorWalletId;
             if (targetContractId.HasValue)
-                transaction.TargetId = targetContractId;
+                transaction.TargetId = targetContractId.Value;
 
             await CreateEntityAsync(transaction, transactionModel.CreatorId);
 
@@ -62,6 +61,17 @@
 
             if (transactionState != null)
                 return transactionState.Id;
+
+            throw new ResourceNotFoundException(string.Format(
+                ErrorMessages.EntityDoesNotExist, typeof(TransactionState).Name));
+        }
+
+        public async Task<int> GetTxnActioIdAsync(string action)
+        {
+            var TxnAction = await finder.FindByStringOrDefaultAsync<TxnAction>(action);
+
+            if (TxnAction != null)
+                return TxnAction.Id;
 
             throw new ResourceNotFoundException(string.Format(
                 ErrorMessages.EntityDoesNotExist, typeof(Transaction).Name));
