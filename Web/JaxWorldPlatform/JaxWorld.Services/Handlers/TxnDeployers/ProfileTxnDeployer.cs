@@ -22,7 +22,8 @@
         {
             var networkId = await profileService.GetProfileNetworkIdAsync(createProfileModel.ContractId);
 
-            var createTransactionModel = await GetCreateTxnModelAsync(TransactionStates.Pending,
+            var createTransactionModel = await GetCreateTxnModelAsync(TransactionStates.Pending, 
+                TxnActions.Deploy,
                 networkId, user.Id,
                 user.WalletId, GasUsedParams.ContractDeployGas);
 
