@@ -23,6 +23,7 @@
         [Range(1, int.MaxValue)]
         public int StateId { get; set; }
 
-        //public int TxnActionId { get; set; }
+        [Range(1, int.MaxValue)]
+        public int TxnActionId { get; set; }
     }
 }
