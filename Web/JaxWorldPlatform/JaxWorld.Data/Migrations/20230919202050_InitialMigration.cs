@@ -307,6 +307,37 @@ namespace JaxWorld.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TxnActions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Operation = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatorId = table.Column<int>(type: "int", nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastModifierId = table.Column<int>(type: "int", nullable: false),
+                    LastModificationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TxnActions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TxnActions_AspNetUsers_CreatorId",
+                        column: x => x.CreatorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_TxnActions_AspNetUsers_LastModifierId",
+                        column: x => x.LastModifierId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TxnData",
                 columns: table => new
                 {
@@ -648,150 +679,6 @@ namespace JaxWorld.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Erc721aUnits",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ExternalUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Minted = table.Column<bool>(type: "bit", nullable: false),
-                    MintedTxnHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProfileId = table.Column<int>(type: "int", nullable: false),
-                    DNA = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HolderId = table.Column<int>(type: "int", nullable: true),
-                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatorId = table.Column<int>(type: "int", nullable: false),
-                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LastModifierId = table.Column<int>(type: "int", nullable: false),
-                    LastModificationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Deleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Erc721aUnits", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Erc721aUnits_AspNetUsers_CreatorId",
-                        column: x => x.CreatorId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Erc721aUnits_AspNetUsers_LastModifierId",
-                        column: x => x.LastModifierId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Erc721aUnits_Profiles_ProfileId",
-                        column: x => x.ProfileId,
-                        principalTable: "Profiles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Erc721aUnits_Wallets_HolderId",
-                        column: x => x.HolderId,
-                        principalTable: "Wallets",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TxnAction",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Operation = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProfileId = table.Column<int>(type: "int", nullable: false),
-                    TargetId = table.Column<int>(type: "int", nullable: false),
-                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatorId = table.Column<int>(type: "int", nullable: false),
-                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LastModifierId = table.Column<int>(type: "int", nullable: false),
-                    LastModificationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Deleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TxnAction", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_TxnAction_AspNetUsers_CreatorId",
-                        column: x => x.CreatorId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_TxnAction_AspNetUsers_LastModifierId",
-                        column: x => x.LastModifierId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_TxnAction_Profiles_ProfileId",
-                        column: x => x.ProfileId,
-                        principalTable: "Profiles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TxnAction_Wallets_TargetId",
-                        column: x => x.TargetId,
-                        principalTable: "Wallets",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Erc721aUnitsAttributes",
-                columns: table => new
-                {
-                    AttributeId = table.Column<int>(type: "int", nullable: false),
-                    Erc721aUnitId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Erc721aUnitsAttributes", x => new { x.AttributeId, x.Erc721aUnitId });
-                    table.ForeignKey(
-                        name: "FK_Erc721aUnitsAttributes_Attributes_AttributeId",
-                        column: x => x.AttributeId,
-                        principalTable: "Attributes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Erc721aUnitsAttributes_Erc721aUnits_Erc721aUnitId",
-                        column: x => x.Erc721aUnitId,
-                        principalTable: "Erc721aUnits",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Erc721aUnitsUtilities",
-                columns: table => new
-                {
-                    Erc721aUnitId = table.Column<int>(type: "int", nullable: false),
-                    UtilityId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Erc721aUnitsUtilities", x => new { x.Erc721aUnitId, x.UtilityId });
-                    table.ForeignKey(
-                        name: "FK_Erc721aUnitsUtilities_Erc721aUnits_Erc721aUnitId",
-                        column: x => x.Erc721aUnitId,
-                        principalTable: "Erc721aUnits",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Erc721aUnitsUtilities_Utilities_UtilityId",
-                        column: x => x.UtilityId,
-                        principalTable: "Utilities",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Transactions",
                 columns: table => new
                 {
@@ -856,9 +743,9 @@ namespace JaxWorld.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Transactions_TxnAction_TxnActionId",
+                        name: "FK_Transactions_TxnActions_TxnActionId",
                         column: x => x.TxnActionId,
-                        principalTable: "TxnAction",
+                        principalTable: "TxnActions",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Transactions_Wallets_InitiatorId",
@@ -866,6 +753,57 @@ namespace JaxWorld.Data.Migrations
                         principalTable: "Wallets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Erc721aUnits",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ExternalUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Minted = table.Column<bool>(type: "bit", nullable: false),
+                    MintedTxnHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProfileId = table.Column<int>(type: "int", nullable: false),
+                    DNA = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HolderId = table.Column<int>(type: "int", nullable: true),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatorId = table.Column<int>(type: "int", nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastModifierId = table.Column<int>(type: "int", nullable: false),
+                    LastModificationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Erc721aUnits", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Erc721aUnits_AspNetUsers_CreatorId",
+                        column: x => x.CreatorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Erc721aUnits_AspNetUsers_LastModifierId",
+                        column: x => x.LastModifierId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Erc721aUnits_Profiles_ProfileId",
+                        column: x => x.ProfileId,
+                        principalTable: "Profiles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Erc721aUnits_Wallets_HolderId",
+                        column: x => x.HolderId,
+                        principalTable: "Wallets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -923,6 +861,54 @@ namespace JaxWorld.Data.Migrations
                         principalTable: "TxnMethod",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Erc721aUnitsAttributes",
+                columns: table => new
+                {
+                    AttributeId = table.Column<int>(type: "int", nullable: false),
+                    Erc721aUnitId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Erc721aUnitsAttributes", x => new { x.AttributeId, x.Erc721aUnitId });
+                    table.ForeignKey(
+                        name: "FK_Erc721aUnitsAttributes_Attributes_AttributeId",
+                        column: x => x.AttributeId,
+                        principalTable: "Attributes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Erc721aUnitsAttributes_Erc721aUnits_Erc721aUnitId",
+                        column: x => x.Erc721aUnitId,
+                        principalTable: "Erc721aUnits",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Erc721aUnitsUtilities",
+                columns: table => new
+                {
+                    Erc721aUnitId = table.Column<int>(type: "int", nullable: false),
+                    UtilityId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Erc721aUnitsUtilities", x => new { x.Erc721aUnitId, x.UtilityId });
+                    table.ForeignKey(
+                        name: "FK_Erc721aUnitsUtilities_Erc721aUnits_Erc721aUnitId",
+                        column: x => x.Erc721aUnitId,
+                        principalTable: "Erc721aUnits",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Erc721aUnitsUtilities_Utilities_UtilityId",
+                        column: x => x.UtilityId,
+                        principalTable: "Utilities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -1213,24 +1199,14 @@ namespace JaxWorld.Data.Migrations
                 column: "LastModifierId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TxnAction_CreatorId",
-                table: "TxnAction",
+                name: "IX_TxnActions_CreatorId",
+                table: "TxnActions",
                 column: "CreatorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TxnAction_LastModifierId",
-                table: "TxnAction",
+                name: "IX_TxnActions_LastModifierId",
+                table: "TxnActions",
                 column: "LastModifierId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TxnAction_ProfileId",
-                table: "TxnAction",
-                column: "ProfileId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TxnAction_TargetId",
-                table: "TxnAction",
-                column: "TargetId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TxnData_CreatorId",
@@ -1355,6 +1331,9 @@ namespace JaxWorld.Data.Migrations
                 name: "TransactionLogs");
 
             migrationBuilder.DropTable(
+                name: "Profiles");
+
+            migrationBuilder.DropTable(
                 name: "Transactions");
 
             migrationBuilder.DropTable(
@@ -1364,22 +1343,19 @@ namespace JaxWorld.Data.Migrations
                 name: "TxnMethod");
 
             migrationBuilder.DropTable(
+                name: "Standards");
+
+            migrationBuilder.DropTable(
                 name: "Blocks");
-
-            migrationBuilder.DropTable(
-                name: "TransactionStates");
-
-            migrationBuilder.DropTable(
-                name: "TxnAction");
-
-            migrationBuilder.DropTable(
-                name: "Profiles");
 
             migrationBuilder.DropTable(
                 name: "Contracts");
 
             migrationBuilder.DropTable(
-                name: "Standards");
+                name: "TransactionStates");
+
+            migrationBuilder.DropTable(
+                name: "TxnActions");
 
             migrationBuilder.DropTable(
                 name: "Networks");

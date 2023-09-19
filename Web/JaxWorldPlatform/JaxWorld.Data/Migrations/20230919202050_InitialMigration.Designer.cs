@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JaxWorld.Data.Migrations
 {
     [DbContext(typeof(JaxWorldDbContext))]
-    [Migration("20230915230410_InitialMigration")]
+    [Migration("20230919202050_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -621,23 +621,13 @@ namespace JaxWorld.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProfileId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TargetId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CreatorId");
 
                     b.HasIndex("LastModifierId");
 
-                    b.HasIndex("ProfileId");
-
-                    b.HasIndex("TargetId");
-
-                    b.ToTable("TxnAction");
+                    b.ToTable("TxnActions");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnData", b =>
@@ -1505,7 +1495,7 @@ namespace JaxWorld.Data.Migrations
                         .HasForeignKey("TargetId");
 
                     b.HasOne("JaxWorld.Data.Entities.Transactions.TxnAction", "TxnAction")
-                        .WithMany()
+                        .WithMany("Transactions")
                         .HasForeignKey("TxnActionId");
 
                     b.Navigation("Block");
@@ -1558,25 +1548,9 @@ namespace JaxWorld.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("JaxWorld.Data.Entities.Profiles.Profile", "Profile")
-                        .WithMany()
-                        .HasForeignKey("ProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", "Target")
-                        .WithMany()
-                        .HasForeignKey("TargetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Creator");
 
                     b.Navigation("LastModifier");
-
-                    b.Navigation("Profile");
-
-                    b.Navigation("Target");
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnData", b =>
@@ -1898,6 +1872,11 @@ namespace JaxWorld.Data.Migrations
                 });
 
             modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TransactionState", b =>
+                {
+                    b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("JaxWorld.Data.Entities.Transactions.TxnAction", b =>
                 {
                     b.Navigation("Transactions");
                 });
