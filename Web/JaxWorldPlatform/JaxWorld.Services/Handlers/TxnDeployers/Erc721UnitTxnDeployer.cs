@@ -23,7 +23,11 @@
         {
             var createdErc721aUnitModel = await erc721aUnitService.CreateAsync(createErc721aUnitModel, user);
 
-            var createTransactionModel = await GetCreateTxnModelAsync(TransactionStates.Pending, createdErc721aUnitModel.NetworkId, user.Id, createdErc721aUnitModel.CreatorWalletId, GasUsedParams.Erc721aMintGas);
+            var createTransactionModel = await GetCreateTxnModelAsync(TransactionStates.Pending, 
+                TxnActions.Mint,
+                createdErc721aUnitModel.NetworkId, user.Id, 
+                createdErc721aUnitModel.CreatorWalletId, 
+                GasUsedParams.Erc721aMintGas);
 
             var transaction = await transactionService.CreateAsync(createTransactionModel, createdErc721aUnitModel.Id);
 
