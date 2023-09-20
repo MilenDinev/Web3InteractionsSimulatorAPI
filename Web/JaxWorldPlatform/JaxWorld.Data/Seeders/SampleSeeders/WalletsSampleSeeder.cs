@@ -12,7 +12,7 @@
                 ProviderId = 1,
                 Address = "0x72d0672Dc344F9389aF2Df418256A82F8BEFB",
                 NormalizedTag = "0x72d0672Dc344F9389aF2Df418256A82F8BEFB".ToUpper(),
-                Balance = 0.00m,
+                Balance = 1.36m,
                 OwnerId = 1,
                 CreatorId = 1,
                 CreationDate = DateTime.Now,
