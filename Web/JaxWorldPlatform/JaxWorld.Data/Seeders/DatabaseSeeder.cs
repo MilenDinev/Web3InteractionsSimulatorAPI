@@ -34,6 +34,7 @@
                     await WalletsSampleSeeder.Seed(context);
                     await TransactionStateSeeder.Seed(context);
                     await TxnActionSeeder.Seed(context);
+                    await ContractSeeder.Seed(context);
                 }
 
             }
