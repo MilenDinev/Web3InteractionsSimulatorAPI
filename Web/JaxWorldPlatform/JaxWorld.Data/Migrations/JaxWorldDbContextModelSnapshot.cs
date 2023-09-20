@@ -25,6 +25,21 @@ namespace JaxWorld.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ContractWallet", b =>
+                {
+                    b.Property<int>("ApprovedById")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ApprovedContractsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ApprovedById", "ApprovedContractsId");
+
+                    b.HasIndex("ApprovedContractsId");
+
+                    b.ToTable("ContractWallet");
+                });
+
             modelBuilder.Entity("Erc721aUnitsAttributes", b =>
                 {
                     b.Property<int>("AttributeId")
@@ -1244,6 +1259,21 @@ namespace JaxWorld.Data.Migrations
                     b.HasIndex("WalletId");
 
                     b.ToTable("NetworksWallets");
+                });
+
+            modelBuilder.Entity("ContractWallet", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", null)
+                        .WithMany()
+                        .HasForeignKey("ApprovedById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", null)
+                        .WithMany()
+                        .HasForeignKey("ApprovedContractsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Erc721aUnitsAttributes", b =>

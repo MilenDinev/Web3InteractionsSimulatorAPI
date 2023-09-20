@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JaxWorld.Data.Migrations
 {
     [DbContext(typeof(JaxWorldDbContext))]
-    [Migration("20230919204010_InitialMigration")]
+    [Migration("20230920194851_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -27,6 +27,21 @@ namespace JaxWorld.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("ContractWallet", b =>
+                {
+                    b.Property<int>("ApprovedById")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ApprovedContractsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ApprovedById", "ApprovedContractsId");
+
+                    b.HasIndex("ApprovedContractsId");
+
+                    b.ToTable("ContractWallet");
+                });
 
             modelBuilder.Entity("Erc721aUnitsAttributes", b =>
                 {
@@ -1247,6 +1262,21 @@ namespace JaxWorld.Data.Migrations
                     b.HasIndex("WalletId");
 
                     b.ToTable("NetworksWallets");
+                });
+
+            modelBuilder.Entity("ContractWallet", b =>
+                {
+                    b.HasOne("JaxWorld.Data.Entities.Wallets.Wallet", null)
+                        .WithMany()
+                        .HasForeignKey("ApprovedById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JaxWorld.Data.Entities.Contracts.Contract", null)
+                        .WithMany()
+                        .HasForeignKey("ApprovedContractsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Erc721aUnitsAttributes", b =>

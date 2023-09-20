@@ -630,6 +630,30 @@ namespace JaxWorld.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ContractWallet",
+                columns: table => new
+                {
+                    ApprovedById = table.Column<int>(type: "int", nullable: false),
+                    ApprovedContractsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContractWallet", x => new { x.ApprovedById, x.ApprovedContractsId });
+                    table.ForeignKey(
+                        name: "FK_ContractWallet_Contracts_ApprovedContractsId",
+                        column: x => x.ApprovedContractsId,
+                        principalTable: "Contracts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ContractWallet_Wallets_ApprovedById",
+                        column: x => x.ApprovedById,
+                        principalTable: "Wallets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Profiles",
                 columns: table => new
                 {
@@ -1044,6 +1068,11 @@ namespace JaxWorld.Data.Migrations
                 column: "NetworkId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ContractWallet_ApprovedContractsId",
+                table: "ContractWallet",
+                column: "ApprovedContractsId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Erc721aUnits_CreatorId",
                 table: "Erc721aUnits",
                 column: "CreatorId");
@@ -1303,6 +1332,9 @@ namespace JaxWorld.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "ContractWallet");
 
             migrationBuilder.DropTable(
                 name: "Erc721aUnitsAttributes");
