@@ -11,6 +11,7 @@
         public Contract()
         {
             Transactions = new HashSet<Transaction>();
+            ApprovedBy = new HashSet<Wallet>();
         }
 
         public string Name { get; set; }
@@ -25,5 +26,6 @@
         public int NetworkId { get; set; }
         public virtual Network Network { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<Wallet> ApprovedBy { get; set; }
     }
 }
