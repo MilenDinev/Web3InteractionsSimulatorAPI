@@ -3,51 +3,56 @@
     using Constants;
     using Exceptions;
     using Interfaces;
-    using Main.Interfaces;
+    using Interfaces.ITxnManagers;
     using Data.Entities;
-    using Data.Entities.Wallets;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
 
-    public class ContractTxnDeployer : TransactionDeployer, IContractTxnDeployer
+    public class ContractTxnDeployer : IContractTxnDeployer
     {
-        protected readonly IContractService contractService;
 
-        public ContractTxnDeployer(IContractService contractService,
-            IBlockService blockService,
-            ITransactionService transactionService
-            ) : base(blockService, transactionService)
+        private readonly ITxnDeployerValidator txnDeployerValidator;
+        private readonly IContractTxnDeployerManager contractTxnDeployerManager;
+
+        public ContractTxnDeployer(IContractTxnDeployerManager contractTxnDeployerManager,
+            ITxnDeployerValidator txnDeployerValidator)
         {
-            this.contractService = contractService;
+            this.contractTxnDeployerManager = contractTxnDeployerManager;
+            this.txnDeployerValidator = txnDeployerValidator;
         }
 
         public async Task<CreatedContractModel> DeployContractTxnAsync(CreateContractModel createContractModel, User user)
         {
-            var createTransactionModel = await GetCreateTxnModelAsync(
+            var gasUsed = GasUsedParams.ContractDeployGas;
+
+            var createTransactionModel = await this.contractTxnDeployerManager.GetCreateTxnModelAsync(
                 TransactionStates.Pending,
                 TxnActions.Deploy,
                 createContractModel.NetworkId,
                 user.Id,
                 user.WalletId,
-                GasUsedParams.ContractDeployGas);
+                gasUsed);
 
-            // Validate the wallet
-            var isValidWallet = await ValidateWallet(user.Wallet);
+            var contractAddress = DeployerContract.Address;
+            var tokenGas = gasUsed * GasUsedParams.DeployMultiplierGas;
 
-            var transaction = await transactionService.CreateAsync(createTransactionModel);
+            var isValidWallet = await this.txnDeployerValidator.ValidateWalletAsync(user.Wallet, contractAddress, tokenGas);
+
+            var transaction = await this.contractTxnDeployerManager.CreateTxnAsync(createTransactionModel);
 
             if (isValidWallet)
             {
-                var createdContractModel = await contractService.CreateAsync(createContractModel, user);
+                var createdContractModel = await this.contractTxnDeployerManager.CreateContractAsync(createContractModel, user);
 
                 transaction.TargetId = createdContractModel.Id;
-                await transactionService.UpdateStateAsync(transaction, TransactionStates.Confirmed, user.Id);
+                user.Wallet.Balance -= tokenGas;
+                await contractTxnDeployerManager.UpdateTxnStateAsync(transaction, TransactionStates.Confirmed, user.Id);
 
                 return createdContractModel;
             }
 
-            await transactionService.UpdateStateAsync(transaction, TransactionStates.Rejected, user.Id);
-            throw new ResourceNotFoundException(string.Format(ErrorMessages.NotAvailableWalletBalance, typeof(Wallet).Name));
+            await contractTxnDeployerManager.UpdateTxnStateAsync(transaction, TransactionStates.Rejected, user.Id);
+            throw new ResourceNotFoundException(string.Format(ErrorMessages.OperationExecutionRejected));
         }
     }
 }
