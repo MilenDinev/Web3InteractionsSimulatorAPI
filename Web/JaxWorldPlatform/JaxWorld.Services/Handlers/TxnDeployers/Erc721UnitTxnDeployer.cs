@@ -1,39 +1,59 @@
 ﻿namespace JaxWorld.Services.Handlers.TxnDeployers
 {
     using Constants;
-    using Main.Interfaces;
-    using Main.Interfaces.Units;
+    using Exceptions;
+    using Interfaces;
+    using Interfaces.ITxnManagers;
     using Data.Entities;
     using Models.Requests.BlockchainRequests.UnitModels;
+    using Models.Responses.BlockchainResponses.ProfileUnitModels;
 
-    public class Erc721UnitTxnDeployer : TransactionDeployer
+    public class Erc721UnitTxnDeployer
     {
-        protected readonly IErc721aUnitService erc721aUnitService;
 
-        public Erc721UnitTxnDeployer(
-            IErc721aUnitService erc721aUnitService,
-            IBlockService blockService,
-            ITransactionService transactionService
-            ) : base(blockService, transactionService)
+        private readonly IErc721UnitTxnDeployerManager erc721UnitTxnDeployerManager;
+        private readonly ITxnDeployerValidator txnDeployerValidator;
+
+        public Erc721UnitTxnDeployer(IErc721UnitTxnDeployerManager erc721UnitTxnDeployerManager, ITxnDeployerValidator txnDeployerValidator)
         {
-            this.erc721aUnitService = erc721aUnitService;
+            this.erc721UnitTxnDeployerManager = erc721UnitTxnDeployerManager;
+            this.txnDeployerValidator = txnDeployerValidator;
         }
 
-        public async Task MintErc721aUnitTxnAsync(CreateErc721aUnitModel createErc721aUnitModel, User user)
+        public async Task<CreatedErc721aUnitModel> MintErc721aUnitTxnAsync(CreateErc721aUnitModel createErc721aUnitModel, User user)
         {
-            var createdErc721aUnitModel = await erc721aUnitService.CreateAsync(createErc721aUnitModel, user);
+            var networkId = await this.erc721UnitTxnDeployerManager.GetUnitNetworkIdAsync(createErc721aUnitModel.ProfileId);
 
-            var createTransactionModel = await GetCreateTxnModelAsync(TransactionStates.Pending, 
+            var gasUsed = GasUsedParams.Erc721aMintGas;
+
+            var createTransactionModel = await this.erc721UnitTxnDeployerManager.GetCreateTxnModelAsync(TransactionStates.Pending, 
                 TxnActions.Mint,
-                createdErc721aUnitModel.NetworkId, user.Id, 
-                createdErc721aUnitModel.CreatorWalletId, 
-                GasUsedParams.Erc721aMintGas);
+                networkId, 
+                user.Id,
+                user.WalletId,
+                gasUsed);
 
-            var transaction = await transactionService.CreateAsync(createTransactionModel, createdErc721aUnitModel.Id);
+            var tokenGas = gasUsed * GasUsedParams.MintMultiplierGas;
 
-            await transactionService.UpdateStateAsync(transaction, TransactionStates.Confirmed, transaction.CreatorId);
+            var contract = await this.erc721UnitTxnDeployerManager.GetProfileContractAsync(user.Wallet, createErc721aUnitModel.ProfileId);
+
+            var isValidWallet = await this.txnDeployerValidator.ValidateWalletAsync(user.Wallet, contract.Address, tokenGas);
+
+            var transaction = await this.erc721UnitTxnDeployerManager.CreateTxnAsync(createTransactionModel, contract.Id);
+
+            if (isValidWallet)
+            {
+                var createdErc721aUnitModel = await this.erc721UnitTxnDeployerManager.CreateErc721UnitAsync(createErc721aUnitModel, user);
+
+                user.Wallet.Balance -= tokenGas;
+                await this.erc721UnitTxnDeployerManager.UpdateTxnStateAsync(transaction, TransactionStates.Confirmed, transaction.CreatorId);
+
+                return createdErc721aUnitModel;
+            }
+
+            await this.erc721UnitTxnDeployerManager.UpdateTxnStateAsync(transaction, TransactionStates.Rejected, user.Id);
+            throw new ResourceNotFoundException(string.Format(ErrorMessages.OperationExecutionRejected));
 
         }
-
     }
 }
