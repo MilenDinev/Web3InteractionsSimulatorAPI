@@ -3,7 +3,7 @@
     using Constants;
     using IdentityServer4.Models;
     using IdentityServer4.Validation;
-    using Services.Managers.Interfaces;
+    using Services.Handlers.Interfaces;
     using System.Collections.Generic;
     using System.Security.Claims;
     using System.Threading.Tasks;
