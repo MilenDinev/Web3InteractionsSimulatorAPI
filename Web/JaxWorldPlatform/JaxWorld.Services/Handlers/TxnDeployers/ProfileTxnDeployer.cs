@@ -1,39 +1,59 @@
 ﻿namespace JaxWorld.Services.Handlers.TxnDeployers
 {
     using Constants;
-    using Main.Interfaces;
+    using Exceptions;
+    using Interfaces;
+    using Interfaces.ITxnManagers;
     using Data.Entities;
     using Models.Requests.BlockchainRequests.ProfileModels;
     using Models.Responses.BlockchainResponses.ProfileModels;
 
-    public class ProfileTxnDeployer : TransactionDeployer
+    public class ProfileTxnDeployer
     {
-        protected readonly IProfileService profileService;
+        private readonly IProfileTxnDeployerManager profileTxnDeployerManager;
+        private readonly ITxnDeployerValidator txnDeployerValidator;
 
-        public ProfileTxnDeployer(IProfileService profileService,
-            IBlockService blockService,
-            ITransactionService transactionService
-            ) : base(blockService, transactionService)
+        public ProfileTxnDeployer(IProfileTxnDeployerManager profileTxnDeployerManager, ITxnDeployerValidator txnDeployerValidator)
         {
-            this.profileService = profileService;
+            this.profileTxnDeployerManager = profileTxnDeployerManager;
+            this.txnDeployerValidator = txnDeployerValidator;
         }
 
         public async Task<CreatedProfileModel> DeployProfileTxnAsync(CreateProfileModel createProfileModel, User user)
         {
-            var networkId = await profileService.GetProfileNetworkIdAsync(createProfileModel.ContractId);
+            var networkId = await this.profileTxnDeployerManager.GetProfileNetworkIdAsync(createProfileModel.ContractId);
+            var gasUsed = GasUsedParams.Erc721aMintGas;
 
-            var createTransactionModel = await GetCreateTxnModelAsync(TransactionStates.Pending, 
+            var createTransactionModel = await this.profileTxnDeployerManager.GetCreateTxnModelAsync(TransactionStates.Pending, 
                 TxnActions.Deploy,
-                networkId, user.Id,
-                user.WalletId, GasUsedParams.ContractDeployGas);
+                networkId, 
+                user.Id,
+                user.WalletId,
+                gasUsed);
 
-            var transaction = await transactionService.CreateAsync(createTransactionModel, createProfileModel.ContractId);
+            _ = await this.txnDeployerValidator.ValidateContractOwner(user.Wallet, createProfileModel.ContractId);
 
-            var createdProfileModel = await profileService.CreateAsync(createProfileModel, user.Id);
+            var contractAddress = await this.txnDeployerValidator.GetValidContractAddressAsync(createProfileModel.ContractId);
 
-            await transactionService.UpdateStateAsync(transaction, TransactionStates.Confirmed, user.Id);
+            var tokenGas = GasUsedParams.ProfileDeployGas * GasUsedParams.DeployMultiplierGas;
 
-            return createdProfileModel;
+            var isValidWallet = await this.txnDeployerValidator.ValidateWalletAsync(user.Wallet, contractAddress, tokenGas);
+
+            var transaction = await this.profileTxnDeployerManager.CreateTxnAsync(createTransactionModel, createProfileModel.ContractId);
+
+            if (isValidWallet)
+            {
+               var createdProfileModel = await profileTxnDeployerManager.CreateProfileAsync(createProfileModel, user.Id);
+
+                user.Wallet.Balance -= tokenGas;
+                await this.profileTxnDeployerManager.UpdateTxnStateAsync(transaction, TransactionStates.Confirmed, user.Id);
+
+               return createdProfileModel;
+            }
+
+            await this.profileTxnDeployerManager.UpdateTxnStateAsync(transaction, TransactionStates.Rejected, user.Id);
+            throw new ResourceNotFoundException(string.Format(ErrorMessages.OperationExecutionRejected));
+
         }
     }
 }
