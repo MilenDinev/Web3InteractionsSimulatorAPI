@@ -2,18 +2,18 @@
 {
     using System.Reflection;
     using Constants;
-    using JaxWorld.Services.Handlers.TxnDeployers;
     using Microsoft.Extensions.DependencyInjection;
-    using Services.Handlers;
-    using Services.Handlers.Interfaces;
     using Services.Main;
-    using Services.Main.Interfaces;
-    using Services.Main.Interfaces.Properties;
-    using Services.Main.Interfaces.Units;
-    using Services.Main.Properties;
+    using Services.Handlers;
     using Services.Main.Units;
-    using Services.Managers;
-    using Services.Managers.Interfaces;
+    using Services.Main.Interfaces;
+    using Services.Main.Properties;
+    using Services.Handlers.Interfaces;
+    using Services.Handlers.TxnManagers;
+    using Services.Main.Interfaces.Units;
+    using Services.Handlers.TxnDeployers;
+    using Services.Main.Interfaces.Properties;
+    using Services.Handlers.Interfaces.ITxnManagers;
 
     public static class ServicesRegistrator
     {
@@ -21,6 +21,10 @@
         {
             services.AddAutoMapper(Assembly.Load(AutoMapperConfigValues.Assembly));
             services.AddTransient<IUserManager, JaxWorldUserManager>();
+            services.AddTransient<ITxnDeployerValidator, TxnDeployerValidator>();
+            services.AddTransient<IContractTxnDeployerManager, ContractTxnDeployerManager>();
+            services.AddTransient<IProfileTxnDeployerManager, ProfileTxnDeployerManager>();
+            services.AddTransient<IErc721UnitTxnDeployerManager, Erc721UnitTxnDeployerManager>();
             services.AddTransient<IContractTxnDeployer, ContractTxnDeployer>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<INetworkService, NetworkService>();
