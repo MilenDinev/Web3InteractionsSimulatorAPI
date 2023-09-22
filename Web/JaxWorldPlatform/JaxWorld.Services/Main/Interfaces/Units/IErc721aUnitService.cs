@@ -11,6 +11,7 @@
         Task<EditedErc721aUnitModel> EditAsync(EditErc721aUnitModel unitModel, int unitId, int modifierId);
         Task<DeletedErc721aUnitModel> DeleteAsync(int unitId, int modifierId);
         Task<Erc721aUnitListingModel> GetByIdAsync(int unitId);
+        Task<int> GetUnitNetworkIdAsync(int profileId);
         Task<IEnumerable<Erc721aUnitListingModel>> GetAllActiveErc721aUnitsAsync();
     }
 }
