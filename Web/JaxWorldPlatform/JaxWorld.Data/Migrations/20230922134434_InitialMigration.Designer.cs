@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JaxWorld.Data.Migrations
 {
     [DbContext(typeof(JaxWorldDbContext))]
-    [Migration("20230920194851_InitialMigration")]
+    [Migration("20230922134434_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
