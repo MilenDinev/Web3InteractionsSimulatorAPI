@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Services.Managers.Interfaces
+﻿namespace JaxWorld.Services.Handlers.Interfaces
 {
     using Data.Entities;
     using Microsoft.AspNetCore.Identity;

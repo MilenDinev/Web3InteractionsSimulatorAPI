@@ -1,12 +1,12 @@
 ﻿namespace JaxWorld.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
     using AutoMapper;
     using Base;
-    using Microsoft.AspNetCore.Mvc;
+    using Services.Main.Interfaces;
+    using Services.Handlers.Interfaces;
     using Models.Requests.EntityRequests;
     using Models.Responses.EntityResponses.UserModels;
-    using Services.Main.Interfaces;
-    using Services.Managers.Interfaces;
 
     // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

@@ -1,4 +1,4 @@
-﻿namespace JaxWorld.Services.Managers
+﻿namespace JaxWorld.Services.Handlers
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
@@ -6,7 +6,6 @@
     using Microsoft.Extensions.Options;
     using Interfaces;
     using Data.Entities;
-
 
     public class JaxWorldUserManager : UserManager<User>, IUserManager
     {

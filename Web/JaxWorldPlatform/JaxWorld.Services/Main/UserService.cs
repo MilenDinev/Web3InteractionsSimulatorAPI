@@ -6,9 +6,9 @@
     using Constants;
     using Interfaces;
     using Handlers.Exceptions;
+    using Handlers.Interfaces;
     using Data;
     using Data.Entities;
-    using Managers.Interfaces;
     using Models.Requests.EntityRequests;
     using Models.Responses.EntityResponses.UserModels;
 
