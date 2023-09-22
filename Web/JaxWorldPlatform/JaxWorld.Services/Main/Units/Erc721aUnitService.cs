@@ -65,6 +65,16 @@
             return mapper.Map<Erc721aUnitListingModel>(unit);
         }
 
+        public async Task<int> GetUnitNetworkIdAsync(int profileId)
+        {
+            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(profileId)
+                ?? throw new ResourceNotFoundException(string.Format(
+                    ErrorMessages.EntityDoesNotExist,
+                    typeof(Profile).Name));
+
+            return profile.Contract.NetworkId;
+        }
+
         public async Task<IEnumerable<Erc721aUnitListingModel>> GetAllActiveErc721aUnitsAsync()
         {
             var allUnits = await this.finder.GetAllAsync<Erc721aUnit>();
