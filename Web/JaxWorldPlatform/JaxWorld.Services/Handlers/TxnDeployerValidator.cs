@@ -1,10 +1,10 @@
 ﻿namespace JaxWorld.Services.Handlers
 {
-    using JaxWorld.Data.Entities.Contracts;
-    using JaxWorld.Data.Entities.Wallets;
-    using JaxWorld.Services.Constants;
-    using JaxWorld.Services.Handlers.Exceptions;
-    using JaxWorld.Services.Handlers.Interfaces;
+    using Constants;
+    using Exceptions;
+    using Interfaces;
+    using Data.Entities.Wallets;
+    using Data.Entities.Contracts;
 
     public class TxnDeployerValidator : ITxnDeployerValidator
     {
