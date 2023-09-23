@@ -14,7 +14,7 @@
                 NormalizedTag = "Pending".ToUpper(),
                 CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = CreatorParams.Id   
+                LastModifierId = CreatorParams.Id,   
                 LastModificationDate = DateTime.Now
             };
 
