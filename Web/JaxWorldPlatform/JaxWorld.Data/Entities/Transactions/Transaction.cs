@@ -1,9 +1,10 @@
 ﻿namespace JaxWorld.Data.Entities.Transactions
 {
-    using Constants;
-    using Contracts;
     using Microsoft.EntityFrameworkCore;
+    using Base;
     using Wallets;
+    using Entities;
+    using Constants;
 
     public class Transaction : Entity
     {

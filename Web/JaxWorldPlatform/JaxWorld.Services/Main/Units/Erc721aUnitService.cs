@@ -1,4 +1,6 @@
-﻿namespace JaxWorld.Services.Main.Units
+﻿using JaxWorld.Data.Entities;
+
+namespace JaxWorld.Services.Main.Units
 {
     using AutoMapper;
     using Base;
@@ -12,7 +14,7 @@
     using Models.Requests.BlockchainRequests.UnitModels;
     using Models.Responses.BlockchainResponses.ProfileUnitModels;
     using Models.Responses.BlockchainResponses.UnitModels;
-    using Profile = Data.Entities.Profiles.Profile;
+    using Profile = Profile;
 
     public class Erc721aUnitService : BaseService<Erc721aUnit>, IErc721aUnitService
     {

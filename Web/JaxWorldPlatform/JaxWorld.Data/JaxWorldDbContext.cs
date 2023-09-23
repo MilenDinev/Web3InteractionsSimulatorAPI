@@ -1,15 +1,14 @@
 ﻿namespace JaxWorld.Data
 {
-    using Entities;
-    using Entities.Contracts;
-    using Entities.Profiles;
-    using Entities.Properties;
-    using Entities.Transactions;
-    using Entities.Units;
-    using Entities.Wallets;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore;
+    using Entities;
+    using Entities.Units;
+    using Entities.Wallets;
+    using Entities.Whitelists;
+    using Entities.Properties;
+    using Entities.Transactions;
 
     public class JaxWorldDbContext : IdentityDbContext<User, IdentityRole<int>, int>
     {
@@ -30,6 +29,8 @@
         public virtual DbSet<Utility> Utilities { get; set; }
         public virtual DbSet<Provider> WalletProviders { get; set; }
         public virtual DbSet<Wallet> Wallets { get; set; }
+        public virtual DbSet<Whitelist> Whitelists { get; set; }
+        public virtual DbSet<WhitelistStatus> WhitelistStatuses { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

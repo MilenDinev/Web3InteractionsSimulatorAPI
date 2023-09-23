@@ -3,8 +3,8 @@
     using Constants;
     using Exceptions;
     using Interfaces;
+    using Data.Entities;
     using Data.Entities.Wallets;
-    using Data.Entities.Contracts;
 
     public class TxnDeployerValidator : ITxnDeployerValidator
     {

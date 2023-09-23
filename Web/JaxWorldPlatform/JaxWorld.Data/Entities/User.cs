@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Data.Entities
 {
-    using Interfaces.IEntities;
-    using Microsoft.AspNetCore.Identity;
     using System;
+    using Microsoft.AspNetCore.Identity;
     using Wallets;
+    using Interfaces.IEntities;
 
     public class User : IdentityUser<int>, IEntity
     {

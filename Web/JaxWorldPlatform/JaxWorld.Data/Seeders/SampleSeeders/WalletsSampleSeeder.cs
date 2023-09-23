@@ -2,7 +2,7 @@
 {
     using Entities.Wallets;
 
-    internal class WalletsSampleSeeder
+    internal static class WalletsSampleSeeder
     {
         internal static async Task Seed(JaxWorldDbContext context)
         {

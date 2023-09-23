@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Transactions
 {
-    using Contracts;
+    using Base;
+    using Entities;
 
     public class TxnLog : Entity
     {

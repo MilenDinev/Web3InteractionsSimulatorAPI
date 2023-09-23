@@ -2,7 +2,7 @@
 {
     using Entities;
 
-    internal class StandardSeeder
+    internal static class StandardSeeder
     {
         internal static async Task Seed(JaxWorldDbContext context)
         {

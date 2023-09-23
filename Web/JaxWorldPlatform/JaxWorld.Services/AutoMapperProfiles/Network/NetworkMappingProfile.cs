@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.Network
 {
-    using AutoMapper;
     using Data.Entities;
     using Models.Requests.BlockchainRequests.NetworkModels;
     using Models.Responses.BlockchainResponses.NetworkModels;
+    using Profile = AutoMapper.Profile;
 
     public class NetworkMappingProfile : Profile
     {

@@ -2,7 +2,7 @@
 {
     using Entities.Transactions;
 
-    internal class TransactionStateSeeder
+    internal static class TransactionStateSeeder
     {
         internal static async Task Seed(JaxWorldDbContext context)
         {

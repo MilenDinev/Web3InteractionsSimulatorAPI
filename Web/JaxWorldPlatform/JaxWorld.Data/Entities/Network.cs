@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Entities
 {
-    using Contracts;
-    using Transactions;
+    using Base;
     using Wallets;
+    using Transactions;
 
     public class Network : Entity
     {

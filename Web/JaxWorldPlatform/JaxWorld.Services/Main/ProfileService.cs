@@ -1,17 +1,18 @@
-﻿namespace JaxWorld.Services.Main
+﻿using JaxWorld.Data.Entities;
+
+namespace JaxWorld.Services.Main
 {
     using System.Collections.Generic;
     using AutoMapper;
     using Base;
     using Data;
-    using Data.Entities.Contracts;
     using Interfaces;
     using Services.Constants;
     using Handlers.Exceptions;
     using Handlers.Interfaces;
     using Models.Requests.BlockchainRequests.ProfileModels;
     using Models.Responses.BlockchainResponses.ProfileModels;
-    using Profile = Data.Entities.Profiles.Profile;
+    using Profile = Profile;
 
     public class ProfileService : BaseService<Profile>, IProfileService
     {

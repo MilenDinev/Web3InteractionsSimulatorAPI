@@ -1,5 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Wallets
 {
+    using Base;
+
     public class Provider : Entity
     {
         public Provider()

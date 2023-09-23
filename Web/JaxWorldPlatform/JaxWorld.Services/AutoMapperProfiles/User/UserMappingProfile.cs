@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.User
 {
-    using AutoMapper;
     using Data.Entities;
     using Models.Requests.EntityRequests;
     using Models.Responses.EntityResponses.UserModels;
+    using Profile = AutoMapper.Profile;
 
     public class UserMappingProfile : Profile
     {

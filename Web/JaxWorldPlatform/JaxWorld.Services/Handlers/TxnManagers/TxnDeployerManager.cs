@@ -4,9 +4,8 @@
     using Exceptions;
     using Main.Interfaces;
     using Interfaces.ITxnManagers;
+    using Data.Entities;
     using Data.Entities.Wallets;
-    using Data.Entities.Profiles;
-    using Data.Entities.Contracts;
     using Data.Entities.Transactions;
     using Models.Requests.BlockchainRequests.BlockModels;
     using Models.Requests.BlockchainRequests.TransactionModels;

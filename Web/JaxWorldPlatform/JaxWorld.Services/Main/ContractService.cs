@@ -10,7 +10,6 @@
     using Handlers.Interfaces;
     using Data;
     using Data.Entities;
-    using Data.Entities.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
 

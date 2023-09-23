@@ -1,5 +1,7 @@
 ﻿namespace JaxWorld.Data.Entities.Transactions
 {
+    using Base;
+
     public class TransactionState : Entity
     {
         public TransactionState()

@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Services.Handlers.Interfaces.ITxnManagers
 {
+    using Data.Entities;
     using Data.Entities.Wallets;
-    using Data.Entities.Contracts;
-    using JaxWorld.Models.Requests.BlockchainRequests.ProfileModels;
-    using JaxWorld.Models.Responses.BlockchainResponses.ProfileModels;
+    using Models.Requests.BlockchainRequests.ProfileModels;
+    using Models.Responses.BlockchainResponses.ProfileModels;
 
     public interface IProfileTxnDeployerManager : ITxnDeployerManager
     {

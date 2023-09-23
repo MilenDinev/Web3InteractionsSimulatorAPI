@@ -1,10 +1,10 @@
 ﻿namespace JaxWorld.Services.AutoMapperProfiles.Contract
 {
-    using AutoMapper;
     using System.Globalization;
-    using Data.Entities.Contracts;
     using Models.Requests.BlockchainRequests.ContractModels;
     using Models.Responses.BlockchainResponses.ContractModels;
+    using JaxWorld.Data.Entities;
+    using Profile = AutoMapper.Profile;
 
     public class ContractMappingProfile : Profile
     {

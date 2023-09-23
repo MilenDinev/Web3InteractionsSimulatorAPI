@@ -1,7 +1,8 @@
 ﻿namespace JaxWorld.Data.Entities.Transactions
 {
-    using Constants;
     using Microsoft.EntityFrameworkCore;
+    using Base;
+    using Constants;
 
     public class TxnData : Entity
     {

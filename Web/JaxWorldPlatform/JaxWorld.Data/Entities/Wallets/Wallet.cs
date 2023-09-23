@@ -1,11 +1,12 @@
 ﻿namespace JaxWorld.Data.Entities.Wallets
 {
-    using Constants;
-    using Contracts;
-    using Entities;
     using Microsoft.EntityFrameworkCore;
-    using Transactions;
+    using Base;
     using Units;
+    using Entities;
+    using Constants;
+    using Transactions;
+    using JaxWorld.Data.Entities.Whitelists;
 
     public class Wallet : Entity
     {
@@ -16,6 +17,7 @@
             CreatedContracts = new HashSet<Contract>();
             ApprovedContracts = new HashSet<Contract>();
             Erc721aUnits = new HashSet<Erc721aUnit>();
+            this.Whitelists = new HashSet<Whitelist>();
         }
 
         public string Address { get; set; }
@@ -33,5 +35,6 @@
         public virtual ICollection<Contract> ApprovedContracts { get; set; }
         public virtual ICollection<Contract> CreatedContracts { get; set; }
         public virtual ICollection<Erc721aUnit> Erc721aUnits { get; set; }
+        public virtual ICollection<Whitelist> Whitelists { get; set; }
     }
 }

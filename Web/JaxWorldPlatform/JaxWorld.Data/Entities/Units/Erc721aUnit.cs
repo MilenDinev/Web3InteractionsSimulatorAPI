@@ -1,9 +1,9 @@
 ﻿namespace JaxWorld.Data.Entities.Units
 {
     using Base;
-    using Profiles;
-    using Properties;
     using Wallets;
+    using Entities;
+    using Properties;
 
     public class Erc721aUnit : Unit
     {

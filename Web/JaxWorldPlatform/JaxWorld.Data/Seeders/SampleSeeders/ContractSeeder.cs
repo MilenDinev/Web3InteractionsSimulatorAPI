@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Data.Seeders.SampleSeeders
 {
-    using Entities.Contracts;
+    using Entities;
 
     internal static class ContractSeeder
     {
