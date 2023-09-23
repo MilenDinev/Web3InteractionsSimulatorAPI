@@ -1,8 +1,8 @@
 ﻿namespace JaxWorld.Data.Entities
 {
     using Base;
-    using JaxWorld.Data.Entities.Whitelists;
     using Units;
+    using Whitelists;
 
     public class Profile : Entity
     {
