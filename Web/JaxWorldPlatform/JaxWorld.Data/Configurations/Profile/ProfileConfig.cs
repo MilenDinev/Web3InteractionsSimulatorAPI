@@ -1,6 +1,6 @@
 ﻿namespace JaxWorld.Data.Configurations.Profile
 {
-    using Entities.Profiles;
+    using Entities;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
