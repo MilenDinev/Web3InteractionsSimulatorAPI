@@ -468,6 +468,37 @@ namespace JaxWorld.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "WhitelistStatuses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatorId = table.Column<int>(type: "int", nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastModifierId = table.Column<int>(type: "int", nullable: false),
+                    LastModificationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WhitelistStatuses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_WhitelistStatuses_AspNetUsers_CreatorId",
+                        column: x => x.CreatorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_WhitelistStatuses_AspNetUsers_LastModifierId",
+                        column: x => x.LastModifierId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Blocks",
                 columns: table => new
                 {
@@ -832,6 +863,50 @@ namespace JaxWorld.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Whitelists",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProfileId = table.Column<int>(type: "int", nullable: false),
+                    StatusId = table.Column<int>(type: "int", nullable: false),
+                    NormalizedTag = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatorId = table.Column<int>(type: "int", nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastModifierId = table.Column<int>(type: "int", nullable: false),
+                    LastModificationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Whitelists", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Whitelists_AspNetUsers_CreatorId",
+                        column: x => x.CreatorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Whitelists_AspNetUsers_LastModifierId",
+                        column: x => x.LastModifierId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Whitelists_Profiles_ProfileId",
+                        column: x => x.ProfileId,
+                        principalTable: "Profiles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Whitelists_WhitelistStatuses_StatusId",
+                        column: x => x.StatusId,
+                        principalTable: "WhitelistStatuses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TransactionLogs",
                 columns: table => new
                 {
@@ -934,6 +1009,30 @@ namespace JaxWorld.Data.Migrations
                         principalTable: "Utilities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WalletWhitelist",
+                columns: table => new
+                {
+                    WhitelistedWalletsId = table.Column<int>(type: "int", nullable: false),
+                    WhitelistsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WalletWhitelist", x => new { x.WhitelistedWalletsId, x.WhitelistsId });
+                    table.ForeignKey(
+                        name: "FK_WalletWhitelist_Wallets_WhitelistedWalletsId",
+                        column: x => x.WhitelistedWalletsId,
+                        principalTable: "Wallets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_WalletWhitelist_Whitelists_WhitelistsId",
+                        column: x => x.WhitelistsId,
+                        principalTable: "Whitelists",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -1313,6 +1412,42 @@ namespace JaxWorld.Data.Migrations
                 name: "IX_Wallets_ProviderId",
                 table: "Wallets",
                 column: "ProviderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WalletWhitelist_WhitelistsId",
+                table: "WalletWhitelist",
+                column: "WhitelistsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Whitelists_CreatorId",
+                table: "Whitelists",
+                column: "CreatorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Whitelists_LastModifierId",
+                table: "Whitelists",
+                column: "LastModifierId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Whitelists_ProfileId",
+                table: "Whitelists",
+                column: "ProfileId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Whitelists_StatusId",
+                table: "Whitelists",
+                column: "StatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WhitelistStatuses_CreatorId",
+                table: "WhitelistStatuses",
+                column: "CreatorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WhitelistStatuses_LastModifierId",
+                table: "WhitelistStatuses",
+                column: "LastModifierId");
         }
 
         /// <inheritdoc />
@@ -1349,6 +1484,9 @@ namespace JaxWorld.Data.Migrations
                 name: "TxnTopic");
 
             migrationBuilder.DropTable(
+                name: "WalletWhitelist");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -1364,7 +1502,7 @@ namespace JaxWorld.Data.Migrations
                 name: "TransactionLogs");
 
             migrationBuilder.DropTable(
-                name: "Profiles");
+                name: "Whitelists");
 
             migrationBuilder.DropTable(
                 name: "Transactions");
@@ -1376,19 +1514,25 @@ namespace JaxWorld.Data.Migrations
                 name: "TxnMethod");
 
             migrationBuilder.DropTable(
-                name: "Standards");
+                name: "Profiles");
+
+            migrationBuilder.DropTable(
+                name: "WhitelistStatuses");
 
             migrationBuilder.DropTable(
                 name: "Blocks");
-
-            migrationBuilder.DropTable(
-                name: "Contracts");
 
             migrationBuilder.DropTable(
                 name: "TransactionStates");
 
             migrationBuilder.DropTable(
                 name: "TxnActions");
+
+            migrationBuilder.DropTable(
+                name: "Contracts");
+
+            migrationBuilder.DropTable(
+                name: "Standards");
 
             migrationBuilder.DropTable(
                 name: "Networks");
