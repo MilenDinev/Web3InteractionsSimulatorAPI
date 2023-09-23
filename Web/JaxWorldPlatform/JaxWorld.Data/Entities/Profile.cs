@@ -1,6 +1,6 @@
-﻿namespace JaxWorld.Data.Entities.Profiles
+﻿namespace JaxWorld.Data.Entities
 {
-    using Entities.Contracts;
+    using Base;
     using Units;
 
     public class Profile : Entity

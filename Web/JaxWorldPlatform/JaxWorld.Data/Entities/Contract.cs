@@ -1,10 +1,10 @@
-﻿namespace JaxWorld.Data.Entities.Contracts
+﻿namespace JaxWorld.Data.Entities
 {
-    using Constants;
     using Microsoft.EntityFrameworkCore;
-    using Profiles;
-    using Transactions;
+    using Base;
     using Wallets;
+    using Constants;
+    using Transactions;
 
     public class Contract : Entity
     {
