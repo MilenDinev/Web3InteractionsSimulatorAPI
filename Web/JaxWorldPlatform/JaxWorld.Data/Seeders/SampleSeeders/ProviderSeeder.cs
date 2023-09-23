@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Data.Seeders.SampleSeeders
 {
     using Entities.Wallets;
+    using Constants;
 
     internal static class ProviderSeeder
     {
@@ -11,9 +12,9 @@
             {
                 Name = "Metamask",
                 NormalizedTag = "Metamask".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 
@@ -21,9 +22,9 @@
             {
                 Name = "Coinbase",
                 NormalizedTag = "Coinbase".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 
@@ -31,9 +32,9 @@
             {
                 Name = "WalletConnect",
                 NormalizedTag = "WalletConnect".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 
@@ -41,9 +42,9 @@
             {
                 Name = "Unknown",
                 NormalizedTag = "Unknown".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 

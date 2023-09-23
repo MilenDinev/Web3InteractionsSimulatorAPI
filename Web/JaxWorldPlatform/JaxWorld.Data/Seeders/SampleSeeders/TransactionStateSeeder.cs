@@ -1,5 +1,6 @@
 ﻿namespace JaxWorld.Data.Seeders.SampleSeeders
 {
+    using Constants;
     using Entities.Transactions;
 
     internal static class TransactionStateSeeder
@@ -11,9 +12,9 @@
             {
                 State = "Pending",
                 NormalizedTag = "Pending".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id   
                 LastModificationDate = DateTime.Now
             };
 
@@ -21,9 +22,9 @@
             {
                 State = "Confirmed",
                 NormalizedTag = "Confirmed".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 
@@ -31,9 +32,9 @@
             {
                 State = "Rejected",
                 NormalizedTag = "Rejected".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 

@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Data.Seeders.SampleSeeders
 {
     using Entities;
+    using Constants;
 
     internal static class NetworksSampleSeeder
     {
@@ -15,9 +16,9 @@
                 Symbol = "AVAX",
                 ExplorerUrl = "https://snowtrace.io/ ",
                 NormalizedTag = "Avalanche Mainnet Network".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 
@@ -29,9 +30,9 @@
                 Symbol = "AVAX",
                 ExplorerUrl = "https://testnet.snowtrace.io/",
                 NormalizedTag = "Avalanche FUJI C-Chain".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,                
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 

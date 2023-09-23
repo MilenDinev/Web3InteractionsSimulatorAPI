@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Data.Seeders.SampleSeeders
 {
     using Entities;
+    using Constants;
 
     internal static class StandardSeeder
     {
@@ -11,9 +12,9 @@
             {
                 Name = "ERC721",
                 NormalizedTag = "ERC721".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 
@@ -21,9 +22,9 @@
             {
                 Name = "ERC721a",
                 NormalizedTag = "ERC721a".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 
@@ -31,9 +32,9 @@
             {
                 Name = "ERC20",
                 NormalizedTag = "ERC20".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 
@@ -41,9 +42,9 @@
             {
                 Name = "ERC1155",
                 NormalizedTag = "ERC1155".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 

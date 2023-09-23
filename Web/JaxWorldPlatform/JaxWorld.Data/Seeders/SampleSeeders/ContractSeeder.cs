@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Data.Seeders.SampleSeeders
 {
     using Entities;
+    using Constants;
 
     internal static class ContractSeeder
     {
@@ -14,9 +15,9 @@
                 Address = "0x000000000000000000",
                 NormalizedTag = "0x000000000000000000".ToUpper(),
                 Balance = 0.00m,
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now,
                 NetworkId = 1,
                 CreatorWalletId = 1,                          

@@ -1,6 +1,7 @@
 ﻿namespace JaxWorld.Data.Seeders.EntitySeeders
 {
     using Entities;
+    using Constants;
     using Microsoft.AspNetCore.Identity;
 
     internal static class UsersSeeder
@@ -17,9 +18,9 @@
                 NormalizedUserName = "admin".ToUpper(),
                 NormalizedTag = "admin".ToUpper(),
                 SecurityStamp = Guid.NewGuid().ToString("D"),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 

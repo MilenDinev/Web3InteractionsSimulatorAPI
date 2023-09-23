@@ -1,5 +1,6 @@
 ﻿namespace JaxWorld.Data.Seeders.SampleSeeders
 {
+    using Constants;
     using Entities.Wallets;
 
     internal static class WalletsSampleSeeder
@@ -14,9 +15,9 @@
                 NormalizedTag = "0x72d0672Dc344F9389aF2Df418256A82F8BEFB".ToUpper(),
                 Balance = 1.36m,
                 OwnerId = 1,
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now
             };
 

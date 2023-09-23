@@ -1,5 +1,6 @@
 ﻿namespace JaxWorld.Data.Seeders.SampleSeeders
 {
+    using Constants;
     using Entities.Transactions;
 
     internal static class TxnActionSeeder
@@ -10,9 +11,9 @@
             {
                 Operation = "Deploy",
                 NormalizedTag = "Deploy".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now,      
             };
 
@@ -20,9 +21,9 @@
             {
                 Operation = "Claim",
                 NormalizedTag = "Claim".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now,
             };
 
@@ -30,9 +31,9 @@
             {
                 Operation = "Mint",
                 NormalizedTag = "Mint".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now,
             };
 
@@ -40,9 +41,9 @@
             {
                 Operation = "Transfer",
                 NormalizedTag = "Transfer".ToUpper(),
-                CreatorId = 1,
+                CreatorId = CreatorParams.Id,
                 CreationDate = DateTime.Now,
-                LastModifierId = 1,
+                LastModifierId = CreatorParams.Id,
                 LastModificationDate = DateTime.Now,
             };
 
