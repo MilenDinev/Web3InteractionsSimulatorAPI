@@ -6,6 +6,7 @@
         internal const long ProfileDeployGas = 423421;
         internal const long Erc721aMintGas = 325345;
         internal const long TransferUnitGas = 165345;
+        internal const long UnitBuyGas = 85345;
         internal const decimal DeployMultiplierGas = 0.00000015M;
         internal const decimal MintMultiplierGas = 0.00000002M;
     }
