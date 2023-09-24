@@ -11,5 +11,6 @@
         Task<ClaimedUnitModel> ClaimUnitAsync(ClaimUnitModel claimUnitModel, User user);
         Task<Profile> GetUnitProfileAsync(int unitId);
         Task<TransferedUnitModel> TransferUnitAsync(TransferUnitModel transferUnitModel, User user);
+        Task<BoughtUnitModel> BuyUnitAsync(BuyUnitModel buyUnitModel,User user);
     }
 }
