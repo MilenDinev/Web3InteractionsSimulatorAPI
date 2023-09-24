@@ -10,5 +10,6 @@
         internal const long ListUnitSaleGas = 95345;
         internal const decimal DeployMultiplierGas = 0.00000015M;
         internal const decimal MintMultiplierGas = 0.00000002M;
+        internal const decimal TransferMultiplierGas = 0.000000005M;
     }
 }
