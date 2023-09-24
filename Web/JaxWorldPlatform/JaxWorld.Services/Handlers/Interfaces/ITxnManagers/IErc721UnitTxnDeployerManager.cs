@@ -9,5 +9,6 @@
         Task<int> GetUnitNetworkIdAsync(int profileId);
         Task<CreatedErc721aUnitModel> CreateErc721UnitAsync(CreateErc721aUnitModel createErc721aUnitModel, User user);
         Task<ClaimedUnitModel> ClaimUnitAsync(ClaimUnitModel claimUnitModel, User user);
+        Task<Profile> GetUnitProfileAsync(int unitId);
     }
 }
