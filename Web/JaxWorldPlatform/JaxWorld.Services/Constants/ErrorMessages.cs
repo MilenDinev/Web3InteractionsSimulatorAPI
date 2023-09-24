@@ -10,5 +10,8 @@
         internal const string ContractNotApproved = @"{0} has not been approved by {1}!";
         internal const string EntityDoesNotExist = @"{0} does not exist!";
         internal const string EntityAlreadyExists = @"{0} already exists in our system!";
+        internal const string UnitNotForSale = @"{0} with ID '{1}' is not for sale!";
+        internal const string UnitAlreadyListedForSale = @"{0} with ID '{1}' has been already listed for sale!";
+        internal const string WalletNotUnitOwner = @"{0} is not the owner of unit with ID '{1}'!";
     }
 }
