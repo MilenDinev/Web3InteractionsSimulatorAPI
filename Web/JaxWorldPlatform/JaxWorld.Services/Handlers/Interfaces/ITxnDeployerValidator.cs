@@ -7,5 +7,6 @@
         Task<bool> ValidateWalletAsync(Wallet wallet, string contractAddress, decimal cost);
         Task<string> GetValidContractAddressAsync(int contractId);
         Task<bool> ValidateContractOwner(Wallet wallet, int contractId);
+        Task<bool> ValidateWalletApprovalAsync(string walletAddress, string contractAddress);
     }
 }
