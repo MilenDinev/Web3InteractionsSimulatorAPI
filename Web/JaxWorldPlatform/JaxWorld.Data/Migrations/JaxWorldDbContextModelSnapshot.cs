@@ -885,6 +885,9 @@ namespace JaxWorld.Data.Migrations
                     b.Property<int>("LastModifierId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Listed")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("Minted")
                         .HasColumnType("bit");
 

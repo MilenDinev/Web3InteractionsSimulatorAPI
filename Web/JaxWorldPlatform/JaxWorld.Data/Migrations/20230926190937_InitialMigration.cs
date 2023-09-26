@@ -823,6 +823,7 @@ namespace JaxWorld.Data.Migrations
                     ExternalUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Minted = table.Column<bool>(type: "bit", nullable: false),
                     MintedTxnHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Listed = table.Column<bool>(type: "bit", nullable: false),
                     ProfileId = table.Column<int>(type: "int", nullable: false),
                     DNA = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HolderId = table.Column<int>(type: "int", nullable: true),
