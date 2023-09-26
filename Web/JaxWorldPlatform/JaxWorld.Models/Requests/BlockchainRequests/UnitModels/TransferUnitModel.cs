@@ -3,6 +3,6 @@
     public class TransferUnitModel
     {
         public int UnitId { get; set; }
-        public int TargetWalletAddress { get; set; }
+        public string TargetWalletAddress { get; set; }
     }
 }
