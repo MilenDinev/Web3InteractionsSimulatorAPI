@@ -51,7 +51,7 @@
 
         public async Task<ListedSellUnitModel> ListUnitSell(ListSellUnitModel listSellUnitModel, User user)
         {
-            return await this.erc721UnitService.ListForSell(listSellUnitModel, user);
+            return await this.erc721UnitService.ListForSellAsync(listSellUnitModel, user);
         }
     }
 }
