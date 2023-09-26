@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JaxWorld.Data.Migrations
 {
     [DbContext(typeof(JaxWorldDbContext))]
-    [Migration("20230923213501_InitialMigration")]
+    [Migration("20230926190937_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -887,6 +887,9 @@ namespace JaxWorld.Data.Migrations
 
                     b.Property<int>("LastModifierId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Listed")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("Minted")
                         .HasColumnType("bit");

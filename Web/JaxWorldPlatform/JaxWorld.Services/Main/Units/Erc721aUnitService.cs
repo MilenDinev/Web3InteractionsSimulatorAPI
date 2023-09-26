@@ -1,12 +1,12 @@
-﻿using JaxWorld.Data.Entities;
-
-namespace JaxWorld.Services.Main.Units
+﻿namespace JaxWorld.Services.Main.Units
 {
     using AutoMapper;
     using Base;
     using Data;
     using Data.Entities;
     using Data.Entities.Units;
+    using Data.Entities.Wallets;
+    using Profile = Data.Entities.Profile;
     using Handlers.Interfaces;
     using Interfaces.Units;
     using Services.Constants;
@@ -14,7 +14,6 @@ namespace JaxWorld.Services.Main.Units
     using Models.Requests.BlockchainRequests.UnitModels;
     using Models.Responses.BlockchainResponses.ProfileUnitModels;
     using Models.Responses.BlockchainResponses.UnitModels;
-    using Profile = Profile;
 
     public class Erc721aUnitService : BaseService<Erc721aUnit>, IErc721aUnitService
     {
@@ -108,6 +107,55 @@ namespace JaxWorld.Services.Main.Units
                 throw new ResourceNotFoundException(string.Format(
                     ErrorMessages.EntityDoesNotExist,
                     typeof(Profile).Name));
+        }
+
+        public async Task<ClaimedUnitModel> ClaimAsync(ClaimUnitModel claimUnitModel, User user)
+        {
+            var profile = await this.finder.FindByIdOrDefaultAsync<Profile>(claimUnitModel.ProfileId);
+
+            var claimedUnit = profile.Erc721aUnits.FirstOrDefault(x => x.HolderId is null);
+
+            return mapper.Map<ClaimedUnitModel>(claimedUnit);
+        }
+
+        public async Task<Profile> GetUnitProfileIdAsync(int unitId)
+        {
+            var unit = await this.GetErc721aUnitAsync(unitId);
+            return unit.Profile;
+        }
+
+        public async Task<TransferedUnitModel> TransferAsync(TransferUnitModel transferUnitmodel, User user)
+        {
+            var unit = await this.GetErc721aUnitAsync(transferUnitmodel.UnitId);
+            var newWalletHolder = await this.finder.FindByStringOrDefaultAsync<Wallet>(transferUnitmodel.TargetWalletAddress);
+            unit.HolderId = newWalletHolder.Id;
+
+            return mapper.Map<TransferedUnitModel>(unit);
+        }
+
+        public async Task<BoughtUnitModel> BuyAsync(BuyUnitModel buyUnitModel, User user)
+        {
+            var unit = await this.GetErc721aUnitAsync(buyUnitModel.UnitId);
+
+            if (unit.Listed)
+            return mapper.Map<BoughtUnitModel>(unit);
+
+            throw new Exception(string.Format(ErrorMessages.UnitNotForSale, typeof(Erc721aUnit).Name, buyUnitModel.UnitId));
+        }
+
+        public async Task<ListedSellUnitModel> ListForSellAsync(ListSellUnitModel listSellUnitModel, User user)
+        {
+            var unit = await this.GetErc721aUnitAsync(listSellUnitModel.UnitId);
+
+            if (!unit.Listed)
+            {
+                unit.Listed = true;
+
+                await this.SaveModificationAsync(unit, user.Id);
+            }
+
+
+            throw new Exception(string.Format(ErrorMessages.UnitAlreadyListedForSale, typeof(Erc721aUnit).Name, listSellUnitModel.UnitId));
         }
     }
 }

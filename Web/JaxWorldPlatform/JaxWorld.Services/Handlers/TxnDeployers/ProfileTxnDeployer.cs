@@ -31,7 +31,7 @@
                 user.WalletId,
                 gasUsed);
 
-            _ = await this.txnDeployerValidator.ValidateContractOwner(user.Wallet, createProfileModel.ContractId);
+            _ = await this.txnDeployerValidator.ValidateContractOwnerAsync(user.Wallet, createProfileModel.ContractId);
 
             var contractAddress = await this.txnDeployerValidator.GetValidContractAddressAsync(createProfileModel.ContractId);
 
