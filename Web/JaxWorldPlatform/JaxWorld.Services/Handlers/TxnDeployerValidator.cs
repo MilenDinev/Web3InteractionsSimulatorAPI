@@ -4,6 +4,7 @@
     using Exceptions;
     using Interfaces;
     using Data.Entities;
+    using Data.Entities.Units;
     using Data.Entities.Wallets;
 
     public class TxnDeployerValidator : ITxnDeployerValidator
@@ -36,7 +37,7 @@
             return await Task.Run(() => wallet.CreatedContracts.Any(c => c.Id == contractId));
         }
 
-        private async Task<bool> ValidateWalletApprovalAsync(string walletAddress, string contractAddress)
+        public async Task<bool> ValidateWalletApprovalAsync(string walletAddress, string contractAddress)
         {
             var contract = await this.finder.FindByStringOrDefaultAsync<Contract>(contractAddress);
             var isValidWallet = false; 
@@ -49,11 +50,29 @@
             return isValidWallet;
         }
 
-        private static async Task<bool> ValidateWalletBalanceAsync(decimal walletBalance, decimal cost)
+        public async Task<bool> ValidateWalletBalanceAsync(decimal walletBalance, decimal cost)
         {
-            var isValidWallet = await Task.Run(() => walletBalance - cost >= 0.00000000M);
+            return await Task.Run(() => walletBalance - cost >= 0.00000000M);
+        }
 
-            return isValidWallet;
+
+        public async Task<bool> ValidateUnitOwnerAsync(Wallet wallet, int unitId)
+        {
+            var unit = await this.finder.FindByIdOrDefaultAsync<Erc721aUnit>(unitId);
+
+            return unit.Profile.Contract.CreatorWalletId == wallet.Id;
+        }
+
+        public async Task<bool> ValidateContractOwnerAsync(Wallet wallet, int contractId)
+        {
+            return await Task.Run(() => wallet.CreatedContracts.Any(x => x.Id == contractId));
+        }
+
+        public async Task<bool> ValidateUnitForSaleAsync(int unitId)
+        {
+            var unit = await this.finder.FindByIdOrDefaultAsync<Erc721aUnit>(unitId);
+
+            return unit.Listed;
         }
     }
 }
