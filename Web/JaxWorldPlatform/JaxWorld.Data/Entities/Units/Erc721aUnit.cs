@@ -18,6 +18,7 @@
         public string? ExternalUrl { get; set; }
         public bool Minted { get; set; }
         public string? MintedTxnHash { get; set; }
+        public bool Listed { get; set; }
         public int ProfileId { get; set; }
         public virtual Profile Profile { get; set; }
         public string DNA { get; set; }
